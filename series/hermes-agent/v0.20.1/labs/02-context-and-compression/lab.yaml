@@ -19,6 +19,16 @@ tracks:
   investigator:
     provider_required: true
     estimated_minutes: 180
+toolchains:
+  macos:
+    shell: bash
+    initializer: scripts/initialize-lab.sh
+  linux:
+    shell: bash
+    initializer: scripts/initialize-lab.sh
+  windows:
+    shell: powershell
+    initializer: scripts/Initialize-Lab.ps1
 safety:
   isolated_profile_required: true
   synthetic_data_only: true
@@ -38,4 +48,6 @@ claims:
   - id: provider-cache-separation
     expected: provider cache receipts are distinct from prompt hashes
 reference_result:
+  operating_system: Windows
+  note: The scripts are cross-platform; this exact live-provider result is Windows-only.
   path: reference-results/windows-2026-08-15/result.json

@@ -36,7 +36,7 @@ By the end of the lab, you should be able to distinguish:
 
 ## Reference finding
 
-In the reference Hermes v0.20.1 run:
+In the Windows reference run for Hermes v0.20.1:
 
 1. The initial provider-bound prompt contained ORBIT, CEDAR, AMBER, JADE, and VIOLET.
 2. Reading backend/probe.txt added EMBER through the enriched tool result without changing the system-prompt hash.
@@ -53,10 +53,24 @@ The reference validation produced 33 PASS, 1 PARTIAL, 0 FAIL, and 0 NOT VERIFIED
 
 ## Start here
 
+macOS or Linux:
+
+~~~bash
+bash ./scripts/initialize-lab.sh
+bash ./scripts/test-lab-fixtures.sh
+~~~
+
+Windows with PowerShell 7:
+
 ~~~powershell
 pwsh .\scripts\Initialize-Lab.ps1
 pwsh .\scripts\Test-LabFixtures.ps1
 ~~~
+
+The initializers print a unique disposable path and platform-appropriate
+commands for entering the lab. CI exercises both workflows on Windows, macOS,
+and Ubuntu. See the [script reference](scripts/README.md) for the command
+mapping, including SHA-256 evidence manifests.
 
 Then follow the selected track.
 

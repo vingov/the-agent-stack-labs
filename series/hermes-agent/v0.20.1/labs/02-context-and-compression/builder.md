@@ -5,23 +5,36 @@
 
 ## 1. Prepare the disposable lab
 
-From the repository root:
+From the repository root, use the commands for your platform.
+
+macOS or Linux:
+
+~~~bash
+bash ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/initialize-lab.sh
+~~~
+
+Windows:
 
 ~~~powershell
 pwsh .\series\hermes-agent\v0.20.1\labs\02-context-and-compression\scripts\Initialize-Lab.ps1
 ~~~
 
-Set the variables printed by the script:
-
-~~~powershell
-$labRoot = Join-Path ([System.IO.Path]::GetTempPath()) 'the-agent-stack-hermes-02'
-$env:HERMES_HOME = Join-Path $labRoot 'profile'
-Set-Location (Join-Path $labRoot 'workspace')
-~~~
-
-Verify that the normal profile is not in scope.
+Copy the two environment commands printed by the initializer into the terminal
+where you will run Hermes. Verify that the normal profile is not in scope.
 
 ## 2. Record the pin and environment
+
+macOS or Linux:
+
+~~~bash
+hermes --version
+python3 --version
+git --version
+uname -a
+printf '%s\n' "$SHELL"
+~~~
+
+Windows:
 
 ~~~powershell
 hermes --version
@@ -76,7 +89,21 @@ Inspect the tool result for EMBER. Check whether the system-prompt digest change
 
 ## 5. Cross the profile snapshot boundary
 
-In another PowerShell window, edit only the disposable profile:
+In another terminal, edit only the disposable profile.
+
+macOS or Linux:
+
+~~~bash
+profile_user="$HERMES_HOME/memories/USER.md"
+printf 'COBALT\n' > "$profile_user"
+if command -v sha256sum >/dev/null 2>&1; then
+  sha256sum "$profile_user"
+else
+  shasum -a 256 "$profile_user"
+fi
+~~~
+
+Windows:
 
 ~~~powershell
 $profileUser = Join-Path $env:HERMES_HOME 'memories\USER.md'
@@ -122,4 +149,7 @@ Capture before and after:
 
 Use [expected/claim-matrix.md](expected/claim-matrix.md).
 
-A different result is valuable. Record the pin, operating system, provider, model, and evidence boundary before opening a Lab result issue.
+A different result is valuable. The published reference was captured on
+Windows, so macOS and Linux results are especially useful. Record the pin,
+operating system, architecture, provider, model, shell, and evidence boundary
+before opening a Lab result issue.

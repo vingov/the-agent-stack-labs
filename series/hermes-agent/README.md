@@ -15,6 +15,11 @@ Current reference pin:
 - Reference shell: PowerShell 7.6.3
 - Reference Python: 3.11.16
 
+Those values describe the published reference run, not a Windows-only
+requirement. The public lab harness has native PowerShell and Bash entry points,
+and CI validates fixture setup on Windows, macOS, and Ubuntu. New live-provider
+results should always identify their operating system and architecture.
+
 ## Season map
 
 1. Gateway, sessions, and the agent loop

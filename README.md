@@ -38,7 +38,24 @@ All tracks study the same system boundary at different depths.
 
 The Hermes lab accompanies the practical research behind [The Agent Stack](https://theagentstack.substack.com/). Additional labs will be added as new posts are published.
 
-## Quick start on PowerShell
+## Quick start
+
+Choose the commands for your operating system. Both paths create the same
+synthetic fixtures in a new disposable directory and never touch an existing
+Hermes profile.
+
+### macOS with Bash (recommended reader path)
+
+~~~bash
+git clone https://github.com/vingov/the-agent-stack-labs.git
+cd the-agent-stack-labs
+python3 ./shared/python/test_repository_safety.py
+bash ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/initialize-lab.sh
+~~~
+
+The same Bash commands work on Linux.
+
+### Windows with PowerShell 7
 
 ~~~powershell
 git clone https://github.com/vingov/the-agent-stack-labs.git
@@ -47,7 +64,19 @@ pwsh .\shared\powershell\Test-RepositorySafety.ps1
 pwsh .\series\hermes-agent\v0.20.1\labs\02-context-and-compression\scripts\Initialize-Lab.ps1
 ~~~
 
-The initializer creates a disposable directory under the operating-system temporary directory. It does not install Hermes, authenticate a provider, or modify an existing Hermes profile.
+The initializer prints the unique lab path and the two commands needed to enter
+the environment. It does not install Hermes or authenticate a provider.
+
+| Platform | Setup shell | Repository safety check | CI coverage |
+| --- | --- | --- | --- |
+| macOS | Bash 3.2+ | Python 3 | Latest macOS runner |
+| Linux | Bash 3.2+ | Python 3 | Latest Ubuntu runner |
+| Windows | PowerShell 7 | PowerShell | Windows Server |
+
+The published live-provider reference result was captured on Windows. macOS and
+Linux readers run the same fixture and experiment workflow, but should report
+their operating system with any result because Hermes behavior can vary by
+platform.
 
 Continue with the [Hermes setup guide](series/hermes-agent/v0.20.1/setup/README.md).
 

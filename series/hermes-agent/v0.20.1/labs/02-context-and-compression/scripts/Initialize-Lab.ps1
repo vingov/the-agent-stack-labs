@@ -1,9 +1,14 @@
 [CmdletBinding()]
 param(
-    [string]$Destination = (Join-Path ([System.IO.Path]::GetTempPath()) 'the-agent-stack-hermes-02')
+    [string]$Destination
 )
 
 $ErrorActionPreference = 'Stop'
+
+if ([string]::IsNullOrWhiteSpace($Destination)) {
+    $suffix = [Guid]::NewGuid().ToString('N').Substring(0, 8)
+    $Destination = Join-Path ([System.IO.Path]::GetTempPath()) "the-agent-stack-hermes-02-$suffix"
+}
 
 $labSource = Split-Path -Parent $PSScriptRoot
 $fixtures = Join-Path $labSource 'fixtures'
