@@ -1,0 +1,22 @@
+schema_version: 1
+publication: The Agent Stack
+repository: https://github.com/vingov/the-agent-stack-labs
+labs:
+  - id: hermes-02-context-compression
+    title: Context files, prompt snapshots, and compression
+    series: Hermes Agent Architecture
+    path: series/hermes-agent/v0.20.1/labs/02-context-and-compression
+    status: available
+    tracks:
+      - explorer
+      - builder
+      - investigator
+    tested_project:
+      name: hermes-agent
+      version: 0.20.1
+      tag: v2026.8.13
+      commit: f80f453ae0679347e38abc917c7f94f717bf96c5
+    provider_required:
+      explorer: false
+      builder: optional
+      investigator: true

@@ -1,0 +1,30 @@
+name: Validate labs
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  safety-and-fixtures:
+    runs-on: windows-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Scan for unsafe artifacts
+        shell: pwsh
+        run: ./shared/powershell/Test-RepositorySafety.ps1
+
+      - name: Validate Hermes fixtures
+        shell: pwsh
+        run: ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/Test-LabFixtures.ps1
+
+      - name: Smoke-test disposable initialization
+        shell: pwsh
+        run: |
+          $target = Join-Path $env:RUNNER_TEMP 'hermes-context-lab'
+          ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/Initialize-Lab.ps1 -Destination $target
+          ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/Test-LabFixtures.ps1 -FixtureRoot $target

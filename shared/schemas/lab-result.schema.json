@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/vingov/the-agent-stack-labs/shared/schemas/lab-result.schema.json",
+  "title": "The Agent Stack lab result",
+  "type": "object",
+  "required": ["schema_version", "lab_id", "project", "environment", "observations", "contains_credentials"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "lab_id": {"type": "string", "minLength": 1},
+    "project": {
+      "type": "object",
+      "required": ["name", "version", "commit"],
+      "properties": {
+        "name": {"type": "string"},
+        "version": {"type": "string"},
+        "tag": {"type": ["string", "null"]},
+        "commit": {"type": "string", "pattern": "^[0-9a-fA-F]{7,40}$"}
+      }
+    },
+    "environment": {
+      "type": "object",
+      "required": ["os", "architecture"],
+      "properties": {
+        "os": {"type": "string"},
+        "architecture": {"type": "string"},
+        "shell": {"type": ["string", "null"]},
+        "python": {"type": ["string", "null"]}
+      }
+    },
+    "observations": {"type": "object"},
+    "contains_raw_prompt": {"type": "boolean"},
+    "contains_raw_provider_payload": {"type": "boolean"},
+    "contains_credentials": {"const": false}
+  },
+  "additionalProperties": true
+}

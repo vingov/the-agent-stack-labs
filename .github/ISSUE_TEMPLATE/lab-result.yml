@@ -1,0 +1,59 @@
+name: Lab result
+description: Submit a sanitized reproduction or falsification result
+title: "[Lab result]: "
+labels:
+  - lab-result
+body:
+  - type: input
+    id: lab
+    attributes:
+      label: Lab ID
+      placeholder: hermes-02-context-compression
+    validations:
+      required: true
+
+  - type: input
+    id: pin
+    attributes:
+      label: Project version, tag, and commit
+      placeholder: Hermes 0.20.1 / v2026.8.13 / f80f453...
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Operating system, architecture, shell, provider, and model at a high level.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: overall
+    attributes:
+      label: Overall result
+      options:
+        - PASS
+        - PARTIAL
+        - FAIL
+        - NOT VERIFIED
+    validations:
+      required: true
+
+  - type: textarea
+    id: observations
+    attributes:
+      label: Sanitized observations
+      description: Include counts, hashes, marker booleans, and evidence classes. Do not paste raw requests or prompts.
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: I used only synthetic data and a disposable profile.
+          required: true
+        - label: I removed credentials, cookies, raw provider payloads, raw prompts, databases, and absolute home paths.
+          required: true

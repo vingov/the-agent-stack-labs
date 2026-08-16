@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "lab_id": "hermes-02-context-compression",
+  "recorded_at": "2026-08-15",
+  "project": {
+    "name": "hermes-agent",
+    "version": "0.20.1",
+    "tag": "v2026.8.13",
+    "commit": "f80f453ae0679347e38abc917c7f94f717bf96c5"
+  },
+  "environment": {
+    "os": "Windows NT 10.0.26200",
+    "architecture": "AMD64",
+    "shell": "PowerShell 7.6.3",
+    "python": "3.11.16"
+  },
+  "runtime": {
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "api_mode": "codex_responses",
+    "provider_calls": 22,
+    "user_turns": 16,
+    "distinct_sessions": 2
+  },
+  "observations": {
+    "baseline_prompt_markers": {
+      "ORBIT": true,
+      "CEDAR": true,
+      "EMBER": false,
+      "AMBER": true,
+      "COBALT": false,
+      "JADE": true,
+      "VIOLET": true,
+      "INDIGO": false
+    },
+    "progressive_ember_in_tool_result": true,
+    "progressive_system_prompt_hash_unchanged": true,
+    "ordinary_post_edit_prompt_retained_amber": true,
+    "ordinary_post_edit_prompt_contained_cobalt": false,
+    "post_compression_prompt_contained_cobalt": true,
+    "post_compression_prompt_contained_amber": false,
+    "compression_session_id_unchanged": true,
+    "compression_in_place": true,
+    "selected_tail_in_next_request": true,
+    "selected_tail_rows_active_in_sqlite": false,
+    "selected_tail_rows_recoverable_as_compacted": true
+  },
+  "sqlite_counts": {
+    "before": {"total": 28, "active": 28, "inactive": 0, "compacted": 0},
+    "after_compression": {"total": 40, "active": 12, "inactive": 28, "compacted": 28},
+    "after_next_request": {"total": 42, "active": 14, "inactive": 28, "compacted": 28}
+  },
+  "provider_cache": {
+    "fresh_baseline_cache_read_tokens": 0,
+    "common_repeated_cache_read_tokens": 15872,
+    "cache_write_tokens": 0,
+    "local_kv_cache": "NOT VERIFIED"
+  },
+  "targeted_tests": {
+    "passed": 83,
+    "skipped": 1,
+    "windows_cleanup_only_failures_not_counted": 6
+  },
+  "article_validation": {
+    "pass": 33,
+    "partial": 1,
+    "fail": 0,
+    "not_verified": 0
+  },
+  "contains_raw_prompt": false,
+  "contains_raw_provider_payload": false,
+  "contains_credentials": false
+}

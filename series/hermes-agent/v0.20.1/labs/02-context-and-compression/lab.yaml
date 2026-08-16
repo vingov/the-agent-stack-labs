@@ -1,0 +1,41 @@
+schema_version: 1
+id: hermes-02-context-compression
+title: Context files, prompt snapshots, and compression
+project:
+  name: hermes-agent
+  version: 0.20.1
+  tag: v2026.8.13
+  commit: f80f453ae0679347e38abc917c7f94f717bf96c5
+article:
+  publication: The Agent Stack
+  url: null
+tracks:
+  explorer:
+    provider_required: false
+    estimated_minutes: 30
+  builder:
+    provider_required: optional
+    estimated_minutes: 90
+  investigator:
+    provider_required: true
+    estimated_minutes: 180
+safety:
+  isolated_profile_required: true
+  synthetic_data_only: true
+  raw_provider_payloads_publishable: false
+  raw_session_database_publishable: false
+claims:
+  - id: prompt-tiers
+    expected: stable, context, and volatile tiers are assembled into a cached prompt
+  - id: progressive-context
+    expected: nested context can arrive through an enriched tool result
+  - id: profile-snapshot
+    expected: an ordinary turn can retain the old USER.md snapshot
+  - id: profile-refresh
+    expected: verified compression can reload USER.md and rebuild the prompt
+  - id: persistence-boundary
+    expected: live post-compression history can differ from the SQLite active view
+  - id: provider-cache-separation
+    expected: provider cache receipts are distinct from prompt hashes
+reference_result:
+  path: reference-results/windows-2026-08-15/result.json

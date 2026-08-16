@@ -1,0 +1,42 @@
+name: Version drift
+description: Report behavior that changed on another project version
+title: "[Version drift]: "
+labels:
+  - version-drift
+body:
+  - type: input
+    id: lab
+    attributes:
+      label: Lab ID
+    validations:
+      required: true
+
+  - type: input
+    id: reference
+    attributes:
+      label: Reference pin
+    validations:
+      required: true
+
+  - type: input
+    id: tested
+    attributes:
+      label: Tested version and commit
+    validations:
+      required: true
+
+  - type: textarea
+    id: difference
+    attributes:
+      label: What changed?
+      description: Describe the smallest observable difference and its evidence class.
+    validations:
+      required: true
+
+  - type: textarea
+    id: receipt
+    attributes:
+      label: Sanitized receipt
+      description: Provide counts, hashes, booleans, or a minimal reproduction. Never include credentials or raw private state.
+    validations:
+      required: true
