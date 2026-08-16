@@ -2,6 +2,10 @@
 
 The reference run was performed on August 15, 2026.
 
+This table records the environment that produced the published receipts. The
+lab scripts also support macOS and Linux; they do not imply that the exact live
+runtime finding has already been reproduced there.
+
 | Item | Value |
 | --- | --- |
 | Hermes version | 0.20.1 |

@@ -8,7 +8,7 @@ permissions:
   contents: read
 
 jobs:
-  safety-and-fixtures:
+  windows-powershell:
     runs-on: windows-latest
     steps:
       - name: Check out repository
@@ -28,3 +28,36 @@ jobs:
           $target = Join-Path $env:RUNNER_TEMP 'hermes-context-lab'
           ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/Initialize-Lab.ps1 -Destination $target
           ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/Test-LabFixtures.ps1 -FixtureRoot $target
+          Set-Content -LiteralPath (Join-Path $target 'evidence/example.txt') -Value 'synthetic evidence'
+          ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/New-SHA256Manifest.ps1 -Root (Join-Path $target 'evidence')
+          if (-not (Test-Path -LiteralPath (Join-Path $target 'evidence/SHA256SUMS.txt'))) {
+            throw 'PowerShell manifest was not created.'
+          }
+
+  unix-bash:
+    name: ${{ matrix.os }} / Bash
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Scan for unsafe artifacts and broken links
+        run: python3 ./shared/python/test_repository_safety.py
+
+      - name: Validate Hermes fixtures
+        run: bash ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/test-lab-fixtures.sh
+
+      - name: Smoke-test disposable initialization
+        run: |
+          target="$RUNNER_TEMP/hermes-context-lab"
+          bash ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/initialize-lab.sh "$target"
+          bash ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/test-lab-fixtures.sh "$target"
+          printf 'synthetic evidence\n' > "$target/evidence/example.txt"
+          bash ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/new-sha256-manifest.sh "$target/evidence"
+          test -s "$target/evidence/SHA256SUMS.txt"

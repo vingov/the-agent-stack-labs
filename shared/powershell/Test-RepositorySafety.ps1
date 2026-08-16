@@ -21,7 +21,7 @@ foreach ($file in $files) {
     }
 }
 
-$textExtensions = @('.md', '.txt', '.json', '.yaml', '.yml', '.ps1', '.py', '.toml')
+$textExtensions = @('.md', '.txt', '.json', '.yaml', '.yml', '.ps1', '.sh', '.py', '.toml')
 $patterns = @(
     @{ Name = 'Private key'; Regex = '-----BEGIN (RSA |OPENSSH |EC )?PRIVATE KEY-----' },
     @{ Name = 'GitHub token'; Regex = 'gh[pousr]_[A-Za-z0-9]{20,}' },
@@ -45,7 +45,11 @@ $required = @(
     'COURSE_MAP.md',
     'SECURITY.md',
     'catalog/labs.yaml',
+    'shared/python/test_repository_safety.py',
     'series/hermes-agent/v0.20.1/labs/02-context-and-compression/lab.yaml',
+    'series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/initialize-lab.sh',
+    'series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/test-lab-fixtures.sh',
+    'series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/new-sha256-manifest.sh',
     'series/hermes-agent/v0.20.1/labs/02-context-and-compression/reference-results/windows-2026-08-15/result.json'
 )
 

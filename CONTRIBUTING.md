@@ -14,15 +14,21 @@ Contributions are welcome when they improve reproducibility, portability, eviden
 
 ## Before opening a pull request
 
+On macOS or Linux:
+
+~~~bash
+python3 ./shared/python/test_repository_safety.py
+bash ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/test-lab-fixtures.sh
+~~~
+
+On Windows with PowerShell 7:
+
 ~~~powershell
 pwsh .\shared\powershell\Test-RepositorySafety.ps1
-~~~
-
-For the Hermes lab, also run:
-
-~~~powershell
 pwsh .\series\hermes-agent\v0.20.1\labs\02-context-and-compression\scripts\Test-LabFixtures.ps1
 ~~~
+
+CI repeats these checks on Windows, macOS, and Ubuntu.
 
 ## Result submissions
 
