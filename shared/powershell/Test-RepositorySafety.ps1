@@ -4,7 +4,10 @@ param()
 $ErrorActionPreference = 'Stop'
 $repositoryRoot = Split-Path -Parent (Split-Path -Parent $PSScriptRoot)
 $files = Get-ChildItem -Recurse -Force -File -LiteralPath $repositoryRoot |
-    Where-Object { $_.FullName -notmatch '[\\/]\.git[\\/]' }
+    Where-Object {
+        $relativeParts = [System.IO.Path]::GetRelativePath($repositoryRoot, $_.FullName) -split '[\\/]'
+        $_.FullName -notmatch '[\\/]\.git[\\/]' -and -not ($relativeParts -contains 'runs')
+    }
 
 $findings = [System.Collections.Generic.List[string]]::new()
 $forbiddenNames = @(
@@ -46,6 +49,10 @@ $required = @(
     'SECURITY.md',
     'catalog/labs.yaml',
     'shared/python/test_repository_safety.py',
+    'series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/lab.yaml',
+    'series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/scripts/initialize-lab.sh',
+    'series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/scripts/run-storage-probe.py',
+    'series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/reference-results/windows-2026-08-16/result.json',
     'series/hermes-agent/v0.20.1/labs/02-context-and-compression/lab.yaml',
     'series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/initialize-lab.sh',
     'series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/test-lab-fixtures.sh',
@@ -71,6 +78,24 @@ if (Test-Path -LiteralPath $resultPath) {
         }
     } catch {
         $findings.Add("Reference result is not valid JSON: $($_.Exception.Message)")
+    }
+}
+
+$part1ResultPath = Join-Path $repositoryRoot 'series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/reference-results/windows-2026-08-16/result.json'
+if (Test-Path -LiteralPath $part1ResultPath) {
+    try {
+        $part1Result = Get-Content -Raw -LiteralPath $part1ResultPath | ConvertFrom-Json
+        if ($part1Result.lab_id -ne 'hermes-01-session-workspace') {
+            $findings.Add('Part 1 reference result has an unexpected lab_id.')
+        }
+        if ($part1Result.evidence_boundary.contains_credentials -ne $false) {
+            $findings.Add('Part 1 result does not declare contains_credentials=false.')
+        }
+        if ($part1Result.evidence_boundary.contains_absolute_paths -ne $false) {
+            $findings.Add('Part 1 result does not declare contains_absolute_paths=false.')
+        }
+    } catch {
+        $findings.Add("Part 1 reference result is not valid JSON: $($_.Exception.Message)")
     }
 }
 

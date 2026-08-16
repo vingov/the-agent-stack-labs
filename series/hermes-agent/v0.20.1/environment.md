@@ -1,6 +1,18 @@
-# Reference environment
+# Reference environments
 
-The reference run was performed on August 15, 2026.
+## Part 1 storage and sessions-CLI probe
+
+The Part 1 reference was performed on August 16, 2026 against the installed
+Hermes v0.20.1 runtime at commit
+0c50bdbdea57f3d63571e58ae70b3520c4f8b62e.
+
+It used Windows AMD64 and Python 3.11.16. The probe made no provider calls and
+did not start a gateway. Its full boundary is recorded in the
+[Part 1 reference result](labs/01-session-workspace-continuity/reference-results/windows-2026-08-16/README.md).
+
+## Part 2 provider-backed reference
+
+The Part 2 reference run was performed on August 15, 2026.
 
 This table records the environment that produced the published receipts. The
 lab scripts also support macOS and Linux; they do not imply that the exact live

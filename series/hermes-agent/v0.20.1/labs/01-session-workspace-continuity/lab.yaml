@@ -1,0 +1,53 @@
+schema_version: 1
+id: hermes-01-session-workspace
+title: Session identity and workspace continuity
+project:
+  name: hermes-agent
+  version: 0.20.1
+  release: 2026.8.13
+  commit: 0c50bdbdea57f3d63571e58ae70b3520c4f8b62e
+article:
+  publication: The Agent Stack
+  part: 1
+  title: Gateway, Sessions, and the Agent Loop
+  url: https://theagentstack.substack.com/p/hermes-agent-architecture-part-1
+  researched_version: 0.19.1
+  researched_commit: cc4cab2
+tracks:
+  explorer:
+    provider_required: false
+    estimated_minutes: 30
+  builder:
+    provider_required: optional
+    estimated_minutes: 60
+  investigator:
+    provider_required: optional
+    estimated_minutes: 180
+toolchains:
+  macos:
+    shell: bash
+    initializer: scripts/initialize-lab.sh
+  linux:
+    shell: bash
+    initializer: scripts/initialize-lab.sh
+  windows:
+    shell: powershell
+    initializer: scripts/Initialize-Lab.ps1
+safety:
+  isolated_profile_required: true
+  synthetic_data_only: true
+  raw_session_database_publishable: false
+  raw_transcript_publishable: false
+claims:
+  - id: durable-session-identity
+    expected: a selected session ID resolves to its persisted conversation
+  - id: workspace-binding
+    expected: session metadata retains the owning working directory
+  - id: fresh-session-isolation
+    expected: a new session does not inherit another session transcript
+  - id: cli-workspace-filter
+    expected: the sessions CLI can filter by persisted workspace identity
+reference_result:
+  operating_system: Windows
+  provider_called: false
+  path: reference-results/windows-2026-08-16/result.json
