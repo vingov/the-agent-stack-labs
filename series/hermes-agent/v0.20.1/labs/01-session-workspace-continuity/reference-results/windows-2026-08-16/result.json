@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "lab_id": "hermes-01-session-workspace",
+  "recorded_at": "2026-08-16",
+  "runtime": {
+    "version": "0.20.1",
+    "release": "2026.8.13",
+    "commit": "0c50bdbdea57f3d63571e58ae70b3520c4f8b62e",
+    "python": "3.11.16",
+    "operating_system": "Windows",
+    "architecture": "AMD64",
+    "source_worktree_dirty": true,
+    "relevant_storage_source_dirty": false
+  },
+  "marker": {
+    "value": "HERMES-P1-LAB-2026-08-16-SESSION-CWD",
+    "sha256": "c611c2a0487875469ec6524cc04b113bf7202d9663fecd8d89b0de5efda29e3b"
+  },
+  "checks": {
+    "state_db_created": true,
+    "primary_session_persisted": true,
+    "primary_workspace_persisted": true,
+    "resume_resolves_primary": true,
+    "fresh_session_id_is_distinct": true,
+    "fresh_workspace_is_distinct": true,
+    "marker_present_in_primary_only": true,
+    "cli_lists_both_sessions": true,
+    "cli_workspace_filter_isolates_primary": true,
+    "cli_redacted_export_contains_primary": true
+  },
+  "observations": {
+    "primary": {
+      "session_id": "part1-cli-primary",
+      "source": "cli",
+      "workspace": "workspace-a",
+      "message_roles": [
+        "user",
+        "assistant"
+      ]
+    },
+    "fresh": {
+      "session_id": "part1-cli-fresh",
+      "source": "cli",
+      "workspace": "workspace-b",
+      "message_roles": [
+        "user"
+      ]
+    },
+    "database_schema_version": 26,
+    "required_tables_present": {
+      "sessions": true,
+      "messages": true
+    },
+    "session_count": 2,
+    "message_count": 3
+  },
+  "evidence_boundary": {
+    "provider_called": false,
+    "gateway_started": false,
+    "tool_loop_executed": false,
+    "storage_api_exercised": true,
+    "installed_sessions_cli_exercised": true,
+    "contains_credentials": false,
+    "contains_absolute_paths": false
+  }
+}
