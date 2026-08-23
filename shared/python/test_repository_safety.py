@@ -43,6 +43,11 @@ REQUIRED_FILES = {
     "catalog/labs.yaml",
     "shared/powershell/Test-RepositorySafety.ps1",
     "shared/python/test_repository_safety.py",
+    "series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/lab.yaml",
+    "series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/scripts/initialize-lab.sh",
+    "series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/scripts/run-storage-probe.py",
+    "series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/reference-results/"
+    "windows-2026-08-16/result.json",
     "series/hermes-agent/v0.20.1/labs/02-context-and-compression/lab.yaml",
     "series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/Initialize-Lab.ps1",
     "series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/initialize-lab.sh",
@@ -50,6 +55,12 @@ REQUIRED_FILES = {
     "series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/new-sha256-manifest.sh",
     "series/hermes-agent/v0.20.1/labs/02-context-and-compression/reference-results/"
     "windows-2026-08-15/result.json",
+    "series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/lab.yaml",
+    "series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/Initialize-Lab.ps1",
+    "series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/initialize-lab.sh",
+    "series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/test-lab-fixtures.sh",
+    "series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/reference-results/"
+    "windows-2026-08-23/result.json",
 }
 MARKDOWN_LINK = re.compile(r"!?\[[^\]]*\]\(([^)]+)\)")
 
@@ -128,6 +139,50 @@ def main() -> int:
                 )
         except (OSError, json.JSONDecodeError) as error:
             findings.append(f"Reference result is not valid JSON: {error}")
+
+    part1_result_path = (
+        REPOSITORY_ROOT
+        / "series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/"
+        "reference-results/windows-2026-08-16/result.json"
+    )
+    if part1_result_path.is_file():
+        try:
+            part1_result = json.loads(part1_result_path.read_text(encoding="utf-8"))
+            if part1_result.get("lab_id") != "hermes-01-session-workspace":
+                findings.append("Part 1 reference result has an unexpected lab_id.")
+            boundary = part1_result.get("evidence_boundary", {})
+            if boundary.get("contains_credentials") is not False:
+                findings.append(
+                    "Part 1 result does not declare contains_credentials=false."
+                )
+            if boundary.get("contains_absolute_paths") is not False:
+                findings.append(
+                    "Part 1 result does not declare contains_absolute_paths=false."
+                )
+        except (OSError, json.JSONDecodeError) as error:
+            findings.append(f"Part 1 reference result is not valid JSON: {error}")
+
+    part3_result_path = (
+        REPOSITORY_ROOT
+        / "series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/"
+        "reference-results/windows-2026-08-23/result.json"
+    )
+    if part3_result_path.is_file():
+        try:
+            part3_result = json.loads(part3_result_path.read_text(encoding="utf-8"))
+            if part3_result.get("lab_id") != "hermes-03-memory-skills-approval":
+                findings.append("Part 3 reference result has an unexpected lab_id.")
+            boundary = part3_result.get("evidence_boundary", {})
+            if boundary.get("contains_credentials") is not False:
+                findings.append(
+                    "Part 3 result does not declare contains_credentials=false."
+                )
+            if boundary.get("contains_absolute_paths") is not False:
+                findings.append(
+                    "Part 3 result does not declare contains_absolute_paths=false."
+                )
+        except (OSError, json.JSONDecodeError) as error:
+            findings.append(f"Part 3 reference result is not valid JSON: {error}")
 
     findings.extend(check_local_links(files))
 

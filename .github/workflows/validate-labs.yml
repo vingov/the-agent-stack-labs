@@ -20,9 +20,20 @@ jobs:
 
       - name: Validate Hermes fixtures
         shell: pwsh
-        run: ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/Test-LabFixtures.ps1
+        run: |
+          ./series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/scripts/Test-LabFixtures.ps1
+          ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/Test-LabFixtures.ps1
+          ./series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/Test-LabFixtures.ps1
 
-      - name: Smoke-test disposable initialization
+      - name: Smoke-test Part 1 harness
+        shell: pwsh
+        run: |
+          $target = Join-Path $env:RUNNER_TEMP 'hermes-session-lab'
+          ./series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/scripts/Initialize-Lab.ps1 -Destination $target
+          ./series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/scripts/Test-LabFixtures.ps1 -FixtureRoot $target
+          python -m py_compile ./series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/scripts/run-storage-probe.py
+
+      - name: Smoke-test Part 2 harness
         shell: pwsh
         run: |
           $target = Join-Path $env:RUNNER_TEMP 'hermes-context-lab'
@@ -33,6 +44,13 @@ jobs:
           if (-not (Test-Path -LiteralPath (Join-Path $target 'evidence/SHA256SUMS.txt'))) {
             throw 'PowerShell manifest was not created.'
           }
+
+      - name: Smoke-test Part 3 harness
+        shell: pwsh
+        run: |
+          $target = Join-Path $env:RUNNER_TEMP 'hermes-memory-skills-lab'
+          ./series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/Initialize-Lab.ps1 -Destination $target
+          ./series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/Test-LabFixtures.ps1 -FixtureRoot $target
 
   unix-bash:
     name: ${{ matrix.os }} / Bash
@@ -51,9 +69,19 @@ jobs:
         run: python3 ./shared/python/test_repository_safety.py
 
       - name: Validate Hermes fixtures
-        run: bash ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/test-lab-fixtures.sh
+        run: |
+          bash ./series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/scripts/test-lab-fixtures.sh
+          bash ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/test-lab-fixtures.sh
+          bash ./series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/test-lab-fixtures.sh
 
-      - name: Smoke-test disposable initialization
+      - name: Smoke-test Part 1 harness
+        run: |
+          target="$RUNNER_TEMP/hermes-session-lab"
+          bash ./series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/scripts/initialize-lab.sh "$target"
+          bash ./series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/scripts/test-lab-fixtures.sh "$target"
+          python3 -m py_compile ./series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/scripts/run-storage-probe.py
+
+      - name: Smoke-test Part 2 harness
         run: |
           target="$RUNNER_TEMP/hermes-context-lab"
           bash ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/initialize-lab.sh "$target"
@@ -61,3 +89,9 @@ jobs:
           printf 'synthetic evidence\n' > "$target/evidence/example.txt"
           bash ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/new-sha256-manifest.sh "$target/evidence"
           test -s "$target/evidence/SHA256SUMS.txt"
+
+      - name: Smoke-test Part 3 harness
+        run: |
+          target="$RUNNER_TEMP/hermes-memory-skills-lab"
+          bash ./series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/initialize-lab.sh "$target"
+          bash ./series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/test-lab-fixtures.sh "$target"

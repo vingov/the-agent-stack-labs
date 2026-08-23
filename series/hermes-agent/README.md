@@ -6,18 +6,19 @@ This course season studies a real, version-pinned Hermes Agent runtime rather th
 
 Each lab lives under the Hermes version it was tested against. Claims made for one pin do not automatically apply to newer releases.
 
-Current reference pin:
+Published reference pins:
 
-- Hermes Agent: v0.20.1
-- Release tag: v2026.8.13
-- Commit: f80f453ae0679347e38abc917c7f94f717bf96c5
-- Reference operating system: Windows NT 10.0.26200, AMD64
-- Reference shell: PowerShell 7.6.3
+- Part 1 installed-runtime probe: v0.20.1 / release label 2026.8.13 /
+  0c50bdbdea57f3d63571e58ae70b3520c4f8b62e
+- Part 2 provider-backed run: v0.20.1 / tag v2026.8.13 /
+  f80f453ae0679347e38abc917c7f94f717bf96c5
+- Reference operating system: Windows, AMD64
 - Reference Python: 3.11.16
 
-Those values describe the published reference run, not a Windows-only
-requirement. The public lab harness has native PowerShell and Bash entry points,
-and CI validates fixture setup on Windows, macOS, and Ubuntu. New live-provider
+The commit is part of each evidence boundary even when the displayed Hermes
+version is unchanged. These values describe the published reference runs, not a
+Windows-only requirement. The public lab harness has native PowerShell and Bash
+entry points, and CI validates fixture setup on Windows, macOS, and Ubuntu. New
 results should always identify their operating system and architecture.
 
 ## Season map
@@ -28,4 +29,5 @@ results should always identify their operating system and architecture.
 4. Tools, plugins, delegation, and persistent work
 5. Security boundaries, profiles, and safe deployment
 
-The first published lab is Part 2 because it contains the strongest end-to-end lifecycle experiment.
+Part 1 now provides a narrow session/workspace continuity lab. Part 2 contains
+the deeper provider-backed lifecycle experiment.

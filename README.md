@@ -34,9 +34,11 @@ All tracks study the same system boundary at different depths.
 
 | Series | Lab | Pin | Status |
 | --- | --- | --- | --- |
+| Hermes Agent Architecture | [Session identity and workspace continuity](series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/README.md) | Installed v0.20.1 / 0c50bdb | Reference run published |
 | Hermes Agent Architecture | [Context files, prompt snapshots, and compression](series/hermes-agent/v0.20.1/labs/02-context-and-compression/README.md) | v0.20.1 / v2026.8.13 / f80f453 | Reference run published |
+| Hermes Agent Architecture | [Durable memory, reusable skills, and approval gates](series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/README.md) | v0.20.1 / v2026.8.13 / f80f453 | Reference run published |
 
-The Hermes lab accompanies the practical research behind [The Agent Stack](https://theagentstack.substack.com/). Additional labs will be added as new posts are published.
+The Hermes labs accompany the practical research behind [The Agent Stack](https://theagentstack.substack.com/). Additional labs will be added as new posts are published.
 
 ## Quick start
 
@@ -50,7 +52,7 @@ Hermes profile.
 git clone https://github.com/vingov/the-agent-stack-labs.git
 cd the-agent-stack-labs
 python3 ./shared/python/test_repository_safety.py
-bash ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/initialize-lab.sh
+bash ./series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/scripts/initialize-lab.sh
 ~~~
 
 The same Bash commands work on Linux.
@@ -61,7 +63,7 @@ The same Bash commands work on Linux.
 git clone https://github.com/vingov/the-agent-stack-labs.git
 Set-Location .\the-agent-stack-labs
 pwsh .\shared\powershell\Test-RepositorySafety.ps1
-pwsh .\series\hermes-agent\v0.20.1\labs\02-context-and-compression\scripts\Initialize-Lab.ps1
+pwsh .\series\hermes-agent\v0.20.1\labs\01-session-workspace-continuity\scripts\Initialize-Lab.ps1
 ~~~
 
 The initializer prints the unique lab path and the two commands needed to enter
@@ -78,7 +80,7 @@ Linux readers run the same fixture and experiment workflow, but should report
 their operating system with any result because Hermes behavior can vary by
 platform.
 
-Continue with the [Hermes setup guide](series/hermes-agent/v0.20.1/setup/README.md).
+Continue with [Part 1: session identity and workspace continuity](series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/README.md).
 
 ## Repository contract
 

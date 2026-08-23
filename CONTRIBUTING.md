@@ -18,6 +18,7 @@ On macOS or Linux:
 
 ~~~bash
 python3 ./shared/python/test_repository_safety.py
+bash ./series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/scripts/test-lab-fixtures.sh
 bash ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/test-lab-fixtures.sh
 ~~~
 
@@ -25,6 +26,7 @@ On Windows with PowerShell 7:
 
 ~~~powershell
 pwsh .\shared\powershell\Test-RepositorySafety.ps1
+pwsh .\series\hermes-agent\v0.20.1\labs\01-session-workspace-continuity\scripts\Test-LabFixtures.ps1
 pwsh .\series\hermes-agent\v0.20.1\labs\02-context-and-compression\scripts\Test-LabFixtures.ps1
 ~~~
 

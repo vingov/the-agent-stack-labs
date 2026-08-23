@@ -1,0 +1,15 @@
+terminal:
+  backend: local
+  cwd: .
+  timeout: 180
+memory:
+  memory_enabled: true
+  user_profile_enabled: true
+  memory_char_limit: 2200
+  user_char_limit: 1375
+  write_approval: true
+skills:
+  write_approval: true
+telemetry:
+  shared_metrics:
+    enabled: false
