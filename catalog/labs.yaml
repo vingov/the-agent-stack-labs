@@ -41,3 +41,21 @@ labs:
       explorer: false
       builder: optional
       investigator: true
+  - id: hermes-03-memory-skills-approval
+    title: Durable memory, reusable skills, and approval gates
+    series: Hermes Agent Architecture
+    path: series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval
+    status: available
+    tracks:
+      - explorer
+      - builder
+      - investigator
+    tested_project:
+      name: hermes-agent
+      version: 0.20.1
+      tag: v2026.8.13
+      commit: f80f453ae0679347e38abc917c7f94f717bf96c5
+    provider_required:
+      explorer: false
+      builder: true
+      investigator: true

@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "lab_id": "hermes-03-memory-skills-approval",
+  "captured_date": "2026-08-23",
+  "status": "PASS",
+  "environment": {
+    "operating_system": "Windows",
+    "hermes_version": "0.20.1",
+    "tag": "v2026.8.13",
+    "commit": "f80f453ae0679347e38abc917c7f94f717bf96c5",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "background_review": false,
+    "memory_write_approval": true,
+    "skills_write_approval": true
+  },
+  "evidence_boundary": {
+    "contains_credentials": false,
+    "contains_raw_provider_bodies": false,
+    "contains_full_system_prompts": false,
+    "contains_absolute_paths": false,
+    "contains_session_database": false
+  },
+  "successful_pass": {
+    "agent_turns": 7,
+    "provider_requests": 32,
+    "completed_tool_calls": 13,
+    "checks_passed": 18,
+    "checks_failed": 0
+  },
+  "checks": {
+    "fact_staged_before_commit": "PASS",
+    "fact_committed_to_memory": "PASS",
+    "preference_staged_before_commit": "PASS",
+    "preference_committed_to_user_profile": "PASS",
+    "memory_rejection_preserved_durable_tree": "PASS",
+    "skill_rejection_preserved_durable_tree": "PASS",
+    "complete_skill_committed": "PASS",
+    "fresh_response_has_fact": "PASS",
+    "fresh_response_has_preference": "PASS",
+    "fresh_response_has_skill_index": "PASS",
+    "fresh_response_omits_rejected_memory": "PASS",
+    "fresh_response_omits_rejected_skill": "PASS",
+    "fresh_provider_prompt_has_fact": "PASS",
+    "fresh_provider_prompt_has_preference": "PASS",
+    "fresh_provider_prompt_has_skill_index": "PASS",
+    "execution_loaded_skill": "PASS",
+    "dry_run_preceded_deploy": "PASS",
+    "local_deploy_verified_without_network": "PASS"
+  },
+  "first_attempt_learning": {
+    "status": "EXPECTED_CORRECTION",
+    "rejected_description_characters": 152,
+    "maximum_description_characters": 60,
+    "accepted_description_characters": 54
+  },
+  "artifact": {
+    "run_id": "P3-LIVE-0001",
+    "sha256": "93a8282a18351bb4c3c95d6f584808c32bbf3dea0370fb930ac668dc7b9ff58b",
+    "region": "eu-west-2",
+    "dry_run_receipt": {
+      "dry_run": true,
+      "deployed": false,
+      "network_used": false
+    },
+    "deploy_receipt": {
+      "dry_run": false,
+      "deployed": true,
+      "network_used": false
+    }
+  },
+  "normal_profile_fingerprint_unchanged": true
+}

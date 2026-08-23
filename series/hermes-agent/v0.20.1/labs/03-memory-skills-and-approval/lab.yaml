@@ -1,0 +1,53 @@
+schema_version: 1
+id: hermes-03-memory-skills-approval
+title: Durable memory, reusable skills, and approval gates
+project:
+  name: hermes-agent
+  version: 0.20.1
+  tag: v2026.8.13
+  commit: f80f453ae0679347e38abc917c7f94f717bf96c5
+article:
+  publication: The Agent Stack
+  url: null
+tracks:
+  explorer:
+    provider_required: false
+    estimated_minutes: 25
+  builder:
+    provider_required: true
+    estimated_minutes: 90
+  investigator:
+    provider_required: true
+    estimated_minutes: 180
+toolchains:
+  macos:
+    shell: bash
+    initializer: scripts/initialize-lab.sh
+  linux:
+    shell: bash
+    initializer: scripts/initialize-lab.sh
+  windows:
+    shell: powershell
+    initializer: scripts/Initialize-Lab.ps1
+safety:
+  isolated_profile_required: true
+  synthetic_data_only: true
+  raw_provider_payloads_publishable: false
+  raw_session_database_publishable: false
+claims:
+  - id: memory-routing
+    expected: stable environment facts and user preferences follow distinct durable targets
+  - id: approval-boundary
+    expected: staged writes are not durable until approved
+  - id: rejection-boundary
+    expected: rejected proposals leave the durable target unchanged
+  - id: skill-progressive-disclosure
+    expected: compact skill metadata routes before the full body is loaded
+  - id: fresh-session-activation
+    expected: approved durable markers appear in a fresh provider-bound prompt
+  - id: procedural-reuse
+    expected: a fresh session loads the approved skill and completes the guarded local procedure
+reference_result:
+  operating_system: Windows
+  note: Fixture scripts are cross-platform; the exact provider-bound reference result is Windows-only.
+  path: reference-results/windows-2026-08-23/result.json

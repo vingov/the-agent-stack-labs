@@ -57,7 +57,12 @@ $required = @(
     'series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/initialize-lab.sh',
     'series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/test-lab-fixtures.sh',
     'series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/new-sha256-manifest.sh',
-    'series/hermes-agent/v0.20.1/labs/02-context-and-compression/reference-results/windows-2026-08-15/result.json'
+    'series/hermes-agent/v0.20.1/labs/02-context-and-compression/reference-results/windows-2026-08-15/result.json',
+    'series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/lab.yaml',
+    'series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/Initialize-Lab.ps1',
+    'series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/initialize-lab.sh',
+    'series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/test-lab-fixtures.sh',
+    'series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/reference-results/windows-2026-08-23/result.json'
 )
 
 foreach ($relative in $required) {
@@ -96,6 +101,24 @@ if (Test-Path -LiteralPath $part1ResultPath) {
         }
     } catch {
         $findings.Add("Part 1 reference result is not valid JSON: $($_.Exception.Message)")
+    }
+}
+
+$part3ResultPath = Join-Path $repositoryRoot 'series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/reference-results/windows-2026-08-23/result.json'
+if (Test-Path -LiteralPath $part3ResultPath) {
+    try {
+        $part3Result = Get-Content -Raw -LiteralPath $part3ResultPath | ConvertFrom-Json
+        if ($part3Result.lab_id -ne 'hermes-03-memory-skills-approval') {
+            $findings.Add('Part 3 reference result has an unexpected lab_id.')
+        }
+        if ($part3Result.evidence_boundary.contains_credentials -ne $false) {
+            $findings.Add('Part 3 result does not declare contains_credentials=false.')
+        }
+        if ($part3Result.evidence_boundary.contains_absolute_paths -ne $false) {
+            $findings.Add('Part 3 result does not declare contains_absolute_paths=false.')
+        }
+    } catch {
+        $findings.Add("Part 3 reference result is not valid JSON: $($_.Exception.Message)")
     }
 }
 
