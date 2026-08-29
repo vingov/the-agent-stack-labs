@@ -1,0 +1,54 @@
+schema_version: 1
+id: hermes-04-execution-contracts
+title: Capability provenance and execution contracts
+project:
+  name: hermes-agent
+  version: 0.20.6
+  tag: v2026.8.27
+  commit: 5fc308a70719a83cccdbba4c0e39c23f5a8239d5
+article:
+  publication: The Agent Stack
+  url: null
+tracks:
+  explorer:
+    provider_required: false
+    estimated_minutes: 20
+  builder:
+    provider_required: optional
+    estimated_minutes: 75
+  investigator:
+    provider_required: true
+    estimated_minutes: 180
+toolchains:
+  macos:
+    shell: bash
+    initializer: scripts/initialize-lab.sh
+  linux:
+    shell: bash
+    initializer: scripts/initialize-lab.sh
+  windows:
+    shell: powershell
+    initializer: scripts/Initialize-Lab.ps1
+safety:
+  isolated_profile_required_for_live_runs: true
+  synthetic_data_only: true
+  fixture_network_calls: false
+  raw_provider_payloads_publishable: false
+  raw_session_database_publishable: false
+claims:
+  - id: capability-provenance
+    expected: tools, plugins, and MCP servers describe different capability and trust boundaries
+  - id: direct-owner
+    expected: the current session owns direct tool execution
+  - id: delegation-owner
+    expected: a child receives fresh context and no broader tool authority than its parent
+  - id: persistent-goal-owner
+    expected: a session continues under a goal contract, gate, judge, and bounded turn budget
+  - id: cron-owner
+    expected: cron owns the trigger and fresh run while operation and delivery evidence remain separate
+  - id: immutable-attempt-evidence
+    expected: every attempt has its own receipt and duplicates do not replace primary success evidence
+reference_result:
+  operating_system: Windows
+  note: Fixture scripts are cross-platform; provider-backed ownership traces were captured on Windows.
+  path: reference-results/windows-2026-08-28/result.json

@@ -59,3 +59,21 @@ labs:
       explorer: false
       builder: true
       investigator: true
+  - id: hermes-04-execution-contracts
+    title: Capability provenance and execution contracts
+    series: Hermes Agent Architecture
+    path: series/hermes-agent/v0.20.6/labs/04-execution-contracts
+    status: available
+    tracks:
+      - explorer
+      - builder
+      - investigator
+    tested_project:
+      name: hermes-agent
+      version: 0.20.6
+      tag: v2026.8.27
+      commit: 5fc308a70719a83cccdbba4c0e39c23f5a8239d5
+    provider_required:
+      explorer: false
+      builder: optional
+      investigator: true

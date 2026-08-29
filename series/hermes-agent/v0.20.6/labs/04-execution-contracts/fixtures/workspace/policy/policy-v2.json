@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "policy_id": "P4-POLICY-V2",
+  "required_procedure": "HERMES-P4-PROCEDURE-V2",
+  "required_sha256": "eb82803246ce25226ea8b769184760cb17df0dac56f3c0fdaed0a444f101f4ad",
+  "allowed_output": "state/deployed/artifact.txt",
+  "require_dry_run": true
+}

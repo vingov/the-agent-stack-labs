@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "lab_id": "hermes-04-execution-contracts",
+  "captured_date": "2026-08-28",
+  "status": "PASS_WITH_DOCUMENTED_NEGATIVE_CONTROLS",
+  "environment": {
+    "operating_system": "Windows",
+    "architecture": "AMD64",
+    "python": "3.11",
+    "hermes_version": "0.20.6",
+    "tag": "v2026.8.27",
+    "commit": "5fc308a70719a83cccdbba4c0e39c23f5a8239d5",
+    "provider": "openai-codex",
+    "model": "gpt-5.6-sol",
+    "isolated_profile": true
+  },
+  "evidence_boundary": {
+    "contains_credentials": false,
+    "contains_raw_provider_bodies": false,
+    "contains_full_system_prompts": false,
+    "contains_absolute_paths": false,
+    "contains_session_database": false,
+    "contains_raw_delegation_transcripts": false
+  },
+  "artifact": {
+    "bytes": 91,
+    "sha256": "eb82803246ce25226ea8b769184760cb17df0dac56f3c0fdaed0a444f101f4ad",
+    "policy_id": "P4-POLICY-V2",
+    "procedure": "HERMES-P4-PROCEDURE-V2",
+    "allowed_output": "state/deployed/artifact.txt"
+  },
+  "deterministic_controls": {
+    "status": "PASS",
+    "checks_passed": 7,
+    "checks_failed": 0,
+    "checks": {
+      "dry_run_passed": true,
+      "apply_committed": true,
+      "duplicate_suppressed": true,
+      "primary_receipt_immutable": true,
+      "stale_procedure_rejected": true,
+      "missing_dry_run_rejected": true,
+      "denied_path_rejected": true
+    }
+  },
+  "provider_backed_runs": {
+    "direct": {
+      "status": "PASS",
+      "operation_status": "committed",
+      "execution_mode": "direct",
+      "api_calls": 4,
+      "tool_calls": 3,
+      "input_tokens": 10421,
+      "output_tokens": 632,
+      "cache_read_tokens": 7168,
+      "output_sha256": "eb82803246ce25226ea8b769184760cb17df0dac56f3c0fdaed0a444f101f4ad"
+    },
+    "delegated": {
+      "status": "PASS",
+      "operation_status": "committed",
+      "execution_mode": "delegated",
+      "parent": {
+        "api_calls": 2,
+        "tool_calls": 1,
+        "input_tokens": 6298,
+        "output_tokens": 651
+      },
+      "child": {
+        "api_calls": 4,
+        "tool_calls": 3,
+        "input_tokens": 18182,
+        "output_tokens": 682,
+        "duration_seconds": 20.38
+      },
+      "output_sha256": "eb82803246ce25226ea8b769184760cb17df0dac56f3c0fdaed0a444f101f4ad"
+    },
+    "persistent_goal": {
+      "status": "PASS",
+      "operation_status": "committed",
+      "execution_mode": "goal",
+      "final_goal_state": "done",
+      "goal_turns_used": 3,
+      "goal_turn_budget": 3,
+      "quality_gates": 1,
+      "api_calls": 8,
+      "tool_calls": 4,
+      "input_tokens": 11393,
+      "output_tokens": 1235,
+      "cache_read_tokens": 28160,
+      "output_sha256": "eb82803246ce25226ea8b769184760cb17df0dac56f3c0fdaed0a444f101f4ad"
+    },
+    "cron": {
+      "status": "PASS",
+      "execution_ledger_status": "completed",
+      "operation_status": "committed",
+      "execution_mode": "cron",
+      "delivery_target": "local",
+      "saved_output": true,
+      "provider_tokens": 45407,
+      "duration_seconds": 25.921,
+      "output_sha256": "eb82803246ce25226ea8b769184760cb17df0dac56f3c0fdaed0a444f101f4ad"
+    }
+  },
+  "negative_controls": {
+    "delegation_without_terminal": {
+      "status": "EXPECTED_BLOCK",
+      "child_api_calls": 1,
+      "child_tool_calls": 0,
+      "receipt_created": false
+    },
+    "goal_process_cwd_mismatch": {
+      "status": "EXPECTED_PAUSE",
+      "final_goal_state": "paused",
+      "gate_retries_exhausted": true,
+      "receipt_eventually_created_by_agent": true,
+      "gate_result_refreshed": false
+    },
+    "cron_command_punctuation": {
+      "status": "EXPECTED_OPERATION_FAILURE",
+      "execution_ledger_status": "completed",
+      "operation_receipt_created": false,
+      "dry_run_exit_code": 2,
+      "apply_exit_code": 2,
+      "provider_tokens": 44647,
+      "duration_seconds": 15.375
+    }
+  },
+  "focused_source_tests": {
+    "portable_tests_passed": 75,
+    "portable_tests_failed": 0,
+    "windows_posix_shell_exclusions": 3,
+    "plugin_mcp_delegation_cron_tests_passed": 60,
+    "goal_gate_tests_passed": 15
+  }
+}

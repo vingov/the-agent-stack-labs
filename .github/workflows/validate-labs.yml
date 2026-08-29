@@ -24,6 +24,7 @@ jobs:
           ./series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/scripts/Test-LabFixtures.ps1
           ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/Test-LabFixtures.ps1
           ./series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/Test-LabFixtures.ps1
+          ./series/hermes-agent/v0.20.6/labs/04-execution-contracts/scripts/Test-LabFixtures.ps1
 
       - name: Smoke-test Part 1 harness
         shell: pwsh
@@ -52,6 +53,14 @@ jobs:
           ./series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/Initialize-Lab.ps1 -Destination $target
           ./series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/Test-LabFixtures.ps1 -FixtureRoot $target
 
+      - name: Smoke-test Part 4 harness
+        shell: pwsh
+        run: |
+          $target = Join-Path $env:RUNNER_TEMP 'hermes-execution-contracts-lab'
+          ./series/hermes-agent/v0.20.6/labs/04-execution-contracts/scripts/Initialize-Lab.ps1 -Destination $target
+          ./series/hermes-agent/v0.20.6/labs/04-execution-contracts/scripts/Test-LabFixtures.ps1 -FixtureRoot $target
+          ./series/hermes-agent/v0.20.6/labs/04-execution-contracts/scripts/Run-Controls.ps1 -Workspace $target
+
   unix-bash:
     name: ${{ matrix.os }} / Bash
     runs-on: ${{ matrix.os }}
@@ -73,6 +82,7 @@ jobs:
           bash ./series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/scripts/test-lab-fixtures.sh
           bash ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/test-lab-fixtures.sh
           bash ./series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/test-lab-fixtures.sh
+          bash ./series/hermes-agent/v0.20.6/labs/04-execution-contracts/scripts/test-lab-fixtures.sh
 
       - name: Smoke-test Part 1 harness
         run: |
@@ -95,3 +105,10 @@ jobs:
           target="$RUNNER_TEMP/hermes-memory-skills-lab"
           bash ./series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/initialize-lab.sh "$target"
           bash ./series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/test-lab-fixtures.sh "$target"
+
+      - name: Smoke-test Part 4 harness
+        run: |
+          target="$RUNNER_TEMP/hermes-execution-contracts-lab"
+          bash ./series/hermes-agent/v0.20.6/labs/04-execution-contracts/scripts/initialize-lab.sh "$target"
+          bash ./series/hermes-agent/v0.20.6/labs/04-execution-contracts/scripts/test-lab-fixtures.sh "$target"
+          bash ./series/hermes-agent/v0.20.6/labs/04-execution-contracts/scripts/run-controls.sh "$target"

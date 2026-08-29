@@ -15,7 +15,7 @@ The Agent Stack Labs uses one recurring learning loop:
 | 1 | Gateway, sessions, and the agent loop | Available |
 | 2 | Prompt assembly, context files, and compression | Available |
 | 3 | Memory, skills, and approval-gated reuse | Available |
-| 4 | Tools, plugins, delegation, and persistent work | Planned |
+| 4 | Tools, plugins, delegation, and persistent work | Available |
 | 5 | Security boundaries, profiles, and safe deployment | Planned |
 
 ## Completion levels

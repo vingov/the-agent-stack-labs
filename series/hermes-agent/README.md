@@ -12,6 +12,10 @@ Published reference pins:
   0c50bdbdea57f3d63571e58ae70b3520c4f8b62e
 - Part 2 provider-backed run: v0.20.1 / tag v2026.8.13 /
   f80f453ae0679347e38abc917c7f94f717bf96c5
+- Part 3 provider-backed run: v0.20.1 / tag v2026.8.13 /
+  f80f453ae0679347e38abc917c7f94f717bf96c5
+- Part 4 provider-backed run: v0.20.6 / tag v2026.8.27 /
+  5fc308a70719a83cccdbba4c0e39c23f5a8239d5
 - Reference operating system: Windows, AMD64
 - Reference Python: 3.11.16
 
@@ -29,5 +33,6 @@ results should always identify their operating system and architecture.
 4. Tools, plugins, delegation, and persistent work
 5. Security boundaries, profiles, and safe deployment
 
-Part 1 now provides a narrow session/workspace continuity lab. Part 2 contains
-the deeper provider-backed lifecycle experiment.
+Parts 1–4 now have runnable labs. Each later lab keeps a network-free Explorer
+path while publishing a sanitized provider-backed reference result for the
+boundaries that require a live agent.
