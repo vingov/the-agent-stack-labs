@@ -35,7 +35,7 @@ if ($policy.allowed_output -ne 'state/deployed/artifact.txt') {
 if (-not $PythonPath) {
     $PythonPath = (Get-Command python -ErrorAction Stop).Source
 }
-& $PythonPath -m py_compile (Join-Path $PSScriptRoot 'run_contract.py') (Join-Path $PSScriptRoot 'run_controls.py') (Join-Path $PSScriptRoot 'verify_operation.py') (Join-Path $PSScriptRoot 'seed_goal.py') (Join-Path $PSScriptRoot 'render_commands.py')
+& $PythonPath -m py_compile (Join-Path $PSScriptRoot 'run_contract.py') (Join-Path $PSScriptRoot 'run_controls.py') (Join-Path $PSScriptRoot 'verify_operation.py') (Join-Path $PSScriptRoot 'seed_goal.py') (Join-Path $PSScriptRoot 'render_commands.py') (Join-Path $PSScriptRoot 'run_plugin_probe.py')
 if ($LASTEXITCODE -ne 0) {
     throw 'Python fixture compilation failed.'
 }

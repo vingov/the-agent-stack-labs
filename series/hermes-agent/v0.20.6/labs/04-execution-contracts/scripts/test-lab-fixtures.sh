@@ -26,5 +26,5 @@ assert policy["required_procedure"] == "HERMES-P4-PROCEDURE-V2"
 assert policy["allowed_output"] == "state/deployed/artifact.txt"
 PY
 
-python3 -m py_compile "$script_dir/run_contract.py" "$script_dir/run_controls.py" "$script_dir/verify_operation.py" "$script_dir/seed_goal.py" "$script_dir/render_commands.py"
+python3 -m py_compile "$script_dir/run_contract.py" "$script_dir/run_controls.py" "$script_dir/verify_operation.py" "$script_dir/seed_goal.py" "$script_dir/render_commands.py" "$script_dir/run_plugin_probe.py"
 printf 'Part 4 fixtures: PASS\n'

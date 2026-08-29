@@ -26,5 +26,6 @@ Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'run_contract.py') -Destination 
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'verify_operation.py') -Destination (Join-Path $destinationPath 'bin/verify_operation.py')
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'seed_goal.py') -Destination (Join-Path $destinationPath 'bin/seed_goal.py')
 Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'render_commands.py') -Destination (Join-Path $destinationPath 'bin/render_commands.py')
+Copy-Item -LiteralPath (Join-Path $PSScriptRoot 'run_plugin_probe.py') -Destination (Join-Path $destinationPath 'bin/run_plugin_probe.py')
 
 Write-Output $destinationPath

@@ -1,0 +1,28 @@
+{
+  "audit_event": {
+    "argument_keys": [],
+    "status": "ok",
+    "tool_name": "fixture_inspect"
+  },
+  "evidence_class": "OBSERVED_LOCAL_PLUGIN_HOST",
+  "external_service_called": false,
+  "hermes_commit": "5fc308a70719a83cccdbba4c0e39c23f5a8239d5",
+  "platform": "Windows",
+  "plugin": {
+    "enabled": true,
+    "name": "fixture_inspector",
+    "post_tool_hook_recorded": true,
+    "tool_registered": true,
+    "tool_removed_after_unload": true,
+    "toolset": "fixture_inspector"
+  },
+  "profile_isolated": true,
+  "provider_called": false,
+  "python": "3.11.16",
+  "schema_version": 1,
+  "status": "PASS",
+  "tool_result": {
+    "bytes": 91,
+    "sha256": "eb82803246ce25226ea8b769184760cb17df0dac56f3c0fdaed0a444f101f4ad"
+  }
+}

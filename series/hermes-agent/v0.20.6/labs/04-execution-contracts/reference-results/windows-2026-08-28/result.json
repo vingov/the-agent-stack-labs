@@ -130,6 +130,26 @@
     "portable_tests_failed": 0,
     "windows_posix_shell_exclusions": 3,
     "plugin_mcp_delegation_cron_tests_passed": 60,
-    "goal_gate_tests_passed": 15
+    "goal_gate_tests_passed": 15,
+    "gap_suite_captured_date": "2026-08-29",
+    "gap_suite_selected_tests_passed": 112,
+    "gap_suite_windows_posix_exclusions": 2,
+    "gap_suite_scope": [
+      "plugin capability consent",
+      "verification and approval hooks",
+      "abandoned cron ownership",
+      "Kanban worker and claim lifecycle"
+    ]
+  },
+  "plugin_host_probe": {
+    "status": "PASS",
+    "captured_date": "2026-08-29",
+    "evidence_class": "OBSERVED_LOCAL_PLUGIN_HOST",
+    "real_plugin_manager": true,
+    "provider_called": false,
+    "external_service_called": false,
+    "tool_registered": true,
+    "post_tool_hook_recorded": true,
+    "tool_removed_after_unload": true
   }
 }

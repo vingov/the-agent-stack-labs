@@ -67,13 +67,15 @@ Three negative controls exposed the boundary more clearly:
 
 After correcting the boundary or prompt, the goal and cron controls passed. The reference run also passed 75 portable focused Hermes tests. Three additional goal-gate tests use POSIX shell commands (`true`, `sleep`, and `exit`) and were recorded as non-portable on native Windows rather than counted as passes.
 
+An additional provider-free probe used the real pinned `PluginManager` to discover and enable a synthetic read-only plugin, invoke its registered inspection tool and sanitized `post_tool_call` hook, and confirm that unloading removed the scoped tool registration. A focused gap suite for plugin consent/hooks, abandoned cron ownership, and Kanban worker/claim lifecycle passed 112 selected Windows-compatible tests. Two Kanban orphan-reconciliation cases that shell out to POSIX `sleep` and `true` were recorded as platform exclusions.
+
 See the [sanitized reference result](reference-results/windows-2026-08-28/README.md) and [claim matrix](expected/claim-matrix.md).
 
 ## Choose a track
 
 - [Explorer](explorer.md): run seven deterministic controls without Hermes or a provider. About 20 minutes.
 - [Builder](builder.md): send the same rendered commands through direct and delegated Hermes sessions. Provider optional.
-- [Investigator](investigator.md): reproduce persistent-goal and cron ownership, negative controls, and source-test evidence. Provider required for live paths.
+- [Investigator](investigator.md): reproduce the real plugin-host probe, persistent-goal and cron ownership, negative controls, and source-test evidence. The plugin probe is provider-free; the live agent paths require a provider.
 
 ## Start here
 

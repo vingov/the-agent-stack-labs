@@ -16,18 +16,31 @@ Reproduce the four ownership modes, deliberately cross their boundaries, and pub
 | E3N | Misaligned goal workspace | exhausted/paused gate state and explanation of the fingerprint boundary |
 | E4 | Cron fresh run | job pin, fire/run ledger, saved output, cron receipt |
 | E4N | Cron command contamination | completed run ledger, failed commands, absent operation receipt |
-| E5 | Plugin/MCP boundaries | pinned focused tests or a separately disclosed live integration |
+| E5 | Plugin host boundary | real `PluginManager` discovery, tool result, sanitized hook event, unload cleanup |
+| E6 | MCP boundary | pinned focused tests or a separately disclosed live integration |
+
+## Real plugin-host probe
+
+The optional probe uses the pinned Hermes `PluginManager`, not a mock host. It creates a synthetic read-only plugin inside the initialized workspace's disposable profile, enables it, discovers it, invokes its registered `fixture_inspect` tool and `post_tool_call` hook, then unloads the manager and verifies that the scoped tool registration disappears.
+
+With the pinned checkout on `PYTHONPATH`:
+
+~~~bash
+python ./scripts/run_plugin_probe.py --workspace <INITIALIZED_WORKSPACE>
+~~~
+
+Expected evidence is written to `receipts/plugin-probe.json` and `receipts/plugin-probe-audit.jsonl`. The probe calls no model provider or external service. It proves the local plugin-host contract only; it does not prove third-party plugin authority or live MCP behavior.
 
 ## Persistent-goal helper
 
-`bin/seed_goal.py` makes the reference run deterministic by using the v0.20.6 `GoalManager` API directly. Run it only with the Python environment that imports the pinned Hermes checkout and only against a disposable profile.
+`scripts/seed_goal.py` makes the reference run deterministic by using the v0.20.6 `GoalManager` API directly. Run it only with the Python environment that imports the pinned Hermes checkout and only against a disposable profile.
 
 1. Initialize a fresh workspace and start one Hermes session from that directory.
 2. Record the session ID and exit.
 3. Seed the goal:
 
 ~~~bash
-python ./bin/seed_goal.py \
+python ./scripts/seed_goal.py \
   --session-id <SESSION_ID> \
   --workspace . \
   --operation-id investigator-goal-v2
@@ -69,6 +82,22 @@ python -m pytest -q \
 ~~~
 
 Those six files produced 60 passes. Fifteen platform-compatible tests in `tests/hermes_cli/test_goal_gates.py` also passed. Three tests in that file embed POSIX shell commands and failed under native Windows command parsing; report them as platform exclusions, not successful evidence.
+
+A later focused gap pass also covered plugin capability consent, verification and approval hooks, abandoned cron ownership, and Kanban worker/claim lifecycle. The selected Windows-compatible slice passed 112 tests. Two additional Kanban orphan-reconciliation cases shell out to POSIX `sleep` and `true`; disclose them as platform exclusions on native Windows rather than feature failures.
+
+The gap slice was assembled from these files plus five targeted real-host discovery and hook-timeout cases in `tests/hermes_cli/test_plugins.py`:
+
+~~~text
+tests/hermes_cli/test_plugin_capabilities.py
+tests/agent/test_verify_hooks.py
+tests/tools/test_approval_plugin_hooks.py
+tests/cron/test_dead_owner_claim_reclaim.py
+tests/plugins/test_kanban_worker_runs.py
+tests/gateway/test_kanban_reconcile_orphans.py
+tests/hermes_cli/test_kanban_review_lifecycle_complete.py
+~~~
+
+The targeted cases were enabled/disabled portable-plugin discovery, observational-hook timeout isolation, and both fail-closed `pre_tool_call` timeout checks. Exclude only `test_live_worker_pid_defers_reconcile` and `test_dead_worker_pid_orphan_requeued` on native Windows; they launch POSIX helper commands.
 
 ## Evidence rules
 
