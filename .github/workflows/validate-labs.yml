@@ -61,6 +61,12 @@ jobs:
           ./series/hermes-agent/v0.20.6/labs/04-execution-contracts/scripts/Test-LabFixtures.ps1 -FixtureRoot $target
           ./series/hermes-agent/v0.20.6/labs/04-execution-contracts/scripts/Run-Controls.ps1 -Workspace $target
 
+      - name: Validate Part 5 receipts and portable harness
+        shell: pwsh
+        run: |
+          python ./series/hermes-agent/v0.21.0/labs/05-security-boundaries/scripts/verify_reference.py
+          python ./series/hermes-agent/v0.21.0/labs/05-security-boundaries/scripts/test_lab.py
+
   unix-bash:
     name: ${{ matrix.os }} / Bash
     runs-on: ${{ matrix.os }}
@@ -112,3 +118,8 @@ jobs:
           bash ./series/hermes-agent/v0.20.6/labs/04-execution-contracts/scripts/initialize-lab.sh "$target"
           bash ./series/hermes-agent/v0.20.6/labs/04-execution-contracts/scripts/test-lab-fixtures.sh "$target"
           bash ./series/hermes-agent/v0.20.6/labs/04-execution-contracts/scripts/run-controls.sh "$target"
+
+      - name: Validate Part 5 receipts and portable harness
+        run: |
+          python3 ./series/hermes-agent/v0.21.0/labs/05-security-boundaries/scripts/verify_reference.py
+          python3 ./series/hermes-agent/v0.21.0/labs/05-security-boundaries/scripts/test_lab.py

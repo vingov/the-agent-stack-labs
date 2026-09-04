@@ -1,0 +1,33 @@
+schema_version: 1
+id: hermes-05-security-boundaries
+title: A separate profile is not a sandbox
+project:
+  name: hermes-agent
+  version: 0.21.0
+  tag: v2026.8.31
+  commit: 29112bef099274229cadff79cdff7bf7b99c4b77
+article:
+  publication: The Agent Stack
+  url: null
+  draft: article.md
+tracks:
+  explorer:
+    provider_required: false
+    estimated_minutes: 15
+  builder:
+    provider_required: optional
+    estimated_minutes: 60
+  investigator:
+    provider_required: false
+    estimated_minutes: 90
+safety:
+  isolated_profile_required: true
+  synthetic_targets_only: true
+  fixture_network_calls: false
+  live_provider_network_calls: true
+  raw_provider_payloads_publishable: false
+  raw_profile_publishable: false
+reference_result:
+  operating_system: Windows host with Linux Docker terminal
+  path: reference-results/windows-2026-09-04/README.md
+  note: Live runs on Windows; 140 focused upstream tests on Linux; portable fixture tests in CI.

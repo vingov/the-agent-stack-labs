@@ -16,7 +16,7 @@ The Agent Stack Labs uses one recurring learning loop:
 | 2 | Prompt assembly, context files, and compression | Available |
 | 3 | Memory, skills, and approval-gated reuse | Available |
 | 4 | Tools, plugins, delegation, and persistent work | Available |
-| 5 | Security boundaries, profiles, and safe deployment | Planned |
+| 5 | [Security boundaries, profiles, and safe deployment](series/hermes-agent/v0.21.0/labs/05-security-boundaries/README.md) | Available |
 
 ## Completion levels
 

@@ -1,0 +1,42 @@
+{
+  "source_commit": "29112bef099274229cadff79cdff7bf7b99c4b77",
+  "dependency_setup": "release uv.lock, dev and mcp extras",
+  "selection": [
+    "tests/tools/test_file_write_safety.py",
+    "tests/tools/test_single_query_approval_mode.py",
+    "tests/tools/test_docker_network_config.py",
+    "tests/tools/test_docker_session_isolation.py",
+    "tests/tools/test_mcp_tool.py::TestBuildSafeEnv",
+    "tests/tools/test_mcp_tool.py::TestMCPSelectiveToolLoading",
+    "tests/hermes_cli/test_security_audit.py"
+  ],
+  "linux": {
+    "platform": "Linux/amd64 in Docker on Windows",
+    "passed": 140,
+    "failed": 0,
+    "seconds": 26.79,
+    "setup": "Read-only source mount, --no-install-project and PYTHONPATH; no Docker socket or provider credential"
+  },
+  "windows": {
+    "passed": 132,
+    "failed": 8,
+    "seconds": 31.29,
+    "failed_test_ids": [
+      "tests/tools/test_file_write_safety.py::TestCheckSensitivePathMacOSBypass::test_etc_hosts_blocked",
+      "tests/tools/test_file_write_safety.py::TestCheckSensitivePathMacOSBypass::test_private_etc_hosts_blocked",
+      "tests/tools/test_file_write_safety.py::TestCheckSensitivePathMacOSBypass::test_private_etc_ssh_config_blocked",
+      "tests/tools/test_file_write_safety.py::TestCheckSensitivePathMacOSBypass::test_private_var_blocked",
+      "tests/tools/test_file_write_safety.py::TestCheckSensitivePathMacOSBypass::test_boot_still_blocked",
+      "tests/tools/test_file_write_safety.py::TestAtomicWrite::test_patch_routes_through_atomic_write",
+      "tests/tools/test_file_write_safety.py::TestProtectedInstructionFiles::test_symlink_to_protected_file_is_gated",
+      "tests/tools/test_mcp_tool.py::TestBuildSafeEnv::test_windows_location_vars_passed_without_secrets"
+    ],
+    "failure_categories": {
+      "POSIX_absolute_paths": 5,
+      "POSIX_mode_assertion": 1,
+      "symlink_privilege_unavailable": 1,
+      "environment_key_casing": 1
+    }
+  },
+  "evidence_class": "TEST-BACKED; upstream tests use fixtures/mocks, separate from actual runtime controls"
+}

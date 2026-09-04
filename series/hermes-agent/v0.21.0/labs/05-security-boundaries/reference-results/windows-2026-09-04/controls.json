@@ -1,0 +1,35 @@
+{
+  "lab_id": "hermes-05-security-boundaries",
+  "source_commit": "29112bef099274229cadff79cdff7bf7b99c4b77",
+  "execution": "real Hermes runtime paths; provider-free controls",
+  "created_at": "2026-09-04T23:19:12.850536+00:00",
+  "checks": {
+    "file_tool_inside_write_succeeded": true,
+    "file_tool_outside_write_denied": true,
+    "terminal_inline_command_blocked_without_operator": true,
+    "instruction_deny_preserved_absence": true,
+    "instruction_once_committed": true,
+    "instruction_without_callback_denied": true,
+    "mcp_selected_tool_registered": true,
+    "mcp_withheld_tool_not_registered": true,
+    "mcp_ambient_canary_absent": true,
+    "mcp_explicit_canary_present": true,
+    "audit_detects_exact_plugin_pin": true,
+    "audit_skips_unversioned_plugin_requirement": true,
+    "audit_local_mcp_path_unresolved": true
+  },
+  "observations": {
+    "terminal_approval": "inline -c script flagged; single-query deny; no file created; no alternate-path retry",
+    "approval_decisions": [
+      "deny",
+      "once"
+    ],
+    "approval_surface": "scripted callback; no human UI approval or provider call",
+    "mcp_synthetic_environment": {
+      "ambient_canary_present": false,
+      "explicit_canary_present": true
+    },
+    "audit_scope": "actual dependency discovery over synthetic declarations; no OSV query, install, or security certification"
+  },
+  "passed": true
+}

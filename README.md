@@ -38,6 +38,7 @@ All tracks study the same system boundary at different depths.
 | Hermes Agent Architecture | [Context files, prompt snapshots, and compression](series/hermes-agent/v0.20.1/labs/02-context-and-compression/README.md) | v0.20.1 / v2026.8.13 / f80f453 | Reference run published |
 | Hermes Agent Architecture | [Durable memory, reusable skills, and approval gates](series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/README.md) | v0.20.1 / v2026.8.13 / f80f453 | Reference run published |
 | Hermes Agent Architecture | [Capability provenance and execution contracts](series/hermes-agent/v0.20.6/labs/04-execution-contracts/README.md) | v0.20.6 / v2026.8.27 / 5fc308a | Reference run published |
+| Hermes Agent Architecture | [A separate profile is not a sandbox](series/hermes-agent/v0.21.0/labs/05-security-boundaries/README.md) | v0.21.0 / v2026.8.31 / 29112be | Live local/Docker/mount comparison |
 
 The Hermes labs accompany the practical research behind [The Agent Stack](https://theagentstack.substack.com/). Additional labs will be added as new posts are published.
 

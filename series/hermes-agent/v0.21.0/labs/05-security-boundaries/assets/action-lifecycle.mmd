@@ -1,0 +1,9 @@
+flowchart TB
+  P["Resolve caller and tool policy"] -->|Permitted| A["Resolve approval<br/>only where required"]
+  P -->|Denied or unavailable| N["Report not executed"]
+  A -->|Denied or timed out| N
+  A -->|Allowed or not required| E["Execute under OS policy<br/>and target authorization"]
+  E -->|Failed| F["Report failure"]
+  E -->|Returned| V["Independently verify<br/>the intended effect"]
+  V -->|Verified| S["Report verified result"]
+  V -->|Not verified| U["Report effect unverified"]

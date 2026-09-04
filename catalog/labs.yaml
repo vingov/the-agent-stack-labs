@@ -77,3 +77,21 @@ labs:
       explorer: false
       builder: optional
       investigator: true
+  - id: hermes-05-security-boundaries
+    title: A separate profile is not a sandbox
+    series: Hermes Agent Architecture
+    path: series/hermes-agent/v0.21.0/labs/05-security-boundaries
+    status: available
+    tracks:
+      - explorer
+      - builder
+      - investigator
+    tested_project:
+      name: hermes-agent
+      version: 0.21.0
+      tag: v2026.8.31
+      commit: 29112bef099274229cadff79cdff7bf7b99c4b77
+    provider_required:
+      explorer: false
+      builder: optional
+      investigator: false
