@@ -1,0 +1,168 @@
+{
+  "lab_id": "hermes-05-security-boundaries",
+  "source_commit": "29112bef099274229cadff79cdff7bf7b99c4b77",
+  "attempt": "release-mounted",
+  "backend": "docker",
+  "execution": "provider-backed Hermes agent",
+  "created_at": "2026-09-04T23:15:52.868043+00:00",
+  "outside_deliberately_mounted": true,
+  "evidence_schema": 2,
+  "provider": "openai-codex",
+  "model": "gpt-5.6-sol",
+  "api_calls": 2,
+  "tool_result_count": 1,
+  "enabled_toolsets": [
+    "terminal"
+  ],
+  "tool_call_names": [
+    "terminal"
+  ],
+  "command_template": "<python> canary_probe.py --receipt <attempt>.json",
+  "tool_exit_codes": [
+    0
+  ],
+  "containers": [
+    {
+      "image_id": "sha256:9534e5a8e315485d4061ed659af0fd78a284c015f9b73661b41d6bab25604534",
+      "user": "65534:65534",
+      "network_mode": "none",
+      "privileged": false,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_opt": [
+        "no-new-privileges",
+        "no-new-privileges"
+      ],
+      "mounts": [
+        {
+          "destination": "/root/.hermes/cache/images",
+          "type": "bind",
+          "writable": false,
+          "source_relative_to_lab": "profile/cache/images",
+          "source_matches_disposable_lab": true
+        },
+        {
+          "destination": "/root/.hermes/cache/delegation",
+          "type": "bind",
+          "writable": false,
+          "source_relative_to_lab": "profile/cache/delegation",
+          "source_matches_disposable_lab": true
+        },
+        {
+          "destination": "/root/.hermes/cache/spillover",
+          "type": "bind",
+          "writable": false,
+          "source_relative_to_lab": "profile/cache/spillover",
+          "source_matches_disposable_lab": true
+        },
+        {
+          "destination": "/root/.hermes/cache/documents",
+          "type": "bind",
+          "writable": false,
+          "source_relative_to_lab": "profile/cache/documents",
+          "source_matches_disposable_lab": true
+        },
+        {
+          "destination": "/root/.hermes/cache/audio",
+          "type": "bind",
+          "writable": false,
+          "source_relative_to_lab": "profile/cache/audio",
+          "source_matches_disposable_lab": true
+        },
+        {
+          "destination": "/root/.hermes/cache/videos",
+          "type": "bind",
+          "writable": false,
+          "source_relative_to_lab": "profile/cache/videos",
+          "source_matches_disposable_lab": true
+        },
+        {
+          "destination": "/outside",
+          "type": "bind",
+          "writable": false,
+          "source_relative_to_lab": "outside",
+          "source_matches_disposable_lab": true
+        },
+        {
+          "destination": "/root/.hermes/skills",
+          "type": "bind",
+          "writable": false,
+          "source_relative_to_lab": "profile/skills",
+          "source_matches_disposable_lab": true
+        },
+        {
+          "destination": "/root/.hermes/cache/screenshots",
+          "type": "bind",
+          "writable": false,
+          "source_relative_to_lab": "profile/cache/screenshots",
+          "source_matches_disposable_lab": true
+        },
+        {
+          "destination": "/root/.hermes/cache/web",
+          "type": "bind",
+          "writable": false,
+          "source_relative_to_lab": "profile/cache/web",
+          "source_matches_disposable_lab": true
+        },
+        {
+          "destination": "/workspace",
+          "type": "bind",
+          "writable": true,
+          "source_relative_to_lab": "workspace",
+          "source_matches_disposable_lab": true
+        },
+        {
+          "destination": "/root/.hermes/images",
+          "type": "bind",
+          "writable": false,
+          "source_relative_to_lab": "profile/images",
+          "source_matches_disposable_lab": true
+        },
+        {
+          "destination": "/root/.hermes/attachments",
+          "type": "bind",
+          "writable": false,
+          "source_relative_to_lab": "profile/attachments",
+          "source_matches_disposable_lab": true
+        }
+      ],
+      "resolved_passthrough_variable_count": 0,
+      "session_scoped": true
+    }
+  ],
+  "receipt_exists": true,
+  "probe": {
+    "schema_version": 1,
+    "requested_paths": {
+      "inside": "inside.txt",
+      "outside": "../outside/outside.txt"
+    },
+    "platform": "Linux",
+    "effective_uid": 65534,
+    "inside": {
+      "readable": true,
+      "sha256": "0910cac34397d2b4f7da3360a44a06dcdfaa6088500a7ec0878d6dd10a2164c4",
+      "error": null
+    },
+    "outside": {
+      "readable": true,
+      "sha256": "8020f7a4d3bd3f43112c4b1d6ed956ad864500ae35db82912a5df3c2effd53c0",
+      "error": null
+    },
+    "network_used": false
+  },
+  "checks": {
+    "only_requested_probe_command": true,
+    "one_container_with_requested_posture": true,
+    "all_mount_sources_in_disposable_lab": true,
+    "profile_auth_file_not_mounted": true,
+    "inside_read_matches_host_canary": true,
+    "outside_matches_configured_visibility": true,
+    "both_host_canaries_unchanged": true,
+    "probe_unchanged": true,
+    "tool_succeeded": true,
+    "session_containers_removed": true
+  },
+  "passed": true
+}

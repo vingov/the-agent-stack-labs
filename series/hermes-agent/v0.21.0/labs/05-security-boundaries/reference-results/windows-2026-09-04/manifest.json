@@ -1,0 +1,10 @@
+{
+  "schema_version": 1,
+  "lab_id": "hermes-05-security-boundaries",
+  "canary_hashes": {
+    "inside": "0910cac34397d2b4f7da3360a44a06dcdfaa6088500a7ec0878d6dd10a2164c4",
+    "outside": "8020f7a4d3bd3f43112c4b1d6ed956ad864500ae35db82912a5df3c2effd53c0"
+  },
+  "probe_sha256": "479eae1fcbe3e573eea7dd41f6b1f1bd3cb5e171d7563038eb6bf052b660abcc",
+  "contains_credentials": false
+}
