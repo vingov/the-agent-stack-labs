@@ -6,14 +6,27 @@ import sys
 import tempfile
 import unittest
 from pathlib import Path
+from unittest.mock import patch
 
 from initialize_lab import initialize
+from run_boundary import container_is_absent
 from verify_reference import verify_receipt, verify_bundle
 
 REFERENCE = Path(__file__).resolve().parents[1] / "reference-results/windows-2026-09-04"
 
 
 class LabTests(unittest.TestCase):
+    def test_cleanup_requires_positive_daemon_response(self):
+        for code, output, expected in [(0, "", True), (0, "synthetic-container\n", False), (1, "", False)]:
+            with self.subTest(code=code, output=output), patch(
+                "run_boundary.subprocess.run",
+                return_value=subprocess.CompletedProcess([], code, stdout=output, stderr="synthetic diagnostic"),
+            ):
+                self.assertEqual(container_is_absent("synthetic-container"), expected)
+        for error in [FileNotFoundError(), subprocess.TimeoutExpired("docker", 30)]:
+            with self.subTest(error=type(error).__name__), patch("run_boundary.subprocess.run", side_effect=error):
+                self.assertFalse(container_is_absent("synthetic-container"))
+
     def test_initializer_refuses_existing_directory(self):
         with tempfile.TemporaryDirectory() as directory:
             target = Path(directory) / "lab"

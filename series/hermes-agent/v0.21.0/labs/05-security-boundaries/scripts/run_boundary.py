@@ -26,6 +26,19 @@ def digest(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+def container_is_absent(container_id: str) -> bool:
+    """Require a successful daemon response; an inspection error is not absence."""
+    try:
+        response = subprocess.run(
+            ["docker", "container", "ls", "--all", "--quiet", "--no-trunc",
+             "--filter", f"id={container_id}"],
+            capture_output=True, text=True, timeout=30,
+        )
+    except (OSError, subprocess.SubprocessError):
+        return False
+    return response.returncode == 0 and not response.stdout.strip()
+
+
 def mount_source_matches(actual: str, expected: Path) -> bool:
     """Recognize native paths and Docker Desktop's documented host mappings."""
     actual = actual.replace("\\", "/").rstrip("/").casefold()
@@ -223,8 +236,7 @@ def main() -> int:
             if hasattr(environment, "wait_for_cleanup"):
                 environment.wait_for_cleanup(timeout=30)
     result["checks"]["session_containers_removed"] = all(
-        subprocess.run(["docker", "inspect", cid], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL).returncode != 0
-        for cid in container_ids)
+        container_is_absent(cid) for cid in container_ids)
     result["passed"] = result["passed"] and all(result["checks"].values())
     destination.write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
     print(json.dumps(result, indent=2))

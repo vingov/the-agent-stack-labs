@@ -36,7 +36,7 @@ python series/hermes-agent/v0.21.0/labs/05-security-boundaries/scripts/verify_re
 python series/hermes-agent/v0.21.0/labs/05-security-boundaries/scripts/test_lab.py
 ```
 
-Expected: the three live receipts and 13 runtime control checks are internally consistent; four portable tests pass, including ten deliberately corrupted receipt cases. This does **not** rerun Hermes. The [Builder track](builder.md) creates fresh target-side evidence.
+Expected: the three live receipts and 13 runtime control checks are internally consistent; five portable tests pass, including ten deliberately corrupted receipt cases and a cleanup check that rejects Docker errors. This does **not** rerun Hermes. The [Builder track](builder.md) creates fresh target-side evidence.
 
 ## What you should learn
 

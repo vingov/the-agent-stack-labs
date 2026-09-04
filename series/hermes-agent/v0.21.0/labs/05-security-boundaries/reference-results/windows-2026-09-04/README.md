@@ -14,7 +14,7 @@
 
 [SHA256SUMS.txt](SHA256SUMS.txt) covers the JSON evidence files. It detects changed bytes; it is not a signature or proof of independent attestation. The [offline verifier](../../scripts/verify_reference.py) also checks semantic consistency, including exact mount inventory and failed-check rejection.
 
-The final live attempts are `release-local`, `release-docker` and `release-mounted`. Each made **2 provider API calls and 1 terminal call**, with exit code zero. The six provider calls describe this reference trio only, not all exploratory runs. The current scripts generated these receipts against an unchanged release source tree and a fresh environment installed with `uv sync --frozen --extra dev --extra mcp --python 3.11`.
+The final live attempts are `release-local`, `release-docker` and `release-mounted`. Each made **2 provider API calls and 1 terminal call**, with exit code zero. The six provider calls describe this reference trio only, not all exploratory runs. The scripts recorded in lab commit `5d85c27` generated these receipts against an unchanged release source tree and a fresh environment installed with `uv sync --frozen --extra dev --extra mcp --python 3.11`. Later cleanup-check hardening is described below; the original live receipts are preserved.
 
 Hermes version `0.21.0`, release tag `v2026.8.31`, commit `29112bef099274229cadff79cdff7bf7b99c4b77`; Windows build 26200; Python 3.11.16; Docker Desktop 4.54.0 / Engine 29.1.2; Linux/amd64 image digest in [environment.json](environment.json) and the Docker receipts. Windows Python labels the host as `Windows-10` in `platform.platform()` even though build 26200 is the relevant recorded build identifier.
 
@@ -38,6 +38,7 @@ The host agent retained provider authentication and network access. The Docker p
 4. The original synthetic MCP server used the SDK 1.x `FastMCP` import. The fresh release uses MCP 2.0, so that fixture failed to start. It was updated to the public `MCPServer` API and rerun successfully. This was a fixture compatibility error, not evidence that Hermes's MCP connection was broken.
 5. The successful MCP run still emitted `RuntimeWarning: coroutine 'MCPServerTask._watch_stdio_children' was never awaited` from release `tools/mcp_tool.py`. Registration and invocation succeeded; shutdown was requested. The experiment does not establish complete child-process supervision.
 6. A first Linux test setup tried to build the editable project on a read-only mount and failed before tests ran. The successful run installed only locked dependencies (`--no-install-project`) and imported the unchanged mounted source through `PYTHONPATH`.
+7. Final code review found that a failed `docker inspect` could conflate an absent container with an unavailable daemon. The current runner requires a successful `docker container ls` response with no matching ID. Portable regression cases reject daemon errors, timeouts, a missing CLI and a still-present container. A fresh actual Hermes Docker-tool run passed the stricter check; its separate [cleanup-followup.json](cleanup-followup.json) is provider-free and is not part of the three live attempts. This change strengthens the verifier; it does not change the recorded canary results.
 
 Failed attempts and full conversations remain in ignored local run storage. No failed run is included as a passing authoritative receipt.
 
