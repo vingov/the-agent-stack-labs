@@ -1,10 +1,12 @@
 flowchart TB
   subgraph Host["Host agent and in-process code"]
     P["Profile<br/>State and configuration"] --> R["Runtime<br/>Model and tool selection"]
-    R -->|In-process extension| X["Python plugin<br/>Host-process authority"]
-    X --> H["Host resources"]
+    X["Python plugin<br/>Host-process authority"] -->|Registers capabilities| R
   end
   R -->|Covered terminal call| B["Docker process<br/>OS user, mounts, network"]
-  R -->|MCP call| M["MCP server<br/>Local process or remote service"]
+  R -->|MCP call| M["MCP boundary"]
   B --> F["Exposed files"]
-  M --> T["Service resources<br/>Target authorization"]
+  M --> L["Local stdio subprocess<br/>Host OS authority"]
+  M --> Q["Remote MCP service<br/>Transport and token"]
+  Q --> T["Target service<br/>Own authorization"]
+  L -.->|If it calls a service| T

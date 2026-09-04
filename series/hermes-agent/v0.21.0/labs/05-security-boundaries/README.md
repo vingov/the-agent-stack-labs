@@ -50,6 +50,8 @@ Read the [claim matrix](expected/claim-matrix.md), [reference environment and li
 
 The [publishing assets](assets/README.md) include rendered versions of both article diagrams and their editable Mermaid sources.
 
+For a fixed reference, the [experiment snapshot](https://github.com/vingov/the-agent-stack-labs/tree/06d5e934cb06c57e17d1b52e4f28e3628dc6f419/series/hermes-agent/v0.21.0/labs/05-security-boundaries) preserves the runner, receipts and cleanup follow-up independently of later article edits.
+
 ## Scope and cost
 
 Explorer is offline and uses only the Python standard library. Builder setup downloads Hermes, Python packages and a Docker image. Direct tool runs require no model; `--live` contacts your configured provider and consumes its quota. The final reference trio used six provider requests in total; setup and exploratory repeats are separate from that count.

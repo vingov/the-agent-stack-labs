@@ -20,7 +20,7 @@ Nothing escaped. The local run used the host user’s authority. The first Docke
 
 The first two rows compare configured postures, not one isolated variable. OS identity, filesystem namespace, and backend all changed. The tighter comparison is between the two Docker rows, where adding the explicit mount changed what the process could reach.
 
-> **Experiment note.** These were provider-backed Windows runs against Hermes v0.21.0 in a disposable profile, with the Docker probe running on Linux. The final runs used the release lockfile. Exact setup, model and tool counts, sanitized receipts, portability findings and reproduction steps are in the [Part 5 lab](https://github.com/vingov/the-agent-stack-labs/tree/dev/vino/hermes-part5-security-boundaries/series/hermes-agent/v0.21.0/labs/05-security-boundaries).
+> **Experiment note.** Executed September 4, 2026: provider-backed Windows runs against Hermes v0.21.0 in a disposable profile, with the Docker probe running on Linux. The final runs used the release lockfile. Exact setup, provider/model, request and tool counts, sanitized receipts, portability findings and reproduction steps are in the [Part 5 lab](https://github.com/vingov/the-agent-stack-labs/tree/dev/vino/hermes-part5-security-boundaries/series/hermes-agent/v0.21.0/labs/05-security-boundaries).
 
 > A profile separates state. A sandbox limits authority.
 
@@ -28,11 +28,11 @@ That distinction is the center of this post. Caller authorization, profile selec
 
 [Part 4](https://theagentstack.substack.com/p/hermes-agent-architecture-part-4) asked whether an operation really succeeded. Part 5 moves one step earlier: even when an operation succeeds, whose authority allowed it to happen?
 
-## The profile owned the state. The backend owned reach.
+## The profile selected state. The execution setup determined access.
 
 The harness used Hermes’s actual agent loop with a disposable `HERMES_HOME`, the directory that owns profile state. It disabled memory and project-context loading and exposed only the terminal toolset. Approval mode was manual, with unattended approval set to deny.
 
-A Hermes profile selects a state namespace. The [profile guide](https://hermes-agent.nousresearch.com/docs/user-guide/profiles) lists configuration, environment, personality, sessions, memory, logs, scheduled jobs, and gateway state as profile-owned data. It also draws a separate line around `terminal.cwd` and filesystem sandboxing.
+A Hermes profile selects a state namespace. The [release profile guide](https://github.com/NousResearch/hermes-agent/blob/29112bef099274229cadff79cdff7bf7b99c4b77/website/docs/user-guide/profiles.md) lists configuration, environment, personality, sessions, memory, logs, scheduled jobs, and gateway state as profile-owned data. It also draws a separate line around `terminal.cwd` and filesystem sandboxing. Selecting a different profile can select different tools or credentials, so the configuration can change authority even though the profile itself creates no containment boundary.
 
 The live local run made that separation concrete. `cwd=workspace` set the starting directory; the same host identity still resolved `../outside/outside.txt`.
 
@@ -44,7 +44,7 @@ The sibling canary remained unavailable because its directory was absent from th
 
 That is why configuration intent is not enough. The receipt needs the effective identity, mounts, environment, network mode, and result.
 
-The host process still owned the model call. Provider requests occurred outside the execution container, and the probe itself made no network request. The inspected run reported zero passthrough environment variables, but that does not mean the process had an empty environment. It also does not prove that network exfiltration or credential theft was adversarially tested.
+The host process still owned the model call. Provider requests occurred outside the execution container, and the probe itself made no network request. Both final Docker receipts reported zero resolved passthrough variables, but that does not mean the process had an empty environment. It also does not prove that network exfiltration or credential theft was adversarially tested.
 
 The final verifier also waited for asynchronous cleanup and checked that the session container had been removed. Returning from a cleanup call was not enough.
 
@@ -58,13 +58,15 @@ This ownership map separates the host from the execution and extension paths. It
 flowchart TB
   subgraph Host["Host agent and in-process code"]
     P["Profile<br/>State and configuration"] --> R["Runtime<br/>Model and tool selection"]
-    R -->|In-process extension| X["Python plugin<br/>Host-process authority"]
-    X --> H["Host resources"]
+    X["Python plugin<br/>Host-process authority"] -->|Registers capabilities| R
   end
   R -->|Covered terminal call| B["Docker process<br/>OS user, mounts, network"]
-  R -->|MCP call| M["MCP server<br/>Local process or remote service"]
+  R -->|MCP call| M["MCP boundary"]
   B --> F["Exposed files"]
-  M --> T["Service resources<br/>Target authorization"]
+  M --> L["Local stdio subprocess<br/>Host OS authority"]
+  M --> Q["Remote MCP service<br/>Transport and token"]
+  Q --> T["Target service<br/>Own authorization"]
+  L -.->|If it calls a service| T
 ```
 
 The profile chooses state; it does not enclose these processes in a new security boundary.
@@ -117,9 +119,12 @@ flowchart TB
   P["Resolve caller and tool policy"] -->|Permitted| A["Resolve approval<br/>only where required"]
   P -->|Denied or unavailable| N["Report not executed"]
   A -->|Denied or timed out| N
-  A -->|Allowed or not required| E["Execute under OS policy<br/>and target authorization"]
+  A -->|Allowed or not required| E["Execute under OS policy"]
   E -->|Failed| F["Report failure"]
-  E -->|Returned| V["Independently verify<br/>the intended effect"]
+  E -->|Local result| V["Independently verify<br/>the intended effect"]
+  E -->|Calls a service| T["Target enforces authorization"]
+  T -->|Denied or failed| F
+  T -->|Authorized result| V
   V -->|Verified| S["Report verified result"]
   V -->|Not verified| U["Report effect unverified"]
 ```
@@ -200,14 +205,16 @@ If these source-and-experiment architecture teardowns are useful, subscribe to T
 
 ### Sources
 
-- [Hermes Agent v0.21.0 release](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31) and [release security policy](https://github.com/NousResearch/hermes-agent/blob/29112bef099274229cadff79cdff7bf7b99c4b77/SECURITY.md)
-- [Hermes Agent profiles, workspaces, and sandboxing](https://hermes-agent.nousresearch.com/docs/user-guide/profiles)
-- [Hermes Agent security guide](https://hermes-agent.nousresearch.com/docs/user-guide/security) and [terminal-backend configuration](https://hermes-agent.nousresearch.com/docs/user-guide/configuration)
-- [Hermes Agent plugin enablement and capability boundaries](https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins)
-- [Hermes Agent MCP configuration and filtering](https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp) and [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization)
-- [Hermes Agent CLI security-audit reference](https://hermes-agent.nousresearch.com/docs/reference/cli-commands)
-- [Context Engineering: Sessions and Memory](https://www.kaggle.com/whitepaper-context-engineering-sessions-and-memory)
-- [AgentDojo](https://arxiv.org/abs/2406.13352) and [OWASP prompt-injection guidance](https://genai.owasp.org/llmrisk/llm01-prompt-injection/)
+Observed behavior is grounded in the tested release and lab receipts. Current documentation was checked September 4, 2026 and may describe later changes.
+
+- [Hermes Agent release](https://github.com/NousResearch/hermes-agent/releases/tag/v2026.8.31) and [release security policy](https://github.com/NousResearch/hermes-agent/blob/29112bef099274229cadff79cdff7bf7b99c4b77/SECURITY.md): the tested version and its containment trust model.
+- [Profiles, workspaces, and sandboxing](https://hermes-agent.nousresearch.com/docs/user-guide/profiles): the distinction between state selection, starting directory and filesystem reach.
+- [Security guide](https://hermes-agent.nousresearch.com/docs/user-guide/security) and [terminal configuration](https://hermes-agent.nousresearch.com/docs/user-guide/configuration): current guardrail scope and execution settings.
+- [Plugin enablement and capability boundaries](https://hermes-agent.nousresearch.com/docs/user-guide/features/plugins): consent controls and the limits of in-process extensions.
+- [Hermes MCP configuration](https://hermes-agent.nousresearch.com/docs/user-guide/features/mcp) and [MCP authorization specification](https://modelcontextprotocol.io/specification/2025-11-25/basic/authorization): tool filtering, child environments and separate service authorization.
+- [CLI security-audit reference](https://hermes-agent.nousresearch.com/docs/reference/cli-commands): what the broader audit command covers beyond this lab's discovery control.
+- [Context Engineering: Sessions and Memory](https://www.kaggle.com/whitepaper-context-engineering-sessions-and-memory): provenance and freshness for durable context.
+- [AgentDojo](https://arxiv.org/abs/2406.13352) and [OWASP prompt-injection guidance](https://genai.owasp.org/llmrisk/llm01-prompt-injection/): external threat models for untrusted tool content.
 
 ### Hermes Agent Architecture
 
