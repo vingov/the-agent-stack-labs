@@ -22,6 +22,13 @@ The actual mount inventory matters: Hermes also mounted **11 read-only directori
 
 ## Quick start from the repository root
 
+For a fresh checkout of the published Part 5 branch:
+
+```text
+git clone --branch dev/vino/hermes-part5-security-boundaries https://github.com/vingov/the-agent-stack-labs.git
+cd the-agent-stack-labs
+```
+
 Use Python 3.11 or newer (`python3` on systems where `python` is not Python 3):
 
 ```text
@@ -40,6 +47,8 @@ Expected: the three live receipts and 13 runtime control checks are internally c
 5. Reject a success flag when its supporting evidence is missing or contradictory.
 
 Read the [claim matrix](expected/claim-matrix.md), [reference environment and limitations](reference-results/windows-2026-09-04/README.md), and [full article](article.md).
+
+The [publishing assets](assets/README.md) include rendered versions of both article diagrams and their editable Mermaid sources.
 
 ## Scope and cost
 
