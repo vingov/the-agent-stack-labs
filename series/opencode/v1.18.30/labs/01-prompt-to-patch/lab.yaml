@@ -1,0 +1,16 @@
+id: opencode-01-prompt-to-patch
+title: From a request to a verified patch
+series: OpenCode Architecture
+release: v1.18.30
+commit: 3104c1428ec91f809e5ab86631300de41eb6952e
+status: available
+evidence_class: OBSERVED_WITH_SCRIPTED_PROVIDER
+provider: local deterministic fixture; no inference
+reference_platform: windows-amd64
+reference_date: 2026-09-13
+entrypoint: scripts/run_lab.py
+offline_entrypoint: scripts/verify_reference.py
+validation_entrypoint: scripts/test_lab.py
+requires: [python3, nodejs, opencode-1.18.30]
+live_provider_required: false
+article_published: false

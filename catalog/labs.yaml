@@ -2,6 +2,24 @@ schema_version: 1
 publication: The Agent Stack
 repository: https://github.com/vingov/the-agent-stack-labs
 labs:
+  - id: opencode-01-prompt-to-patch
+    title: From a request to a verified patch
+    series: OpenCode Architecture
+    path: series/opencode/v1.18.30/labs/01-prompt-to-patch
+    status: available
+    tracks:
+      - explorer
+      - builder
+    tested_project:
+      name: opencode
+      version: 1.18.30
+      tag: v1.18.30
+      commit: 3104c1428ec91f809e5ab86631300de41eb6952e
+    provider_required:
+      explorer: false
+      builder: false
+    evidence_class: OBSERVED_WITH_SCRIPTED_PROVIDER
+    reference_platform: windows-amd64
   - id: hermes-01-session-workspace
     title: Session identity and workspace continuity
     series: Hermes Agent Architecture

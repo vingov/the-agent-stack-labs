@@ -25,6 +25,14 @@ jobs:
           ./series/hermes-agent/v0.20.1/labs/02-context-and-compression/scripts/Test-LabFixtures.ps1
           ./series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/scripts/Test-LabFixtures.ps1
 
+      - name: Check OpenCode receipt and negative controls (no OpenCode runtime)
+        shell: pwsh
+        run: |
+          python ./series/opencode/v1.18.30/labs/01-prompt-to-patch/scripts/verify_reference.py
+          if ($LASTEXITCODE -ne 0) { throw 'OpenCode receipt validation failed.' }
+          python ./series/opencode/v1.18.30/labs/01-prompt-to-patch/scripts/test_lab.py
+          if ($LASTEXITCODE -ne 0) { throw 'OpenCode negative controls failed.' }
+
       - name: Smoke-test Part 1 harness
         shell: pwsh
         run: |
@@ -67,6 +75,11 @@ jobs:
 
       - name: Scan for unsafe artifacts and broken links
         run: python3 ./shared/python/test_repository_safety.py
+
+      - name: Check OpenCode receipt and negative controls (no OpenCode runtime)
+        run: |
+          python3 ./series/opencode/v1.18.30/labs/01-prompt-to-patch/scripts/verify_reference.py
+          python3 ./series/opencode/v1.18.30/labs/01-prompt-to-patch/scripts/test_lab.py
 
       - name: Validate Hermes fixtures
         run: |

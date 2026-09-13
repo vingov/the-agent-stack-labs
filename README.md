@@ -37,6 +37,7 @@ All tracks study the same system boundary at different depths.
 | Hermes Agent Architecture | [Session identity and workspace continuity](series/hermes-agent/v0.20.1/labs/01-session-workspace-continuity/README.md) | Installed v0.20.1 / 0c50bdb | Reference run published |
 | Hermes Agent Architecture | [Context files, prompt snapshots, and compression](series/hermes-agent/v0.20.1/labs/02-context-and-compression/README.md) | v0.20.1 / v2026.8.13 / f80f453 | Reference run published |
 | Hermes Agent Architecture | [Durable memory, reusable skills, and approval gates](series/hermes-agent/v0.20.1/labs/03-memory-skills-and-approval/README.md) | v0.20.1 / v2026.8.13 / f80f453 | Reference run published |
+| OpenCode Architecture | [From a request to a verified patch](series/opencode/v1.18.30/labs/01-prompt-to-patch/README.md) | v1.18.30 / 3104c142 | Windows reference verified with a scripted provider |
 
 The Hermes labs accompany the practical research behind [The Agent Stack](https://theagentstack.substack.com/). Additional labs will be added as new posts are published.
 
