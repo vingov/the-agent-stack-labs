@@ -49,7 +49,10 @@ The runner prints a new `context-...` directory and a pass result. Validate that
 
 ```text
 python series/opencode/v1.18.30/labs/02-context-and-compaction/scripts/verify_run.py /absolute/private/output/context-...
+python series/opencode/v1.18.30/labs/02-context-and-compaction/scripts/test_raw_evidence.py /absolute/private/output/context-...
 ```
+
+The second command makes temporary copies and rejects 10 raw-evidence corruptions, including instruction-load metadata, compacted marks, summary ownership, usage, altered content and a missing request. Original captures remain unchanged. These checks require the private output of a fresh run and are not run against the sanitized reference alone.
 
 On Windows, use an absolute path ending in `opencode.exe`. The supplied runtime reference and fresh-checkout execution were tested on native Windows AMD64 only. The Python offline checks use the standard library and have CI jobs configured for Windows, macOS and Ubuntu; those jobs have not been executed remotely for this unpublished package. Cross-platform CLI execution is unverified.
 

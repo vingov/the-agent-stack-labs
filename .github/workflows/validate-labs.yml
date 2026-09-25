@@ -24,7 +24,7 @@ jobs:
         run: |
           python series/opencode/v1.18.30/labs/02-context-and-compaction/scripts/verify_reference.py
           python series/opencode/v1.18.30/labs/02-context-and-compaction/scripts/test_lab.py
-          python -m py_compile series/opencode/v1.18.30/labs/02-context-and-compaction/scripts/run_lab.py series/opencode/v1.18.30/labs/02-context-and-compaction/scripts/verify_run.py
+          python -m py_compile series/opencode/v1.18.30/labs/02-context-and-compaction/scripts/run_lab.py series/opencode/v1.18.30/labs/02-context-and-compaction/scripts/verify_run.py series/opencode/v1.18.30/labs/02-context-and-compaction/scripts/test_raw_evidence.py
 
   windows-powershell:
     runs-on: windows-latest
