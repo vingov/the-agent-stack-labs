@@ -22,6 +22,8 @@ def verify(report):
         check(bool(re.fullmatch('[0-9a-f]{64}', report['binary_sha256'])), 'binary digest')
         check(len(report['cases']) == 2, 'two cases only')
         check({c['mode'] for c in report['cases']} == {'compact', 'no_compact'}, 'case pair')
+        check(report['cases'][0]['current_files'] == report['cases'][1]['current_files'], 'identical resulting fixture files')
+        check(report['cases'][0]['requests'][0]['file_sha256_at_request'] == report['cases'][1]['requests'][0]['file_sha256_at_request'], 'identical initial source')
         for case in report['cases']:
             mode = case['mode']
             def need(condition, label):
@@ -55,6 +57,12 @@ def verify(report):
                 need(not {'OLD_END', 'NESTED_RULE', 'TAIL_REQUEST', 'TAIL_FILE'} & head, 'summary clipping and tail exclusion')
                 continuation = request_marks(by_stage[2][2])
                 need({'SUMMARY_NOTE', 'TAIL_REQUEST', 'TAIL_FILE', 'ROOT_RULE'} <= continuation, 'summary and retained tail')
+                projected = by_stage[2][2]['messages']
+                summary_pos = next(i for i, m in enumerate(projected) if 'SUMMARY_NOTE' in m['markers'])
+                tail_pos = next(i for i, m in enumerate(projected) if 'TAIL_REQUEST' in m['markers'])
+                read_pos = next(i for i, m in enumerate(projected) if 'TAIL_FILE' in m['markers'])
+                need(summary_pos < tail_pos < read_pos, 'summary then recent user then read result')
+                need(projected[summary_pos]['role'] == 'assistant' and projected[tail_pos]['role'] == 'user', 'summary and tail roles')
                 need(not {'OLD_REQUEST', 'OLD_FILE', 'OLD_END', 'NESTED_RULE', 'ATTACHED_NOTE'} & continuation, 'head excluded from continuation')
                 need('SUMMARY_NOTE' in before_reread and 'OLD_FILE' not in before_reread, 'next invocation uses projection')
             else:

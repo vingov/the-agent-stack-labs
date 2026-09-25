@@ -39,6 +39,8 @@ class EvidenceControls(unittest.TestCase):
             'wrong tail boundary': lambda r: next(p for m in r['cases'][1]['messages'] for p in m['parts'] if p['type'] == 'compaction').update(tail_start_id='wrong'),
             'missing reread': lambda r: r['cases'][1]['requests'].pop(),
             'forged pass': lambda r: (r.update(passed=True), r['cases'][0].update(messages=[])),
+            'wrong summary role': lambda r: next(m for m in r['cases'][1]['requests'][5]['messages'] if 'SUMMARY_NOTE' in m['markers']).update(role='user'),
+            'reversed continuation': lambda r: r['cases'][1]['requests'][5]['messages'].reverse(),
         }
         for name, mutation in mutations.items():
             with self.subTest(name=name):

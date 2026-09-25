@@ -33,7 +33,7 @@ python series/opencode/v1.18.30/labs/02-context-and-compaction/scripts/verify_re
 python series/opencode/v1.18.30/labs/02-context-and-compaction/scripts/test_lab.py
 ```
 
-Use `python3` if that is your Python command. The first command should print `"passed": true`. The tests accept the reference and reject 17 missing or contradictory evidence variants, including a forged pass flag. They verify consistency of the recording; they cannot authenticate the historical run.
+Use `python3` if that is your Python command. The first command should print `"passed": true`. The tests accept the reference and reject 19 missing or contradictory evidence variants, including a forged pass flag. They verify consistency of the recording; they cannot authenticate the historical run.
 
 ## Run the actual CLI
 
