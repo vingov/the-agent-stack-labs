@@ -8,6 +8,24 @@ permissions:
   contents: read
 
 jobs:
+  opencode-context-evidence:
+    name: ${{ matrix.os }} / OpenCode context evidence
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, macos-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check recorded evidence and rejection controls (no inference)
+        run: |
+          python series/opencode/v1.18.30/labs/02-context-and-compaction/scripts/verify_reference.py
+          python series/opencode/v1.18.30/labs/02-context-and-compaction/scripts/test_lab.py
+          python -m py_compile series/opencode/v1.18.30/labs/02-context-and-compaction/scripts/run_lab.py series/opencode/v1.18.30/labs/02-context-and-compaction/scripts/verify_run.py
+
   windows-powershell:
     runs-on: windows-latest
     steps:

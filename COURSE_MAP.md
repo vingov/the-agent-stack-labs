@@ -18,6 +18,13 @@ The Agent Stack Labs uses one recurring learning loop:
 | 4 | Tools, plugins, delegation, and persistent work | Planned |
 | 5 | Security boundaries, profiles, and safe deployment | Planned |
 
+## OpenCode Architecture
+
+| Part | Topic | Lab status |
+| --- | --- | --- |
+| 1 | Clients, sessions, and the coding loop | [Published immutable lab](https://github.com/vingov/the-agent-stack-labs/tree/7a0a28f39150b5072f7a326ffd18c69a43340998/series/opencode/v1.18.30/labs/01-prompt-to-patch) |
+| 2 | Repository context and compaction | [Verified local package](series/opencode/v1.18.30/labs/02-context-and-compaction/README.md); publication pending |
+
 ## Completion levels
 
 ### Explorer
