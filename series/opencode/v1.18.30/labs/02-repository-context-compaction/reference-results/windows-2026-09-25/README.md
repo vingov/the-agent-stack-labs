@@ -6,4 +6,4 @@ Two cases each execute three `opencode run` invocations in one session, plus thr
 
 No model inference. Token usage, tool decisions and summary text are scripted. The generated fixtures, configuration and controlled external file change are documented in the [lab README](../../README.md). Pruning is disabled.
 
-The receipt was checked against private raw requests, all final session records, CLI streams and final files. Raw artifacts contain machine paths and full prompts and are intentionally excluded. The offline verifier checks consistency, not historical authenticity. The documented local fresh-checkout path was also executed on Windows; macOS/Linux CLI runs and remote CI are not claimed.
+The receipt was checked against private raw requests, all final session records, CLI streams and final files. Raw artifacts contain machine paths and full prompts and are intentionally excluded. The offline verifier checks consistency, not historical authenticity. The documented fresh-checkout path was also executed on Windows. CI validates the recorded evidence on Windows, macOS and Ubuntu; macOS/Linux CLI execution is not claimed.

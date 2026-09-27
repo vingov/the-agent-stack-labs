@@ -9,5 +9,5 @@ provider_required: false
 model_inference: false
 runtime_tested_platforms:
   - windows-amd64
-remote_ci_status: not_run
+ci_scope: offline-evidence-checks
 entrypoint: README.md

@@ -1,0 +1,98 @@
+{
+  "release": "1.18.30",
+  "os": "Windows",
+  "architecture": "AMD64",
+  "provider": "Local deterministic response fixture; no model inference",
+  "cases": [
+    {
+      "case": "answer_only",
+      "evidence_class": "OBSERVED_WITH_SCRIPTED_PROVIDER",
+      "cli_exit": 0,
+      "baseline_test_exit": 1,
+      "independent_test_exit": 1,
+      "file_changed": false,
+      "test_file_unchanged": true,
+      "before_sha256": "941f174c1d82087044f2746471aa0e2711d95b564bc39203434c04c1a95daf38",
+      "after_sha256": "941f174c1d82087044f2746471aa0e2711d95b564bc39203434c04c1a95daf38",
+      "test_before_sha256": "1a411dc2247346cd40e0f6e073b63e881b29b401b4da526018c946da5a66b21a",
+      "test_after_sha256": "1a411dc2247346cd40e0f6e073b63e881b29b401b4da526018c946da5a66b21a",
+      "provider_requests": 1,
+      "tool_calls_emitted": [],
+      "tools_observed": [],
+      "session_count": 1,
+      "step_finish_reasons": [
+        "stop"
+      ],
+      "tool_result_counts": [
+        0
+      ],
+      "final_claim_present": true,
+      "elapsed_seconds": 2.72
+    },
+    {
+      "case": "tool_loop",
+      "evidence_class": "OBSERVED_WITH_SCRIPTED_PROVIDER",
+      "cli_exit": 0,
+      "baseline_test_exit": 1,
+      "independent_test_exit": 0,
+      "file_changed": true,
+      "test_file_unchanged": true,
+      "before_sha256": "941f174c1d82087044f2746471aa0e2711d95b564bc39203434c04c1a95daf38",
+      "after_sha256": "b271d1fe1f7dbad7ef207e42feebdde535cb766b1402075832ad0a1f45ba8fe4",
+      "test_before_sha256": "1a411dc2247346cd40e0f6e073b63e881b29b401b4da526018c946da5a66b21a",
+      "test_after_sha256": "1a411dc2247346cd40e0f6e073b63e881b29b401b4da526018c946da5a66b21a",
+      "provider_requests": 4,
+      "tool_calls_emitted": [
+        {
+          "tool": "read",
+          "id": "lab_call_0"
+        },
+        {
+          "tool": "edit",
+          "id": "lab_call_1"
+        },
+        {
+          "tool": "bash",
+          "id": "lab_call_2"
+        }
+      ],
+      "tools_observed": [
+        {
+          "tool": "read",
+          "call_id": "lab_call_0",
+          "status": "completed",
+          "exit": null
+        },
+        {
+          "tool": "edit",
+          "call_id": "lab_call_1",
+          "status": "completed",
+          "exit": null
+        },
+        {
+          "tool": "bash",
+          "call_id": "lab_call_2",
+          "status": "completed",
+          "exit": 0
+        }
+      ],
+      "session_count": 1,
+      "step_finish_reasons": [
+        "tool-calls",
+        "tool-calls",
+        "tool-calls",
+        "stop"
+      ],
+      "tool_result_counts": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "final_claim_present": true,
+      "elapsed_seconds": 3.58
+    }
+  ],
+  "validation_errors": [],
+  "passed": true
+}
