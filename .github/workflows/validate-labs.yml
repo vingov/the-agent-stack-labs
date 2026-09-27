@@ -21,6 +21,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Check recorded evidence and rejection controls (no inference)
+        shell: bash
         run: |
           python series/opencode/v1.18.30/labs/02-repository-context-compaction/scripts/verify_reference.py
           python series/opencode/v1.18.30/labs/02-repository-context-compaction/scripts/test_lab.py
