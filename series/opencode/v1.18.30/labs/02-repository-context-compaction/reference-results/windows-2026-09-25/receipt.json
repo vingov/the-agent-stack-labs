@@ -1,0 +1,2083 @@
+{
+  "schema_version": 1,
+  "release": "1.18.30",
+  "commit": "3104c1428ec91f809e5ab86631300de41eb6952e",
+  "platform": "Windows",
+  "architecture": "AMD64",
+  "binary_sha256": "c1bdbb18767048e1853af4238311b3f7e16ff2f91b68fb4c7ced3c5175347eea",
+  "evidence_class": "OBSERVED_WITH_SCRIPTED_PROVIDER",
+  "cases": [
+    {
+      "mode": "no_compact",
+      "session_id": "ses_f25a1058cffeWVHA1pyTUhWbV9",
+      "config": {
+        "auto": false,
+        "prune": false,
+        "tail_turns": 1,
+        "preserve_recent_tokens": 8000
+      },
+      "calls": [
+        {
+          "stage": 1,
+          "exit": 0,
+          "session_id": "ses_f25a1058cffeWVHA1pyTUhWbV9",
+          "errors": []
+        },
+        {
+          "stage": 2,
+          "exit": 0,
+          "session_id": "ses_f25a1058cffeWVHA1pyTUhWbV9",
+          "errors": []
+        },
+        {
+          "stage": 3,
+          "exit": 0,
+          "session_id": "ses_f25a1058cffeWVHA1pyTUhWbV9",
+          "errors": []
+        }
+      ],
+      "requests": [
+        {
+          "index": 1,
+          "stage": 1,
+          "kind": "ordinary",
+          "stream": true,
+          "messages": [
+            {
+              "role": "system",
+              "markers": [
+                "GLOBAL_RULE",
+                "ROOT_RULE",
+                "CONFIG_RULE"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "de7abfb534e300587f9604fe0bb12d4ca6210433e741b5d0a0b5cc4ed4fe7d2f",
+              "content_chars": 9690
+            },
+            {
+              "role": "user",
+              "markers": [
+                "ATTACHED_NOTE",
+                "OLD_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "ad4256baec8c56f024c04c0125ffdb6b46a0f8addb3f09350da601cba1c81881",
+              "content_chars": 581
+            }
+          ],
+          "file_sha256_at_request": "58f53449cc7a3cb783cc39c2e494d21cfe12c8e82ab96761208a9b16424a39e5",
+          "file_markers_at_request": [
+            "OLD_FILE",
+            "OLD_END"
+          ],
+          "response_usage": 10,
+          "response_tool_id": "lab_read_1",
+          "response_markers": []
+        },
+        {
+          "index": 2,
+          "stage": 1,
+          "kind": "ordinary",
+          "stream": true,
+          "messages": [
+            {
+              "role": "system",
+              "markers": [
+                "GLOBAL_RULE",
+                "ROOT_RULE",
+                "CONFIG_RULE"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "de7abfb534e300587f9604fe0bb12d4ca6210433e741b5d0a0b5cc4ed4fe7d2f",
+              "content_chars": 9690
+            },
+            {
+              "role": "user",
+              "markers": [
+                "ATTACHED_NOTE",
+                "OLD_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "ad4256baec8c56f024c04c0125ffdb6b46a0f8addb3f09350da601cba1c81881",
+              "content_chars": 581
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_1"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "NESTED_RULE",
+                "OLD_FILE",
+                "OLD_END"
+              ],
+              "tool_call_id": "lab_read_1",
+              "tool_calls": [],
+              "content_sha256": "d89ed3cd0664c77bdec9d426c8928ce0eb8ab8c8a108a9030f26fe4353c77bbe",
+              "content_chars": 4696
+            }
+          ],
+          "file_sha256_at_request": "58f53449cc7a3cb783cc39c2e494d21cfe12c8e82ab96761208a9b16424a39e5",
+          "file_markers_at_request": [
+            "OLD_FILE",
+            "OLD_END"
+          ],
+          "response_usage": 10,
+          "response_tool_id": null,
+          "response_markers": []
+        },
+        {
+          "index": 3,
+          "stage": 2,
+          "kind": "ordinary",
+          "stream": true,
+          "messages": [
+            {
+              "role": "system",
+              "markers": [
+                "GLOBAL_RULE",
+                "ROOT_RULE",
+                "CONFIG_RULE"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "de7abfb534e300587f9604fe0bb12d4ca6210433e741b5d0a0b5cc4ed4fe7d2f",
+              "content_chars": 9690
+            },
+            {
+              "role": "user",
+              "markers": [
+                "ATTACHED_NOTE",
+                "OLD_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "ad4256baec8c56f024c04c0125ffdb6b46a0f8addb3f09350da601cba1c81881",
+              "content_chars": 581
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_1"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "NESTED_RULE",
+                "OLD_FILE",
+                "OLD_END"
+              ],
+              "tool_call_id": "lab_read_1",
+              "tool_calls": [],
+              "content_sha256": "d89ed3cd0664c77bdec9d426c8928ce0eb8ab8c8a108a9030f26fe4353c77bbe",
+              "content_chars": 4696
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "e1ff1e9f108da512fb7d0b2b2a96e8907ee32f7c376be96bf24af78a3d0d655e",
+              "content_chars": 28
+            },
+            {
+              "role": "user",
+              "markers": [
+                "TAIL_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "14319b1d8cac00891a4b0ac3fb24d0cdffab9ee4560331ccfa9185c2d38f0471",
+              "content_chars": 45
+            }
+          ],
+          "file_sha256_at_request": "9761c5896bea3fee47017ff2c0d49c2c58aeeb3d7aecbf33667af71e68e3579b",
+          "file_markers_at_request": [
+            "NEW_FILE"
+          ],
+          "response_usage": 10,
+          "response_tool_id": "lab_read_2",
+          "response_markers": []
+        },
+        {
+          "index": 4,
+          "stage": 2,
+          "kind": "ordinary",
+          "stream": true,
+          "messages": [
+            {
+              "role": "system",
+              "markers": [
+                "GLOBAL_RULE",
+                "ROOT_RULE",
+                "CONFIG_RULE"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "de7abfb534e300587f9604fe0bb12d4ca6210433e741b5d0a0b5cc4ed4fe7d2f",
+              "content_chars": 9690
+            },
+            {
+              "role": "user",
+              "markers": [
+                "ATTACHED_NOTE",
+                "OLD_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "ad4256baec8c56f024c04c0125ffdb6b46a0f8addb3f09350da601cba1c81881",
+              "content_chars": 581
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_1"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "NESTED_RULE",
+                "OLD_FILE",
+                "OLD_END"
+              ],
+              "tool_call_id": "lab_read_1",
+              "tool_calls": [],
+              "content_sha256": "d89ed3cd0664c77bdec9d426c8928ce0eb8ab8c8a108a9030f26fe4353c77bbe",
+              "content_chars": 4696
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "e1ff1e9f108da512fb7d0b2b2a96e8907ee32f7c376be96bf24af78a3d0d655e",
+              "content_chars": 28
+            },
+            {
+              "role": "user",
+              "markers": [
+                "TAIL_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "14319b1d8cac00891a4b0ac3fb24d0cdffab9ee4560331ccfa9185c2d38f0471",
+              "content_chars": 45
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_2"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "TAIL_FILE"
+              ],
+              "tool_call_id": "lab_read_2",
+              "tool_calls": [],
+              "content_sha256": "de2b01c652138acab041db3aa6b0e6f1e6c05097e3a83c2710645e28820f69a5",
+              "content_chars": 233
+            }
+          ],
+          "file_sha256_at_request": "9761c5896bea3fee47017ff2c0d49c2c58aeeb3d7aecbf33667af71e68e3579b",
+          "file_markers_at_request": [
+            "NEW_FILE"
+          ],
+          "response_usage": 31000,
+          "response_tool_id": null,
+          "response_markers": []
+        },
+        {
+          "index": 5,
+          "stage": 3,
+          "kind": "ordinary",
+          "stream": true,
+          "messages": [
+            {
+              "role": "system",
+              "markers": [
+                "GLOBAL_RULE",
+                "ROOT_RULE",
+                "CONFIG_RULE"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "de7abfb534e300587f9604fe0bb12d4ca6210433e741b5d0a0b5cc4ed4fe7d2f",
+              "content_chars": 9690
+            },
+            {
+              "role": "user",
+              "markers": [
+                "ATTACHED_NOTE",
+                "OLD_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "ad4256baec8c56f024c04c0125ffdb6b46a0f8addb3f09350da601cba1c81881",
+              "content_chars": 581
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_1"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "NESTED_RULE",
+                "OLD_FILE",
+                "OLD_END"
+              ],
+              "tool_call_id": "lab_read_1",
+              "tool_calls": [],
+              "content_sha256": "d89ed3cd0664c77bdec9d426c8928ce0eb8ab8c8a108a9030f26fe4353c77bbe",
+              "content_chars": 4696
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "e1ff1e9f108da512fb7d0b2b2a96e8907ee32f7c376be96bf24af78a3d0d655e",
+              "content_chars": 28
+            },
+            {
+              "role": "user",
+              "markers": [
+                "TAIL_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "14319b1d8cac00891a4b0ac3fb24d0cdffab9ee4560331ccfa9185c2d38f0471",
+              "content_chars": 45
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_2"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "TAIL_FILE"
+              ],
+              "tool_call_id": "lab_read_2",
+              "tool_calls": [],
+              "content_sha256": "de2b01c652138acab041db3aa6b0e6f1e6c05097e3a83c2710645e28820f69a5",
+              "content_chars": 233
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "e1ff1e9f108da512fb7d0b2b2a96e8907ee32f7c376be96bf24af78a3d0d655e",
+              "content_chars": 28
+            },
+            {
+              "role": "user",
+              "markers": [
+                "REREAD_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "98b3bff34dca9faa27ed86f66a85c39a51835f2a63f9cd53eef1c269411e9ca8",
+              "content_chars": 49
+            }
+          ],
+          "file_sha256_at_request": "9761c5896bea3fee47017ff2c0d49c2c58aeeb3d7aecbf33667af71e68e3579b",
+          "file_markers_at_request": [
+            "NEW_FILE"
+          ],
+          "response_usage": 10,
+          "response_tool_id": "lab_read_3",
+          "response_markers": []
+        },
+        {
+          "index": 6,
+          "stage": 3,
+          "kind": "ordinary",
+          "stream": true,
+          "messages": [
+            {
+              "role": "system",
+              "markers": [
+                "GLOBAL_RULE",
+                "ROOT_RULE",
+                "CONFIG_RULE"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "de7abfb534e300587f9604fe0bb12d4ca6210433e741b5d0a0b5cc4ed4fe7d2f",
+              "content_chars": 9690
+            },
+            {
+              "role": "user",
+              "markers": [
+                "ATTACHED_NOTE",
+                "OLD_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "ad4256baec8c56f024c04c0125ffdb6b46a0f8addb3f09350da601cba1c81881",
+              "content_chars": 581
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_1"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "NESTED_RULE",
+                "OLD_FILE",
+                "OLD_END"
+              ],
+              "tool_call_id": "lab_read_1",
+              "tool_calls": [],
+              "content_sha256": "d89ed3cd0664c77bdec9d426c8928ce0eb8ab8c8a108a9030f26fe4353c77bbe",
+              "content_chars": 4696
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "e1ff1e9f108da512fb7d0b2b2a96e8907ee32f7c376be96bf24af78a3d0d655e",
+              "content_chars": 28
+            },
+            {
+              "role": "user",
+              "markers": [
+                "TAIL_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "14319b1d8cac00891a4b0ac3fb24d0cdffab9ee4560331ccfa9185c2d38f0471",
+              "content_chars": 45
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_2"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "TAIL_FILE"
+              ],
+              "tool_call_id": "lab_read_2",
+              "tool_calls": [],
+              "content_sha256": "de2b01c652138acab041db3aa6b0e6f1e6c05097e3a83c2710645e28820f69a5",
+              "content_chars": 233
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "e1ff1e9f108da512fb7d0b2b2a96e8907ee32f7c376be96bf24af78a3d0d655e",
+              "content_chars": 28
+            },
+            {
+              "role": "user",
+              "markers": [
+                "REREAD_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "98b3bff34dca9faa27ed86f66a85c39a51835f2a63f9cd53eef1c269411e9ca8",
+              "content_chars": 49
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_3"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "NEW_FILE"
+              ],
+              "tool_call_id": "lab_read_3",
+              "tool_calls": [],
+              "content_sha256": "355fd48af7af03d74693bd214689ad660f2be1742ca60b03b2698c5c1e84a08d",
+              "content_chars": 291
+            }
+          ],
+          "file_sha256_at_request": "9761c5896bea3fee47017ff2c0d49c2c58aeeb3d7aecbf33667af71e68e3579b",
+          "file_markers_at_request": [
+            "NEW_FILE"
+          ],
+          "response_usage": 10,
+          "response_tool_id": null,
+          "response_markers": []
+        }
+      ],
+      "emitted": [
+        {
+          "stage": 1,
+          "id": "lab_read_1",
+          "tool": "read",
+          "file": "src/slug.mjs"
+        },
+        {
+          "stage": 2,
+          "id": "lab_read_2",
+          "tool": "read",
+          "file": "recent.txt"
+        },
+        {
+          "stage": 3,
+          "id": "lab_read_3",
+          "tool": "read",
+          "file": "src/slug.mjs"
+        }
+      ],
+      "messages": [
+        {
+          "id": "msg_0da5efaa6001Bixst5Nz6oZHww",
+          "role": "user",
+          "parent_id": null,
+          "summary": false,
+          "finish": null,
+          "tokens": null,
+          "parts": [
+            {
+              "id": "prt_0da5efc58001fLOYDg4y7bRO9u",
+              "type": "text",
+              "markers": [],
+              "synthetic": true
+            },
+            {
+              "id": "prt_0da5efc58002By8at1HhWAofdQ",
+              "type": "text",
+              "markers": [
+                "ATTACHED_NOTE"
+              ],
+              "synthetic": true
+            },
+            {
+              "id": "prt_0da5efc580031bGKIoVn7rRg7F",
+              "type": "file"
+            },
+            {
+              "id": "prt_0da5efc59001cid3aQk6BWAquo",
+              "type": "text",
+              "markers": [
+                "OLD_REQUEST"
+              ],
+              "synthetic": false
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5efc72001WHSs6L4YpjeggO",
+          "role": "assistant",
+          "parent_id": "msg_0da5efaa6001Bixst5Nz6oZHww",
+          "summary": false,
+          "finish": "tool-calls",
+          "tokens": {
+            "total": 11,
+            "input": 10,
+            "output": 1,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          },
+          "parts": [
+            {
+              "id": "prt_0da5effee0010z4mLvF0IT0elc",
+              "type": "step-start"
+            },
+            {
+              "id": "prt_0da5efff00016x8mEKNU107ESl",
+              "type": "tool",
+              "tool": "read",
+              "call_id": "lab_read_1",
+              "status": "completed",
+              "output_markers": [
+                "NESTED_RULE",
+                "OLD_FILE",
+                "OLD_END"
+              ],
+              "output_sha256": "d89ed3cd0664c77bdec9d426c8928ce0eb8ab8c8a108a9030f26fe4353c77bbe",
+              "compacted": false,
+              "loaded": [
+                "src/AGENTS.md"
+              ]
+            },
+            {
+              "id": "prt_0da5f000e001qWs6q6X5lB6GCi",
+              "type": "step-finish"
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f0016001jMjGP5Z2JS5irX",
+          "role": "assistant",
+          "parent_id": "msg_0da5efaa6001Bixst5Nz6oZHww",
+          "summary": false,
+          "finish": "stop",
+          "tokens": {
+            "total": 11,
+            "input": 10,
+            "output": 1,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          },
+          "parts": [
+            {
+              "id": "prt_0da5f0034001Zs8vaAbNK1oHLk",
+              "type": "step-start"
+            },
+            {
+              "id": "prt_0da5f0036001fAa7vduunsuXmV",
+              "type": "text",
+              "markers": [],
+              "synthetic": false
+            },
+            {
+              "id": "prt_0da5f003b001jf6oEKEw1aP2Mi",
+              "type": "step-finish"
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f08b4001cx4K6yoUy4HBGl",
+          "role": "user",
+          "parent_id": null,
+          "summary": false,
+          "finish": null,
+          "tokens": null,
+          "parts": [
+            {
+              "id": "prt_0da5f08b6001VXANsw1vOPgMeX",
+              "type": "text",
+              "markers": [
+                "TAIL_REQUEST"
+              ],
+              "synthetic": false
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f0a35001kpGLAgL5aZjOG4",
+          "role": "assistant",
+          "parent_id": "msg_0da5f08b4001cx4K6yoUy4HBGl",
+          "summary": false,
+          "finish": "tool-calls",
+          "tokens": {
+            "total": 11,
+            "input": 10,
+            "output": 1,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          },
+          "parts": [
+            {
+              "id": "prt_0da5f0d5b001y5I5NCflF8GLZJ",
+              "type": "step-start"
+            },
+            {
+              "id": "prt_0da5f0d5d001e7NDMgQk1lm8fb",
+              "type": "tool",
+              "tool": "read",
+              "call_id": "lab_read_2",
+              "status": "completed",
+              "output_markers": [
+                "TAIL_FILE"
+              ],
+              "output_sha256": "de2b01c652138acab041db3aa6b0e6f1e6c05097e3a83c2710645e28820f69a5",
+              "compacted": false,
+              "loaded": []
+            },
+            {
+              "id": "prt_0da5f0d780015QTAf9cACJ0Upy",
+              "type": "step-finish"
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f0d7f001m77MYcULS5zDvl",
+          "role": "assistant",
+          "parent_id": "msg_0da5f08b4001cx4K6yoUy4HBGl",
+          "summary": false,
+          "finish": "stop",
+          "tokens": {
+            "total": 31001,
+            "input": 31000,
+            "output": 1,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          },
+          "parts": [
+            {
+              "id": "prt_0da5f0d96001npxmH5JLuZXZS7",
+              "type": "step-start"
+            },
+            {
+              "id": "prt_0da5f0d98001E26C0tj2KkkGG4",
+              "type": "text",
+              "markers": [],
+              "synthetic": false
+            },
+            {
+              "id": "prt_0da5f0d9b001qPhD46HnkKqKSs",
+              "type": "step-finish"
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f15fe001rLFuLLK9i0BUPp",
+          "role": "user",
+          "parent_id": null,
+          "summary": false,
+          "finish": null,
+          "tokens": null,
+          "parts": [
+            {
+              "id": "prt_0da5f1600001NJ0ABIl8caNtcq",
+              "type": "text",
+              "markers": [
+                "REREAD_REQUEST"
+              ],
+              "synthetic": false
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f1793001WgcGLUWJ3pBRow",
+          "role": "assistant",
+          "parent_id": "msg_0da5f15fe001rLFuLLK9i0BUPp",
+          "summary": false,
+          "finish": "tool-calls",
+          "tokens": {
+            "total": 11,
+            "input": 10,
+            "output": 1,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          },
+          "parts": [
+            {
+              "id": "prt_0da5f1ac2001GRhIVkFz4ltnWO",
+              "type": "step-start"
+            },
+            {
+              "id": "prt_0da5f1ac4001b02Uf1ExDCCJNf",
+              "type": "tool",
+              "tool": "read",
+              "call_id": "lab_read_3",
+              "status": "completed",
+              "output_markers": [
+                "NEW_FILE"
+              ],
+              "output_sha256": "355fd48af7af03d74693bd214689ad660f2be1742ca60b03b2698c5c1e84a08d",
+              "compacted": false,
+              "loaded": []
+            },
+            {
+              "id": "prt_0da5f1adf001qTBMPaKtO5vWhN",
+              "type": "step-finish"
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f1ae60015Bjm7tfgXk9czk",
+          "role": "assistant",
+          "parent_id": "msg_0da5f15fe001rLFuLLK9i0BUPp",
+          "summary": false,
+          "finish": "stop",
+          "tokens": {
+            "total": 11,
+            "input": 10,
+            "output": 1,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          },
+          "parts": [
+            {
+              "id": "prt_0da5f1afc001h83HPWK32q2ajG",
+              "type": "step-start"
+            },
+            {
+              "id": "prt_0da5f1afe001m722MQaWkBQSWO",
+              "type": "text",
+              "markers": [],
+              "synthetic": false
+            },
+            {
+              "id": "prt_0da5f1b03001cXSGq1K2qrodZ5",
+              "type": "step-finish"
+            }
+          ]
+        }
+      ],
+      "current_files": {
+        "AGENTS.md": {
+          "sha256": "63042b02d0ecff470c094a25e61fe8c3d0e0de143c4397d34d8e195b200bad51",
+          "markers": [
+            "ROOT_RULE"
+          ]
+        },
+        "CLAUDE.md": {
+          "sha256": "252027a6840eeb3a4c4b00993deba4643ae2e51545f6c8b8db8881fe8ff8cb69",
+          "markers": [
+            "FALLBACK_RULE"
+          ]
+        },
+        "src/AGENTS.md": {
+          "sha256": "480dc350441f69b0acca4a836b26c82432ab41df50d3b1fb5c0787a428767bbe",
+          "markers": [
+            "NESTED_RULE"
+          ]
+        },
+        "src/slug.mjs": {
+          "sha256": "9761c5896bea3fee47017ff2c0d49c2c58aeeb3d7aecbf33667af71e68e3579b",
+          "markers": [
+            "NEW_FILE"
+          ]
+        },
+        "recent.txt": {
+          "sha256": "653d99ec42ab63c7c83826f4b36e7d7468bd03fb31b46710f67a5c508daeceab",
+          "markers": [
+            "TAIL_FILE"
+          ]
+        },
+        "attached.txt": {
+          "sha256": "5a08d204d28d2187a4a96078196b05a66e9c9e8f5bf0a5784234afa3b2729aa0",
+          "markers": [
+            "ATTACHED_NOTE"
+          ]
+        },
+        "unread.txt": {
+          "sha256": "32e50b4552a07354439c562c73bc4a8443d8d333c88ba294f453ee4001634087",
+          "markers": [
+            "UNREAD_SECRET"
+          ]
+        },
+        "extra-rules.txt": {
+          "sha256": "9f8ec418562460806f2c3a72ec7f838dde4f90f24ec02104743fe23b7f7a73a4",
+          "markers": [
+            "CONFIG_RULE"
+          ]
+        }
+      }
+    },
+    {
+      "mode": "compact",
+      "session_id": "ses_f25a0da68ffeuk4IcNvk4gRI8C",
+      "config": {
+        "auto": true,
+        "prune": false,
+        "tail_turns": 1,
+        "preserve_recent_tokens": 8000
+      },
+      "calls": [
+        {
+          "stage": 1,
+          "exit": 0,
+          "session_id": "ses_f25a0da68ffeuk4IcNvk4gRI8C",
+          "errors": []
+        },
+        {
+          "stage": 2,
+          "exit": 0,
+          "session_id": "ses_f25a0da68ffeuk4IcNvk4gRI8C",
+          "errors": []
+        },
+        {
+          "stage": 3,
+          "exit": 0,
+          "session_id": "ses_f25a0da68ffeuk4IcNvk4gRI8C",
+          "errors": []
+        }
+      ],
+      "requests": [
+        {
+          "index": 1,
+          "stage": 1,
+          "kind": "ordinary",
+          "stream": true,
+          "messages": [
+            {
+              "role": "system",
+              "markers": [
+                "GLOBAL_RULE",
+                "ROOT_RULE",
+                "CONFIG_RULE"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "297cffb684ed35e50199fff71a6ab8424f1e7dfdde61aa6927f1907527c94cc3",
+              "content_chars": 9675
+            },
+            {
+              "role": "user",
+              "markers": [
+                "ATTACHED_NOTE",
+                "OLD_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "0bf4b940fecc9b70f1f75749856bc7b3df8377af01f24b07ff8484043510432c",
+              "content_chars": 575
+            }
+          ],
+          "file_sha256_at_request": "58f53449cc7a3cb783cc39c2e494d21cfe12c8e82ab96761208a9b16424a39e5",
+          "file_markers_at_request": [
+            "OLD_FILE",
+            "OLD_END"
+          ],
+          "response_usage": 10,
+          "response_tool_id": "lab_read_1",
+          "response_markers": []
+        },
+        {
+          "index": 2,
+          "stage": 1,
+          "kind": "ordinary",
+          "stream": true,
+          "messages": [
+            {
+              "role": "system",
+              "markers": [
+                "GLOBAL_RULE",
+                "ROOT_RULE",
+                "CONFIG_RULE"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "297cffb684ed35e50199fff71a6ab8424f1e7dfdde61aa6927f1907527c94cc3",
+              "content_chars": 9675
+            },
+            {
+              "role": "user",
+              "markers": [
+                "ATTACHED_NOTE",
+                "OLD_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "0bf4b940fecc9b70f1f75749856bc7b3df8377af01f24b07ff8484043510432c",
+              "content_chars": 575
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_1"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "NESTED_RULE",
+                "OLD_FILE",
+                "OLD_END"
+              ],
+              "tool_call_id": "lab_read_1",
+              "tool_calls": [],
+              "content_sha256": "15f91c19acbb50b1af99f3d3d4cb13b9a63ab2d4136019a52ed791999baf064a",
+              "content_chars": 4690
+            }
+          ],
+          "file_sha256_at_request": "58f53449cc7a3cb783cc39c2e494d21cfe12c8e82ab96761208a9b16424a39e5",
+          "file_markers_at_request": [
+            "OLD_FILE",
+            "OLD_END"
+          ],
+          "response_usage": 10,
+          "response_tool_id": null,
+          "response_markers": []
+        },
+        {
+          "index": 3,
+          "stage": 2,
+          "kind": "ordinary",
+          "stream": true,
+          "messages": [
+            {
+              "role": "system",
+              "markers": [
+                "GLOBAL_RULE",
+                "ROOT_RULE",
+                "CONFIG_RULE"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "297cffb684ed35e50199fff71a6ab8424f1e7dfdde61aa6927f1907527c94cc3",
+              "content_chars": 9675
+            },
+            {
+              "role": "user",
+              "markers": [
+                "ATTACHED_NOTE",
+                "OLD_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "0bf4b940fecc9b70f1f75749856bc7b3df8377af01f24b07ff8484043510432c",
+              "content_chars": 575
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_1"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "NESTED_RULE",
+                "OLD_FILE",
+                "OLD_END"
+              ],
+              "tool_call_id": "lab_read_1",
+              "tool_calls": [],
+              "content_sha256": "15f91c19acbb50b1af99f3d3d4cb13b9a63ab2d4136019a52ed791999baf064a",
+              "content_chars": 4690
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "e1ff1e9f108da512fb7d0b2b2a96e8907ee32f7c376be96bf24af78a3d0d655e",
+              "content_chars": 28
+            },
+            {
+              "role": "user",
+              "markers": [
+                "TAIL_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "14319b1d8cac00891a4b0ac3fb24d0cdffab9ee4560331ccfa9185c2d38f0471",
+              "content_chars": 45
+            }
+          ],
+          "file_sha256_at_request": "9761c5896bea3fee47017ff2c0d49c2c58aeeb3d7aecbf33667af71e68e3579b",
+          "file_markers_at_request": [
+            "NEW_FILE"
+          ],
+          "response_usage": 10,
+          "response_tool_id": "lab_read_2",
+          "response_markers": []
+        },
+        {
+          "index": 4,
+          "stage": 2,
+          "kind": "ordinary",
+          "stream": true,
+          "messages": [
+            {
+              "role": "system",
+              "markers": [
+                "GLOBAL_RULE",
+                "ROOT_RULE",
+                "CONFIG_RULE"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "297cffb684ed35e50199fff71a6ab8424f1e7dfdde61aa6927f1907527c94cc3",
+              "content_chars": 9675
+            },
+            {
+              "role": "user",
+              "markers": [
+                "ATTACHED_NOTE",
+                "OLD_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "0bf4b940fecc9b70f1f75749856bc7b3df8377af01f24b07ff8484043510432c",
+              "content_chars": 575
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_1"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "NESTED_RULE",
+                "OLD_FILE",
+                "OLD_END"
+              ],
+              "tool_call_id": "lab_read_1",
+              "tool_calls": [],
+              "content_sha256": "15f91c19acbb50b1af99f3d3d4cb13b9a63ab2d4136019a52ed791999baf064a",
+              "content_chars": 4690
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "e1ff1e9f108da512fb7d0b2b2a96e8907ee32f7c376be96bf24af78a3d0d655e",
+              "content_chars": 28
+            },
+            {
+              "role": "user",
+              "markers": [
+                "TAIL_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "14319b1d8cac00891a4b0ac3fb24d0cdffab9ee4560331ccfa9185c2d38f0471",
+              "content_chars": 45
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_2"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "TAIL_FILE"
+              ],
+              "tool_call_id": "lab_read_2",
+              "tool_calls": [],
+              "content_sha256": "374d0dd25b90aeab1097dfa1d0ed78a13245a58ac10578d9f3d4e5bba2b8cde9",
+              "content_chars": 230
+            }
+          ],
+          "file_sha256_at_request": "9761c5896bea3fee47017ff2c0d49c2c58aeeb3d7aecbf33667af71e68e3579b",
+          "file_markers_at_request": [
+            "NEW_FILE"
+          ],
+          "response_usage": 31000,
+          "response_tool_id": null,
+          "response_markers": []
+        },
+        {
+          "index": 5,
+          "stage": 2,
+          "kind": "compaction",
+          "stream": true,
+          "messages": [
+            {
+              "role": "system",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "552db0de0af1873a8acd4a631e2548345d4c43192de1d9be69c8feab4b41f80c",
+              "content_chars": 637
+            },
+            {
+              "role": "user",
+              "markers": [
+                "ATTACHED_NOTE",
+                "OLD_FILE",
+                "OLD_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "0a3b6a83cbac0a8ad738b1b7d15cdc78abe36cb7bac73e857589536feaf46f62",
+              "content_chars": 4231
+            }
+          ],
+          "file_sha256_at_request": "9761c5896bea3fee47017ff2c0d49c2c58aeeb3d7aecbf33667af71e68e3579b",
+          "file_markers_at_request": [
+            "NEW_FILE"
+          ],
+          "response_usage": 10,
+          "response_tool_id": null,
+          "response_markers": [
+            "SUMMARY_NOTE"
+          ]
+        },
+        {
+          "index": 6,
+          "stage": 2,
+          "kind": "ordinary",
+          "stream": true,
+          "messages": [
+            {
+              "role": "system",
+              "markers": [
+                "GLOBAL_RULE",
+                "ROOT_RULE",
+                "CONFIG_RULE"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "297cffb684ed35e50199fff71a6ab8424f1e7dfdde61aa6927f1907527c94cc3",
+              "content_chars": 9675
+            },
+            {
+              "role": "user",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "66f7888b3951addfb842b8b0e10b81d33e70aeaa8d93dbb1d00bffcb9337684b",
+              "content_chars": 24
+            },
+            {
+              "role": "assistant",
+              "markers": [
+                "SUMMARY_NOTE"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "2626e27b038508ff575af4fc988e5962c38007a23aa064ffd74d143af2cc5bda",
+              "content_chars": 93
+            },
+            {
+              "role": "user",
+              "markers": [
+                "TAIL_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "14319b1d8cac00891a4b0ac3fb24d0cdffab9ee4560331ccfa9185c2d38f0471",
+              "content_chars": 45
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_2"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "TAIL_FILE"
+              ],
+              "tool_call_id": "lab_read_2",
+              "tool_calls": [],
+              "content_sha256": "374d0dd25b90aeab1097dfa1d0ed78a13245a58ac10578d9f3d4e5bba2b8cde9",
+              "content_chars": 230
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "e1ff1e9f108da512fb7d0b2b2a96e8907ee32f7c376be96bf24af78a3d0d655e",
+              "content_chars": 28
+            },
+            {
+              "role": "user",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "80a62c1aa08786982ccca7e60fa1d71e6e807bd4af669df041041c5ffb17b0a0",
+              "content_chars": 102
+            }
+          ],
+          "file_sha256_at_request": "9761c5896bea3fee47017ff2c0d49c2c58aeeb3d7aecbf33667af71e68e3579b",
+          "file_markers_at_request": [
+            "NEW_FILE"
+          ],
+          "response_usage": 10,
+          "response_tool_id": null,
+          "response_markers": []
+        },
+        {
+          "index": 7,
+          "stage": 3,
+          "kind": "ordinary",
+          "stream": true,
+          "messages": [
+            {
+              "role": "system",
+              "markers": [
+                "GLOBAL_RULE",
+                "ROOT_RULE",
+                "CONFIG_RULE"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "297cffb684ed35e50199fff71a6ab8424f1e7dfdde61aa6927f1907527c94cc3",
+              "content_chars": 9675
+            },
+            {
+              "role": "user",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "66f7888b3951addfb842b8b0e10b81d33e70aeaa8d93dbb1d00bffcb9337684b",
+              "content_chars": 24
+            },
+            {
+              "role": "assistant",
+              "markers": [
+                "SUMMARY_NOTE"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "2626e27b038508ff575af4fc988e5962c38007a23aa064ffd74d143af2cc5bda",
+              "content_chars": 93
+            },
+            {
+              "role": "user",
+              "markers": [
+                "TAIL_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "14319b1d8cac00891a4b0ac3fb24d0cdffab9ee4560331ccfa9185c2d38f0471",
+              "content_chars": 45
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_2"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "TAIL_FILE"
+              ],
+              "tool_call_id": "lab_read_2",
+              "tool_calls": [],
+              "content_sha256": "374d0dd25b90aeab1097dfa1d0ed78a13245a58ac10578d9f3d4e5bba2b8cde9",
+              "content_chars": 230
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "e1ff1e9f108da512fb7d0b2b2a96e8907ee32f7c376be96bf24af78a3d0d655e",
+              "content_chars": 28
+            },
+            {
+              "role": "user",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "80a62c1aa08786982ccca7e60fa1d71e6e807bd4af669df041041c5ffb17b0a0",
+              "content_chars": 102
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "e1ff1e9f108da512fb7d0b2b2a96e8907ee32f7c376be96bf24af78a3d0d655e",
+              "content_chars": 28
+            },
+            {
+              "role": "user",
+              "markers": [
+                "REREAD_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "98b3bff34dca9faa27ed86f66a85c39a51835f2a63f9cd53eef1c269411e9ca8",
+              "content_chars": 49
+            }
+          ],
+          "file_sha256_at_request": "9761c5896bea3fee47017ff2c0d49c2c58aeeb3d7aecbf33667af71e68e3579b",
+          "file_markers_at_request": [
+            "NEW_FILE"
+          ],
+          "response_usage": 10,
+          "response_tool_id": "lab_read_3",
+          "response_markers": []
+        },
+        {
+          "index": 8,
+          "stage": 3,
+          "kind": "ordinary",
+          "stream": true,
+          "messages": [
+            {
+              "role": "system",
+              "markers": [
+                "GLOBAL_RULE",
+                "ROOT_RULE",
+                "CONFIG_RULE"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "297cffb684ed35e50199fff71a6ab8424f1e7dfdde61aa6927f1907527c94cc3",
+              "content_chars": 9675
+            },
+            {
+              "role": "user",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "66f7888b3951addfb842b8b0e10b81d33e70aeaa8d93dbb1d00bffcb9337684b",
+              "content_chars": 24
+            },
+            {
+              "role": "assistant",
+              "markers": [
+                "SUMMARY_NOTE"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "2626e27b038508ff575af4fc988e5962c38007a23aa064ffd74d143af2cc5bda",
+              "content_chars": 93
+            },
+            {
+              "role": "user",
+              "markers": [
+                "TAIL_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "14319b1d8cac00891a4b0ac3fb24d0cdffab9ee4560331ccfa9185c2d38f0471",
+              "content_chars": 45
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_2"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "TAIL_FILE"
+              ],
+              "tool_call_id": "lab_read_2",
+              "tool_calls": [],
+              "content_sha256": "374d0dd25b90aeab1097dfa1d0ed78a13245a58ac10578d9f3d4e5bba2b8cde9",
+              "content_chars": 230
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "e1ff1e9f108da512fb7d0b2b2a96e8907ee32f7c376be96bf24af78a3d0d655e",
+              "content_chars": 28
+            },
+            {
+              "role": "user",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "80a62c1aa08786982ccca7e60fa1d71e6e807bd4af669df041041c5ffb17b0a0",
+              "content_chars": 102
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "e1ff1e9f108da512fb7d0b2b2a96e8907ee32f7c376be96bf24af78a3d0d655e",
+              "content_chars": 28
+            },
+            {
+              "role": "user",
+              "markers": [
+                "REREAD_REQUEST"
+              ],
+              "tool_call_id": null,
+              "tool_calls": [],
+              "content_sha256": "98b3bff34dca9faa27ed86f66a85c39a51835f2a63f9cd53eef1c269411e9ca8",
+              "content_chars": 49
+            },
+            {
+              "role": "assistant",
+              "markers": [],
+              "tool_call_id": null,
+              "tool_calls": [
+                "lab_read_3"
+              ],
+              "content_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "content_chars": 2
+            },
+            {
+              "role": "tool",
+              "markers": [
+                "NESTED_RULE",
+                "NEW_FILE"
+              ],
+              "tool_call_id": "lab_read_3",
+              "tool_calls": [],
+              "content_sha256": "3b459239b9a10cde40a0e0703863458c9e3219b8b09d5d8b005506ece235f2f6",
+              "content_chars": 523
+            }
+          ],
+          "file_sha256_at_request": "9761c5896bea3fee47017ff2c0d49c2c58aeeb3d7aecbf33667af71e68e3579b",
+          "file_markers_at_request": [
+            "NEW_FILE"
+          ],
+          "response_usage": 10,
+          "response_tool_id": null,
+          "response_markers": []
+        }
+      ],
+      "emitted": [
+        {
+          "stage": 1,
+          "id": "lab_read_1",
+          "tool": "read",
+          "file": "src/slug.mjs"
+        },
+        {
+          "stage": 2,
+          "id": "lab_read_2",
+          "tool": "read",
+          "file": "recent.txt"
+        },
+        {
+          "stage": 3,
+          "id": "lab_read_3",
+          "tool": "read",
+          "file": "src/slug.mjs"
+        }
+      ],
+      "messages": [
+        {
+          "id": "msg_0da5f25c80017S7NLtBC3pqo60",
+          "role": "user",
+          "parent_id": null,
+          "summary": false,
+          "finish": null,
+          "tokens": null,
+          "parts": [
+            {
+              "id": "prt_0da5f2766001THOHh2LDfu39Ps",
+              "type": "text",
+              "markers": [],
+              "synthetic": true
+            },
+            {
+              "id": "prt_0da5f2767001Lg2JnzohG5aUtE",
+              "type": "text",
+              "markers": [
+                "ATTACHED_NOTE"
+              ],
+              "synthetic": true
+            },
+            {
+              "id": "prt_0da5f2767002ArlqNXAz0NdKo2",
+              "type": "file"
+            },
+            {
+              "id": "prt_0da5f2767003Q1c1TKZrkuEJhy",
+              "type": "text",
+              "markers": [
+                "OLD_REQUEST"
+              ],
+              "synthetic": false
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f277d001duhlcdbuX2aJBf",
+          "role": "assistant",
+          "parent_id": "msg_0da5f25c80017S7NLtBC3pqo60",
+          "summary": false,
+          "finish": "tool-calls",
+          "tokens": {
+            "total": 11,
+            "input": 10,
+            "output": 1,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          },
+          "parts": [
+            {
+              "id": "prt_0da5f2b01001N7RZtveVqDVDq6",
+              "type": "step-start"
+            },
+            {
+              "id": "prt_0da5f2b04001yja6iKVIPvcbPr",
+              "type": "tool",
+              "tool": "read",
+              "call_id": "lab_read_1",
+              "status": "completed",
+              "output_markers": [
+                "NESTED_RULE",
+                "OLD_FILE",
+                "OLD_END"
+              ],
+              "output_sha256": "15f91c19acbb50b1af99f3d3d4cb13b9a63ab2d4136019a52ed791999baf064a",
+              "compacted": false,
+              "loaded": [
+                "src/AGENTS.md"
+              ]
+            },
+            {
+              "id": "prt_0da5f2b1c001p7cPqHL530HyyW",
+              "type": "step-finish"
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f2b25001ADjlBU2VL7nDg6",
+          "role": "assistant",
+          "parent_id": "msg_0da5f25c80017S7NLtBC3pqo60",
+          "summary": false,
+          "finish": "stop",
+          "tokens": {
+            "total": 11,
+            "input": 10,
+            "output": 1,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          },
+          "parts": [
+            {
+              "id": "prt_0da5f2b43001ts7T60NRS2vnDJ",
+              "type": "step-start"
+            },
+            {
+              "id": "prt_0da5f2b450018aw1e4PVycmYSy",
+              "type": "text",
+              "markers": [],
+              "synthetic": false
+            },
+            {
+              "id": "prt_0da5f2b490015mCzHKIwGV1uT2",
+              "type": "step-finish"
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f3375001Mb6XisKCK28N2I",
+          "role": "user",
+          "parent_id": null,
+          "summary": false,
+          "finish": null,
+          "tokens": null,
+          "parts": [
+            {
+              "id": "prt_0da5f3376001j9PxgoskERawdy",
+              "type": "text",
+              "markers": [
+                "TAIL_REQUEST"
+              ],
+              "synthetic": false
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f350d001wZnE1LAhQRrxod",
+          "role": "assistant",
+          "parent_id": "msg_0da5f3375001Mb6XisKCK28N2I",
+          "summary": false,
+          "finish": "tool-calls",
+          "tokens": {
+            "total": 11,
+            "input": 10,
+            "output": 1,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          },
+          "parts": [
+            {
+              "id": "prt_0da5f3825001xYLpGKSb0t0gfN",
+              "type": "step-start"
+            },
+            {
+              "id": "prt_0da5f3827001zwJbQleaT89pX8",
+              "type": "tool",
+              "tool": "read",
+              "call_id": "lab_read_2",
+              "status": "completed",
+              "output_markers": [
+                "TAIL_FILE"
+              ],
+              "output_sha256": "374d0dd25b90aeab1097dfa1d0ed78a13245a58ac10578d9f3d4e5bba2b8cde9",
+              "compacted": false,
+              "loaded": []
+            },
+            {
+              "id": "prt_0da5f3841001AeB3b0Ndsv5Rg1",
+              "type": "step-finish"
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f3848001gapPPNDFSZ4dlj",
+          "role": "assistant",
+          "parent_id": "msg_0da5f3375001Mb6XisKCK28N2I",
+          "summary": false,
+          "finish": "stop",
+          "tokens": {
+            "total": 31001,
+            "input": 31000,
+            "output": 1,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          },
+          "parts": [
+            {
+              "id": "prt_0da5f385d001EgoQ2j0it02lb5",
+              "type": "step-start"
+            },
+            {
+              "id": "prt_0da5f385f001cBiR5tF9W8SWY3",
+              "type": "text",
+              "markers": [],
+              "synthetic": false
+            },
+            {
+              "id": "prt_0da5f3863001tHbKUznRXTqSwJ",
+              "type": "step-finish"
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f3868001UP6ZPCyNehHvPo",
+          "role": "user",
+          "parent_id": null,
+          "summary": false,
+          "finish": null,
+          "tokens": null,
+          "parts": [
+            {
+              "id": "prt_0da5f3869001UFhpyhEa7TszJL",
+              "type": "compaction",
+              "auto": true,
+              "tail_start_id": "msg_0da5f3375001Mb6XisKCK28N2I"
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f386d001BDqhN0Q1flV1TK",
+          "role": "assistant",
+          "parent_id": "msg_0da5f3868001UP6ZPCyNehHvPo",
+          "summary": true,
+          "finish": "stop",
+          "tokens": {
+            "total": 11,
+            "input": 10,
+            "output": 1,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          },
+          "parts": [
+            {
+              "id": "prt_0da5f387b001R1fIGIcFkJ4zUd",
+              "type": "step-start"
+            },
+            {
+              "id": "prt_0da5f387d001BXGUcuuUtWo8yN",
+              "type": "text",
+              "markers": [
+                "SUMMARY_NOTE"
+              ],
+              "synthetic": false
+            },
+            {
+              "id": "prt_0da5f387f001vIEX7syzAcauEn",
+              "type": "step-finish"
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f3884001pNsoIKsNdHoQvI",
+          "role": "user",
+          "parent_id": null,
+          "summary": false,
+          "finish": null,
+          "tokens": null,
+          "parts": [
+            {
+              "id": "prt_0da5f3885001E208Fvd855Z5dD",
+              "type": "text",
+              "markers": [],
+              "synthetic": true
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f3887001GYDcM1KhnJsdzZ",
+          "role": "assistant",
+          "parent_id": "msg_0da5f3884001pNsoIKsNdHoQvI",
+          "summary": false,
+          "finish": "stop",
+          "tokens": {
+            "total": 11,
+            "input": 10,
+            "output": 1,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          },
+          "parts": [
+            {
+              "id": "prt_0da5f3899001oFdZO2cIRcfq7i",
+              "type": "step-start"
+            },
+            {
+              "id": "prt_0da5f389b001ZK93DtpVrSrg5u",
+              "type": "text",
+              "markers": [],
+              "synthetic": false
+            },
+            {
+              "id": "prt_0da5f389e001dBSNG1oiulF3VN",
+              "type": "step-finish"
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f40ee001UOuPHxRZU6xj6N",
+          "role": "user",
+          "parent_id": null,
+          "summary": false,
+          "finish": null,
+          "tokens": null,
+          "parts": [
+            {
+              "id": "prt_0da5f40f1001MFAtvEZOqKCaUg",
+              "type": "text",
+              "markers": [
+                "REREAD_REQUEST"
+              ],
+              "synthetic": false
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f427b001TjqvCub6A6wdge",
+          "role": "assistant",
+          "parent_id": "msg_0da5f40ee001UOuPHxRZU6xj6N",
+          "summary": false,
+          "finish": "tool-calls",
+          "tokens": {
+            "total": 11,
+            "input": 10,
+            "output": 1,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          },
+          "parts": [
+            {
+              "id": "prt_0da5f45af001JeYruvIp32CmCU",
+              "type": "step-start"
+            },
+            {
+              "id": "prt_0da5f45b2001Kzuw6jBW2yIzIh",
+              "type": "tool",
+              "tool": "read",
+              "call_id": "lab_read_3",
+              "status": "completed",
+              "output_markers": [
+                "NESTED_RULE",
+                "NEW_FILE"
+              ],
+              "output_sha256": "3b459239b9a10cde40a0e0703863458c9e3219b8b09d5d8b005506ece235f2f6",
+              "compacted": false,
+              "loaded": [
+                "src/AGENTS.md"
+              ]
+            },
+            {
+              "id": "prt_0da5f45cc001hQldAjs21sr2h0",
+              "type": "step-finish"
+            }
+          ]
+        },
+        {
+          "id": "msg_0da5f45d3001M5FSZDEX8AgQRS",
+          "role": "assistant",
+          "parent_id": "msg_0da5f40ee001UOuPHxRZU6xj6N",
+          "summary": false,
+          "finish": "stop",
+          "tokens": {
+            "total": 11,
+            "input": 10,
+            "output": 1,
+            "reasoning": 0,
+            "cache": {
+              "write": 0,
+              "read": 0
+            }
+          },
+          "parts": [
+            {
+              "id": "prt_0da5f45f0001qYdRg6kCFN0Gmz",
+              "type": "step-start"
+            },
+            {
+              "id": "prt_0da5f45f2001akFiRBvlNkA2Eo",
+              "type": "text",
+              "markers": [],
+              "synthetic": false
+            },
+            {
+              "id": "prt_0da5f45f7001eDF48zR3X575bq",
+              "type": "step-finish"
+            }
+          ]
+        }
+      ],
+      "current_files": {
+        "AGENTS.md": {
+          "sha256": "63042b02d0ecff470c094a25e61fe8c3d0e0de143c4397d34d8e195b200bad51",
+          "markers": [
+            "ROOT_RULE"
+          ]
+        },
+        "CLAUDE.md": {
+          "sha256": "252027a6840eeb3a4c4b00993deba4643ae2e51545f6c8b8db8881fe8ff8cb69",
+          "markers": [
+            "FALLBACK_RULE"
+          ]
+        },
+        "src/AGENTS.md": {
+          "sha256": "480dc350441f69b0acca4a836b26c82432ab41df50d3b1fb5c0787a428767bbe",
+          "markers": [
+            "NESTED_RULE"
+          ]
+        },
+        "src/slug.mjs": {
+          "sha256": "9761c5896bea3fee47017ff2c0d49c2c58aeeb3d7aecbf33667af71e68e3579b",
+          "markers": [
+            "NEW_FILE"
+          ]
+        },
+        "recent.txt": {
+          "sha256": "653d99ec42ab63c7c83826f4b36e7d7468bd03fb31b46710f67a5c508daeceab",
+          "markers": [
+            "TAIL_FILE"
+          ]
+        },
+        "attached.txt": {
+          "sha256": "5a08d204d28d2187a4a96078196b05a66e9c9e8f5bf0a5784234afa3b2729aa0",
+          "markers": [
+            "ATTACHED_NOTE"
+          ]
+        },
+        "unread.txt": {
+          "sha256": "32e50b4552a07354439c562c73bc4a8443d8d333c88ba294f453ee4001634087",
+          "markers": [
+            "UNREAD_SECRET"
+          ]
+        },
+        "extra-rules.txt": {
+          "sha256": "9f8ec418562460806f2c3a72ec7f838dde4f90f24ec02104743fe23b7f7a73a4",
+          "markers": [
+            "CONFIG_RULE"
+          ]
+        }
+      }
+    }
+  ]
+}

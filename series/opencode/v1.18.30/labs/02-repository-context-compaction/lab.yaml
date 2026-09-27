@@ -1,0 +1,13 @@
+schema_version: 1
+lab_id: opencode-02-context-compaction
+title: Repository context and compaction
+series: OpenCode Architecture
+version: 1.18.30
+commit: 3104c1428ec91f809e5ab86631300de41eb6952e
+evidence_class: OBSERVED_WITH_SCRIPTED_PROVIDER
+provider_required: false
+model_inference: false
+runtime_tested_platforms:
+  - windows-amd64
+ci_scope: offline-evidence-checks
+entrypoint: README.md
