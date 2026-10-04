@@ -1,0 +1,15 @@
+schema_version: 1
+id: opencode-03-tool-permission-boundaries
+title: Tool execution and permission boundaries
+series: OpenCode Architecture
+part: 3
+tested_project:
+  name: opencode
+  version: 1.18.30
+  tag: v1.18.30
+  commit: 3104c1428ec91f809e5ab86631300de41eb6952e
+evidence_class: OBSERVED_WITH_SCRIPTED_PROVIDER
+provider_required: false
+runtime_platform: windows-amd64
+offline_platforms: [windows, macos, linux]
+entrypoint: README.md
