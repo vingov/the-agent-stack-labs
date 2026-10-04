@@ -1,0 +1,505 @@
+{
+  "schema_version": 1,
+  "release": "1.18.30",
+  "commit": "3104c1428ec91f809e5ab86631300de41eb6952e",
+  "platform": "Windows",
+  "architecture": "AMD64",
+  "binary_sha256": "c1bdbb18767048e1853af4238311b3f7e16ff2f91b68fb4c7ced3c5175347eea",
+  "python": "3.12.14",
+  "node": "v24.19.0",
+  "evidence_class": "OBSERVED_WITH_SCRIPTED_PROVIDER",
+  "permission_reply_capture": "not recorded; responder behavior attributed to source",
+  "cases": [
+    {
+      "name": "allow",
+      "configured_action": "allow",
+      "auto": false,
+      "session_id": "ses_ef7f4fbf5ffeCm2s8Kk4LIMKHm",
+      "agent_target_rule": "allow",
+      "session_permission": [
+        {
+          "permission": "question",
+          "pattern": "*",
+          "action": "deny"
+        },
+        {
+          "permission": "plan_enter",
+          "pattern": "*",
+          "action": "deny"
+        },
+        {
+          "permission": "plan_exit",
+          "pattern": "*",
+          "action": "deny"
+        }
+      ],
+      "edit_arguments": {
+        "filePath": "slug.mjs",
+        "oldString": ".replaceAll(' ', '-')",
+        "newString": ".replace(/\\s+/g, '-')"
+      },
+      "evaluated_edit": {
+        "permission": "edit",
+        "pattern": "slug.mjs",
+        "rule_permission": "edit",
+        "rule_pattern": "slug.mjs",
+        "action": "allow"
+      },
+      "asking_count": 0,
+      "auto_rejection_warning": false,
+      "runtime": [
+        "ai-sdk"
+      ],
+      "formatter": false,
+      "lsp": false,
+      "read_status": "completed",
+      "edit_status": "completed",
+      "edit_error_kind": "none",
+      "cli_exit": 0,
+      "tool_calls": [
+        "read",
+        "edit"
+      ],
+      "provider_tool_calls": [
+        {
+          "id": "lab_read",
+          "name": "read"
+        },
+        {
+          "id": "lab_edit",
+          "name": "edit"
+        }
+      ],
+      "requests": [
+        {
+          "path": "/v1/chat/completions",
+          "stream": true,
+          "advertised_tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "tool_result_ids": []
+        },
+        {
+          "path": "/v1/chat/completions",
+          "stream": true,
+          "advertised_tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "tool_result_ids": [
+            "lab_read"
+          ]
+        },
+        {
+          "path": "/v1/chat/completions",
+          "stream": true,
+          "advertised_tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "tool_result_ids": [
+            "lab_read",
+            "lab_edit"
+          ]
+        }
+      ],
+      "before": {
+        "slug.mjs": "cb2ccaa781fb1e379ece850a9725513e5b4eae86533016c8924256f7fecd7394",
+        "slug.test.mjs": "38035138edccdbaf681582a1ac5120787cc15011f03cf8b16d696e2d3fb0e03d"
+      },
+      "after": {
+        "slug.mjs": "69a93678c1f284c0286d26b21e4100561ced7f404d90371df8b7e925676ba672",
+        "slug.test.mjs": "38035138edccdbaf681582a1ac5120787cc15011f03cf8b16d696e2d3fb0e03d"
+      },
+      "changed_files": [
+        "slug.mjs"
+      ],
+      "test_before": {
+        "tests": 3,
+        "pass": 1,
+        "fail": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "exit": 1
+      },
+      "test_after": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "exit": 0
+      }
+    },
+    {
+      "name": "ask",
+      "configured_action": "ask",
+      "auto": false,
+      "session_id": "ses_ef7f4e3e8ffeY1hZMipVVrsDit",
+      "agent_target_rule": "ask",
+      "session_permission": [
+        {
+          "permission": "question",
+          "pattern": "*",
+          "action": "deny"
+        },
+        {
+          "permission": "plan_enter",
+          "pattern": "*",
+          "action": "deny"
+        },
+        {
+          "permission": "plan_exit",
+          "pattern": "*",
+          "action": "deny"
+        }
+      ],
+      "edit_arguments": {
+        "filePath": "slug.mjs",
+        "oldString": ".replaceAll(' ', '-')",
+        "newString": ".replace(/\\s+/g, '-')"
+      },
+      "evaluated_edit": {
+        "permission": "edit",
+        "pattern": "slug.mjs",
+        "rule_permission": "edit",
+        "rule_pattern": "slug.mjs",
+        "action": "ask"
+      },
+      "asking_count": 1,
+      "auto_rejection_warning": true,
+      "runtime": [
+        "ai-sdk"
+      ],
+      "formatter": false,
+      "lsp": false,
+      "read_status": "completed",
+      "edit_status": "error",
+      "edit_error_kind": "rejected",
+      "cli_exit": 0,
+      "tool_calls": [
+        "read",
+        "edit"
+      ],
+      "provider_tool_calls": [
+        {
+          "id": "lab_read",
+          "name": "read"
+        },
+        {
+          "id": "lab_edit",
+          "name": "edit"
+        }
+      ],
+      "requests": [
+        {
+          "path": "/v1/chat/completions",
+          "stream": true,
+          "advertised_tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "tool_result_ids": []
+        },
+        {
+          "path": "/v1/chat/completions",
+          "stream": true,
+          "advertised_tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "tool_result_ids": [
+            "lab_read"
+          ]
+        }
+      ],
+      "before": {
+        "slug.mjs": "cb2ccaa781fb1e379ece850a9725513e5b4eae86533016c8924256f7fecd7394",
+        "slug.test.mjs": "38035138edccdbaf681582a1ac5120787cc15011f03cf8b16d696e2d3fb0e03d"
+      },
+      "after": {
+        "slug.mjs": "cb2ccaa781fb1e379ece850a9725513e5b4eae86533016c8924256f7fecd7394",
+        "slug.test.mjs": "38035138edccdbaf681582a1ac5120787cc15011f03cf8b16d696e2d3fb0e03d"
+      },
+      "changed_files": [],
+      "test_before": {
+        "tests": 3,
+        "pass": 1,
+        "fail": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "exit": 1
+      },
+      "test_after": {
+        "tests": 3,
+        "pass": 1,
+        "fail": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "exit": 1
+      }
+    },
+    {
+      "name": "ask_auto",
+      "configured_action": "ask",
+      "auto": true,
+      "session_id": "ses_ef7f4cbf9ffeVLGXoRn6iapkie",
+      "agent_target_rule": "ask",
+      "session_permission": [
+        {
+          "permission": "question",
+          "pattern": "*",
+          "action": "deny"
+        },
+        {
+          "permission": "plan_enter",
+          "pattern": "*",
+          "action": "deny"
+        },
+        {
+          "permission": "plan_exit",
+          "pattern": "*",
+          "action": "deny"
+        }
+      ],
+      "edit_arguments": {
+        "filePath": "slug.mjs",
+        "oldString": ".replaceAll(' ', '-')",
+        "newString": ".replace(/\\s+/g, '-')"
+      },
+      "evaluated_edit": {
+        "permission": "edit",
+        "pattern": "slug.mjs",
+        "rule_permission": "edit",
+        "rule_pattern": "slug.mjs",
+        "action": "ask"
+      },
+      "asking_count": 1,
+      "auto_rejection_warning": false,
+      "runtime": [
+        "ai-sdk"
+      ],
+      "formatter": false,
+      "lsp": false,
+      "read_status": "completed",
+      "edit_status": "completed",
+      "edit_error_kind": "none",
+      "cli_exit": 0,
+      "tool_calls": [
+        "read",
+        "edit"
+      ],
+      "provider_tool_calls": [
+        {
+          "id": "lab_read",
+          "name": "read"
+        },
+        {
+          "id": "lab_edit",
+          "name": "edit"
+        }
+      ],
+      "requests": [
+        {
+          "path": "/v1/chat/completions",
+          "stream": true,
+          "advertised_tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "tool_result_ids": []
+        },
+        {
+          "path": "/v1/chat/completions",
+          "stream": true,
+          "advertised_tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "tool_result_ids": [
+            "lab_read"
+          ]
+        },
+        {
+          "path": "/v1/chat/completions",
+          "stream": true,
+          "advertised_tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "tool_result_ids": [
+            "lab_read",
+            "lab_edit"
+          ]
+        }
+      ],
+      "before": {
+        "slug.mjs": "cb2ccaa781fb1e379ece850a9725513e5b4eae86533016c8924256f7fecd7394",
+        "slug.test.mjs": "38035138edccdbaf681582a1ac5120787cc15011f03cf8b16d696e2d3fb0e03d"
+      },
+      "after": {
+        "slug.mjs": "69a93678c1f284c0286d26b21e4100561ced7f404d90371df8b7e925676ba672",
+        "slug.test.mjs": "38035138edccdbaf681582a1ac5120787cc15011f03cf8b16d696e2d3fb0e03d"
+      },
+      "changed_files": [
+        "slug.mjs"
+      ],
+      "test_before": {
+        "tests": 3,
+        "pass": 1,
+        "fail": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "exit": 1
+      },
+      "test_after": {
+        "tests": 3,
+        "pass": 3,
+        "fail": 0,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "exit": 0
+      }
+    },
+    {
+      "name": "deny_auto",
+      "configured_action": "deny",
+      "auto": true,
+      "session_id": "ses_ef7f4b3b9ffeAzgBuT6ryf36h3",
+      "agent_target_rule": "deny",
+      "session_permission": [
+        {
+          "permission": "question",
+          "pattern": "*",
+          "action": "deny"
+        },
+        {
+          "permission": "plan_enter",
+          "pattern": "*",
+          "action": "deny"
+        },
+        {
+          "permission": "plan_exit",
+          "pattern": "*",
+          "action": "deny"
+        }
+      ],
+      "edit_arguments": {
+        "filePath": "slug.mjs",
+        "oldString": ".replaceAll(' ', '-')",
+        "newString": ".replace(/\\s+/g, '-')"
+      },
+      "evaluated_edit": {
+        "permission": "edit",
+        "pattern": "slug.mjs",
+        "rule_permission": "edit",
+        "rule_pattern": "slug.mjs",
+        "action": "deny"
+      },
+      "asking_count": 0,
+      "auto_rejection_warning": false,
+      "runtime": [
+        "ai-sdk"
+      ],
+      "formatter": false,
+      "lsp": false,
+      "read_status": "completed",
+      "edit_status": "error",
+      "edit_error_kind": "denied",
+      "cli_exit": 0,
+      "tool_calls": [
+        "read",
+        "edit"
+      ],
+      "provider_tool_calls": [
+        {
+          "id": "lab_read",
+          "name": "read"
+        },
+        {
+          "id": "lab_edit",
+          "name": "edit"
+        }
+      ],
+      "requests": [
+        {
+          "path": "/v1/chat/completions",
+          "stream": true,
+          "advertised_tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "tool_result_ids": []
+        },
+        {
+          "path": "/v1/chat/completions",
+          "stream": true,
+          "advertised_tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "tool_result_ids": [
+            "lab_read"
+          ]
+        },
+        {
+          "path": "/v1/chat/completions",
+          "stream": true,
+          "advertised_tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "tool_result_ids": [
+            "lab_read",
+            "lab_edit"
+          ]
+        }
+      ],
+      "before": {
+        "slug.mjs": "cb2ccaa781fb1e379ece850a9725513e5b4eae86533016c8924256f7fecd7394",
+        "slug.test.mjs": "38035138edccdbaf681582a1ac5120787cc15011f03cf8b16d696e2d3fb0e03d"
+      },
+      "after": {
+        "slug.mjs": "cb2ccaa781fb1e379ece850a9725513e5b4eae86533016c8924256f7fecd7394",
+        "slug.test.mjs": "38035138edccdbaf681582a1ac5120787cc15011f03cf8b16d696e2d3fb0e03d"
+      },
+      "changed_files": [],
+      "test_before": {
+        "tests": 3,
+        "pass": 1,
+        "fail": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "exit": 1
+      },
+      "test_after": {
+        "tests": 3,
+        "pass": 1,
+        "fail": 2,
+        "cancelled": 0,
+        "skipped": 0,
+        "todo": 0,
+        "exit": 1
+      }
+    }
+  ]
+}
