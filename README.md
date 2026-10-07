@@ -41,6 +41,7 @@ All tracks study the same system boundary at different depths.
 | OpenCode Architecture | [Part 1: From a request to a verified patch](series/opencode/v1.18.30/labs/01-prompt-to-patch/README.md) | v1.18.30 / 3104c142 | Windows reference verified with a scripted provider |
 | OpenCode Architecture | [Part 2: Repository context and compaction](series/opencode/v1.18.30/labs/02-repository-context-compaction/README.md) | v1.18.30 / 3104c142 | Windows reference verified with a scripted provider |
 | OpenCode Architecture | [Part 3: Tool execution and permission boundaries](series/opencode/v1.18.30/labs/03-tool-permission-boundaries/README.md) | v1.18.30 / 3104c142 | Four Windows cases verified with a scripted provider |
+| OpenCode Architecture | [Part 4: Subagents and shared work](series/opencode/v1.18.30/labs/04-subagents-shared-work/README.md) | v1.18.30 / 3104c142 | One Windows parent/child trace with a checkpoint before report return |
 
 These labs accompany the practical research behind [The Agent Stack](https://theagentstack.substack.com/). Additional labs will be added as new posts are published.
 

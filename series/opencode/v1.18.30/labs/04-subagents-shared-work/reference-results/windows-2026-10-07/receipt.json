@@ -1,0 +1,724 @@
+{
+  "schema_version": 1,
+  "release": "1.18.30",
+  "commit": "3104c1428ec91f809e5ab86631300de41eb6952e",
+  "binary_sha256": "c1bdbb18767048e1853af4238311b3f7e16ff2f91b68fb4c7ced3c5175347eea",
+  "platform": "Windows",
+  "architecture": "AMD64",
+  "python": "3.12.14",
+  "lab_revision": "82557a171e848a8d6f642ac813fe04f39afac79e",
+  "lab_dirty": true,
+  "runner_sha256": "4a62631e1674a3ed42943a99cbfb5d6bc787827e7d333c6bcf9aa490f5e06e8d",
+  "shell_version": "7.6.6",
+  "node": "v24.13.0",
+  "evidence_class": "OBSERVED_WITH_SCRIPTED_PROVIDER",
+  "not_exercised": [
+    "resume",
+    "cancellation",
+    "background",
+    "concurrent_writers",
+    "ask_responder",
+    "remembered_approval"
+  ],
+  "sessions": {
+    "parent": {
+      "id": "ses_ee733ed59fferxUw5PjS7w4Cbv",
+      "parent_id": null,
+      "role": "build",
+      "permission": [
+        {
+          "permission": "question",
+          "pattern": "*",
+          "action": "deny"
+        },
+        {
+          "permission": "plan_enter",
+          "pattern": "*",
+          "action": "deny"
+        },
+        {
+          "permission": "plan_exit",
+          "pattern": "*",
+          "action": "deny"
+        }
+      ],
+      "directory": "workspace",
+      "path": "",
+      "assistant_cwd": "workspace",
+      "assistant_root": "workspace",
+      "model": {
+        "id": "scripted",
+        "providerID": "lab",
+        "variant": "default"
+      }
+    },
+    "child": {
+      "id": "ses_ee733e872ffe25k7eNp71pbpFg",
+      "parent_id": "ses_ee733ed59fferxUw5PjS7w4Cbv",
+      "role": "general",
+      "permission": [
+        {
+          "permission": "question",
+          "pattern": "*",
+          "action": "deny"
+        },
+        {
+          "permission": "plan_enter",
+          "pattern": "*",
+          "action": "deny"
+        },
+        {
+          "permission": "plan_exit",
+          "pattern": "*",
+          "action": "deny"
+        },
+        {
+          "permission": "task",
+          "pattern": "*",
+          "action": "deny"
+        }
+      ],
+      "directory": "workspace",
+      "path": "",
+      "assistant_cwd": "workspace",
+      "assistant_root": "workspace",
+      "model": {
+        "id": "scripted",
+        "providerID": "lab",
+        "variant": "default"
+      }
+    }
+  },
+  "configuration": {
+    "model": "lab/scripted",
+    "small_model": "lab/scripted",
+    "enabled_providers": [
+      "lab"
+    ],
+    "permission": {
+      "*": "deny"
+    },
+    "snapshot": false,
+    "lsp": false,
+    "formatter": false,
+    "share": "disabled",
+    "username": "lab",
+    "subagent_depth": 1,
+    "agent": {
+      "build": {
+        "mode": "primary",
+        "permission": {
+          "task": {
+            "*": "deny",
+            "general": "allow"
+          },
+          "bash": {
+            "*": "deny",
+            "node --test labels.test.mjs": "allow"
+          }
+        }
+      },
+      "general": {
+        "mode": "subagent",
+        "permission": {
+          "read": {
+            "*": "deny",
+            "labels.mjs": "allow",
+            "labels.test.mjs": "allow"
+          },
+          "edit": {
+            "*": "deny",
+            "labels.mjs": "allow"
+          }
+        }
+      }
+    },
+    "pure": true,
+    "auto": false,
+    "experimental_environment_keys": []
+  },
+  "role_rules": {
+    "parent": [
+      {
+        "permission": "*",
+        "action": "allow",
+        "pattern": "*"
+      },
+      {
+        "permission": "doom_loop",
+        "action": "ask",
+        "pattern": "*"
+      },
+      {
+        "permission": "external_directory",
+        "pattern": "*",
+        "action": "ask"
+      },
+      {
+        "permission": "external_directory",
+        "pattern": "<run>/data/opencode/tool-output/*",
+        "action": "allow"
+      },
+      {
+        "permission": "external_directory",
+        "pattern": "<run>/temp/opencode/*",
+        "action": "allow"
+      },
+      {
+        "permission": "question",
+        "action": "deny",
+        "pattern": "*"
+      },
+      {
+        "permission": "plan_enter",
+        "action": "deny",
+        "pattern": "*"
+      },
+      {
+        "permission": "plan_exit",
+        "action": "deny",
+        "pattern": "*"
+      },
+      {
+        "permission": "read",
+        "pattern": "*",
+        "action": "allow"
+      },
+      {
+        "permission": "read",
+        "pattern": "*.env",
+        "action": "ask"
+      },
+      {
+        "permission": "read",
+        "pattern": "*.env.*",
+        "action": "ask"
+      },
+      {
+        "permission": "read",
+        "pattern": "*.env.example",
+        "action": "allow"
+      },
+      {
+        "permission": "question",
+        "action": "allow",
+        "pattern": "*"
+      },
+      {
+        "permission": "plan_enter",
+        "action": "allow",
+        "pattern": "*"
+      },
+      {
+        "permission": "*",
+        "action": "deny",
+        "pattern": "*"
+      },
+      {
+        "permission": "task",
+        "pattern": "*",
+        "action": "deny"
+      },
+      {
+        "permission": "task",
+        "pattern": "general",
+        "action": "allow"
+      },
+      {
+        "permission": "bash",
+        "pattern": "*",
+        "action": "deny"
+      },
+      {
+        "permission": "bash",
+        "pattern": "node --test labels.test.mjs",
+        "action": "allow"
+      },
+      {
+        "permission": "external_directory",
+        "pattern": "<run>/data/opencode/tool-output/*",
+        "action": "allow"
+      }
+    ],
+    "child": [
+      {
+        "permission": "*",
+        "action": "allow",
+        "pattern": "*"
+      },
+      {
+        "permission": "doom_loop",
+        "action": "ask",
+        "pattern": "*"
+      },
+      {
+        "permission": "external_directory",
+        "pattern": "*",
+        "action": "ask"
+      },
+      {
+        "permission": "external_directory",
+        "pattern": "<run>/data/opencode/tool-output/*",
+        "action": "allow"
+      },
+      {
+        "permission": "external_directory",
+        "pattern": "<run>/temp/opencode/*",
+        "action": "allow"
+      },
+      {
+        "permission": "question",
+        "action": "deny",
+        "pattern": "*"
+      },
+      {
+        "permission": "plan_enter",
+        "action": "deny",
+        "pattern": "*"
+      },
+      {
+        "permission": "plan_exit",
+        "action": "deny",
+        "pattern": "*"
+      },
+      {
+        "permission": "read",
+        "pattern": "*",
+        "action": "allow"
+      },
+      {
+        "permission": "read",
+        "pattern": "*.env",
+        "action": "ask"
+      },
+      {
+        "permission": "read",
+        "pattern": "*.env.*",
+        "action": "ask"
+      },
+      {
+        "permission": "read",
+        "pattern": "*.env.example",
+        "action": "allow"
+      },
+      {
+        "permission": "todowrite",
+        "action": "deny",
+        "pattern": "*"
+      },
+      {
+        "permission": "*",
+        "action": "deny",
+        "pattern": "*"
+      },
+      {
+        "permission": "read",
+        "pattern": "*",
+        "action": "deny"
+      },
+      {
+        "permission": "read",
+        "pattern": "labels.mjs",
+        "action": "allow"
+      },
+      {
+        "permission": "read",
+        "pattern": "labels.test.mjs",
+        "action": "allow"
+      },
+      {
+        "permission": "edit",
+        "pattern": "*",
+        "action": "deny"
+      },
+      {
+        "permission": "edit",
+        "pattern": "labels.mjs",
+        "action": "allow"
+      },
+      {
+        "permission": "external_directory",
+        "pattern": "<run>/data/opencode/tool-output/*",
+        "action": "allow"
+      }
+    ]
+  },
+  "worktree_root": "workspace",
+  "files": {
+    "before": {
+      "labels.mjs": "0034ddaff3b309f448ee2078ee0eefdae9327d7ba3619727cdb9e3d4764b85a7",
+      "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+    },
+    "before_report": {
+      "labels.mjs": "a66e42f94ffd3672c8e58c6d64368fca7add6b36f27334f7bfa5927795dd7774",
+      "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+    },
+    "after": {
+      "labels.mjs": "a66e42f94ffd3672c8e58c6d64368fca7add6b36f27334f7bfa5927795dd7774",
+      "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+    },
+    "current": {
+      "labels.mjs": "a66e42f94ffd3672c8e58c6d64368fca7add6b36f27334f7bfa5927795dd7774",
+      "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+    }
+  },
+  "changed_files": [
+    "labels.mjs"
+  ],
+  "checks": {
+    "external_before": {
+      "exit": 1,
+      "tests": 4,
+      "pass": 2,
+      "fail": 2,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "external_after": {
+      "exit": 0,
+      "tests": 4,
+      "pass": 4,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "parent_after": {
+      "exit": 0,
+      "tests": 4,
+      "pass": 4,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    }
+  },
+  "cli_exit": 0,
+  "runtime": [
+    "ai-sdk"
+  ],
+  "pending_asks": 0,
+  "evaluations": [
+    {
+      "permission": "task",
+      "pattern": "general",
+      "rule_permission": "task",
+      "rule_pattern": "general",
+      "action": "allow"
+    },
+    {
+      "permission": "read",
+      "pattern": "labels.mjs",
+      "rule_permission": "read",
+      "rule_pattern": "labels.mjs",
+      "action": "allow"
+    },
+    {
+      "permission": "read",
+      "pattern": "labels.test.mjs",
+      "rule_permission": "read",
+      "rule_pattern": "labels.test.mjs",
+      "action": "allow"
+    },
+    {
+      "permission": "edit",
+      "pattern": "labels.mjs",
+      "rule_permission": "edit",
+      "rule_pattern": "labels.mjs",
+      "action": "allow"
+    },
+    {
+      "permission": "bash",
+      "pattern": "node --test labels.test.mjs",
+      "rule_permission": "bash",
+      "rule_pattern": "node --test labels.test.mjs",
+      "action": "allow"
+    }
+  ],
+  "tools": [
+    {
+      "call_id": "parent_task",
+      "name": "task",
+      "session_id": "ses_ee733ed59fferxUw5PjS7w4Cbv",
+      "arguments": {
+        "description": "Trim label whitespace",
+        "subagent_type": "general",
+        "prompt": "Read labels.mjs and labels.test.mjs. Trim outer whitespace and preserve interior spaces. Edit only labels.mjs. Report the change for the parent to check. Handoff marker: HANDOFF_9e31f6"
+      },
+      "status": "completed"
+    },
+    {
+      "call_id": "child_read_helper",
+      "name": "read",
+      "session_id": "ses_ee733e872ffe25k7eNp71pbpFg",
+      "arguments": {
+        "filePath": "labels.mjs"
+      },
+      "status": "completed"
+    },
+    {
+      "call_id": "child_read_tests",
+      "name": "read",
+      "session_id": "ses_ee733e872ffe25k7eNp71pbpFg",
+      "arguments": {
+        "filePath": "labels.test.mjs"
+      },
+      "status": "completed"
+    },
+    {
+      "call_id": "child_edit",
+      "name": "edit",
+      "session_id": "ses_ee733e872ffe25k7eNp71pbpFg",
+      "arguments": {
+        "filePath": "labels.mjs",
+        "oldString": "return label;",
+        "newString": "return label.trim();"
+      },
+      "status": "completed"
+    },
+    {
+      "call_id": "parent_check",
+      "name": "bash",
+      "session_id": "ses_ee733ed59fferxUw5PjS7w4Cbv",
+      "arguments": {
+        "command": "node --test labels.test.mjs",
+        "description": "Check label behavior"
+      },
+      "status": "completed"
+    }
+  ],
+  "read_evidence": {
+    "helper_matches_initial": true,
+    "tests_match_fixed": true,
+    "observation_marker": true
+  },
+  "edit_evidence": {
+    "file": "labels.mjs",
+    "before": "0034ddaff3b309f448ee2078ee0eefdae9327d7ba3619727cdb9e3d4764b85a7",
+    "after": "a66e42f94ffd3672c8e58c6d64368fca7add6b36f27334f7bfa5927795dd7774",
+    "output": "Edit applied successfully."
+  },
+  "return": {
+    "child_text": "Changed labels.mjs to trim outer whitespace while preserving interior spaces. Parent must run the fixed tests.",
+    "task_output": "<task id=\"ses_ee733e872ffe25k7eNp71pbpFg\" state=\"completed\">\n<task_result>\nChanged labels.mjs to trim outer whitespace while preserving interior spaces. Parent must run the fixed tests.\n</task_result>\n</task>",
+    "parent_session_id": "ses_ee733ed59fferxUw5PjS7w4Cbv",
+    "child_session_id": "ses_ee733e872ffe25k7eNp71pbpFg",
+    "truncated": false,
+    "first_parent_tool_result": "<task id=\"ses_ee733e872ffe25k7eNp71pbpFg\" state=\"completed\">\n<task_result>\nChanged labels.mjs to trim outer whitespace while preserving interior spaces. Parent must run the fixed tests.\n</task_result>\n</task>",
+    "markers": {
+      "parent": false,
+      "delegated": false,
+      "observation": false
+    }
+  },
+  "requests": [
+    {
+      "index": 1,
+      "kind": "parent",
+      "path": "/v1/chat/completions",
+      "model": "scripted",
+      "stream": true,
+      "session_id": "ses_ee733ed59fferxUw5PjS7w4Cbv",
+      "parent_session_id": null,
+      "advertised_tools": [
+        "bash",
+        "task"
+      ],
+      "tool_result_ids": [],
+      "markers": {
+        "parent": true,
+        "delegated": false,
+        "observation": false
+      }
+    },
+    {
+      "index": 2,
+      "kind": "child",
+      "path": "/v1/chat/completions",
+      "model": "scripted",
+      "stream": true,
+      "session_id": "ses_ee733e872ffe25k7eNp71pbpFg",
+      "parent_session_id": "ses_ee733ed59fferxUw5PjS7w4Cbv",
+      "advertised_tools": [
+        "edit",
+        "read",
+        "write"
+      ],
+      "tool_result_ids": [],
+      "markers": {
+        "parent": false,
+        "delegated": true,
+        "observation": false
+      }
+    },
+    {
+      "index": 3,
+      "kind": "child",
+      "path": "/v1/chat/completions",
+      "model": "scripted",
+      "stream": true,
+      "session_id": "ses_ee733e872ffe25k7eNp71pbpFg",
+      "parent_session_id": "ses_ee733ed59fferxUw5PjS7w4Cbv",
+      "advertised_tools": [
+        "edit",
+        "read",
+        "write"
+      ],
+      "tool_result_ids": [
+        "child_read_helper"
+      ],
+      "markers": {
+        "parent": false,
+        "delegated": true,
+        "observation": true
+      }
+    },
+    {
+      "index": 4,
+      "kind": "child",
+      "path": "/v1/chat/completions",
+      "model": "scripted",
+      "stream": true,
+      "session_id": "ses_ee733e872ffe25k7eNp71pbpFg",
+      "parent_session_id": "ses_ee733ed59fferxUw5PjS7w4Cbv",
+      "advertised_tools": [
+        "edit",
+        "read",
+        "write"
+      ],
+      "tool_result_ids": [
+        "child_read_helper",
+        "child_read_tests"
+      ],
+      "markers": {
+        "parent": false,
+        "delegated": true,
+        "observation": true
+      }
+    },
+    {
+      "index": 5,
+      "kind": "child",
+      "path": "/v1/chat/completions",
+      "model": "scripted",
+      "stream": true,
+      "session_id": "ses_ee733e872ffe25k7eNp71pbpFg",
+      "parent_session_id": "ses_ee733ed59fferxUw5PjS7w4Cbv",
+      "advertised_tools": [
+        "edit",
+        "read",
+        "write"
+      ],
+      "tool_result_ids": [
+        "child_read_helper",
+        "child_read_tests",
+        "child_edit"
+      ],
+      "markers": {
+        "parent": false,
+        "delegated": true,
+        "observation": true
+      }
+    },
+    {
+      "index": 6,
+      "kind": "parent",
+      "path": "/v1/chat/completions",
+      "model": "scripted",
+      "stream": true,
+      "session_id": "ses_ee733ed59fferxUw5PjS7w4Cbv",
+      "parent_session_id": null,
+      "advertised_tools": [
+        "bash",
+        "task"
+      ],
+      "tool_result_ids": [
+        "parent_task"
+      ],
+      "markers": {
+        "parent": true,
+        "delegated": true,
+        "observation": false
+      }
+    },
+    {
+      "index": 7,
+      "kind": "parent",
+      "path": "/v1/chat/completions",
+      "model": "scripted",
+      "stream": true,
+      "session_id": "ses_ee733ed59fferxUw5PjS7w4Cbv",
+      "parent_session_id": null,
+      "advertised_tools": [
+        "bash",
+        "task"
+      ],
+      "tool_result_ids": [
+        "parent_task",
+        "parent_check"
+      ],
+      "markers": {
+        "parent": true,
+        "delegated": true,
+        "observation": false
+      }
+    }
+  ],
+  "sequence": [
+    {
+      "order": 1,
+      "kind": "request_received",
+      "request": 1
+    },
+    {
+      "order": 2,
+      "kind": "request_received",
+      "request": 2
+    },
+    {
+      "order": 3,
+      "kind": "request_received",
+      "request": 3
+    },
+    {
+      "order": 4,
+      "kind": "request_received",
+      "request": 4
+    },
+    {
+      "order": 5,
+      "kind": "request_received",
+      "request": 5
+    },
+    {
+      "order": 6,
+      "kind": "child_edit_result_received",
+      "request": 5
+    },
+    {
+      "order": 7,
+      "kind": "independent_file_checkpoint",
+      "request": 5
+    },
+    {
+      "order": 8,
+      "kind": "child_report_release",
+      "request": 5
+    },
+    {
+      "order": 9,
+      "kind": "request_received",
+      "request": 6
+    },
+    {
+      "order": 10,
+      "kind": "request_received",
+      "request": 7
+    }
+  ],
+  "root_stdout_tools": [
+    "parent_task",
+    "parent_check"
+  ]
+}
