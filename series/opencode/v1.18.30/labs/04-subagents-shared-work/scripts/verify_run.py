@@ -110,6 +110,7 @@ def reconstruct(root):
     requests = []
     raw_requests = {}
     proposals = []
+    child_reports = []
     paths = sorted(root.glob('request-*.json'))
     need(len(paths) == len(list(root.glob('response-*.json'))), 'request/response completeness differs')
     for index, path in enumerate(paths, 1):
@@ -120,6 +121,10 @@ def reconstruct(root):
         available = sorted(t['function']['name'] for t in body.get('tools', []))
         kind = 'parent' if 'task' in available else 'child' if {'read', 'edit'} <= set(available) else 'auxiliary'
         need(response['kind'] == kind, 'request classification disagrees')
+        if kind == 'child' and not response['message'].get('tool_calls'):
+            need(response['message']['role'] == 'assistant' and response['finish_reason'] == 'stop',
+                 'child report response did not finish normally')
+            child_reports.append(response['message']['content'])
         replies = [m for m in body.get('messages', []) if m['role'] == 'tool']
         need(headers['x-session-id'] == headers['x-session-affinity'], 'provider session headers disagree')
         for reply in replies:
@@ -135,6 +140,7 @@ def reconstruct(root):
                          'markers': marker_presence(body)})
         raw_requests[index] = raw
     need(proposals == CALLS, 'controlled provider proposals differ from actual sequence')
+    need(child_reports == child_texts, 'captured provider report differs from exported child text')
     parent_after = next(q for q in requests if q['kind'] == 'parent' and q['tool_result_ids'] == ['parent_task'])
     returned = next(m['content'] for m in raw_requests[parent_after['index']]['body']['messages'] if m['role'] == 'tool')
     before, checkpoint, after = [snapshot(root / name) for name in ['before', 'before-report', 'after']]
