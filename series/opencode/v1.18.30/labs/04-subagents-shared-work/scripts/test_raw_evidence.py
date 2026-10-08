@@ -36,6 +36,9 @@ def run(source):
         ('failed test process', lambda r: mutate_json(r, 'test-after.process.json', lambda v: v.update(exit=1))),
         ('changed current file', lambda r: (r / 'workspace/labels.mjs').write_text('changed', encoding='utf-8')),
         ('invented provider operation', lambda r: mutate_json(r, 'response-04.json', lambda v: v['message']['tool_calls'][0]['function'].update(arguments='{}'))),
+        ('provider report differs', lambda r: mutate_json(r, 'response-05.json', lambda v: v['message'].update(content='unsupported report'))),
+        ('provider report missing', lambda r: mutate_json(r, 'response-05.json', lambda v: v['message'].pop('content'))),
+        ('provider report unfinished', lambda r: mutate_json(r, 'response-05.json', lambda v: v.update(finish_reason='length'))),
     ]
     for label, mutation in [('unaltered copy', None), *controls]:
         with tempfile.TemporaryDirectory(prefix='opencode-p4-check-') as temp:

@@ -71,7 +71,7 @@ python "$lab/scripts/verify_run.py" $run --receipt (Join-Path $privateOutput 've
 python "$lab/scripts/test_raw_evidence.py" $run
 ```
 
-Expected result: seven provider requests in the reference run, successful independent reconstruction, an accepted unmodified capture copy, and rejection of 12 corrupted private copies. Auxiliary requests are classified explicitly if they appear. They are not silently counted as child or parent tool requests.
+Expected result: seven provider requests in the reference run, successful independent reconstruction, an accepted unmodified capture copy, and rejection of 15 corrupted private copies. The raw verifier also compares the captured final provider report with the exported child text and checks normal response completion. Auxiliary requests are classified explicitly if they appear. They are not silently counted as child or parent tool requests.
 
 The runner creates a synthetic Git workspace and fresh home, configuration, data, cache, state and temporary directories. It supplies an environment allowlist and selects only a loopback provider with a synthetic credential. It uses `--pure`, disables sharing, updates, model-list fetching, snapshots, formatters and LSP, and leaves experimental background features unset. There is no paid inference. These controls isolate the experiment's inputs. They are not an OS sandbox.
 
