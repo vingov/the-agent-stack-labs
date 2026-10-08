@@ -34,6 +34,13 @@ jobs:
           python series/opencode/v1.18.30/labs/03-tool-permission-boundaries/scripts/test_lab.py
           python -m py_compile series/opencode/v1.18.30/labs/03-tool-permission-boundaries/scripts/run_lab.py series/opencode/v1.18.30/labs/03-tool-permission-boundaries/scripts/verify_run.py series/opencode/v1.18.30/labs/03-tool-permission-boundaries/scripts/test_raw_evidence.py
 
+      - name: Check delegation evidence and rejection controls (no inference)
+        shell: bash
+        run: |
+          python series/opencode/v1.18.30/labs/04-subagents-shared-work/scripts/verify_reference.py
+          python series/opencode/v1.18.30/labs/04-subagents-shared-work/scripts/test_lab.py
+          python -m py_compile series/opencode/v1.18.30/labs/04-subagents-shared-work/scripts/contract.py series/opencode/v1.18.30/labs/04-subagents-shared-work/scripts/run_lab.py series/opencode/v1.18.30/labs/04-subagents-shared-work/scripts/verify_run.py series/opencode/v1.18.30/labs/04-subagents-shared-work/scripts/test_raw_evidence.py
+
   windows-powershell:
     runs-on: windows-latest
     steps:
