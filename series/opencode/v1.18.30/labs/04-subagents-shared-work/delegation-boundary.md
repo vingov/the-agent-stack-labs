@@ -54,7 +54,7 @@ python "$lab/scripts/verify_boundary_run.py" $run --receipt (Join-Path $privateO
 python "$lab/scripts/test_boundary_evidence.py" --receipt (Join-Path $privateOutput 'boundary-receipt.json') --raw $run
 ```
 
-Expected: all six cases captured, successful independent reconstruction, and rejection of 15 corrupted private capture copies in addition to the public controls. The unchanged copy must pass first. The checker reads captured provider proposals and reports, exported session/tool state, actual permission evaluation logs, file bytes, test process output and current workspace contents. It does not accept a runner's `passed` flag. These checks establish consistency, not independent authentication of a historical execution.
+Expected: all six cases captured, successful independent reconstruction, and rejection of 18 corrupted private capture copies in addition to the public controls. The unchanged copy must pass first. The checker reads captured provider proposals and reports, exported session/tool state, actual permission evaluation logs, file bytes, test process output and current workspace contents. It does not accept a runner's `passed` flag. These checks establish consistency, not independent authentication of a historical execution.
 
 ## Execution path and policy ownership
 

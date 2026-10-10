@@ -73,6 +73,7 @@ def reconstruct_case(root, case):
             if mi['role'] == 'assistant':
                 need(not mi.get('error') and mi['agent'] == info['agent'], 'assistant error or role')
                 need(mi['providerID'] == 'lab' and mi['modelID'] == 'scripted', 'assistant model')
+                need(Path(mi['path']['cwd']).resolve() == Path(mi['path']['root']).resolve() == workspace, 'assistant workspace differs')
             for part in message['parts']:
                 if part['type'] == 'tool':
                     need(part['callID'] not in by_call, 'duplicate call')
@@ -97,8 +98,10 @@ def reconstruct_case(root, case):
             need('specified a rule' in state.get('error', '') and '"action":"deny"' in state['error'], 'error not a permission denial')
         if tool == 'read':
             need(state['metadata']['display']['text'] == expected_files()[arguments['filePath']].decode().strip(), 'read contents changed')
+            need(Path(state['metadata']['display']['path']).resolve() == workspace / arguments['filePath'], 'actual read target differs')
         if tool == 'edit' and not denied:
             need('-  return label;\n+  return label.trim();' in state['metadata']['diff'], 'edit diff mismatch')
+            need(Path(state['metadata']['filediff']['file']).resolve() == workspace / arguments['filePath'], 'actual edit target differs')
         operations.append({'call_id': call_id, 'tool': tool, 'arguments': arguments, 'status': state['status'],
                            'permission_denied': denied, 'owner': 'child' if call_id.startswith('child_') else 'parent'})
     requests = []
@@ -189,6 +192,10 @@ def reconstruct_case(root, case):
     need(cmd[5:] == ['--session', ids['parent'], '--format', 'json', '--model', 'lab/scripted', '--agent', 'coordinator', '--', prompt], 'CLI arguments differ')
     events = [json.loads(line) for line in (root / 'cli.stdout.txt').read_text(encoding='utf-8').splitlines() if line.startswith('{')]
     need(events and not any(e['type'] == 'error' for e in events), 'CLI stream error or missing events')
+    need({e['sessionID'] for e in events} == {ids['parent']}, 'CLI event owner differs')
+    emitted = [e['part'] for e in events if e['type'] == 'tool_use']
+    parent_tools = [by_call[c[0]] for c in expected_calls if c[0].startswith('parent_')]
+    need([(p['callID'], p['state']) for p in emitted] == [(p['callID'], p['state']) for p in parent_tools], 'CLI tool feedback differs from export')
     public_return = returned
     if returned:
         for owner, sid in ids.items():

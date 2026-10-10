@@ -63,6 +63,9 @@ def private_controls(source):
         ('different tool proposal', lambda r: mutate_json(r, 'parent-role/response-04.json', lambda x: x['message']['tool_calls'][0]['function'].update(arguments='{}'))),
         ('wrong create policy', lambda r: mutate_json(r, 'parent-session/session-create-input.json', lambda x: x.update(permission=[]))),
         ('wrong checkpoint order', lambda r: mutate_json(r, 'parent-role/sequence.json', lambda x: x[4].update(order=99))),
+        ('different read target', lambda r: mutate_json(r, 'parent-role/export-child.json', lambda x: next(p for m in x['messages'] for p in m['parts'] if p.get('callID') == 'child_read_helper')['state']['metadata']['display'].update(path='other.mjs'))),
+        ('different edit target', lambda r: mutate_json(r, 'parent-role/export-child.json', lambda x: next(p for m in x['messages'] for p in m['parts'] if p.get('callID') == 'child_edit')['state']['metadata']['filediff'].update(file='other.mjs'))),
+        ('different assistant workspace', lambda r: mutate_json(r, 'parent-role/export-child.json', lambda x: next(m for m in x['messages'] if m['info']['role'] == 'assistant')['info']['path'].update(cwd='elsewhere'))),
     ]
     for label, change in [('unaltered copy', None), *controls]:
         with tempfile.TemporaryDirectory(prefix='opencode-boundary-check-') as temp:
@@ -78,7 +81,13 @@ def private_controls(source):
                     try:
                         text = json.dumps(rewrite(json.loads(text), source, target))
                     except json.JSONDecodeError:
-                        text = text.replace(str(source), str(target)).replace(source.as_posix(), target.as_posix())
+                        lines = []
+                        for line in text.splitlines():
+                            try:
+                                lines.append(json.dumps(rewrite(json.loads(line), source, target)))
+                            except json.JSONDecodeError:
+                                lines.append(line.replace(str(source), str(target)).replace(source.as_posix(), target.as_posix()))
+                        text = '\n'.join(lines) + '\n'
                     (dest / item.name).write_text(text, encoding='utf-8')
                 if directory != source:
                     for folder in ('before', 'before-report', 'after'):
