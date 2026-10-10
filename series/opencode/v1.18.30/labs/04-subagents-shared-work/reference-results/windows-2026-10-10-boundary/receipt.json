@@ -1,0 +1,2049 @@
+{
+  "schema_version": 1,
+  "release": "v1.18.30",
+  "commit": "3104c1428ec91f809e5ab86631300de41eb6952e",
+  "binary_sha256": "c1bdbb18767048e1853af4238311b3f7e16ff2f91b68fb4c7ced3c5175347eea",
+  "platform": "Windows",
+  "architecture": "AMD64",
+  "lab_revision": "fc1eaff17c3e0a7e97e920946ee296a1cd5ab67c",
+  "lab_dirty": true,
+  "runner_sha256": "7afe6b585aa50725cc863f04c1586aa0166454a48318387f129fa70c90248de5",
+  "cases": [
+    "allowed",
+    "parent-role-direct",
+    "parent-role",
+    "parent-session",
+    "worker-role",
+    "dispatch"
+  ],
+  "entrypoint": "serve + API session.create + run --attach --session",
+  "evidence_class": "OBSERVED_WITH_SCRIPTED_PROVIDER",
+  "model_inference": false,
+  "not_exercised": [
+    "real model decisions",
+    "remembered approvals",
+    "resume",
+    "cancellation",
+    "background",
+    "concurrent writers"
+  ],
+  "results": [
+    {
+      "case": "allowed",
+      "role_configuration": {
+        "coordinator": {
+          "mode": "primary",
+          "description": "Synthetic delegation coordinator",
+          "permission": {
+            "read": {
+              "*": "deny",
+              "labels.mjs": "allow",
+              "labels.test.mjs": "allow"
+            },
+            "edit": {
+              "*": "deny",
+              "labels.mjs": "allow"
+            },
+            "task": {
+              "*": "deny",
+              "worker": "allow"
+            }
+          }
+        },
+        "worker": {
+          "mode": "subagent",
+          "description": "Synthetic bounded label worker",
+          "permission": {
+            "read": {
+              "*": "deny",
+              "labels.mjs": "allow",
+              "labels.test.mjs": "allow"
+            },
+            "edit": {
+              "*": "deny",
+              "labels.mjs": "allow"
+            }
+          }
+        }
+      },
+      "resolved_relevant_role_rules": {
+        "parent": [
+          {
+            "permission": "*",
+            "action": "allow",
+            "pattern": "*"
+          },
+          {
+            "permission": "*",
+            "action": "deny",
+            "pattern": "*"
+          },
+          {
+            "permission": "edit",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "edit",
+            "pattern": "labels.mjs",
+            "action": "allow"
+          },
+          {
+            "permission": "task",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "task",
+            "pattern": "worker",
+            "action": "allow"
+          }
+        ],
+        "child": [
+          {
+            "permission": "*",
+            "action": "allow",
+            "pattern": "*"
+          },
+          {
+            "permission": "*",
+            "action": "deny",
+            "pattern": "*"
+          },
+          {
+            "permission": "edit",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "edit",
+            "pattern": "labels.mjs",
+            "action": "allow"
+          }
+        ]
+      },
+      "sessions": {
+        "parent": {
+          "role": "coordinator",
+          "permission": [
+            {
+              "permission": "question",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_enter",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_exit",
+              "pattern": "*",
+              "action": "deny"
+            }
+          ],
+          "directory": "workspace",
+          "parent": null
+        },
+        "child": {
+          "role": "worker",
+          "permission": [
+            {
+              "permission": "question",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_enter",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_exit",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "todowrite",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "task",
+              "pattern": "*",
+              "action": "deny"
+            }
+          ],
+          "directory": "workspace",
+          "parent": "parent"
+        }
+      },
+      "child_count": 1,
+      "operations": [
+        {
+          "call_id": "parent_task",
+          "tool": "task",
+          "arguments": {
+            "description": "Bounded label edit",
+            "subagent_type": "worker",
+            "prompt": "Read labels.mjs and labels.test.mjs. Edit only labels.mjs to trim outer whitespace and preserve interior spaces. Report the operation result. Handoff marker: HANDOFF_9e31f6"
+          },
+          "status": "completed",
+          "permission_denied": false,
+          "owner": "parent"
+        },
+        {
+          "call_id": "child_read_helper",
+          "tool": "read",
+          "arguments": {
+            "filePath": "labels.mjs"
+          },
+          "status": "completed",
+          "permission_denied": false,
+          "owner": "child"
+        },
+        {
+          "call_id": "child_read_tests",
+          "tool": "read",
+          "arguments": {
+            "filePath": "labels.test.mjs"
+          },
+          "status": "completed",
+          "permission_denied": false,
+          "owner": "child"
+        },
+        {
+          "call_id": "child_edit",
+          "tool": "edit",
+          "arguments": {
+            "filePath": "labels.mjs",
+            "oldString": "return label;",
+            "newString": "return label.trim();"
+          },
+          "status": "completed",
+          "permission_denied": false,
+          "owner": "child"
+        }
+      ],
+      "evaluations": [
+        {
+          "permission": "task",
+          "pattern": "worker",
+          "rule_permission": "task",
+          "rule_pattern": "worker",
+          "action": "allow"
+        },
+        {
+          "permission": "read",
+          "pattern": "labels.mjs",
+          "rule_permission": "read",
+          "rule_pattern": "labels.mjs",
+          "action": "allow"
+        },
+        {
+          "permission": "read",
+          "pattern": "labels.test.mjs",
+          "rule_permission": "read",
+          "rule_pattern": "labels.test.mjs",
+          "action": "allow"
+        },
+        {
+          "permission": "edit",
+          "pattern": "labels.mjs",
+          "rule_permission": "edit",
+          "rule_pattern": "labels.mjs",
+          "action": "allow"
+        }
+      ],
+      "pending_asks": 0,
+      "requests": [
+        {
+          "index": 1,
+          "owner": "parent",
+          "tools": [
+            "edit",
+            "read",
+            "task",
+            "write"
+          ],
+          "feedback": [],
+          "markers": {
+            "parent": true,
+            "delegated": false,
+            "observation": false
+          }
+        },
+        {
+          "index": 2,
+          "owner": "child",
+          "tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "feedback": [],
+          "markers": {
+            "parent": false,
+            "delegated": true,
+            "observation": false
+          }
+        },
+        {
+          "index": 3,
+          "owner": "child",
+          "tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "feedback": [
+            "child_read_helper"
+          ],
+          "markers": {
+            "parent": false,
+            "delegated": true,
+            "observation": true
+          }
+        },
+        {
+          "index": 4,
+          "owner": "child",
+          "tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "feedback": [
+            "child_read_helper",
+            "child_read_tests"
+          ],
+          "markers": {
+            "parent": false,
+            "delegated": true,
+            "observation": true
+          }
+        },
+        {
+          "index": 5,
+          "owner": "child",
+          "tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "feedback": [
+            "child_read_helper",
+            "child_read_tests",
+            "child_edit"
+          ],
+          "markers": {
+            "parent": false,
+            "delegated": true,
+            "observation": true
+          }
+        },
+        {
+          "index": 6,
+          "owner": "parent",
+          "tools": [
+            "edit",
+            "read",
+            "task",
+            "write"
+          ],
+          "feedback": [
+            "parent_task"
+          ],
+          "markers": {
+            "parent": true,
+            "delegated": true,
+            "observation": false
+          }
+        }
+      ],
+      "selected_report": "The edit tool completed the requested label change. Fixed tests still need independent checking.",
+      "task_return": "<task id=\"<child>\" state=\"completed\">\n<task_result>\nThe edit tool completed the requested label change. Fixed tests still need independent checking.\n</task_result>\n</task>",
+      "files": {
+        "before": {
+          "labels.mjs": "0034ddaff3b309f448ee2078ee0eefdae9327d7ba3619727cdb9e3d4764b85a7",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        },
+        "after": {
+          "labels.mjs": "a66e42f94ffd3672c8e58c6d64368fca7add6b36f27334f7bfa5927795dd7774",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        },
+        "current": {
+          "labels.mjs": "a66e42f94ffd3672c8e58c6d64368fca7add6b36f27334f7bfa5927795dd7774",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        }
+      },
+      "changed_files": [
+        "labels.mjs"
+      ],
+      "checks": {
+        "before": {
+          "exit": 1,
+          "tests": 4,
+          "pass": 2,
+          "fail": 2,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "after": {
+          "exit": 0,
+          "tests": 4,
+          "pass": 4,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      "cli_exit": 0,
+      "runtime": "ai-sdk"
+    },
+    {
+      "case": "parent-role-direct",
+      "role_configuration": {
+        "coordinator": {
+          "mode": "primary",
+          "description": "Synthetic delegation coordinator",
+          "permission": {
+            "read": {
+              "*": "deny",
+              "labels.mjs": "allow",
+              "labels.test.mjs": "allow"
+            },
+            "edit": {
+              "*": "deny",
+              "labels.mjs": "deny"
+            },
+            "task": {
+              "*": "deny",
+              "worker": "allow"
+            }
+          }
+        },
+        "worker": {
+          "mode": "subagent",
+          "description": "Synthetic bounded label worker",
+          "permission": {
+            "read": {
+              "*": "deny",
+              "labels.mjs": "allow",
+              "labels.test.mjs": "allow"
+            },
+            "edit": {
+              "*": "deny",
+              "labels.mjs": "allow"
+            }
+          }
+        }
+      },
+      "resolved_relevant_role_rules": {
+        "parent": [
+          {
+            "permission": "*",
+            "action": "allow",
+            "pattern": "*"
+          },
+          {
+            "permission": "*",
+            "action": "deny",
+            "pattern": "*"
+          },
+          {
+            "permission": "edit",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "edit",
+            "pattern": "labels.mjs",
+            "action": "deny"
+          },
+          {
+            "permission": "task",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "task",
+            "pattern": "worker",
+            "action": "allow"
+          }
+        ],
+        "child": [
+          {
+            "permission": "*",
+            "action": "allow",
+            "pattern": "*"
+          },
+          {
+            "permission": "*",
+            "action": "deny",
+            "pattern": "*"
+          },
+          {
+            "permission": "edit",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "edit",
+            "pattern": "labels.mjs",
+            "action": "allow"
+          }
+        ]
+      },
+      "sessions": {
+        "parent": {
+          "role": "coordinator",
+          "permission": [
+            {
+              "permission": "question",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_enter",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_exit",
+              "pattern": "*",
+              "action": "deny"
+            }
+          ],
+          "directory": "workspace",
+          "parent": null
+        }
+      },
+      "child_count": 0,
+      "operations": [
+        {
+          "call_id": "parent_read_helper",
+          "tool": "read",
+          "arguments": {
+            "filePath": "labels.mjs"
+          },
+          "status": "completed",
+          "permission_denied": false,
+          "owner": "parent"
+        },
+        {
+          "call_id": "parent_read_tests",
+          "tool": "read",
+          "arguments": {
+            "filePath": "labels.test.mjs"
+          },
+          "status": "completed",
+          "permission_denied": false,
+          "owner": "parent"
+        },
+        {
+          "call_id": "parent_edit",
+          "tool": "edit",
+          "arguments": {
+            "filePath": "labels.mjs",
+            "oldString": "return label;",
+            "newString": "return label.trim();"
+          },
+          "status": "error",
+          "permission_denied": true,
+          "owner": "parent"
+        }
+      ],
+      "evaluations": [
+        {
+          "permission": "read",
+          "pattern": "labels.mjs",
+          "rule_permission": "read",
+          "rule_pattern": "labels.mjs",
+          "action": "allow"
+        },
+        {
+          "permission": "read",
+          "pattern": "labels.test.mjs",
+          "rule_permission": "read",
+          "rule_pattern": "labels.test.mjs",
+          "action": "allow"
+        },
+        {
+          "permission": "edit",
+          "pattern": "labels.mjs",
+          "rule_permission": "edit",
+          "rule_pattern": "labels.mjs",
+          "action": "deny"
+        }
+      ],
+      "pending_asks": 0,
+      "requests": [
+        {
+          "index": 1,
+          "owner": "parent",
+          "tools": [
+            "edit",
+            "read",
+            "task",
+            "write"
+          ],
+          "feedback": [],
+          "markers": {
+            "parent": true,
+            "delegated": false,
+            "observation": false
+          }
+        },
+        {
+          "index": 2,
+          "owner": "parent",
+          "tools": [
+            "edit",
+            "read",
+            "task",
+            "write"
+          ],
+          "feedback": [
+            "parent_read_helper"
+          ],
+          "markers": {
+            "parent": true,
+            "delegated": false,
+            "observation": true
+          }
+        },
+        {
+          "index": 3,
+          "owner": "parent",
+          "tools": [
+            "edit",
+            "read",
+            "task",
+            "write"
+          ],
+          "feedback": [
+            "parent_read_helper",
+            "parent_read_tests"
+          ],
+          "markers": {
+            "parent": true,
+            "delegated": false,
+            "observation": true
+          }
+        },
+        {
+          "index": 4,
+          "owner": "parent",
+          "tools": [
+            "edit",
+            "read",
+            "task",
+            "write"
+          ],
+          "feedback": [
+            "parent_read_helper",
+            "parent_read_tests",
+            "parent_edit"
+          ],
+          "markers": {
+            "parent": true,
+            "delegated": false,
+            "observation": true
+          }
+        }
+      ],
+      "selected_report": null,
+      "task_return": null,
+      "files": {
+        "before": {
+          "labels.mjs": "0034ddaff3b309f448ee2078ee0eefdae9327d7ba3619727cdb9e3d4764b85a7",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        },
+        "after": {
+          "labels.mjs": "0034ddaff3b309f448ee2078ee0eefdae9327d7ba3619727cdb9e3d4764b85a7",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        },
+        "current": {
+          "labels.mjs": "0034ddaff3b309f448ee2078ee0eefdae9327d7ba3619727cdb9e3d4764b85a7",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        }
+      },
+      "changed_files": [],
+      "checks": {
+        "before": {
+          "exit": 1,
+          "tests": 4,
+          "pass": 2,
+          "fail": 2,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "after": {
+          "exit": 1,
+          "tests": 4,
+          "pass": 2,
+          "fail": 2,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      "cli_exit": 0,
+      "runtime": "ai-sdk"
+    },
+    {
+      "case": "parent-role",
+      "role_configuration": {
+        "coordinator": {
+          "mode": "primary",
+          "description": "Synthetic delegation coordinator",
+          "permission": {
+            "read": {
+              "*": "deny",
+              "labels.mjs": "allow",
+              "labels.test.mjs": "allow"
+            },
+            "edit": {
+              "*": "deny",
+              "labels.mjs": "deny"
+            },
+            "task": {
+              "*": "deny",
+              "worker": "allow"
+            }
+          }
+        },
+        "worker": {
+          "mode": "subagent",
+          "description": "Synthetic bounded label worker",
+          "permission": {
+            "read": {
+              "*": "deny",
+              "labels.mjs": "allow",
+              "labels.test.mjs": "allow"
+            },
+            "edit": {
+              "*": "deny",
+              "labels.mjs": "allow"
+            }
+          }
+        }
+      },
+      "resolved_relevant_role_rules": {
+        "parent": [
+          {
+            "permission": "*",
+            "action": "allow",
+            "pattern": "*"
+          },
+          {
+            "permission": "*",
+            "action": "deny",
+            "pattern": "*"
+          },
+          {
+            "permission": "edit",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "edit",
+            "pattern": "labels.mjs",
+            "action": "deny"
+          },
+          {
+            "permission": "task",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "task",
+            "pattern": "worker",
+            "action": "allow"
+          }
+        ],
+        "child": [
+          {
+            "permission": "*",
+            "action": "allow",
+            "pattern": "*"
+          },
+          {
+            "permission": "*",
+            "action": "deny",
+            "pattern": "*"
+          },
+          {
+            "permission": "edit",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "edit",
+            "pattern": "labels.mjs",
+            "action": "allow"
+          }
+        ]
+      },
+      "sessions": {
+        "parent": {
+          "role": "coordinator",
+          "permission": [
+            {
+              "permission": "question",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_enter",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_exit",
+              "pattern": "*",
+              "action": "deny"
+            }
+          ],
+          "directory": "workspace",
+          "parent": null
+        },
+        "child": {
+          "role": "worker",
+          "permission": [
+            {
+              "permission": "question",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_enter",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_exit",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "todowrite",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "task",
+              "pattern": "*",
+              "action": "deny"
+            }
+          ],
+          "directory": "workspace",
+          "parent": "parent"
+        }
+      },
+      "child_count": 1,
+      "operations": [
+        {
+          "call_id": "parent_task",
+          "tool": "task",
+          "arguments": {
+            "description": "Bounded label edit",
+            "subagent_type": "worker",
+            "prompt": "Read labels.mjs and labels.test.mjs. Edit only labels.mjs to trim outer whitespace and preserve interior spaces. Report the operation result. Handoff marker: HANDOFF_9e31f6"
+          },
+          "status": "completed",
+          "permission_denied": false,
+          "owner": "parent"
+        },
+        {
+          "call_id": "child_read_helper",
+          "tool": "read",
+          "arguments": {
+            "filePath": "labels.mjs"
+          },
+          "status": "completed",
+          "permission_denied": false,
+          "owner": "child"
+        },
+        {
+          "call_id": "child_read_tests",
+          "tool": "read",
+          "arguments": {
+            "filePath": "labels.test.mjs"
+          },
+          "status": "completed",
+          "permission_denied": false,
+          "owner": "child"
+        },
+        {
+          "call_id": "child_edit",
+          "tool": "edit",
+          "arguments": {
+            "filePath": "labels.mjs",
+            "oldString": "return label;",
+            "newString": "return label.trim();"
+          },
+          "status": "completed",
+          "permission_denied": false,
+          "owner": "child"
+        }
+      ],
+      "evaluations": [
+        {
+          "permission": "task",
+          "pattern": "worker",
+          "rule_permission": "task",
+          "rule_pattern": "worker",
+          "action": "allow"
+        },
+        {
+          "permission": "read",
+          "pattern": "labels.mjs",
+          "rule_permission": "read",
+          "rule_pattern": "labels.mjs",
+          "action": "allow"
+        },
+        {
+          "permission": "read",
+          "pattern": "labels.test.mjs",
+          "rule_permission": "read",
+          "rule_pattern": "labels.test.mjs",
+          "action": "allow"
+        },
+        {
+          "permission": "edit",
+          "pattern": "labels.mjs",
+          "rule_permission": "edit",
+          "rule_pattern": "labels.mjs",
+          "action": "allow"
+        }
+      ],
+      "pending_asks": 0,
+      "requests": [
+        {
+          "index": 1,
+          "owner": "parent",
+          "tools": [
+            "edit",
+            "read",
+            "task",
+            "write"
+          ],
+          "feedback": [],
+          "markers": {
+            "parent": true,
+            "delegated": false,
+            "observation": false
+          }
+        },
+        {
+          "index": 2,
+          "owner": "child",
+          "tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "feedback": [],
+          "markers": {
+            "parent": false,
+            "delegated": true,
+            "observation": false
+          }
+        },
+        {
+          "index": 3,
+          "owner": "child",
+          "tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "feedback": [
+            "child_read_helper"
+          ],
+          "markers": {
+            "parent": false,
+            "delegated": true,
+            "observation": true
+          }
+        },
+        {
+          "index": 4,
+          "owner": "child",
+          "tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "feedback": [
+            "child_read_helper",
+            "child_read_tests"
+          ],
+          "markers": {
+            "parent": false,
+            "delegated": true,
+            "observation": true
+          }
+        },
+        {
+          "index": 5,
+          "owner": "child",
+          "tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "feedback": [
+            "child_read_helper",
+            "child_read_tests",
+            "child_edit"
+          ],
+          "markers": {
+            "parent": false,
+            "delegated": true,
+            "observation": true
+          }
+        },
+        {
+          "index": 6,
+          "owner": "parent",
+          "tools": [
+            "edit",
+            "read",
+            "task",
+            "write"
+          ],
+          "feedback": [
+            "parent_task"
+          ],
+          "markers": {
+            "parent": true,
+            "delegated": true,
+            "observation": false
+          }
+        }
+      ],
+      "selected_report": "The edit tool completed the requested label change. Fixed tests still need independent checking.",
+      "task_return": "<task id=\"<child>\" state=\"completed\">\n<task_result>\nThe edit tool completed the requested label change. Fixed tests still need independent checking.\n</task_result>\n</task>",
+      "files": {
+        "before": {
+          "labels.mjs": "0034ddaff3b309f448ee2078ee0eefdae9327d7ba3619727cdb9e3d4764b85a7",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        },
+        "after": {
+          "labels.mjs": "a66e42f94ffd3672c8e58c6d64368fca7add6b36f27334f7bfa5927795dd7774",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        },
+        "current": {
+          "labels.mjs": "a66e42f94ffd3672c8e58c6d64368fca7add6b36f27334f7bfa5927795dd7774",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        }
+      },
+      "changed_files": [
+        "labels.mjs"
+      ],
+      "checks": {
+        "before": {
+          "exit": 1,
+          "tests": 4,
+          "pass": 2,
+          "fail": 2,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "after": {
+          "exit": 0,
+          "tests": 4,
+          "pass": 4,
+          "fail": 0,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      "cli_exit": 0,
+      "runtime": "ai-sdk"
+    },
+    {
+      "case": "parent-session",
+      "role_configuration": {
+        "coordinator": {
+          "mode": "primary",
+          "description": "Synthetic delegation coordinator",
+          "permission": {
+            "read": {
+              "*": "deny",
+              "labels.mjs": "allow",
+              "labels.test.mjs": "allow"
+            },
+            "edit": {
+              "*": "deny",
+              "labels.mjs": "allow"
+            },
+            "task": {
+              "*": "deny",
+              "worker": "allow"
+            }
+          }
+        },
+        "worker": {
+          "mode": "subagent",
+          "description": "Synthetic bounded label worker",
+          "permission": {
+            "read": {
+              "*": "deny",
+              "labels.mjs": "allow",
+              "labels.test.mjs": "allow"
+            },
+            "edit": {
+              "*": "deny",
+              "labels.mjs": "allow"
+            }
+          }
+        }
+      },
+      "resolved_relevant_role_rules": {
+        "parent": [
+          {
+            "permission": "*",
+            "action": "allow",
+            "pattern": "*"
+          },
+          {
+            "permission": "*",
+            "action": "deny",
+            "pattern": "*"
+          },
+          {
+            "permission": "edit",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "edit",
+            "pattern": "labels.mjs",
+            "action": "allow"
+          },
+          {
+            "permission": "task",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "task",
+            "pattern": "worker",
+            "action": "allow"
+          }
+        ],
+        "child": [
+          {
+            "permission": "*",
+            "action": "allow",
+            "pattern": "*"
+          },
+          {
+            "permission": "*",
+            "action": "deny",
+            "pattern": "*"
+          },
+          {
+            "permission": "edit",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "edit",
+            "pattern": "labels.mjs",
+            "action": "allow"
+          }
+        ]
+      },
+      "sessions": {
+        "parent": {
+          "role": "coordinator",
+          "permission": [
+            {
+              "permission": "question",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_enter",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_exit",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "edit",
+              "pattern": "labels.mjs",
+              "action": "deny"
+            }
+          ],
+          "directory": "workspace",
+          "parent": null
+        },
+        "child": {
+          "role": "worker",
+          "permission": [
+            {
+              "permission": "question",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_enter",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_exit",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "edit",
+              "pattern": "labels.mjs",
+              "action": "deny"
+            },
+            {
+              "permission": "todowrite",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "task",
+              "pattern": "*",
+              "action": "deny"
+            }
+          ],
+          "directory": "workspace",
+          "parent": "parent"
+        }
+      },
+      "child_count": 1,
+      "operations": [
+        {
+          "call_id": "parent_task",
+          "tool": "task",
+          "arguments": {
+            "description": "Bounded label edit",
+            "subagent_type": "worker",
+            "prompt": "Read labels.mjs and labels.test.mjs. Edit only labels.mjs to trim outer whitespace and preserve interior spaces. Report the operation result. Handoff marker: HANDOFF_9e31f6"
+          },
+          "status": "completed",
+          "permission_denied": false,
+          "owner": "parent"
+        },
+        {
+          "call_id": "child_read_helper",
+          "tool": "read",
+          "arguments": {
+            "filePath": "labels.mjs"
+          },
+          "status": "completed",
+          "permission_denied": false,
+          "owner": "child"
+        },
+        {
+          "call_id": "child_read_tests",
+          "tool": "read",
+          "arguments": {
+            "filePath": "labels.test.mjs"
+          },
+          "status": "completed",
+          "permission_denied": false,
+          "owner": "child"
+        },
+        {
+          "call_id": "child_edit",
+          "tool": "edit",
+          "arguments": {
+            "filePath": "labels.mjs",
+            "oldString": "return label;",
+            "newString": "return label.trim();"
+          },
+          "status": "error",
+          "permission_denied": true,
+          "owner": "child"
+        }
+      ],
+      "evaluations": [
+        {
+          "permission": "task",
+          "pattern": "worker",
+          "rule_permission": "task",
+          "rule_pattern": "worker",
+          "action": "allow"
+        },
+        {
+          "permission": "read",
+          "pattern": "labels.mjs",
+          "rule_permission": "read",
+          "rule_pattern": "labels.mjs",
+          "action": "allow"
+        },
+        {
+          "permission": "read",
+          "pattern": "labels.test.mjs",
+          "rule_permission": "read",
+          "rule_pattern": "labels.test.mjs",
+          "action": "allow"
+        },
+        {
+          "permission": "edit",
+          "pattern": "labels.mjs",
+          "rule_permission": "edit",
+          "rule_pattern": "labels.mjs",
+          "action": "deny"
+        }
+      ],
+      "pending_asks": 0,
+      "requests": [
+        {
+          "index": 1,
+          "owner": "parent",
+          "tools": [
+            "edit",
+            "read",
+            "task",
+            "write"
+          ],
+          "feedback": [],
+          "markers": {
+            "parent": true,
+            "delegated": false,
+            "observation": false
+          }
+        },
+        {
+          "index": 2,
+          "owner": "child",
+          "tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "feedback": [],
+          "markers": {
+            "parent": false,
+            "delegated": true,
+            "observation": false
+          }
+        },
+        {
+          "index": 3,
+          "owner": "child",
+          "tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "feedback": [
+            "child_read_helper"
+          ],
+          "markers": {
+            "parent": false,
+            "delegated": true,
+            "observation": true
+          }
+        },
+        {
+          "index": 4,
+          "owner": "child",
+          "tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "feedback": [
+            "child_read_helper",
+            "child_read_tests"
+          ],
+          "markers": {
+            "parent": false,
+            "delegated": true,
+            "observation": true
+          }
+        },
+        {
+          "index": 5,
+          "owner": "child",
+          "tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "feedback": [
+            "child_read_helper",
+            "child_read_tests",
+            "child_edit"
+          ],
+          "markers": {
+            "parent": false,
+            "delegated": true,
+            "observation": true
+          }
+        },
+        {
+          "index": 6,
+          "owner": "parent",
+          "tools": [
+            "edit",
+            "read",
+            "task",
+            "write"
+          ],
+          "feedback": [
+            "parent_task"
+          ],
+          "markers": {
+            "parent": true,
+            "delegated": true,
+            "observation": false
+          }
+        }
+      ],
+      "selected_report": "The requested edit was denied by the runtime. No edit was completed.",
+      "task_return": "<task id=\"<child>\" state=\"completed\">\n<task_result>\nThe requested edit was denied by the runtime. No edit was completed.\n</task_result>\n</task>",
+      "files": {
+        "before": {
+          "labels.mjs": "0034ddaff3b309f448ee2078ee0eefdae9327d7ba3619727cdb9e3d4764b85a7",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        },
+        "after": {
+          "labels.mjs": "0034ddaff3b309f448ee2078ee0eefdae9327d7ba3619727cdb9e3d4764b85a7",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        },
+        "current": {
+          "labels.mjs": "0034ddaff3b309f448ee2078ee0eefdae9327d7ba3619727cdb9e3d4764b85a7",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        }
+      },
+      "changed_files": [],
+      "checks": {
+        "before": {
+          "exit": 1,
+          "tests": 4,
+          "pass": 2,
+          "fail": 2,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "after": {
+          "exit": 1,
+          "tests": 4,
+          "pass": 2,
+          "fail": 2,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      "cli_exit": 0,
+      "runtime": "ai-sdk"
+    },
+    {
+      "case": "worker-role",
+      "role_configuration": {
+        "coordinator": {
+          "mode": "primary",
+          "description": "Synthetic delegation coordinator",
+          "permission": {
+            "read": {
+              "*": "deny",
+              "labels.mjs": "allow",
+              "labels.test.mjs": "allow"
+            },
+            "edit": {
+              "*": "deny",
+              "labels.mjs": "allow"
+            },
+            "task": {
+              "*": "deny",
+              "worker": "allow"
+            }
+          }
+        },
+        "worker": {
+          "mode": "subagent",
+          "description": "Synthetic bounded label worker",
+          "permission": {
+            "read": {
+              "*": "deny",
+              "labels.mjs": "allow",
+              "labels.test.mjs": "allow"
+            },
+            "edit": {
+              "*": "deny",
+              "labels.mjs": "deny"
+            }
+          }
+        }
+      },
+      "resolved_relevant_role_rules": {
+        "parent": [
+          {
+            "permission": "*",
+            "action": "allow",
+            "pattern": "*"
+          },
+          {
+            "permission": "*",
+            "action": "deny",
+            "pattern": "*"
+          },
+          {
+            "permission": "edit",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "edit",
+            "pattern": "labels.mjs",
+            "action": "allow"
+          },
+          {
+            "permission": "task",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "task",
+            "pattern": "worker",
+            "action": "allow"
+          }
+        ],
+        "child": [
+          {
+            "permission": "*",
+            "action": "allow",
+            "pattern": "*"
+          },
+          {
+            "permission": "*",
+            "action": "deny",
+            "pattern": "*"
+          },
+          {
+            "permission": "edit",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "edit",
+            "pattern": "labels.mjs",
+            "action": "deny"
+          }
+        ]
+      },
+      "sessions": {
+        "parent": {
+          "role": "coordinator",
+          "permission": [
+            {
+              "permission": "question",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_enter",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_exit",
+              "pattern": "*",
+              "action": "deny"
+            }
+          ],
+          "directory": "workspace",
+          "parent": null
+        },
+        "child": {
+          "role": "worker",
+          "permission": [
+            {
+              "permission": "question",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_enter",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_exit",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "todowrite",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "task",
+              "pattern": "*",
+              "action": "deny"
+            }
+          ],
+          "directory": "workspace",
+          "parent": "parent"
+        }
+      },
+      "child_count": 1,
+      "operations": [
+        {
+          "call_id": "parent_task",
+          "tool": "task",
+          "arguments": {
+            "description": "Bounded label edit",
+            "subagent_type": "worker",
+            "prompt": "Read labels.mjs and labels.test.mjs. Edit only labels.mjs to trim outer whitespace and preserve interior spaces. Report the operation result. Handoff marker: HANDOFF_9e31f6"
+          },
+          "status": "completed",
+          "permission_denied": false,
+          "owner": "parent"
+        },
+        {
+          "call_id": "child_read_helper",
+          "tool": "read",
+          "arguments": {
+            "filePath": "labels.mjs"
+          },
+          "status": "completed",
+          "permission_denied": false,
+          "owner": "child"
+        },
+        {
+          "call_id": "child_read_tests",
+          "tool": "read",
+          "arguments": {
+            "filePath": "labels.test.mjs"
+          },
+          "status": "completed",
+          "permission_denied": false,
+          "owner": "child"
+        },
+        {
+          "call_id": "child_edit",
+          "tool": "edit",
+          "arguments": {
+            "filePath": "labels.mjs",
+            "oldString": "return label;",
+            "newString": "return label.trim();"
+          },
+          "status": "error",
+          "permission_denied": true,
+          "owner": "child"
+        }
+      ],
+      "evaluations": [
+        {
+          "permission": "task",
+          "pattern": "worker",
+          "rule_permission": "task",
+          "rule_pattern": "worker",
+          "action": "allow"
+        },
+        {
+          "permission": "read",
+          "pattern": "labels.mjs",
+          "rule_permission": "read",
+          "rule_pattern": "labels.mjs",
+          "action": "allow"
+        },
+        {
+          "permission": "read",
+          "pattern": "labels.test.mjs",
+          "rule_permission": "read",
+          "rule_pattern": "labels.test.mjs",
+          "action": "allow"
+        },
+        {
+          "permission": "edit",
+          "pattern": "labels.mjs",
+          "rule_permission": "edit",
+          "rule_pattern": "labels.mjs",
+          "action": "deny"
+        }
+      ],
+      "pending_asks": 0,
+      "requests": [
+        {
+          "index": 1,
+          "owner": "parent",
+          "tools": [
+            "edit",
+            "read",
+            "task",
+            "write"
+          ],
+          "feedback": [],
+          "markers": {
+            "parent": true,
+            "delegated": false,
+            "observation": false
+          }
+        },
+        {
+          "index": 2,
+          "owner": "child",
+          "tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "feedback": [],
+          "markers": {
+            "parent": false,
+            "delegated": true,
+            "observation": false
+          }
+        },
+        {
+          "index": 3,
+          "owner": "child",
+          "tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "feedback": [
+            "child_read_helper"
+          ],
+          "markers": {
+            "parent": false,
+            "delegated": true,
+            "observation": true
+          }
+        },
+        {
+          "index": 4,
+          "owner": "child",
+          "tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "feedback": [
+            "child_read_helper",
+            "child_read_tests"
+          ],
+          "markers": {
+            "parent": false,
+            "delegated": true,
+            "observation": true
+          }
+        },
+        {
+          "index": 5,
+          "owner": "child",
+          "tools": [
+            "edit",
+            "read",
+            "write"
+          ],
+          "feedback": [
+            "child_read_helper",
+            "child_read_tests",
+            "child_edit"
+          ],
+          "markers": {
+            "parent": false,
+            "delegated": true,
+            "observation": true
+          }
+        },
+        {
+          "index": 6,
+          "owner": "parent",
+          "tools": [
+            "edit",
+            "read",
+            "task",
+            "write"
+          ],
+          "feedback": [
+            "parent_task"
+          ],
+          "markers": {
+            "parent": true,
+            "delegated": true,
+            "observation": false
+          }
+        }
+      ],
+      "selected_report": "The requested edit was denied by the runtime. No edit was completed.",
+      "task_return": "<task id=\"<child>\" state=\"completed\">\n<task_result>\nThe requested edit was denied by the runtime. No edit was completed.\n</task_result>\n</task>",
+      "files": {
+        "before": {
+          "labels.mjs": "0034ddaff3b309f448ee2078ee0eefdae9327d7ba3619727cdb9e3d4764b85a7",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        },
+        "after": {
+          "labels.mjs": "0034ddaff3b309f448ee2078ee0eefdae9327d7ba3619727cdb9e3d4764b85a7",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        },
+        "current": {
+          "labels.mjs": "0034ddaff3b309f448ee2078ee0eefdae9327d7ba3619727cdb9e3d4764b85a7",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        }
+      },
+      "changed_files": [],
+      "checks": {
+        "before": {
+          "exit": 1,
+          "tests": 4,
+          "pass": 2,
+          "fail": 2,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "after": {
+          "exit": 1,
+          "tests": 4,
+          "pass": 2,
+          "fail": 2,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      "cli_exit": 0,
+      "runtime": "ai-sdk"
+    },
+    {
+      "case": "dispatch",
+      "role_configuration": {
+        "coordinator": {
+          "mode": "primary",
+          "description": "Synthetic delegation coordinator",
+          "permission": {
+            "read": {
+              "*": "deny",
+              "labels.mjs": "allow",
+              "labels.test.mjs": "allow"
+            },
+            "edit": {
+              "*": "deny",
+              "labels.mjs": "allow"
+            },
+            "task": {
+              "*": "deny",
+              "worker": "deny"
+            }
+          }
+        },
+        "worker": {
+          "mode": "subagent",
+          "description": "Synthetic bounded label worker",
+          "permission": {
+            "read": {
+              "*": "deny",
+              "labels.mjs": "allow",
+              "labels.test.mjs": "allow"
+            },
+            "edit": {
+              "*": "deny",
+              "labels.mjs": "allow"
+            }
+          }
+        }
+      },
+      "resolved_relevant_role_rules": {
+        "parent": [
+          {
+            "permission": "*",
+            "action": "allow",
+            "pattern": "*"
+          },
+          {
+            "permission": "*",
+            "action": "deny",
+            "pattern": "*"
+          },
+          {
+            "permission": "edit",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "edit",
+            "pattern": "labels.mjs",
+            "action": "allow"
+          },
+          {
+            "permission": "task",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "task",
+            "pattern": "worker",
+            "action": "deny"
+          }
+        ],
+        "child": [
+          {
+            "permission": "*",
+            "action": "allow",
+            "pattern": "*"
+          },
+          {
+            "permission": "*",
+            "action": "deny",
+            "pattern": "*"
+          },
+          {
+            "permission": "edit",
+            "pattern": "*",
+            "action": "deny"
+          },
+          {
+            "permission": "edit",
+            "pattern": "labels.mjs",
+            "action": "allow"
+          }
+        ]
+      },
+      "sessions": {
+        "parent": {
+          "role": "coordinator",
+          "permission": [
+            {
+              "permission": "question",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_enter",
+              "pattern": "*",
+              "action": "deny"
+            },
+            {
+              "permission": "plan_exit",
+              "pattern": "*",
+              "action": "deny"
+            }
+          ],
+          "directory": "workspace",
+          "parent": null
+        }
+      },
+      "child_count": 0,
+      "operations": [
+        {
+          "call_id": "parent_task",
+          "tool": "task",
+          "arguments": {
+            "description": "Bounded label edit",
+            "subagent_type": "worker",
+            "prompt": "Read labels.mjs and labels.test.mjs. Edit only labels.mjs to trim outer whitespace and preserve interior spaces. Report the operation result. Handoff marker: HANDOFF_9e31f6"
+          },
+          "status": "error",
+          "permission_denied": true,
+          "owner": "parent"
+        }
+      ],
+      "evaluations": [
+        {
+          "permission": "task",
+          "pattern": "worker",
+          "rule_permission": "task",
+          "rule_pattern": "worker",
+          "action": "deny"
+        }
+      ],
+      "pending_asks": 0,
+      "requests": [
+        {
+          "index": 1,
+          "owner": "parent",
+          "tools": [
+            "edit",
+            "read",
+            "task",
+            "write"
+          ],
+          "feedback": [],
+          "markers": {
+            "parent": true,
+            "delegated": false,
+            "observation": false
+          }
+        },
+        {
+          "index": 2,
+          "owner": "parent",
+          "tools": [
+            "edit",
+            "read",
+            "task",
+            "write"
+          ],
+          "feedback": [
+            "parent_task"
+          ],
+          "markers": {
+            "parent": true,
+            "delegated": true,
+            "observation": false
+          }
+        }
+      ],
+      "selected_report": null,
+      "task_return": "The user has specified a rule which prevents you from using this specific tool call. Here are some of the relevant rules [{\"permission\":\"*\",\"action\":\"allow\",\"pattern\":\"*\"},{\"permission\":\"*\",\"action\":\"deny\",\"pattern\":\"*\"},{\"permission\":\"task\",\"pattern\":\"*\",\"action\":\"deny\"},{\"permission\":\"task\",\"pattern\":\"worker\",\"action\":\"deny\"}]",
+      "files": {
+        "before": {
+          "labels.mjs": "0034ddaff3b309f448ee2078ee0eefdae9327d7ba3619727cdb9e3d4764b85a7",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        },
+        "after": {
+          "labels.mjs": "0034ddaff3b309f448ee2078ee0eefdae9327d7ba3619727cdb9e3d4764b85a7",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        },
+        "current": {
+          "labels.mjs": "0034ddaff3b309f448ee2078ee0eefdae9327d7ba3619727cdb9e3d4764b85a7",
+          "labels.test.mjs": "efde287076b264013c2e2e960d7b9c591c723655963111bfaed338afd2126aeb"
+        }
+      },
+      "changed_files": [],
+      "checks": {
+        "before": {
+          "exit": 1,
+          "tests": 4,
+          "pass": 2,
+          "fail": 2,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        },
+        "after": {
+          "exit": 1,
+          "tests": 4,
+          "pass": 2,
+          "fail": 2,
+          "cancelled": 0,
+          "skipped": 0,
+          "todo": 0
+        }
+      },
+      "cli_exit": 0,
+      "runtime": "ai-sdk"
+    }
+  ]
+}

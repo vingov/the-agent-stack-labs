@@ -39,6 +39,8 @@ jobs:
         run: |
           python series/opencode/v1.18.30/labs/04-subagents-shared-work/scripts/verify_reference.py
           python series/opencode/v1.18.30/labs/04-subagents-shared-work/scripts/test_lab.py
+          python series/opencode/v1.18.30/labs/04-subagents-shared-work/scripts/test_boundary_evidence.py
+          python -m py_compile series/opencode/v1.18.30/labs/04-subagents-shared-work/scripts/run_boundary_lab.py series/opencode/v1.18.30/labs/04-subagents-shared-work/scripts/verify_boundary_run.py
           python -m py_compile series/opencode/v1.18.30/labs/04-subagents-shared-work/scripts/contract.py series/opencode/v1.18.30/labs/04-subagents-shared-work/scripts/run_lab.py series/opencode/v1.18.30/labs/04-subagents-shared-work/scripts/verify_run.py series/opencode/v1.18.30/labs/04-subagents-shared-work/scripts/test_raw_evidence.py
 
   windows-powershell:
