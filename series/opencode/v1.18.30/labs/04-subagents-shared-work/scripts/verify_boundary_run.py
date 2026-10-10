@@ -54,6 +54,7 @@ def reconstruct_case(root, case):
         {'permission': 'todowrite', 'pattern': '*', 'action': 'deny'},
         {'permission': 'task', 'pattern': '*', 'action': 'deny'}]
     by_call = {}
+    call_owners = {}
     messages = {}
     session_evidence = {}
     for owner, exported in exports.items():
@@ -78,6 +79,7 @@ def reconstruct_case(root, case):
                 if part['type'] == 'tool':
                     need(part['callID'] not in by_call, 'duplicate call')
                     by_call[part['callID']] = part
+                    call_owners[part['callID']] = owner
         user_parts = [p for m in exported['messages'] if m['info']['role'] == 'user' for p in m['parts']]
         prompt = TASK['prompt'] if owner == 'child' else DIRECT_PROMPT if case == 'parent-role-direct' else PROMPT
         need(len(user_parts) == 1 and user_parts[0]['type'] == 'text' and user_parts[0]['text'] in (prompt, json.dumps(prompt)), 'supplied prompt changed')
@@ -90,6 +92,8 @@ def reconstruct_case(root, case):
     operations = []
     for call_id, tool, arguments in expected_calls:
         part = by_call[call_id]
+        expected_owner = 'child' if call_id.startswith('child_') else 'parent'
+        need(call_owners[call_id] == expected_owner, 'operation stored under wrong session')
         state = part['state']
         need(part['tool'] == tool and state['input'] == arguments, 'actual tool arguments changed')
         denied = (tool == 'edit' and case not in CHANGED) or (tool == 'task' and case == 'dispatch')
@@ -103,7 +107,7 @@ def reconstruct_case(root, case):
             need('-  return label;\n+  return label.trim();' in state['metadata']['diff'], 'edit diff mismatch')
             need(Path(state['metadata']['filediff']['file']).resolve() == workspace / arguments['filePath'], 'actual edit target differs')
         operations.append({'call_id': call_id, 'tool': tool, 'arguments': arguments, 'status': state['status'],
-                           'permission_denied': denied, 'owner': 'child' if call_id.startswith('child_') else 'parent'})
+                           'permission_denied': denied, 'owner': call_owners[call_id]})
     requests = []
     proposals, reports = [], {}
     paths = sorted(root.glob('request-*.json'))
@@ -124,12 +128,14 @@ def reconstruct_case(root, case):
         replies = [m for m in body['messages'] if m['role'] == 'tool']
         for reply in replies:
             need(reply['tool_call_id'] in by_call, 'unexpected feedback call')
+            need(call_owners[reply['tool_call_id']] == kind, 'feedback belongs to another session')
             state = by_call[reply['tool_call_id']]['state']
             need(reply['content'] == state.get('output', state.get('error')), 'provider feedback differs from export')
             if reply['tool_call_id'] == 'parent_task':
                 returned = reply['content']
         for call in response['message'].get('tool_calls', []):
             function = call['function']
+            need(call['id'] in by_call and call_owners[call['id']] == kind, 'proposal and operation owners differ')
             need(function['name'] in available, 'called hidden tool')
             need(response['finish_reason'] == 'tool_calls', 'tool finish marker')
             proposals.append((call['id'], function['name'], json.loads(function['arguments'])))
@@ -194,6 +200,7 @@ def reconstruct_case(root, case):
     need(events and not any(e['type'] == 'error' for e in events), 'CLI stream error or missing events')
     need({e['sessionID'] for e in events} == {ids['parent']}, 'CLI event owner differs')
     emitted = [e['part'] for e in events if e['type'] == 'tool_use']
+    need(all(p['sessionID'] == ids['parent'] for p in emitted), 'CLI tool part owner differs')
     parent_tools = [by_call[c[0]] for c in expected_calls if c[0].startswith('parent_')]
     need([(p['callID'], p['state']) for p in emitted] == [(p['callID'], p['state']) for p in parent_tools], 'CLI tool feedback differs from export')
     public_return = returned

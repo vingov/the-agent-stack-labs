@@ -17,6 +17,21 @@ def rejected(check):
         return True
     return False
 
+def move_tool_owner(root):
+    """Keep export envelopes coherent while misattributing the child edit."""
+    child_path = root / 'parent-role/export-child.json'
+    parent_path = root / 'parent-role/export-parent.json'
+    child = json.loads(child_path.read_text(encoding='utf-8'))
+    parent = json.loads(parent_path.read_text(encoding='utf-8'))
+    source = next(m for m in child['messages'] if any(p.get('callID') == 'child_edit' for p in m['parts']))
+    part = next(p for p in source['parts'] if p.get('callID') == 'child_edit')
+    source['parts'].remove(part)
+    destination = next(m for m in parent['messages'] if m['info']['role'] == 'assistant')
+    part.update(sessionID=parent['info']['id'], messageID=destination['info']['id'])
+    destination['parts'].append(part)
+    child_path.write_text(json.dumps(child), encoding='utf-8')
+    parent_path.write_text(json.dumps(parent), encoding='utf-8')
+
 def public_controls(receipt):
     controls = [
         ('missing comparison', lambda x: x['results'].pop()),
@@ -66,6 +81,7 @@ def private_controls(source):
         ('different read target', lambda r: mutate_json(r, 'parent-role/export-child.json', lambda x: next(p for m in x['messages'] for p in m['parts'] if p.get('callID') == 'child_read_helper')['state']['metadata']['display'].update(path='other.mjs'))),
         ('different edit target', lambda r: mutate_json(r, 'parent-role/export-child.json', lambda x: next(p for m in x['messages'] for p in m['parts'] if p.get('callID') == 'child_edit')['state']['metadata']['filediff'].update(file='other.mjs'))),
         ('different assistant workspace', lambda r: mutate_json(r, 'parent-role/export-child.json', lambda x: next(m for m in x['messages'] if m['info']['role'] == 'assistant')['info']['path'].update(cwd='elsewhere'))),
+        ('child edit reassigned to parent', move_tool_owner),
     ]
     for label, change in [('unaltered copy', None), *controls]:
         with tempfile.TemporaryDirectory(prefix='opencode-boundary-check-') as temp:
