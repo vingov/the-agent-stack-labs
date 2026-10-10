@@ -4,6 +4,6 @@ Evidence class: **OBSERVED_WITH_SCRIPTED_PROVIDER**. The real OpenCode v1.18.30 
 
 The [receipt](receipt.json) records the policy owner, child creation, actual operation/gate outcomes, bounded marker observations, selected report, current file hashes and fixed test counters. See [the experiment](../../delegation-boundary.md) for the result matrix and reproduction.
 
-The initial development capture was independently reconstructed from raw evidence. Its dirty provenance is retained until a clean-checkout reference replaces it. Public receipt checks reject 18 contradictory copies; private reconstruction checks reject 15 corrupted capture copies after accepting an unaltered copy. Neither is an independent authentication of historical execution.
+The supplied receipt is from a fresh local clone of commit `ca3a6e1daf1fc747a430c5e212c94c90dedae1b3`, with `lab_dirty=false`. It reproduces the earlier development matrix. Both captures were independently reconstructed from raw evidence. Public receipt checks reject 18 contradictory copies; private reconstruction checks reject 15 corrupted capture copies after accepting an unaltered copy. Neither is an independent authentication of historical execution.
 
 Real runtime coverage is Windows x64 only. Portable CI checks the recorded receipt and rejection controls on Windows, macOS and Ubuntu. It does not run OpenCode on those other platforms.

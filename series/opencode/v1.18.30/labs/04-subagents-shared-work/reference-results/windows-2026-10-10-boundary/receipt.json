@@ -5,8 +5,8 @@
   "binary_sha256": "c1bdbb18767048e1853af4238311b3f7e16ff2f91b68fb4c7ced3c5175347eea",
   "platform": "Windows",
   "architecture": "AMD64",
-  "lab_revision": "fc1eaff17c3e0a7e97e920946ee296a1cd5ab67c",
-  "lab_dirty": true,
+  "lab_revision": "ca3a6e1daf1fc747a430c5e212c94c90dedae1b3",
+  "lab_dirty": false,
   "runner_sha256": "7afe6b585aa50725cc863f04c1586aa0166454a48318387f129fa70c90248de5",
   "cases": [
     "allowed",
