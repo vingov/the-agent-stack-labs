@@ -1,5 +1,9 @@
 # Subagents and shared work
 
+**New Part 4 investigation: [What crosses the delegation boundary?](delegation-boundary.md)**
+
+Move the same target edit restriction between the coordinator role, parent session, worker role and delegation gate. Six real runtime cases show that a coordinator denied the edit can dispatch a permitted worker, while a fresh parent-session deny reaches the worker. The companion page contains the result matrix, reproduction commands and limits. The original shared-file trace below remains supporting evidence.
+
 A child session is not a private checkout. This lab follows one real OpenCode task from a parent conversation to a fresh child, an edit of shared files, and a selected report back to the parent.
 
 The central question is observable: **has the shared file already changed before the child returns its report?** The local provider pauses at that boundary so a separate reader can inspect the file.

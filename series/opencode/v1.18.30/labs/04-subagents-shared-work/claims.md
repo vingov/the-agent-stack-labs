@@ -1,5 +1,7 @@
 # Claim matrix
 
+The October 10 rebuild adds a stronger controlled comparison in [delegation-boundary.md](delegation-boundary.md). Its main claim is that parent agent-role restrictions and parent-session restrictions cross a fresh task boundary differently. The table below preserves the original October 7 trace and its provenance. Neither experiment establishes natural model choices or model quality.
+
 The experiment was selected after a complete initial article draft. Its central sentence was: “The child’s edit can change the shared working file before its report returns to the parent.”
 
 | Claim | Evidence class | Evidence and limit |
