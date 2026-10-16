@@ -16,6 +16,8 @@ The observed boundary is the whole selected file. In the treatment, undo replace
 
 A correct restoration can bring back the original bug. File-version checks and behavioral acceptance answer different questions.
 
+See the [recovery and cleanup figures](figures/README.md) for compact diagrams, editable Mermaid sources, and PNG/SVG exports.
+
 ## Inspect the evidence without running OpenCode
 
 Requires Python 3.12 or later. From the repository root:
