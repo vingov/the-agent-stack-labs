@@ -27,8 +27,10 @@ def verify(receipt):
     need(runtime['platform'] == 'Windows' and runtime['evidence_class'] == 'OBSERVED_WITH_SCRIPTED_PROVIDER'
          and runtime['model_inference'] is False, 'evidence class differs')
     need(runtime['cases'] == list(CASES) and [c['case'] for c in receipt['cases']] == list(CASES), 'case inventory differs')
+    need(runtime['continuation'] is True, 'published reference must include the planned continuation')
     for result in receipt['cases']:
         case = result['case']
+        need(('continuation' in result) == (case == 'same-file'), 'published continuation missing or attached to wrong case')
         need(set(result['stages']) == set(STAGES), 'missing primary boundary')
         for stage in STAGES:
             check_stage(result['stages'][stage], case, stage)

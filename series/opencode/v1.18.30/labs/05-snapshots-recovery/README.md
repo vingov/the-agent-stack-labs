@@ -63,6 +63,16 @@ It then checks that the post-revert helper equals the actual selected earlier bl
 
 The separate treatment follow-on starts after the primary comparison has completed. It reverts again after confirming the marker was cleared, then sends a plain message with `noReply: true`. The old five messages disappear from the active stored branch, one new user message appears, the marker clears, files stay at the reverted versions, and no provider request occurs. This is not a provider-backed continuation test or evidence that every historical object was erased. Run `verify_run.py` without `--include-continuation` to check the primary comparison independently. `run_lab.py --skip-continuation` omits that follow-on.
 
+## Investigate one change
+
+Before editing the harness, predict what changes if the independent setting lives in another tracked file that the agent never touches. In a separate copy of the lab, move that value and its later write to the new file, update the fixture inventory and explicit expected contract, and run a new capture. Compare first revert with unrevert. Preserve the original reference and label the new result separately. A changed outcome should prompt an investigation of selected paths and saved trees, not removal of the failing check.
+
+## Troubleshooting
+
+If the executable digest fails, obtain the named official release and check its architecture. Do not bypass the digest to claim the same runtime. Confirm `git`, `node`, and Python are available before running.
+
+If a capture or verification fails, retain its directory and inspect `server.stderr.txt`, `cli.stderr.txt`, the relevant API response, and the captured snapshot objects. A missing tree, failed checkout, or busy session makes the comparison inconclusive. The runner never falls back to a handwritten restore. Fix the environment or harness and create a new run; do not edit old evidence into a pass.
+
 ## Version and scope
 
 - Runtime: official Windows x64 OpenCode v1.18.30.

@@ -24,6 +24,7 @@ class ReceiptTests(unittest.TestCase):
             lambda d: d['runtime'].update(model_inference=True),
             lambda d: d['cases'][1]['continuation'].update(old_messages_after=5),
             lambda d: d['cases'][1]['continuation'].update(marker_after=True),
+            lambda d: d['cases'][1].pop('continuation'),
         ]
         for index, change in enumerate(changes):
             with self.subTest(index=index):
