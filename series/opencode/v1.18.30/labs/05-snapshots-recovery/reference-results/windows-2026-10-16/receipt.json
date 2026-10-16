@@ -1,0 +1,425 @@
+{
+  "schema_version": 1,
+  "runtime": {
+    "schema_version": 1,
+    "release": "v1.18.30",
+    "commit": "3104c1428ec91f809e5ab86631300de41eb6952e",
+    "binary_sha256": "c1bdbb18767048e1853af4238311b3f7e16ff2f91b68fb4c7ced3c5175347eea",
+    "platform": "Windows",
+    "architecture": "AMD64",
+    "lab_revision": "488c695623d0d5b2428b3fc22265c504b0779374",
+    "lab_dirty": false,
+    "runner_sha256": "ccaf671947cb00aa2084e7a0c80287cae9fcbc84bcb754769159ae1f4cb48e6c",
+    "cases": [
+      "control",
+      "same-file"
+    ],
+    "evidence_class": "OBSERVED_WITH_SCRIPTED_PROVIDER",
+    "model_inference": false,
+    "continuation": true
+  },
+  "cases": [
+    {
+      "case": "control",
+      "stages": {
+        "r0": {
+          "files": {
+            ".gitattributes": {
+              "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+              "bytes": 19
+            },
+            "labels.mjs": {
+              "sha256": "ab866dc86f3d26628e333f2f2e85bb617ca33aea4beb5551bbda097d9e9b4a4f",
+              "bytes": 94
+            },
+            "labels.test.mjs": {
+              "sha256": "6fc3385859b95b8f54b9675cad5bdb419b01f1afa1ec7a49be86fb00985ba383",
+              "bytes": 475
+            },
+            "notes.txt": {
+              "sha256": "c5d03768abf1eb87d0ca1b753c6efd2c1683b018bea4b4cf083fb2a5268c4c71",
+              "bytes": 27
+            }
+          },
+          "tests": {
+            "tests": 4,
+            "pass": 2,
+            "fail": 2,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "display_mode": "compact"
+        },
+        "r1": {
+          "files": {
+            ".gitattributes": {
+              "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+              "bytes": 19
+            },
+            "labels.mjs": {
+              "sha256": "e1599ef9ec2111a428bca548e7b9789a36bfeb49f44ff6bd4dba0fcb3c73a714",
+              "bytes": 101
+            },
+            "labels.test.mjs": {
+              "sha256": "6fc3385859b95b8f54b9675cad5bdb419b01f1afa1ec7a49be86fb00985ba383",
+              "bytes": 475
+            },
+            "notes.txt": {
+              "sha256": "c5d03768abf1eb87d0ca1b753c6efd2c1683b018bea4b4cf083fb2a5268c4c71",
+              "bytes": 27
+            }
+          },
+          "tests": {
+            "tests": 4,
+            "pass": 4,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "display_mode": "compact"
+        },
+        "r2": {
+          "files": {
+            ".gitattributes": {
+              "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+              "bytes": 19
+            },
+            "labels.mjs": {
+              "sha256": "e1599ef9ec2111a428bca548e7b9789a36bfeb49f44ff6bd4dba0fcb3c73a714",
+              "bytes": 101
+            },
+            "labels.test.mjs": {
+              "sha256": "6fc3385859b95b8f54b9675cad5bdb419b01f1afa1ec7a49be86fb00985ba383",
+              "bytes": 475
+            },
+            "notes.txt": {
+              "sha256": "e1d84fa0026871c2d862e726a4eb2c754974541f2fb5b3adcef3ffbc2d1a6ea7",
+              "bytes": 30
+            }
+          },
+          "tests": {
+            "tests": 4,
+            "pass": 4,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "display_mode": "compact"
+        },
+        "r3": {
+          "files": {
+            ".gitattributes": {
+              "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+              "bytes": 19
+            },
+            "labels.mjs": {
+              "sha256": "ab866dc86f3d26628e333f2f2e85bb617ca33aea4beb5551bbda097d9e9b4a4f",
+              "bytes": 94
+            },
+            "labels.test.mjs": {
+              "sha256": "6fc3385859b95b8f54b9675cad5bdb419b01f1afa1ec7a49be86fb00985ba383",
+              "bytes": 475
+            },
+            "notes.txt": {
+              "sha256": "e1d84fa0026871c2d862e726a4eb2c754974541f2fb5b3adcef3ffbc2d1a6ea7",
+              "bytes": 30
+            }
+          },
+          "tests": {
+            "tests": 4,
+            "pass": 2,
+            "fail": 2,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "display_mode": "compact"
+        },
+        "r4": {
+          "files": {
+            ".gitattributes": {
+              "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+              "bytes": 19
+            },
+            "labels.mjs": {
+              "sha256": "e1599ef9ec2111a428bca548e7b9789a36bfeb49f44ff6bd4dba0fcb3c73a714",
+              "bytes": 101
+            },
+            "labels.test.mjs": {
+              "sha256": "6fc3385859b95b8f54b9675cad5bdb419b01f1afa1ec7a49be86fb00985ba383",
+              "bytes": 475
+            },
+            "notes.txt": {
+              "sha256": "e1d84fa0026871c2d862e726a4eb2c754974541f2fb5b3adcef3ffbc2d1a6ea7",
+              "bytes": 30
+            }
+          },
+          "tests": {
+            "tests": 4,
+            "pass": 4,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "display_mode": "compact"
+        }
+      },
+      "selected_paths": [
+        "labels.mjs"
+      ],
+      "preimage_tree": "40331ae7af112a2e8adbd7f2ea3b16212aa5f903",
+      "pre_undo_tree": "7b6b3b36e2432353265d0092ddb78c8d57728c88",
+      "provider_requests": {
+        "main": 4,
+        "auxiliary": 0,
+        "recovery": 0
+      },
+      "original_messages": 5,
+      "original_parts": 14,
+      "stored_records_retained_through_unrevert": true
+    },
+    {
+      "case": "same-file",
+      "stages": {
+        "r0": {
+          "files": {
+            ".gitattributes": {
+              "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+              "bytes": 19
+            },
+            "labels.mjs": {
+              "sha256": "ab866dc86f3d26628e333f2f2e85bb617ca33aea4beb5551bbda097d9e9b4a4f",
+              "bytes": 94
+            },
+            "labels.test.mjs": {
+              "sha256": "6fc3385859b95b8f54b9675cad5bdb419b01f1afa1ec7a49be86fb00985ba383",
+              "bytes": 475
+            },
+            "notes.txt": {
+              "sha256": "c5d03768abf1eb87d0ca1b753c6efd2c1683b018bea4b4cf083fb2a5268c4c71",
+              "bytes": 27
+            }
+          },
+          "tests": {
+            "tests": 4,
+            "pass": 2,
+            "fail": 2,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "display_mode": "compact"
+        },
+        "r1": {
+          "files": {
+            ".gitattributes": {
+              "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+              "bytes": 19
+            },
+            "labels.mjs": {
+              "sha256": "e1599ef9ec2111a428bca548e7b9789a36bfeb49f44ff6bd4dba0fcb3c73a714",
+              "bytes": 101
+            },
+            "labels.test.mjs": {
+              "sha256": "6fc3385859b95b8f54b9675cad5bdb419b01f1afa1ec7a49be86fb00985ba383",
+              "bytes": 475
+            },
+            "notes.txt": {
+              "sha256": "c5d03768abf1eb87d0ca1b753c6efd2c1683b018bea4b4cf083fb2a5268c4c71",
+              "bytes": 27
+            }
+          },
+          "tests": {
+            "tests": 4,
+            "pass": 4,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "display_mode": "compact"
+        },
+        "r2": {
+          "files": {
+            ".gitattributes": {
+              "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+              "bytes": 19
+            },
+            "labels.mjs": {
+              "sha256": "94716249505c2b6b8c915760ebb1308f49d33da750e96e22c455d4054334204c",
+              "bytes": 102
+            },
+            "labels.test.mjs": {
+              "sha256": "6fc3385859b95b8f54b9675cad5bdb419b01f1afa1ec7a49be86fb00985ba383",
+              "bytes": 475
+            },
+            "notes.txt": {
+              "sha256": "e1d84fa0026871c2d862e726a4eb2c754974541f2fb5b3adcef3ffbc2d1a6ea7",
+              "bytes": 30
+            }
+          },
+          "tests": {
+            "tests": 4,
+            "pass": 4,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "display_mode": "expanded"
+        },
+        "r3": {
+          "files": {
+            ".gitattributes": {
+              "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+              "bytes": 19
+            },
+            "labels.mjs": {
+              "sha256": "ab866dc86f3d26628e333f2f2e85bb617ca33aea4beb5551bbda097d9e9b4a4f",
+              "bytes": 94
+            },
+            "labels.test.mjs": {
+              "sha256": "6fc3385859b95b8f54b9675cad5bdb419b01f1afa1ec7a49be86fb00985ba383",
+              "bytes": 475
+            },
+            "notes.txt": {
+              "sha256": "e1d84fa0026871c2d862e726a4eb2c754974541f2fb5b3adcef3ffbc2d1a6ea7",
+              "bytes": 30
+            }
+          },
+          "tests": {
+            "tests": 4,
+            "pass": 2,
+            "fail": 2,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "display_mode": "compact"
+        },
+        "r4": {
+          "files": {
+            ".gitattributes": {
+              "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+              "bytes": 19
+            },
+            "labels.mjs": {
+              "sha256": "94716249505c2b6b8c915760ebb1308f49d33da750e96e22c455d4054334204c",
+              "bytes": 102
+            },
+            "labels.test.mjs": {
+              "sha256": "6fc3385859b95b8f54b9675cad5bdb419b01f1afa1ec7a49be86fb00985ba383",
+              "bytes": 475
+            },
+            "notes.txt": {
+              "sha256": "e1d84fa0026871c2d862e726a4eb2c754974541f2fb5b3adcef3ffbc2d1a6ea7",
+              "bytes": 30
+            }
+          },
+          "tests": {
+            "tests": 4,
+            "pass": 4,
+            "fail": 0,
+            "cancelled": 0,
+            "skipped": 0,
+            "todo": 0
+          },
+          "display_mode": "expanded"
+        }
+      },
+      "selected_paths": [
+        "labels.mjs"
+      ],
+      "preimage_tree": "40331ae7af112a2e8adbd7f2ea3b16212aa5f903",
+      "pre_undo_tree": "78e23dc80b0d04a12a4860a3ac8bdaddc52e0bd9",
+      "provider_requests": {
+        "main": 4,
+        "auxiliary": 0,
+        "recovery": 0
+      },
+      "original_messages": 5,
+      "original_parts": 14,
+      "stored_records_retained_through_unrevert": true,
+      "continuation": {
+        "stages": {
+          "c0": {
+            "files": {
+              ".gitattributes": {
+                "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+                "bytes": 19
+              },
+              "labels.mjs": {
+                "sha256": "ab866dc86f3d26628e333f2f2e85bb617ca33aea4beb5551bbda097d9e9b4a4f",
+                "bytes": 94
+              },
+              "labels.test.mjs": {
+                "sha256": "6fc3385859b95b8f54b9675cad5bdb419b01f1afa1ec7a49be86fb00985ba383",
+                "bytes": 475
+              },
+              "notes.txt": {
+                "sha256": "e1d84fa0026871c2d862e726a4eb2c754974541f2fb5b3adcef3ffbc2d1a6ea7",
+                "bytes": 30
+              }
+            },
+            "tests": {
+              "tests": 4,
+              "pass": 2,
+              "fail": 2,
+              "cancelled": 0,
+              "skipped": 0,
+              "todo": 0
+            },
+            "display_mode": "compact"
+          },
+          "c1": {
+            "files": {
+              ".gitattributes": {
+                "sha256": "d60f352d0db1404c70afb4bb8b2ca3fd1c610572aa40720e8a0b7baa7885418c",
+                "bytes": 19
+              },
+              "labels.mjs": {
+                "sha256": "ab866dc86f3d26628e333f2f2e85bb617ca33aea4beb5551bbda097d9e9b4a4f",
+                "bytes": 94
+              },
+              "labels.test.mjs": {
+                "sha256": "6fc3385859b95b8f54b9675cad5bdb419b01f1afa1ec7a49be86fb00985ba383",
+                "bytes": 475
+              },
+              "notes.txt": {
+                "sha256": "e1d84fa0026871c2d862e726a4eb2c754974541f2fb5b3adcef3ffbc2d1a6ea7",
+                "bytes": 30
+              }
+            },
+            "tests": {
+              "tests": 4,
+              "pass": 2,
+              "fail": 2,
+              "cancelled": 0,
+              "skipped": 0,
+              "todo": 0
+            },
+            "display_mode": "compact"
+          }
+        },
+        "old_messages_before": 5,
+        "old_messages_after": 0,
+        "new_user_messages": 1,
+        "marker_before": true,
+        "marker_after": false,
+        "provider_requests": 0,
+        "no_reply": true
+      }
+    }
+  ],
+  "limits": [
+    "scripted provider; no model inference",
+    "Windows runtime only",
+    "existing tracked regular files at repository root",
+    "no concurrent writers during recovery",
+    "offline consistency is not historical authentication"
+  ]
+}

@@ -1,0 +1,5 @@
+flowchart TB
+    A["First revert returned<br/>Recovery marker active"]
+    A --> B["New message arrives<br/>noReply: true"]
+    B --> C["Remove reverted suffix<br/>Clear recovery marker"]
+    C --> D["Store new user message<br/>No provider request"]

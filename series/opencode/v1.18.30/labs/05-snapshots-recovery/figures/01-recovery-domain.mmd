@@ -1,0 +1,6 @@
+flowchart TB
+    A["Client names a<br/>message boundary"]
+    A --> B["Stored patch parts select<br/>paths and earlier trees"]
+    B --> C["Runtime captures<br/>current pre-undo state"]
+    C --> D["Snapshot service restores<br/>selected whole files"]
+    D -.->|"Separate unrevert request"| E["Runtime restores saved<br/>pre-undo contents"]
