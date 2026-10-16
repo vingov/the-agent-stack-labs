@@ -235,6 +235,18 @@ def reconstruct_case(root, case, include_continuation=False):
              event('api_request', stem='unrevert')['order'], event('api_return', stem='unrevert')['order'],
              checkpoints['r4']['order'], event('primary_complete')['order']]
     need(order == sorted(set(order)), 'primary event ordering differs')
+    def checkpoint_window(stage, lower, upper):
+        positions = [lower]
+        for suffix in ('status', 'session', 'messages', 'diff'):
+            positions.extend([event('api_request', stem=stage + '-' + suffix)['order'],
+                              event('api_return', stem=stage + '-' + suffix)['order']])
+        positions.extend([checkpoints[stage]['order'], upper])
+        need(positions == sorted(set(positions)), stage + ': checkpoint reads outside their observation interval')
+    checkpoint_window('r0', event('api_return', stem='session-create')['order'], event('coding_start')['order'])
+    checkpoint_window('r1', event('coding_return')['order'], writes[0]['order'])
+    checkpoint_window('r2', writes[-1]['order'], event('api_request', stem='first-revert')['order'])
+    checkpoint_window('r3', event('api_return', stem='first-revert')['order'], event('api_request', stem='unrevert')['order'])
+    checkpoint_window('r4', event('api_return', stem='unrevert')['order'], event('primary_complete')['order'])
     result = {'case': case, 'stages': {s: stage_results[s] for s in STAGES}, 'selected_paths': ['labels.mjs'],
               'preimage_tree': preimage, 'pre_undo_tree': marker['snapshot'],
               'provider_requests': {'main': main_count, 'auxiliary': auxiliary_count, 'recovery': 0},
@@ -251,6 +263,8 @@ def reconstruct_case(root, case, include_continuation=False):
         need([p['text'] for p in cm['parts']] == [CONTINUATION] and not infos['c1'].get('revert'), 'cleanup result differs')
         need(event('primary_complete')['order'] < event('api_request', stem='continuation-revert')['order'] < checkpoints['c0']['order']
              < event('api_request', stem='continuation-message')['order'] < checkpoints['c1']['order'], 'continuation ordering differs')
+        checkpoint_window('c0', event('api_return', stem='continuation-revert')['order'], event('api_request', stem='continuation-message')['order'])
+        checkpoint_window('c1', event('api_return', stem='continuation-message')['order'], event('continuation_complete')['order'])
         result['continuation'] = {'stages': {s: stage_results[s] for s in ('c0', 'c1')},
             'old_messages_before': len(histories['c0']), 'old_messages_after': 0, 'new_user_messages': 1,
             'marker_before': True, 'marker_after': False, 'provider_requests': 0, 'no_reply': True}

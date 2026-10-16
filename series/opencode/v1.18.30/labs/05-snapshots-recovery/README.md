@@ -23,6 +23,7 @@ Requires Python 3.12 or later. From the repository root:
 ```sh
 python series/opencode/v1.18.30/labs/05-snapshots-recovery/scripts/verify_reference.py
 python series/opencode/v1.18.30/labs/05-snapshots-recovery/scripts/test_lab.py
+python series/opencode/v1.18.30/labs/05-snapshots-recovery/scripts/test_runner.py
 ```
 
 Use `python3` if that is your Python command. These portable checks validate the sanitized [reference receipt](reference-results/windows-2026-10-16/receipt.json) and reject missing or contradictory fields. They do not execute OpenCode or independently authenticate the historical run. See the [claim matrix](claims.md) for what each result supports.
@@ -49,7 +50,7 @@ python "$lab/scripts/verify_run.py" $capture --include-continuation --receipt (J
 python "$lab/scripts/test_raw_evidence.py" $capture
 ```
 
-Expected results: the verifier confirms both primary cases and the separate continuation; unmodified evidence copies pass and 14 corrupted copies are rejected. The runner prints only that captures exist. It does not declare its own observations verified.
+Expected results: the verifier confirms both primary cases and the separate continuation; unmodified evidence copies pass and 18 corrupted copies are rejected. The runner prints only that captures exist. It does not declare its own observations verified.
 
 Each run creates fresh Git workspaces, home/config/data/cache/state/temp directories, and loopback servers. Configuration enables snapshots, disables incidental formatting and language servers, and exposes only the bounded file operations needed by the prescribed sequence. It uses `serve --pure` and `run --attach --session` with the ordinary session API. Only its own server process is terminated. Captures are retained for inspection, including failed runs. Application state isolation is not an operating-system sandbox.
 
@@ -72,6 +73,8 @@ Before editing the harness, predict what changes if the independent setting live
 If the executable digest fails, obtain the named official release and check its architecture. Do not bypass the digest to claim the same runtime. Confirm `git`, `node`, and Python are available before running.
 
 If a capture or verification fails, retain its directory and inspect `server.stderr.txt`, `cli.stderr.txt`, the relevant API response, and the captured snapshot objects. A missing tree, failed checkout, or busy session makes the comparison inconclusive. The runner never falls back to a handwritten restore. Fix the environment or harness and create a new run; do not edit old evidence into a pass.
+
+Child commands have deadlines, including Git object reads. On a command timeout, the runner saves partial stdout/stderr and a process record with `timed_out: true` before failing. The portable runner test exercises this diagnostic path with a disposable Python child, without OpenCode.
 
 ## Version and scope
 

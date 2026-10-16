@@ -25,6 +25,26 @@ def reorder_writer(root):
             event['order'] = index
     mutate_json(root / 'sequence.json', move)
 
+def move_checkpoint_read(root, stem, before_stem):
+    def move(events):
+        pair = [e for e in events if e.get('stem') == stem]
+        events[:] = [e for e in events if e.get('stem') != stem]
+        index = next(i for i, e in enumerate(events) if e['kind'] == 'api_request' and e.get('stem') == before_stem)
+        events[index:index] = pair
+        for index, event in enumerate(events, 1):
+            event['order'] = index
+    mutate_json(root / 'sequence.json', move)
+
+def delay_continuation_return(root):
+    def move(events):
+        returned = next(e for e in events if e['kind'] == 'api_return' and e.get('stem') == 'continuation-message')
+        events.remove(returned)
+        index = next(i for i, e in enumerate(events) if e['kind'] == 'checkpoint' and e.get('stage') == 'c1')
+        events.insert(index + 1, returned)
+        for index, event in enumerate(events, 1):
+            event['order'] = index
+    mutate_json(root / 'sequence.json', move)
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('capture', type=Path)
@@ -46,6 +66,10 @@ def main():
         ('missing provider request', lambda p: (p / 'request-03.json').unlink()),
         ('wrong server route', lambda p: mutate_json(p / 'first-revert.request.json', lambda d: d.update(url=d['url'].replace('/session/', '/api/session/')))),
         ('old history after continuation', lambda p: shutil.copyfile(p / 'c0-messages.response.json', p / 'c1-messages.response.json')),
+        ('revert-state read before revert', lambda p: move_checkpoint_read(p, 'r3-session', 'first-revert')),
+        ('pre-undo read after revert', lambda p: move_checkpoint_read(p, 'r2-messages', 'unrevert')),
+        ('cleanup-state read before cleanup', lambda p: move_checkpoint_read(p, 'c1-messages', 'continuation-message')),
+        ('cleanup return after observation', delay_continuation_return),
     ]
     ignore = shutil.ignore_patterns('workspace', 'home', 'config', 'data', 'cache', 'state', 'temp', 'hooks')
     with tempfile.TemporaryDirectory(prefix='recovery-evidence-check-') as temporary:

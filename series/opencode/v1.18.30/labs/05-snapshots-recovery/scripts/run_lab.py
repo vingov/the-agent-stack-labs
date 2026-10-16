@@ -23,8 +23,15 @@ def write_json(path, value):
     path.write_text(json.dumps(value, indent=2) + '\n', encoding='utf-8')
 
 def execute(command, root, stem, workspace, env, timeout=120):
-    result = subprocess.run(command, cwd=workspace, env=env, capture_output=True,
-                            timeout=timeout, creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0)
+    try:
+        result = subprocess.run(command, cwd=workspace, env=env, capture_output=True,
+                                timeout=timeout, creationflags=subprocess.CREATE_NO_WINDOW if os.name == 'nt' else 0)
+    except subprocess.TimeoutExpired as exc:
+        (root / (stem + '.stdout.txt')).write_bytes(exc.stdout or b'')
+        (root / (stem + '.stderr.txt')).write_bytes(exc.stderr or b'')
+        write_json(root / (stem + '.process.json'), {'command': command, 'exit': None,
+                   'timed_out': True, 'timeout_seconds': timeout})
+        raise
     (root / (stem + '.stdout.txt')).write_bytes(result.stdout)
     (root / (stem + '.stderr.txt')).write_bytes(result.stderr)
     write_json(root / (stem + '.process.json'), {'command': command, 'exit': result.returncode})
@@ -206,16 +213,22 @@ def run_case(root, case, cli, node, continuation):
                     raise RuntimeError('unexpected snapshot reference')
                 candidates = [p.parent for p in (root / 'data').rglob('HEAD') if 'snapshot' in p.parts]
                 matched = []
-                for gitdir in candidates:
+                for index, gitdir in enumerate(candidates):
                     cmd = ['git', '--git-dir=' + str(gitdir), 'cat-file', '-t', tree_hash]
-                    result = subprocess.run(cmd, capture_output=True, env=env, cwd=workspace)
+                    result = execute(cmd, root, f'tree-{tree_hash}-probe-{index}', workspace, env, 30)
                     if result.returncode == 0 and result.stdout.strip() == b'tree':
                         matched.append(gitdir)
                 if len(matched) != 1:
                     raise RuntimeError('snapshot tree is missing or ambiguous')
                 gitdir = matched[0]
+                reads = 0
                 def git_read(*args):
-                    return subprocess.check_output(['git', '--git-dir=' + str(gitdir), *args], env=env, cwd=workspace)
+                    nonlocal reads
+                    reads += 1
+                    result = execute(['git', '--git-dir=' + str(gitdir), *args], root,
+                                     f'tree-{tree_hash}-read-{reads}', workspace, env, 30)
+                    result.check_returncode()
+                    return result.stdout
                 raw_tree = git_read('cat-file', 'tree', tree_hash)
                 listing = git_read('ls-tree', '-r', '-z', tree_hash)
                 blobs = {}
@@ -290,16 +303,22 @@ def run_case(root, case, cli, node, continuation):
             raise RuntimeError('provider errors occurred')
         print(case + ': captured; run the independent verifier.', flush=True)
     finally:
-        if server is not None:
-            server.terminate()
-            server.wait(timeout=15)
-        if out:
-            out.close()
-        if err:
-            err.close()
-        provider.shutdown()
-        provider.server_close()
-        thread.join(timeout=5)
+        try:
+            if server is not None and server.poll() is None:
+                server.terminate()
+                try:
+                    server.wait(timeout=15)
+                except subprocess.TimeoutExpired:
+                    server.kill()
+                    server.wait(timeout=5)
+        finally:
+            if out:
+                out.close()
+            if err:
+                err.close()
+            provider.shutdown()
+            provider.server_close()
+            thread.join(timeout=5)
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
@@ -318,14 +337,20 @@ def main():
         parser.error('Keep private captures outside the checkout')
     args.output.mkdir(parents=True, exist_ok=True)
     root = Path(tempfile.mkdtemp(prefix='recovery-', dir=args.output.resolve()))
-    revision = subprocess.check_output(['git', '-C', str(checkout), 'rev-parse', 'HEAD'], text=True).strip()
-    changes = subprocess.check_output(['git', '-C', str(checkout), 'status', '--porcelain', '--untracked-files=all', '--', str(LAB)], text=True)
+    print('Private capture: ' + str(root), flush=True)
+    revision_result = execute(['git', '-C', str(checkout), 'rev-parse', 'HEAD'],
+                              root, 'lab-revision', checkout, os.environ.copy(), 30)
+    revision_result.check_returncode()
+    revision = revision_result.stdout.decode().strip()
+    changes_result = execute(['git', '-C', str(checkout), 'status', '--porcelain', '--untracked-files=all', '--', str(LAB)],
+                             root, 'lab-changes', checkout, os.environ.copy(), 30)
+    changes_result.check_returncode()
+    changes = changes_result.stdout.decode()
     write_json(root / 'run.json', {'schema_version': 1, 'release': 'v1.18.30', 'commit': PIN,
         'binary_sha256': BINARY_SHA256, 'platform': platform.system(), 'architecture': platform.machine(),
         'lab_revision': revision, 'lab_dirty': bool(changes), 'runner_sha256': sha(Path(__file__).read_bytes()),
         'cases': list(CASES), 'evidence_class': 'OBSERVED_WITH_SCRIPTED_PROVIDER', 'model_inference': False,
         'continuation': not args.skip_continuation})
-    print('Private capture: ' + str(root), flush=True)
     for case in CASES:
         run_case(root / case, case, cli, node, not args.skip_continuation)
 
