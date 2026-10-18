@@ -26,7 +26,7 @@ The Agent Stack Labs uses one recurring learning loop:
 | 2 | Repository Context and Compaction | [Available](series/opencode/v1.18.30/labs/02-repository-context-compaction/README.md) |
 | 3 | Tool Execution and Permission Boundaries | [Available](series/opencode/v1.18.30/labs/03-tool-permission-boundaries/README.md) |
 | 4 | Subagents and Shared Work | [Available](series/opencode/v1.18.30/labs/04-subagents-shared-work/README.md) |
-| 5 | Snapshots, Recovery, and Patch Verification | [Available](series/opencode/v1.18.30/labs/05-snapshots-recovery/README.md) |
+| 5 | Snapshots, Recovery, and Patch Verification | [Interruption and recovery](series/opencode/v1.18.30/labs/05-interrupted-recovery/README.md); [completed-edit baseline](series/opencode/v1.18.30/labs/05-snapshots-recovery/README.md) |
 
 ## Completion levels
 

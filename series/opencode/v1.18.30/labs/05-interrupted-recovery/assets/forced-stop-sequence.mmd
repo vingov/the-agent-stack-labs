@@ -1,0 +1,24 @@
+---
+config:
+  theme: base
+  fontFamily: Arial, sans-serif
+  themeVariables:
+    fontFamily: Arial, sans-serif
+    fontSize: 22px
+    primaryColor: "#edf4fa"
+    primaryTextColor: "#17334c"
+    primaryBorderColor: "#436a88"
+    lineColor: "#436a88"
+  flowchart:
+    htmlLabels: false
+    curve: linear
+    nodeSpacing: 24
+    rankSpacing: 36
+    padding: 12
+---
+flowchart TB
+    K["Terminate owned OpenCode server<br/>while generator is waiting"] --> O["Observe server exited<br/>generator still alive"]
+    O --> H["Harness stops generator<br/>and confirms exit"]
+    H --> R["Restart OpenCode<br/>with the same profile"]
+    R --> D["Read stored tool: running<br/>no live session-status entry"]
+    D --> V["First revert restores source only<br/>new catalogue remains"]

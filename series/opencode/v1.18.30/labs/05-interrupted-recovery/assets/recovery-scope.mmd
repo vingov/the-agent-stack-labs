@@ -1,0 +1,24 @@
+---
+config:
+  theme: base
+  themeCSS: ".edgeLabel rect { opacity: 1; fill: #ffffff; }"
+  fontFamily: Arial, sans-serif
+  themeVariables:
+    fontFamily: Arial, sans-serif
+    fontSize: 22px
+    primaryColor: "#edf4fa"
+    primaryTextColor: "#17334c"
+    primaryBorderColor: "#436a88"
+    lineColor: "#436a88"
+  flowchart:
+    htmlLabels: false
+    curve: linear
+    nodeSpacing: 24
+    rankSpacing: 36
+    padding: 12
+---
+flowchart TB
+    P["Stored patch<br/>parts<br/>paths and<br/>earlier references"] -->|"Select paths<br/>and versions"| R["First message-level<br/>revert"]
+    S["Saved Git trees<br/>earlier file<br/>contents"] -->|"Supply selected<br/>contents"| R
+    R -->|"Restores selected<br/>paths only"| F["Current working files"]
+    F --> V["Independent checks<br/>of all task-relevant files<br/>including<br/>unselected paths"]

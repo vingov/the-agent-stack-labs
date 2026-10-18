@@ -1,0 +1,3486 @@
+{
+  "schema": 1,
+  "evidence_class": "Windows CLI; scripted loopback provider; no model inference",
+  "run_id": "interruption-iqlbpa3u",
+  "created_utc": "2026-10-18T17:22:23.373180+00:00",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "source_commit": "3104c1428ec91f809e5ab86631300de41eb6952e",
+  "binary_sha256": "c1bdbb18767048e1853af4238311b3f7e16ff2f91b68fb4c7ced3c5175347eea",
+  "implementation_sha256": {
+    "scripts/capture.py": "89117339844308d9b5a7dd795527f85c32d559bab60b606342a10b2f5133dd6f",
+    "scripts/contract.py": "7f0a123c7aca1eac35da5369c22858db738c80cc749990bc5c1dcdc3e01f9519",
+    "scripts/evidence.py": "5276a83ef2e33b4762abbca1ad2a1e73efd51997698d89f633652426796143c3",
+    "scripts/provider.py": "a5a857cc26e2f5dccac9be92fcb3dd53b2700120d7525bbd783c617330415360",
+    "scripts/run_lab.py": "16745fbaee90fc0227e8f817928a4bf843a35feec578f7d8d2e44d5508023148",
+    "scripts/verify_run.py": "c513710512685e0461d6787b045ad8040080a9d5949afd1deeec9de42a72c80b",
+    "scripts/winprocess.py": "5f594f491ea6eb14f07c6ffa317ea052194f95789b930da64f6fee6c8a119a99",
+    "fixtures/.gitattributes": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+    "fixtures/acceptance.test.mjs": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+    "fixtures/catalogue.json": "78fab3989f477c90301165d3b0d4999ace29dd472d085126fb4eede488e2b94f",
+    "fixtures/catalogue.manifest.json": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+    "fixtures/generate-catalogue.mjs": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+    "fixtures/labels.mjs": "a616e135518fa70eb86881df28ea53d653e600d7eb19a3361b10df9fd31b46f7",
+    "fixtures/source-data.json": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133"
+  },
+  "verification_scope": "Consistency of captured observations; not independent authentication of historical execution",
+  "cases": [
+    {
+      "case": "normal",
+      "session": "ses_eaff6b8d7ffeHSHlJTpU2w4hmu",
+      "user_message": "msg_150094ac40017KYRvwIkPBtXwT",
+      "states": {
+        "initial": {
+          "interval": [
+            316814795628300,
+            316815024673400
+          ],
+          "file_witness_interval": [
+            316814895719700,
+            316814900959600
+          ],
+          "remote_read_available": true,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "78fab3989f477c90301165d3b0d4999ace29dd472d085126fb4eede488e2b94f",
+              "bytes": 74
+            },
+            "catalogue.manifest.json": {
+              "sha256": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "a616e135518fa70eb86881df28ea53d653e600d7eb19a3361b10df9fd31b46f7",
+              "bytes": 58
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": false,
+            "normalizes an all-whitespace label": false,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": false,
+            "manifest identifies the actual catalogue bytes": true
+          },
+          "snapshot_refs": [],
+          "patches": [],
+          "tools": [],
+          "provider_requests": 0
+        },
+        "barrier": {
+          "interval": [
+            316820616707400,
+            316821606248500
+          ],
+          "file_witness_interval": [
+            316821469882200,
+            316821477426700
+          ],
+          "remote_read_available": true,
+          "session_status_entry": {
+            "type": "busy"
+          },
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "25f56edbfad64c25a5b33c91fd83ceec79b9431041bbdf1ccbe1e1ebe8f2bcfa",
+              "bytes": 66
+            },
+            "catalogue.manifest.json": {
+              "sha256": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "3c14741eff4a1226022249526d8c18f6142d188001d53f97580ea18417a74ce4",
+              "bytes": 65
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": true,
+            "normalizes an all-whitespace label": true,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": true,
+            "manifest identifies the actual catalogue bytes": false
+          },
+          "snapshot_refs": [
+            "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+            "87123d519b49d4c8aed83f5d212421f6a88988e1"
+          ],
+          "patches": [
+            {
+              "hash": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+              "files": [
+                "labels.mjs"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "call_id": "read_labels",
+              "part_id": "prt_1500951c5001dtuY6fiQ1gyWOo",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_acceptance",
+              "part_id": "prt_15009539a001CFsfohEvpHHRzw",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "acceptance.test.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_generator",
+              "part_id": "prt_1500955ac0013E3arM9VCFDTn3",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "generate-catalogue.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_input",
+              "part_id": "prt_1500957bc001Y3zlYOVqkPegOn",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "source-data.json"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "edit_labels",
+              "part_id": "prt_1500959af001z1vyLden0Ov7OJ",
+              "tool": "edit",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs",
+                "oldString": "return label;",
+                "newString": "return label.trim();"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "generate_catalogue",
+              "part_id": "prt_150095c6e001TTqqY3wV1IEc3p",
+              "tool": "bash",
+              "status": "running",
+              "input": {
+                "command": "node ./generate-catalogue.mjs",
+                "timeout": 120000
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            }
+          ],
+          "provider_requests": 6
+        },
+        "primary": {
+          "interval": [
+            316822775686700,
+            316823371508300
+          ],
+          "file_witness_interval": [
+            316823243569800,
+            316823249414800
+          ],
+          "remote_read_available": true,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "25f56edbfad64c25a5b33c91fd83ceec79b9431041bbdf1ccbe1e1ebe8f2bcfa",
+              "bytes": 66
+            },
+            "catalogue.manifest.json": {
+              "sha256": "20e249684ff92e3d00245a679d88b27a4113c510b51430d91480e8e425ca7b59",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "3c14741eff4a1226022249526d8c18f6142d188001d53f97580ea18417a74ce4",
+              "bytes": 65
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": true,
+            "normalizes an all-whitespace label": true,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": true,
+            "manifest identifies the actual catalogue bytes": true
+          },
+          "snapshot_refs": [
+            "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+            "87123d519b49d4c8aed83f5d212421f6a88988e1",
+            "bdd3b308d26fa96cb7bcf55ffe774499c42d61e8"
+          ],
+          "patches": [
+            {
+              "hash": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+              "files": [
+                "labels.mjs"
+              ]
+            },
+            {
+              "hash": "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+              "files": [
+                "catalogue.json",
+                "catalogue.manifest.json"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "call_id": "read_labels",
+              "part_id": "prt_1500951c5001dtuY6fiQ1gyWOo",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_acceptance",
+              "part_id": "prt_15009539a001CFsfohEvpHHRzw",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "acceptance.test.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_generator",
+              "part_id": "prt_1500955ac0013E3arM9VCFDTn3",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "generate-catalogue.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_input",
+              "part_id": "prt_1500957bc001Y3zlYOVqkPegOn",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "source-data.json"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "edit_labels",
+              "part_id": "prt_1500959af001z1vyLden0Ov7OJ",
+              "tool": "edit",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs",
+                "oldString": "return label;",
+                "newString": "return label.trim();"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "generate_catalogue",
+              "part_id": "prt_150095c6e001TTqqY3wV1IEc3p",
+              "tool": "bash",
+              "status": "completed",
+              "input": {
+                "command": "node ./generate-catalogue.mjs",
+                "timeout": 120000
+              },
+              "exit": 0,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            }
+          ],
+          "provider_requests": 7
+        },
+        "reopened": {
+          "interval": [
+            316823383401300,
+            316823584982500
+          ],
+          "file_witness_interval": [
+            316823459768600,
+            316823465385200
+          ],
+          "remote_read_available": true,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "25f56edbfad64c25a5b33c91fd83ceec79b9431041bbdf1ccbe1e1ebe8f2bcfa",
+              "bytes": 66
+            },
+            "catalogue.manifest.json": {
+              "sha256": "20e249684ff92e3d00245a679d88b27a4113c510b51430d91480e8e425ca7b59",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "3c14741eff4a1226022249526d8c18f6142d188001d53f97580ea18417a74ce4",
+              "bytes": 65
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": true,
+            "normalizes an all-whitespace label": true,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": true,
+            "manifest identifies the actual catalogue bytes": true
+          },
+          "snapshot_refs": [
+            "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+            "87123d519b49d4c8aed83f5d212421f6a88988e1",
+            "bdd3b308d26fa96cb7bcf55ffe774499c42d61e8"
+          ],
+          "patches": [
+            {
+              "hash": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+              "files": [
+                "labels.mjs"
+              ]
+            },
+            {
+              "hash": "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+              "files": [
+                "catalogue.json",
+                "catalogue.manifest.json"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "call_id": "read_labels",
+              "part_id": "prt_1500951c5001dtuY6fiQ1gyWOo",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_acceptance",
+              "part_id": "prt_15009539a001CFsfohEvpHHRzw",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "acceptance.test.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_generator",
+              "part_id": "prt_1500955ac0013E3arM9VCFDTn3",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "generate-catalogue.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_input",
+              "part_id": "prt_1500957bc001Y3zlYOVqkPegOn",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "source-data.json"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "edit_labels",
+              "part_id": "prt_1500959af001z1vyLden0Ov7OJ",
+              "tool": "edit",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs",
+                "oldString": "return label;",
+                "newString": "return label.trim();"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "generate_catalogue",
+              "part_id": "prt_150095c6e001TTqqY3wV1IEc3p",
+              "tool": "bash",
+              "status": "completed",
+              "input": {
+                "command": "node ./generate-catalogue.mjs",
+                "timeout": 120000
+              },
+              "exit": 0,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            }
+          ],
+          "provider_requests": 7
+        },
+        "restarted": {
+          "interval": [
+            316824462733600,
+            316824908266700
+          ],
+          "file_witness_interval": [
+            316824777920600,
+            316824785319200
+          ],
+          "remote_read_available": true,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "25f56edbfad64c25a5b33c91fd83ceec79b9431041bbdf1ccbe1e1ebe8f2bcfa",
+              "bytes": 66
+            },
+            "catalogue.manifest.json": {
+              "sha256": "20e249684ff92e3d00245a679d88b27a4113c510b51430d91480e8e425ca7b59",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "3c14741eff4a1226022249526d8c18f6142d188001d53f97580ea18417a74ce4",
+              "bytes": 65
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": true,
+            "normalizes an all-whitespace label": true,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": true,
+            "manifest identifies the actual catalogue bytes": true
+          },
+          "snapshot_refs": [
+            "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+            "87123d519b49d4c8aed83f5d212421f6a88988e1",
+            "bdd3b308d26fa96cb7bcf55ffe774499c42d61e8"
+          ],
+          "patches": [
+            {
+              "hash": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+              "files": [
+                "labels.mjs"
+              ]
+            },
+            {
+              "hash": "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+              "files": [
+                "catalogue.json",
+                "catalogue.manifest.json"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "call_id": "read_labels",
+              "part_id": "prt_1500951c5001dtuY6fiQ1gyWOo",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_acceptance",
+              "part_id": "prt_15009539a001CFsfohEvpHHRzw",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "acceptance.test.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_generator",
+              "part_id": "prt_1500955ac0013E3arM9VCFDTn3",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "generate-catalogue.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_input",
+              "part_id": "prt_1500957bc001Y3zlYOVqkPegOn",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "source-data.json"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "edit_labels",
+              "part_id": "prt_1500959af001z1vyLden0Ov7OJ",
+              "tool": "edit",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs",
+                "oldString": "return label;",
+                "newString": "return label.trim();"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "generate_catalogue",
+              "part_id": "prt_150095c6e001TTqqY3wV1IEc3p",
+              "tool": "bash",
+              "status": "completed",
+              "input": {
+                "command": "node ./generate-catalogue.mjs",
+                "timeout": 120000
+              },
+              "exit": 0,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            }
+          ],
+          "provider_requests": 7
+        },
+        "reverted": {
+          "interval": [
+            316825558850300,
+            316825785029300
+          ],
+          "file_witness_interval": [
+            316825652087100,
+            316825657797000
+          ],
+          "remote_read_available": true,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "78fab3989f477c90301165d3b0d4999ace29dd472d085126fb4eede488e2b94f",
+              "bytes": 74
+            },
+            "catalogue.manifest.json": {
+              "sha256": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "a616e135518fa70eb86881df28ea53d653e600d7eb19a3361b10df9fd31b46f7",
+              "bytes": 58
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": false,
+            "normalizes an all-whitespace label": false,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": false,
+            "manifest identifies the actual catalogue bytes": true
+          },
+          "snapshot_refs": [
+            "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+            "87123d519b49d4c8aed83f5d212421f6a88988e1",
+            "bdd3b308d26fa96cb7bcf55ffe774499c42d61e8"
+          ],
+          "patches": [
+            {
+              "hash": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+              "files": [
+                "labels.mjs"
+              ]
+            },
+            {
+              "hash": "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+              "files": [
+                "catalogue.json",
+                "catalogue.manifest.json"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "call_id": "read_labels",
+              "part_id": "prt_1500951c5001dtuY6fiQ1gyWOo",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_acceptance",
+              "part_id": "prt_15009539a001CFsfohEvpHHRzw",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "acceptance.test.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_generator",
+              "part_id": "prt_1500955ac0013E3arM9VCFDTn3",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "generate-catalogue.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_input",
+              "part_id": "prt_1500957bc001Y3zlYOVqkPegOn",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "source-data.json"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "edit_labels",
+              "part_id": "prt_1500959af001z1vyLden0Ov7OJ",
+              "tool": "edit",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs",
+                "oldString": "return label;",
+                "newString": "return label.trim();"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "generate_catalogue",
+              "part_id": "prt_150095c6e001TTqqY3wV1IEc3p",
+              "tool": "bash",
+              "status": "completed",
+              "input": {
+                "command": "node ./generate-catalogue.mjs",
+                "timeout": 120000
+              },
+              "exit": 0,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            }
+          ],
+          "provider_requests": 7
+        },
+        "unreverted": {
+          "interval": [
+            316825915851300,
+            316826136878000
+          ],
+          "file_witness_interval": [
+            316825995576700,
+            316826003682600
+          ],
+          "remote_read_available": true,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "25f56edbfad64c25a5b33c91fd83ceec79b9431041bbdf1ccbe1e1ebe8f2bcfa",
+              "bytes": 66
+            },
+            "catalogue.manifest.json": {
+              "sha256": "20e249684ff92e3d00245a679d88b27a4113c510b51430d91480e8e425ca7b59",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "3c14741eff4a1226022249526d8c18f6142d188001d53f97580ea18417a74ce4",
+              "bytes": 65
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": true,
+            "normalizes an all-whitespace label": true,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": true,
+            "manifest identifies the actual catalogue bytes": true
+          },
+          "snapshot_refs": [
+            "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+            "87123d519b49d4c8aed83f5d212421f6a88988e1",
+            "bdd3b308d26fa96cb7bcf55ffe774499c42d61e8"
+          ],
+          "patches": [
+            {
+              "hash": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+              "files": [
+                "labels.mjs"
+              ]
+            },
+            {
+              "hash": "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+              "files": [
+                "catalogue.json",
+                "catalogue.manifest.json"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "call_id": "read_labels",
+              "part_id": "prt_1500951c5001dtuY6fiQ1gyWOo",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_acceptance",
+              "part_id": "prt_15009539a001CFsfohEvpHHRzw",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "acceptance.test.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_generator",
+              "part_id": "prt_1500955ac0013E3arM9VCFDTn3",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "generate-catalogue.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_input",
+              "part_id": "prt_1500957bc001Y3zlYOVqkPegOn",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "source-data.json"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "edit_labels",
+              "part_id": "prt_1500959af001z1vyLden0Ov7OJ",
+              "tool": "edit",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs",
+                "oldString": "return label;",
+                "newString": "return label.trim();"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "generate_catalogue",
+              "part_id": "prt_150095c6e001TTqqY3wV1IEc3p",
+              "tool": "bash",
+              "status": "completed",
+              "input": {
+                "command": "node ./generate-catalogue.mjs",
+                "timeout": 120000
+              },
+              "exit": 0,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            }
+          ],
+          "provider_requests": 7
+        }
+      },
+      "intervention_interval": [
+        316821610573100,
+        316821612644300
+      ],
+      "process": {
+        "immediate": {
+          "server": {
+            "alive": true,
+            "exit_code": null,
+            "query_interval": [
+              316821615139200,
+              316821615161500
+            ]
+          },
+          "shell": {
+            "alive": true,
+            "exit_code": null,
+            "query_interval": [
+              316821615163700,
+              316821615172800
+            ]
+          },
+          "generator": {
+            "alive": true,
+            "exit_code": null,
+            "query_interval": [
+              316821615173700,
+              316821615179800
+            ]
+          }
+        },
+        "generator_exit_observed_before_harness_cleanup": true,
+        "first_generator_exit_query_interval": [
+          316821705772200,
+          316821705781400
+        ],
+        "cleanup_start_ns": 316826141963100,
+        "sample_count": 60,
+        "monitor_interval": [
+          316820616066700,
+          316823377239500
+        ],
+        "last_monitored_generator": {
+          "start_ns": 316823377233100,
+          "end_ns": 316823377239500,
+          "alive": false,
+          "exit_code": 0
+        },
+        "before_cleanup": {
+          "server": {
+            "alive": true,
+            "exit_code": null,
+            "query_interval": [
+              316823378601100,
+              316823378614800
+            ]
+          },
+          "shell": {
+            "alive": false,
+            "exit_code": 0,
+            "query_interval": [
+              316823378616000,
+              316823378622300
+            ]
+          },
+          "generator": {
+            "alive": false,
+            "exit_code": 0,
+            "query_interval": [
+              316823378623300,
+              316823378628000
+            ]
+          }
+        },
+        "after_cleanup": {
+          "server": {
+            "alive": true,
+            "exit_code": null,
+            "query_interval": [
+              316823381495700,
+              316823381509600
+            ]
+          },
+          "shell": {
+            "alive": false,
+            "exit_code": 0,
+            "query_interval": [
+              316823381510800,
+              316823381517200
+            ]
+          },
+          "generator": {
+            "alive": false,
+            "exit_code": 0,
+            "query_interval": [
+              316823381518200,
+              316823381523500
+            ]
+          }
+        },
+        "identities": {
+          "server": {
+            "pid": 25944,
+            "creation_time_100ns": 134368177466610714,
+            "image_sha256": "c1bdbb18767048e1853af4238311b3f7e16ff2f91b68fb4c7ced3c5175347eea",
+            "image_basename": "opencode.exe"
+          },
+          "shell": {
+            "pid": 11692,
+            "creation_time_100ns": 134368177532708052,
+            "image_sha256": "bfb46af89433268872ddb43d1ca7a3f433452ee91ed356a9786940f90118e285",
+            "image_basename": "pwsh.exe"
+          },
+          "generator": {
+            "pid": 28288,
+            "creation_time_100ns": 134368177534455775,
+            "image_sha256": "d14ba95cdce1ef7dc9ad3ac74949ca5db38b27378ee30f30a23cf26f9e875a11",
+            "image_basename": "node.exe"
+          }
+        }
+      },
+      "pre_intervention_saved_catalogue_refs": [
+        "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+        "87123d519b49d4c8aed83f5d212421f6a88988e1"
+      ],
+      "selected_earliest_refs": {
+        "labels.mjs": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+        "catalogue.json": "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+        "catalogue.manifest.json": "010e5597b007ec9d008cbb6dc089c7d15f6f17b2"
+      },
+      "changed_paths_before_revert": [
+        "catalogue.json",
+        "catalogue.manifest.json",
+        "labels.mjs"
+      ],
+      "unselected_changed_paths": [],
+      "preundo_snapshot": "bdd3b308d26fa96cb7bcf55ffe774499c42d61e8",
+      "restored_baseline": true,
+      "unrevert_restored_preundo": true,
+      "provider_request_count": 7,
+      "trees": {
+        "010e5597b007ec9d008cbb6dc089c7d15f6f17b2": {
+          "first_stage": "barrier",
+          "start_ns": 316820670929600,
+          "end_ns": 316821060077600,
+          "object_base64": "MTAwNjQ0IC5naXRhdHRyaWJ1dGVzAPytss+XkT9YolI/U1M25yXGtZ0fMTAwNjQ0IGFjY2VwdGFuY2UudGVzdC5tanMAZwTfaKgQMk08i77T6wbRSuCvoYYxMDA2NDQgY2F0YWxvZ3VlLmpzb24AFHyrS+fZB+qHFjehSErJ9g0eDHoxMDA2NDQgY2F0YWxvZ3VlLm1hbmlmZXN0Lmpzb24A6CMlrRX1QWzrx+3nWRprkrwj6BMxMDA2NDQgZ2VuZXJhdGUtY2F0YWxvZ3VlLm1qcwBblZEvYOQJqkOUjyIh7T+ssVnIpzEwMDY0NCBsYWJlbHMubWpzAN6qFF/TV0Pds1olUiHEV/wkXOE7MTAwNjQ0IHNvdXJjZS1kYXRhLmpzb24AJ/H3wp3XZlclMetCv6NRFK+DvnY=",
+          "files": {
+            ".gitattributes": {
+              "mode": "100644",
+              "object": "fcadb2cf97913f58a2523f535336e725c6b59d1f",
+              "base64": "KiB0ZXh0IGVvbD1sZgo="
+            },
+            "acceptance.test.mjs": {
+              "mode": "100644",
+              "object": "6704df68a810324d3c8bbed3eb06d14ae0afa186",
+              "base64": "aW1wb3J0IGFzc2VydCBmcm9tICdub2RlOmFzc2VydC9zdHJpY3QnOwppbXBvcnQgeyBjcmVhdGVIYXNoIH0gZnJvbSAnbm9kZTpjcnlwdG8nOwppbXBvcnQgeyByZWFkRmlsZSB9IGZyb20gJ25vZGU6ZnMvcHJvbWlzZXMnOwppbXBvcnQgdGVzdCBmcm9tICdub2RlOnRlc3QnOwppbXBvcnQgeyBub3JtYWxpemVMYWJlbCB9IGZyb20gJy4vbGFiZWxzLm1qcyc7Cgp0ZXN0KCdwcmVzZXJ2ZXMgbWVhbmluZ2Z1bCBpbnRlcmlvciBzcGFjZXMnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCdCZXRhICBHYW1tYScpLCAnQmV0YSAgR2FtbWEnKTsKfSk7CnRlc3QoJ3RyaW1zIG91dGVyIHdoaXRlc3BhY2UnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCcgIEFscGhhICAnKSwgJ0FscGhhJyk7Cn0pOwp0ZXN0KCdub3JtYWxpemVzIGFuIGFsbC13aGl0ZXNwYWNlIGxhYmVsJywgKCkgPT4gewogIGFzc2VydC5lcXVhbChub3JtYWxpemVMYWJlbCgnXHQgXG4nKSwgJycpOwp9KTsKdGVzdCgncHJlc2VydmVzIHRoZSBlbXB0eSBsYWJlbCcsICgpID0+IHsKICBhc3NlcnQuZXF1YWwobm9ybWFsaXplTGFiZWwoJycpLCAnJyk7Cn0pOwp0ZXN0KCdjYXRhbG9ndWUgaGFzIHRoZSBpbnRlbmRlZCBsYWJlbCB2YWx1ZXMnLCBhc3luYyAoKSA9PiB7CiAgYXNzZXJ0LmRlZXBFcXVhbChKU09OLnBhcnNlKGF3YWl0IHJlYWRGaWxlKCdjYXRhbG9ndWUuanNvbicsICd1dGY4JykpLCB7CiAgICBsYWJlbHM6IFsnQWxwaGEnLCAnQmV0YSAgR2FtbWEnLCAnRGVsdGEnXSwKICB9KTsKfSk7CnRlc3QoJ21hbmlmZXN0IGlkZW50aWZpZXMgdGhlIGFjdHVhbCBjYXRhbG9ndWUgYnl0ZXMnLCBhc3luYyAoKSA9PiB7CiAgY29uc3QgYnl0ZXMgPSBhd2FpdCByZWFkRmlsZSgnY2F0YWxvZ3VlLmpzb24nKTsKICBjb25zdCBtYW5pZmVzdCA9IEpTT04ucGFyc2UoYXdhaXQgcmVhZEZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgJ3V0ZjgnKSk7CiAgYXNzZXJ0LmRlZXBFcXVhbChtYW5pZmVzdCwgewogICAgYWxnb3JpdGhtOiAnc2hhMjU2JywgY2F0YWxvZ3VlU2hhMjU2OiBjcmVhdGVIYXNoKCdzaGEyNTYnKS51cGRhdGUoYnl0ZXMpLmRpZ2VzdCgnaGV4JyksCiAgfSk7Cn0pOwo="
+            },
+            "catalogue.json": {
+              "mode": "100644",
+              "object": "147cab4be7d907ea871637a1484ac9f60d1e0c7a",
+              "base64": "ewogICJsYWJlbHMiOiBbCiAgICAiICBBbHBoYSAgIiwKICAgICJCZXRhICBHYW1tYSIsCiAgICAiXHREZWx0YVxuIgogIF0KfQo="
+            },
+            "catalogue.manifest.json": {
+              "mode": "100644",
+              "object": "e82325ad15f5416cebc7ede7591a6b92bc23e813",
+              "base64": "ewogICJhbGdvcml0aG0iOiAic2hhMjU2IiwKICAiY2F0YWxvZ3VlU2hhMjU2IjogIjc4ZmFiMzk4OWY0NzdjOTAzMDExNjVkM2IwZDQ5OTlhY2UyOWRkNDcyZDA4NTEyNmZiNGVlZGU0ODhlMmI5NGYiCn0K"
+            },
+            "generate-catalogue.mjs": {
+              "mode": "100644",
+              "object": "5b95912f60e409aa43948f2221ed3facb159c8a7",
+              "base64": "Ly8gRGVsaWJlcmF0ZWx5IGV4cG9zZXMgdGhlIGludGVydmFsIGJldHdlZW4gdHdvIHJlbGF0ZWQgd3JpdGVzLiBJdCBuZXZlciByb2xscyBiYWNrLgppbXBvcnQgYXNzZXJ0IGZyb20gJ25vZGU6YXNzZXJ0L3N0cmljdCc7CmltcG9ydCB7IGNyZWF0ZUhhc2ggfSBmcm9tICdub2RlOmNyeXB0byc7CmltcG9ydCB7IGV4aXN0c1N5bmMgfSBmcm9tICdub2RlOmZzJzsKaW1wb3J0IHsgcmVhZEZpbGUsIHJlbmFtZSwgd3JpdGVGaWxlIH0gZnJvbSAnbm9kZTpmcy9wcm9taXNlcyc7CmltcG9ydCB7IGRpcm5hbWUsIGlzQWJzb2x1dGUsIGpvaW4sIHJlbGF0aXZlLCByZXNvbHZlIH0gZnJvbSAnbm9kZTpwYXRoJzsKaW1wb3J0IHsgc2V0VGltZW91dCBhcyBkZWxheSB9IGZyb20gJ25vZGU6dGltZXJzL3Byb21pc2VzJzsKaW1wb3J0IHsgZmlsZVVSTFRvUGF0aCB9IGZyb20gJ25vZGU6dXJsJzsKaW1wb3J0IHsgbm9ybWFsaXplTGFiZWwgfSBmcm9tICcuL2xhYmVscy5tanMnOwoKYXN5bmMgZnVuY3Rpb24gbWFpbigpIHsKICBjb25zdCB3b3Jrc3BhY2UgPSBkaXJuYW1lKGZpbGVVUkxUb1BhdGgoaW1wb3J0Lm1ldGEudXJsKSk7CiAgYXNzZXJ0LmVxdWFsKHJlc29sdmUocHJvY2Vzcy5jd2QoKSksIHdvcmtzcGFjZSwgJ1J1biBmcm9tIHRoZSBmaXh0dXJlIHdvcmtzcGFjZScpOwogIGNvbnN0IGNvbnRyb2wgPSBwcm9jZXNzLmVudi5MQUJfQ09OVFJPTF9ESVI7CiAgY29uc3Qgbm9uY2UgPSBwcm9jZXNzLmVudi5MQUJfUlVOX05PTkNFOwogIGFzc2VydC5vayhjb250cm9sICYmIGlzQWJzb2x1dGUoY29udHJvbCksICdBYnNvbHV0ZSBjb250cm9sIGRpcmVjdG9yeSByZXF1aXJlZCcpOwogIGFzc2VydC5tYXRjaChub25jZSA/PyAnJywgL15bYS1mMC05XXszMn0kLyk7CiAgY29uc3QgcmVsID0gcmVsYXRpdmUod29ya3NwYWNlLCByZXNvbHZlKGNvbnRyb2wpKTsKICBhc3NlcnQub2socmVsLnN0YXJ0c1dpdGgoJy4uJykgfHwgaXNBYnNvbHV0ZShyZWwpLCAnQ29udHJvbCBzdGF0ZSBtdXN0IGJlIG91dHNpZGUgdGhlIHdvcmtzcGFjZScpOwogIGNvbnN0IGxpZmV0aW1lID0gTnVtYmVyKHByb2Nlc3MuZW52LkxBQl9HRU5FUkFUT1JfVElNRU9VVF9NUyA/PyAxODAwMDApOwogIGFzc2VydC5vayhOdW1iZXIuaXNJbnRlZ2VyKGxpZmV0aW1lKSAmJiBsaWZldGltZSA+PSAxMDAgJiYgbGlmZXRpbWUgPD0gMzAwMDAwKTsKICBmb3IgKGNvbnN0IG5hbWUgb2YgWydyZWFkeS5qc29uJywgJ3JlbGVhc2UuanNvbicsICdzdG9wLmpzb24nXSkgewogICAgYXNzZXJ0LmVxdWFsKGV4aXN0c1N5bmMoam9pbihjb250cm9sLCBuYW1lKSksIGZhbHNlLCAnRnJlc2ggY29vcmRpbmF0aW9uIHN0YXRlIHJlcXVpcmVkJyk7CiAgfQogIGNvbnN0IGlucHV0ID0gSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZSgnc291cmNlLWRhdGEuanNvbicsICd1dGY4JykpOwogIGFzc2VydC5vayhBcnJheS5pc0FycmF5KGlucHV0KSAmJiBpbnB1dC5ldmVyeSh2YWx1ZSA9PiB0eXBlb2YgdmFsdWUgPT09ICdzdHJpbmcnKSk7CiAgY29uc3QgYnl0ZXMgPSBKU09OLnN0cmluZ2lmeSh7IGxhYmVsczogaW5wdXQubWFwKG5vcm1hbGl6ZUxhYmVsKSB9LCBudWxsLCAyKSArICdcbic7CiAgYXdhaXQgd3JpdGVGaWxlKCdjYXRhbG9ndWUuanNvbicsIGJ5dGVzLCAndXRmOCcpOwogIGNvbnN0IHJlYWR5ID0gSlNPTi5zdHJpbmdpZnkoeyBub25jZSwgcGlkOiBwcm9jZXNzLnBpZCwgc3RhZ2U6ICdjYXRhbG9ndWUtd3JpdHRlbicgfSkgKyAnXG4nOwogIGF3YWl0IHdyaXRlRmlsZShqb2luKGNvbnRyb2wsICdyZWFkeS50bXAnKSwgcmVhZHksIHsgZW5jb2Rpbmc6ICd1dGY4JywgZmxhZzogJ3d4JyB9KTsKICBhd2FpdCByZW5hbWUoam9pbihjb250cm9sLCAncmVhZHkudG1wJyksIGpvaW4oY29udHJvbCwgJ3JlYWR5Lmpzb24nKSk7CiAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ0NBVEFMT0dVRV9XUklUVEVOXG4nKTsKICBjb25zdCBkZWFkbGluZSA9IHBlcmZvcm1hbmNlLm5vdygpICsgbGlmZXRpbWU7CiAgYXN5bmMgZnVuY3Rpb24gbWFya2VkKG5hbWUpIHsKICAgIGNvbnN0IHBhdGggPSBqb2luKGNvbnRyb2wsIG5hbWUpOwogICAgaWYgKCFleGlzdHNTeW5jKHBhdGgpKSByZXR1cm4gZmFsc2U7CiAgICBhc3NlcnQuZXF1YWwoSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZShwYXRoLCAndXRmOCcpKS5ub25jZSwgbm9uY2UpOwogICAgcmV0dXJuIHRydWU7CiAgfQogIHdoaWxlIChwZXJmb3JtYW5jZS5ub3coKSA8IGRlYWRsaW5lKSB7CiAgICBpZiAoYXdhaXQgbWFya2VkKCdzdG9wLmpzb24nKSkgewogICAgICBwcm9jZXNzLmV4aXRDb2RlID0gNzU7IC8vIEV4cGxpY2l0IGhhcm5lc3MgY2xlYW51cCwgbm90IHJ1bnRpbWUgY2FuY2VsbGF0aW9uLgogICAgICByZXR1cm47CiAgICB9CiAgICBpZiAoYXdhaXQgbWFya2VkKCdyZWxlYXNlLmpzb24nKSkgewogICAgICBjb25zdCBtYW5pZmVzdCA9IHsKICAgICAgICBhbGdvcml0aG06ICdzaGEyNTYnLAogICAgICAgIGNhdGFsb2d1ZVNoYTI1NjogY3JlYXRlSGFzaCgnc2hhMjU2JykudXBkYXRlKGJ5dGVzKS5kaWdlc3QoJ2hleCcpLAogICAgICB9OwogICAgICBhd2FpdCB3cml0ZUZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgSlNPTi5zdHJpbmdpZnkobWFuaWZlc3QsIG51bGwsIDIpICsgJ1xuJywgJ3V0ZjgnKTsKICAgICAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ01BTklGRVNUX1dSSVRURU5cbicpOwogICAgICByZXR1cm47CiAgICB9CiAgICBhd2FpdCBkZWxheSg0MCk7CiAgfQogIHByb2Nlc3MuZXhpdENvZGUgPSA3NjsgLy8gRml4dHVyZSBmYWlsLXNhZmU7IG5vIG1hbmlmZXN0IHdyaXRlIG9yIHJvbGxiYWNrLgp9Cgphd2FpdCBtYWluKCk7Cg=="
+            },
+            "labels.mjs": {
+              "mode": "100644",
+              "object": "deaa145fd35743ddb35a255221c457fc245ce13b",
+              "base64": "ZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZUxhYmVsKGxhYmVsKSB7CiAgcmV0dXJuIGxhYmVsLnRyaW0oKTsKfQo="
+            },
+            "source-data.json": {
+              "mode": "100644",
+              "object": "27f1f7c29dd766572531eb42bfa35114af83be76",
+              "base64": "WwogICIgIEFscGhhICAiLAogICJCZXRhICBHYW1tYSIsCiAgIlx0RGVsdGFcbiIKXQo="
+            }
+          }
+        },
+        "87123d519b49d4c8aed83f5d212421f6a88988e1": {
+          "first_stage": "barrier",
+          "start_ns": 316821062378300,
+          "end_ns": 316821466810200,
+          "object_base64": "MTAwNjQ0IC5naXRhdHRyaWJ1dGVzAPytss+XkT9YolI/U1M25yXGtZ0fMTAwNjQ0IGFjY2VwdGFuY2UudGVzdC5tanMAZwTfaKgQMk08i77T6wbRSuCvoYYxMDA2NDQgY2F0YWxvZ3VlLmpzb24AFHyrS+fZB+qHFjehSErJ9g0eDHoxMDA2NDQgY2F0YWxvZ3VlLm1hbmlmZXN0Lmpzb24A6CMlrRX1QWzrx+3nWRprkrwj6BMxMDA2NDQgZ2VuZXJhdGUtY2F0YWxvZ3VlLm1qcwBblZEvYOQJqkOUjyIh7T+ssVnIpzEwMDY0NCBsYWJlbHMubWpzAJKuNtP3YrnWglUm96/FZYKgK2GtMTAwNjQ0IHNvdXJjZS1kYXRhLmpzb24AJ/H3wp3XZlclMetCv6NRFK+DvnY=",
+          "files": {
+            ".gitattributes": {
+              "mode": "100644",
+              "object": "fcadb2cf97913f58a2523f535336e725c6b59d1f",
+              "base64": "KiB0ZXh0IGVvbD1sZgo="
+            },
+            "acceptance.test.mjs": {
+              "mode": "100644",
+              "object": "6704df68a810324d3c8bbed3eb06d14ae0afa186",
+              "base64": "aW1wb3J0IGFzc2VydCBmcm9tICdub2RlOmFzc2VydC9zdHJpY3QnOwppbXBvcnQgeyBjcmVhdGVIYXNoIH0gZnJvbSAnbm9kZTpjcnlwdG8nOwppbXBvcnQgeyByZWFkRmlsZSB9IGZyb20gJ25vZGU6ZnMvcHJvbWlzZXMnOwppbXBvcnQgdGVzdCBmcm9tICdub2RlOnRlc3QnOwppbXBvcnQgeyBub3JtYWxpemVMYWJlbCB9IGZyb20gJy4vbGFiZWxzLm1qcyc7Cgp0ZXN0KCdwcmVzZXJ2ZXMgbWVhbmluZ2Z1bCBpbnRlcmlvciBzcGFjZXMnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCdCZXRhICBHYW1tYScpLCAnQmV0YSAgR2FtbWEnKTsKfSk7CnRlc3QoJ3RyaW1zIG91dGVyIHdoaXRlc3BhY2UnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCcgIEFscGhhICAnKSwgJ0FscGhhJyk7Cn0pOwp0ZXN0KCdub3JtYWxpemVzIGFuIGFsbC13aGl0ZXNwYWNlIGxhYmVsJywgKCkgPT4gewogIGFzc2VydC5lcXVhbChub3JtYWxpemVMYWJlbCgnXHQgXG4nKSwgJycpOwp9KTsKdGVzdCgncHJlc2VydmVzIHRoZSBlbXB0eSBsYWJlbCcsICgpID0+IHsKICBhc3NlcnQuZXF1YWwobm9ybWFsaXplTGFiZWwoJycpLCAnJyk7Cn0pOwp0ZXN0KCdjYXRhbG9ndWUgaGFzIHRoZSBpbnRlbmRlZCBsYWJlbCB2YWx1ZXMnLCBhc3luYyAoKSA9PiB7CiAgYXNzZXJ0LmRlZXBFcXVhbChKU09OLnBhcnNlKGF3YWl0IHJlYWRGaWxlKCdjYXRhbG9ndWUuanNvbicsICd1dGY4JykpLCB7CiAgICBsYWJlbHM6IFsnQWxwaGEnLCAnQmV0YSAgR2FtbWEnLCAnRGVsdGEnXSwKICB9KTsKfSk7CnRlc3QoJ21hbmlmZXN0IGlkZW50aWZpZXMgdGhlIGFjdHVhbCBjYXRhbG9ndWUgYnl0ZXMnLCBhc3luYyAoKSA9PiB7CiAgY29uc3QgYnl0ZXMgPSBhd2FpdCByZWFkRmlsZSgnY2F0YWxvZ3VlLmpzb24nKTsKICBjb25zdCBtYW5pZmVzdCA9IEpTT04ucGFyc2UoYXdhaXQgcmVhZEZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgJ3V0ZjgnKSk7CiAgYXNzZXJ0LmRlZXBFcXVhbChtYW5pZmVzdCwgewogICAgYWxnb3JpdGhtOiAnc2hhMjU2JywgY2F0YWxvZ3VlU2hhMjU2OiBjcmVhdGVIYXNoKCdzaGEyNTYnKS51cGRhdGUoYnl0ZXMpLmRpZ2VzdCgnaGV4JyksCiAgfSk7Cn0pOwo="
+            },
+            "catalogue.json": {
+              "mode": "100644",
+              "object": "147cab4be7d907ea871637a1484ac9f60d1e0c7a",
+              "base64": "ewogICJsYWJlbHMiOiBbCiAgICAiICBBbHBoYSAgIiwKICAgICJCZXRhICBHYW1tYSIsCiAgICAiXHREZWx0YVxuIgogIF0KfQo="
+            },
+            "catalogue.manifest.json": {
+              "mode": "100644",
+              "object": "e82325ad15f5416cebc7ede7591a6b92bc23e813",
+              "base64": "ewogICJhbGdvcml0aG0iOiAic2hhMjU2IiwKICAiY2F0YWxvZ3VlU2hhMjU2IjogIjc4ZmFiMzk4OWY0NzdjOTAzMDExNjVkM2IwZDQ5OTlhY2UyOWRkNDcyZDA4NTEyNmZiNGVlZGU0ODhlMmI5NGYiCn0K"
+            },
+            "generate-catalogue.mjs": {
+              "mode": "100644",
+              "object": "5b95912f60e409aa43948f2221ed3facb159c8a7",
+              "base64": "Ly8gRGVsaWJlcmF0ZWx5IGV4cG9zZXMgdGhlIGludGVydmFsIGJldHdlZW4gdHdvIHJlbGF0ZWQgd3JpdGVzLiBJdCBuZXZlciByb2xscyBiYWNrLgppbXBvcnQgYXNzZXJ0IGZyb20gJ25vZGU6YXNzZXJ0L3N0cmljdCc7CmltcG9ydCB7IGNyZWF0ZUhhc2ggfSBmcm9tICdub2RlOmNyeXB0byc7CmltcG9ydCB7IGV4aXN0c1N5bmMgfSBmcm9tICdub2RlOmZzJzsKaW1wb3J0IHsgcmVhZEZpbGUsIHJlbmFtZSwgd3JpdGVGaWxlIH0gZnJvbSAnbm9kZTpmcy9wcm9taXNlcyc7CmltcG9ydCB7IGRpcm5hbWUsIGlzQWJzb2x1dGUsIGpvaW4sIHJlbGF0aXZlLCByZXNvbHZlIH0gZnJvbSAnbm9kZTpwYXRoJzsKaW1wb3J0IHsgc2V0VGltZW91dCBhcyBkZWxheSB9IGZyb20gJ25vZGU6dGltZXJzL3Byb21pc2VzJzsKaW1wb3J0IHsgZmlsZVVSTFRvUGF0aCB9IGZyb20gJ25vZGU6dXJsJzsKaW1wb3J0IHsgbm9ybWFsaXplTGFiZWwgfSBmcm9tICcuL2xhYmVscy5tanMnOwoKYXN5bmMgZnVuY3Rpb24gbWFpbigpIHsKICBjb25zdCB3b3Jrc3BhY2UgPSBkaXJuYW1lKGZpbGVVUkxUb1BhdGgoaW1wb3J0Lm1ldGEudXJsKSk7CiAgYXNzZXJ0LmVxdWFsKHJlc29sdmUocHJvY2Vzcy5jd2QoKSksIHdvcmtzcGFjZSwgJ1J1biBmcm9tIHRoZSBmaXh0dXJlIHdvcmtzcGFjZScpOwogIGNvbnN0IGNvbnRyb2wgPSBwcm9jZXNzLmVudi5MQUJfQ09OVFJPTF9ESVI7CiAgY29uc3Qgbm9uY2UgPSBwcm9jZXNzLmVudi5MQUJfUlVOX05PTkNFOwogIGFzc2VydC5vayhjb250cm9sICYmIGlzQWJzb2x1dGUoY29udHJvbCksICdBYnNvbHV0ZSBjb250cm9sIGRpcmVjdG9yeSByZXF1aXJlZCcpOwogIGFzc2VydC5tYXRjaChub25jZSA/PyAnJywgL15bYS1mMC05XXszMn0kLyk7CiAgY29uc3QgcmVsID0gcmVsYXRpdmUod29ya3NwYWNlLCByZXNvbHZlKGNvbnRyb2wpKTsKICBhc3NlcnQub2socmVsLnN0YXJ0c1dpdGgoJy4uJykgfHwgaXNBYnNvbHV0ZShyZWwpLCAnQ29udHJvbCBzdGF0ZSBtdXN0IGJlIG91dHNpZGUgdGhlIHdvcmtzcGFjZScpOwogIGNvbnN0IGxpZmV0aW1lID0gTnVtYmVyKHByb2Nlc3MuZW52LkxBQl9HRU5FUkFUT1JfVElNRU9VVF9NUyA/PyAxODAwMDApOwogIGFzc2VydC5vayhOdW1iZXIuaXNJbnRlZ2VyKGxpZmV0aW1lKSAmJiBsaWZldGltZSA+PSAxMDAgJiYgbGlmZXRpbWUgPD0gMzAwMDAwKTsKICBmb3IgKGNvbnN0IG5hbWUgb2YgWydyZWFkeS5qc29uJywgJ3JlbGVhc2UuanNvbicsICdzdG9wLmpzb24nXSkgewogICAgYXNzZXJ0LmVxdWFsKGV4aXN0c1N5bmMoam9pbihjb250cm9sLCBuYW1lKSksIGZhbHNlLCAnRnJlc2ggY29vcmRpbmF0aW9uIHN0YXRlIHJlcXVpcmVkJyk7CiAgfQogIGNvbnN0IGlucHV0ID0gSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZSgnc291cmNlLWRhdGEuanNvbicsICd1dGY4JykpOwogIGFzc2VydC5vayhBcnJheS5pc0FycmF5KGlucHV0KSAmJiBpbnB1dC5ldmVyeSh2YWx1ZSA9PiB0eXBlb2YgdmFsdWUgPT09ICdzdHJpbmcnKSk7CiAgY29uc3QgYnl0ZXMgPSBKU09OLnN0cmluZ2lmeSh7IGxhYmVsczogaW5wdXQubWFwKG5vcm1hbGl6ZUxhYmVsKSB9LCBudWxsLCAyKSArICdcbic7CiAgYXdhaXQgd3JpdGVGaWxlKCdjYXRhbG9ndWUuanNvbicsIGJ5dGVzLCAndXRmOCcpOwogIGNvbnN0IHJlYWR5ID0gSlNPTi5zdHJpbmdpZnkoeyBub25jZSwgcGlkOiBwcm9jZXNzLnBpZCwgc3RhZ2U6ICdjYXRhbG9ndWUtd3JpdHRlbicgfSkgKyAnXG4nOwogIGF3YWl0IHdyaXRlRmlsZShqb2luKGNvbnRyb2wsICdyZWFkeS50bXAnKSwgcmVhZHksIHsgZW5jb2Rpbmc6ICd1dGY4JywgZmxhZzogJ3d4JyB9KTsKICBhd2FpdCByZW5hbWUoam9pbihjb250cm9sLCAncmVhZHkudG1wJyksIGpvaW4oY29udHJvbCwgJ3JlYWR5Lmpzb24nKSk7CiAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ0NBVEFMT0dVRV9XUklUVEVOXG4nKTsKICBjb25zdCBkZWFkbGluZSA9IHBlcmZvcm1hbmNlLm5vdygpICsgbGlmZXRpbWU7CiAgYXN5bmMgZnVuY3Rpb24gbWFya2VkKG5hbWUpIHsKICAgIGNvbnN0IHBhdGggPSBqb2luKGNvbnRyb2wsIG5hbWUpOwogICAgaWYgKCFleGlzdHNTeW5jKHBhdGgpKSByZXR1cm4gZmFsc2U7CiAgICBhc3NlcnQuZXF1YWwoSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZShwYXRoLCAndXRmOCcpKS5ub25jZSwgbm9uY2UpOwogICAgcmV0dXJuIHRydWU7CiAgfQogIHdoaWxlIChwZXJmb3JtYW5jZS5ub3coKSA8IGRlYWRsaW5lKSB7CiAgICBpZiAoYXdhaXQgbWFya2VkKCdzdG9wLmpzb24nKSkgewogICAgICBwcm9jZXNzLmV4aXRDb2RlID0gNzU7IC8vIEV4cGxpY2l0IGhhcm5lc3MgY2xlYW51cCwgbm90IHJ1bnRpbWUgY2FuY2VsbGF0aW9uLgogICAgICByZXR1cm47CiAgICB9CiAgICBpZiAoYXdhaXQgbWFya2VkKCdyZWxlYXNlLmpzb24nKSkgewogICAgICBjb25zdCBtYW5pZmVzdCA9IHsKICAgICAgICBhbGdvcml0aG06ICdzaGEyNTYnLAogICAgICAgIGNhdGFsb2d1ZVNoYTI1NjogY3JlYXRlSGFzaCgnc2hhMjU2JykudXBkYXRlKGJ5dGVzKS5kaWdlc3QoJ2hleCcpLAogICAgICB9OwogICAgICBhd2FpdCB3cml0ZUZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgSlNPTi5zdHJpbmdpZnkobWFuaWZlc3QsIG51bGwsIDIpICsgJ1xuJywgJ3V0ZjgnKTsKICAgICAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ01BTklGRVNUX1dSSVRURU5cbicpOwogICAgICByZXR1cm47CiAgICB9CiAgICBhd2FpdCBkZWxheSg0MCk7CiAgfQogIHByb2Nlc3MuZXhpdENvZGUgPSA3NjsgLy8gRml4dHVyZSBmYWlsLXNhZmU7IG5vIG1hbmlmZXN0IHdyaXRlIG9yIHJvbGxiYWNrLgp9Cgphd2FpdCBtYWluKCk7Cg=="
+            },
+            "labels.mjs": {
+              "mode": "100644",
+              "object": "92ae36d3f762b9d6825526f7afc56582a02b61ad",
+              "base64": "ZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZUxhYmVsKGxhYmVsKSB7CiAgcmV0dXJuIGxhYmVsOwp9Cg=="
+            },
+            "source-data.json": {
+              "mode": "100644",
+              "object": "27f1f7c29dd766572531eb42bfa35114af83be76",
+              "base64": "WwogICIgIEFscGhhICAiLAogICJCZXRhICBHYW1tYSIsCiAgIlx0RGVsdGFcbiIKXQo="
+            }
+          }
+        },
+        "bdd3b308d26fa96cb7bcf55ffe774499c42d61e8": {
+          "first_stage": "primary",
+          "start_ns": 316822850445100,
+          "end_ns": 316823240937200,
+          "object_base64": "MTAwNjQ0IC5naXRhdHRyaWJ1dGVzAPytss+XkT9YolI/U1M25yXGtZ0fMTAwNjQ0IGFjY2VwdGFuY2UudGVzdC5tanMAZwTfaKgQMk08i77T6wbRSuCvoYYxMDA2NDQgY2F0YWxvZ3VlLmpzb24ANhHmnvm8QjuuJLFpx9PMYtWUHlQxMDA2NDQgY2F0YWxvZ3VlLm1hbmlmZXN0Lmpzb24ATe80xKeWm4UGt65tpy3b4xahe+MxMDA2NDQgZ2VuZXJhdGUtY2F0YWxvZ3VlLm1qcwBblZEvYOQJqkOUjyIh7T+ssVnIpzEwMDY0NCBsYWJlbHMubWpzAN6qFF/TV0Pds1olUiHEV/wkXOE7MTAwNjQ0IHNvdXJjZS1kYXRhLmpzb24AJ/H3wp3XZlclMetCv6NRFK+DvnY=",
+          "files": {
+            ".gitattributes": {
+              "mode": "100644",
+              "object": "fcadb2cf97913f58a2523f535336e725c6b59d1f",
+              "base64": "KiB0ZXh0IGVvbD1sZgo="
+            },
+            "acceptance.test.mjs": {
+              "mode": "100644",
+              "object": "6704df68a810324d3c8bbed3eb06d14ae0afa186",
+              "base64": "aW1wb3J0IGFzc2VydCBmcm9tICdub2RlOmFzc2VydC9zdHJpY3QnOwppbXBvcnQgeyBjcmVhdGVIYXNoIH0gZnJvbSAnbm9kZTpjcnlwdG8nOwppbXBvcnQgeyByZWFkRmlsZSB9IGZyb20gJ25vZGU6ZnMvcHJvbWlzZXMnOwppbXBvcnQgdGVzdCBmcm9tICdub2RlOnRlc3QnOwppbXBvcnQgeyBub3JtYWxpemVMYWJlbCB9IGZyb20gJy4vbGFiZWxzLm1qcyc7Cgp0ZXN0KCdwcmVzZXJ2ZXMgbWVhbmluZ2Z1bCBpbnRlcmlvciBzcGFjZXMnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCdCZXRhICBHYW1tYScpLCAnQmV0YSAgR2FtbWEnKTsKfSk7CnRlc3QoJ3RyaW1zIG91dGVyIHdoaXRlc3BhY2UnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCcgIEFscGhhICAnKSwgJ0FscGhhJyk7Cn0pOwp0ZXN0KCdub3JtYWxpemVzIGFuIGFsbC13aGl0ZXNwYWNlIGxhYmVsJywgKCkgPT4gewogIGFzc2VydC5lcXVhbChub3JtYWxpemVMYWJlbCgnXHQgXG4nKSwgJycpOwp9KTsKdGVzdCgncHJlc2VydmVzIHRoZSBlbXB0eSBsYWJlbCcsICgpID0+IHsKICBhc3NlcnQuZXF1YWwobm9ybWFsaXplTGFiZWwoJycpLCAnJyk7Cn0pOwp0ZXN0KCdjYXRhbG9ndWUgaGFzIHRoZSBpbnRlbmRlZCBsYWJlbCB2YWx1ZXMnLCBhc3luYyAoKSA9PiB7CiAgYXNzZXJ0LmRlZXBFcXVhbChKU09OLnBhcnNlKGF3YWl0IHJlYWRGaWxlKCdjYXRhbG9ndWUuanNvbicsICd1dGY4JykpLCB7CiAgICBsYWJlbHM6IFsnQWxwaGEnLCAnQmV0YSAgR2FtbWEnLCAnRGVsdGEnXSwKICB9KTsKfSk7CnRlc3QoJ21hbmlmZXN0IGlkZW50aWZpZXMgdGhlIGFjdHVhbCBjYXRhbG9ndWUgYnl0ZXMnLCBhc3luYyAoKSA9PiB7CiAgY29uc3QgYnl0ZXMgPSBhd2FpdCByZWFkRmlsZSgnY2F0YWxvZ3VlLmpzb24nKTsKICBjb25zdCBtYW5pZmVzdCA9IEpTT04ucGFyc2UoYXdhaXQgcmVhZEZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgJ3V0ZjgnKSk7CiAgYXNzZXJ0LmRlZXBFcXVhbChtYW5pZmVzdCwgewogICAgYWxnb3JpdGhtOiAnc2hhMjU2JywgY2F0YWxvZ3VlU2hhMjU2OiBjcmVhdGVIYXNoKCdzaGEyNTYnKS51cGRhdGUoYnl0ZXMpLmRpZ2VzdCgnaGV4JyksCiAgfSk7Cn0pOwo="
+            },
+            "catalogue.json": {
+              "mode": "100644",
+              "object": "3611e69ef9bc423bae24b169c7d3cc62d5941e54",
+              "base64": "ewogICJsYWJlbHMiOiBbCiAgICAiQWxwaGEiLAogICAgIkJldGEgIEdhbW1hIiwKICAgICJEZWx0YSIKICBdCn0K"
+            },
+            "catalogue.manifest.json": {
+              "mode": "100644",
+              "object": "4def34c4a7969b8506b7ae6da72ddbe316a17be3",
+              "base64": "ewogICJhbGdvcml0aG0iOiAic2hhMjU2IiwKICAiY2F0YWxvZ3VlU2hhMjU2IjogIjI1ZjU2ZWRiZmFkNjRjMjVhNWIzM2M5MWZkODNjZWVjNzliOTQzMTA0MWJiZGYxY2NiZTFlMWViZThmMmJjZmEiCn0K"
+            },
+            "generate-catalogue.mjs": {
+              "mode": "100644",
+              "object": "5b95912f60e409aa43948f2221ed3facb159c8a7",
+              "base64": "Ly8gRGVsaWJlcmF0ZWx5IGV4cG9zZXMgdGhlIGludGVydmFsIGJldHdlZW4gdHdvIHJlbGF0ZWQgd3JpdGVzLiBJdCBuZXZlciByb2xscyBiYWNrLgppbXBvcnQgYXNzZXJ0IGZyb20gJ25vZGU6YXNzZXJ0L3N0cmljdCc7CmltcG9ydCB7IGNyZWF0ZUhhc2ggfSBmcm9tICdub2RlOmNyeXB0byc7CmltcG9ydCB7IGV4aXN0c1N5bmMgfSBmcm9tICdub2RlOmZzJzsKaW1wb3J0IHsgcmVhZEZpbGUsIHJlbmFtZSwgd3JpdGVGaWxlIH0gZnJvbSAnbm9kZTpmcy9wcm9taXNlcyc7CmltcG9ydCB7IGRpcm5hbWUsIGlzQWJzb2x1dGUsIGpvaW4sIHJlbGF0aXZlLCByZXNvbHZlIH0gZnJvbSAnbm9kZTpwYXRoJzsKaW1wb3J0IHsgc2V0VGltZW91dCBhcyBkZWxheSB9IGZyb20gJ25vZGU6dGltZXJzL3Byb21pc2VzJzsKaW1wb3J0IHsgZmlsZVVSTFRvUGF0aCB9IGZyb20gJ25vZGU6dXJsJzsKaW1wb3J0IHsgbm9ybWFsaXplTGFiZWwgfSBmcm9tICcuL2xhYmVscy5tanMnOwoKYXN5bmMgZnVuY3Rpb24gbWFpbigpIHsKICBjb25zdCB3b3Jrc3BhY2UgPSBkaXJuYW1lKGZpbGVVUkxUb1BhdGgoaW1wb3J0Lm1ldGEudXJsKSk7CiAgYXNzZXJ0LmVxdWFsKHJlc29sdmUocHJvY2Vzcy5jd2QoKSksIHdvcmtzcGFjZSwgJ1J1biBmcm9tIHRoZSBmaXh0dXJlIHdvcmtzcGFjZScpOwogIGNvbnN0IGNvbnRyb2wgPSBwcm9jZXNzLmVudi5MQUJfQ09OVFJPTF9ESVI7CiAgY29uc3Qgbm9uY2UgPSBwcm9jZXNzLmVudi5MQUJfUlVOX05PTkNFOwogIGFzc2VydC5vayhjb250cm9sICYmIGlzQWJzb2x1dGUoY29udHJvbCksICdBYnNvbHV0ZSBjb250cm9sIGRpcmVjdG9yeSByZXF1aXJlZCcpOwogIGFzc2VydC5tYXRjaChub25jZSA/PyAnJywgL15bYS1mMC05XXszMn0kLyk7CiAgY29uc3QgcmVsID0gcmVsYXRpdmUod29ya3NwYWNlLCByZXNvbHZlKGNvbnRyb2wpKTsKICBhc3NlcnQub2socmVsLnN0YXJ0c1dpdGgoJy4uJykgfHwgaXNBYnNvbHV0ZShyZWwpLCAnQ29udHJvbCBzdGF0ZSBtdXN0IGJlIG91dHNpZGUgdGhlIHdvcmtzcGFjZScpOwogIGNvbnN0IGxpZmV0aW1lID0gTnVtYmVyKHByb2Nlc3MuZW52LkxBQl9HRU5FUkFUT1JfVElNRU9VVF9NUyA/PyAxODAwMDApOwogIGFzc2VydC5vayhOdW1iZXIuaXNJbnRlZ2VyKGxpZmV0aW1lKSAmJiBsaWZldGltZSA+PSAxMDAgJiYgbGlmZXRpbWUgPD0gMzAwMDAwKTsKICBmb3IgKGNvbnN0IG5hbWUgb2YgWydyZWFkeS5qc29uJywgJ3JlbGVhc2UuanNvbicsICdzdG9wLmpzb24nXSkgewogICAgYXNzZXJ0LmVxdWFsKGV4aXN0c1N5bmMoam9pbihjb250cm9sLCBuYW1lKSksIGZhbHNlLCAnRnJlc2ggY29vcmRpbmF0aW9uIHN0YXRlIHJlcXVpcmVkJyk7CiAgfQogIGNvbnN0IGlucHV0ID0gSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZSgnc291cmNlLWRhdGEuanNvbicsICd1dGY4JykpOwogIGFzc2VydC5vayhBcnJheS5pc0FycmF5KGlucHV0KSAmJiBpbnB1dC5ldmVyeSh2YWx1ZSA9PiB0eXBlb2YgdmFsdWUgPT09ICdzdHJpbmcnKSk7CiAgY29uc3QgYnl0ZXMgPSBKU09OLnN0cmluZ2lmeSh7IGxhYmVsczogaW5wdXQubWFwKG5vcm1hbGl6ZUxhYmVsKSB9LCBudWxsLCAyKSArICdcbic7CiAgYXdhaXQgd3JpdGVGaWxlKCdjYXRhbG9ndWUuanNvbicsIGJ5dGVzLCAndXRmOCcpOwogIGNvbnN0IHJlYWR5ID0gSlNPTi5zdHJpbmdpZnkoeyBub25jZSwgcGlkOiBwcm9jZXNzLnBpZCwgc3RhZ2U6ICdjYXRhbG9ndWUtd3JpdHRlbicgfSkgKyAnXG4nOwogIGF3YWl0IHdyaXRlRmlsZShqb2luKGNvbnRyb2wsICdyZWFkeS50bXAnKSwgcmVhZHksIHsgZW5jb2Rpbmc6ICd1dGY4JywgZmxhZzogJ3d4JyB9KTsKICBhd2FpdCByZW5hbWUoam9pbihjb250cm9sLCAncmVhZHkudG1wJyksIGpvaW4oY29udHJvbCwgJ3JlYWR5Lmpzb24nKSk7CiAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ0NBVEFMT0dVRV9XUklUVEVOXG4nKTsKICBjb25zdCBkZWFkbGluZSA9IHBlcmZvcm1hbmNlLm5vdygpICsgbGlmZXRpbWU7CiAgYXN5bmMgZnVuY3Rpb24gbWFya2VkKG5hbWUpIHsKICAgIGNvbnN0IHBhdGggPSBqb2luKGNvbnRyb2wsIG5hbWUpOwogICAgaWYgKCFleGlzdHNTeW5jKHBhdGgpKSByZXR1cm4gZmFsc2U7CiAgICBhc3NlcnQuZXF1YWwoSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZShwYXRoLCAndXRmOCcpKS5ub25jZSwgbm9uY2UpOwogICAgcmV0dXJuIHRydWU7CiAgfQogIHdoaWxlIChwZXJmb3JtYW5jZS5ub3coKSA8IGRlYWRsaW5lKSB7CiAgICBpZiAoYXdhaXQgbWFya2VkKCdzdG9wLmpzb24nKSkgewogICAgICBwcm9jZXNzLmV4aXRDb2RlID0gNzU7IC8vIEV4cGxpY2l0IGhhcm5lc3MgY2xlYW51cCwgbm90IHJ1bnRpbWUgY2FuY2VsbGF0aW9uLgogICAgICByZXR1cm47CiAgICB9CiAgICBpZiAoYXdhaXQgbWFya2VkKCdyZWxlYXNlLmpzb24nKSkgewogICAgICBjb25zdCBtYW5pZmVzdCA9IHsKICAgICAgICBhbGdvcml0aG06ICdzaGEyNTYnLAogICAgICAgIGNhdGFsb2d1ZVNoYTI1NjogY3JlYXRlSGFzaCgnc2hhMjU2JykudXBkYXRlKGJ5dGVzKS5kaWdlc3QoJ2hleCcpLAogICAgICB9OwogICAgICBhd2FpdCB3cml0ZUZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgSlNPTi5zdHJpbmdpZnkobWFuaWZlc3QsIG51bGwsIDIpICsgJ1xuJywgJ3V0ZjgnKTsKICAgICAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ01BTklGRVNUX1dSSVRURU5cbicpOwogICAgICByZXR1cm47CiAgICB9CiAgICBhd2FpdCBkZWxheSg0MCk7CiAgfQogIHByb2Nlc3MuZXhpdENvZGUgPSA3NjsgLy8gRml4dHVyZSBmYWlsLXNhZmU7IG5vIG1hbmlmZXN0IHdyaXRlIG9yIHJvbGxiYWNrLgp9Cgphd2FpdCBtYWluKCk7Cg=="
+            },
+            "labels.mjs": {
+              "mode": "100644",
+              "object": "deaa145fd35743ddb35a255221c457fc245ce13b",
+              "base64": "ZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZUxhYmVsKGxhYmVsKSB7CiAgcmV0dXJuIGxhYmVsLnRyaW0oKTsKfQo="
+            },
+            "source-data.json": {
+              "mode": "100644",
+              "object": "27f1f7c29dd766572531eb42bfa35114af83be76",
+              "base64": "WwogICIgIEFscGhhICAiLAogICJCZXRhICBHYW1tYSIsCiAgIlx0RGVsdGFcbiIKXQo="
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "graceful",
+      "session": "ses_eaff67bdfffeRx0jg0BmP3cXQY",
+      "user_message": "msg_1500987b8001MKUN2aTVgatz7J",
+      "states": {
+        "initial": {
+          "interval": [
+            316830405303300,
+            316830629226500
+          ],
+          "file_witness_interval": [
+            316830501241600,
+            316830506629500
+          ],
+          "remote_read_available": true,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "78fab3989f477c90301165d3b0d4999ace29dd472d085126fb4eede488e2b94f",
+              "bytes": 74
+            },
+            "catalogue.manifest.json": {
+              "sha256": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "a616e135518fa70eb86881df28ea53d653e600d7eb19a3361b10df9fd31b46f7",
+              "bytes": 58
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": false,
+            "normalizes an all-whitespace label": false,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": false,
+            "manifest identifies the actual catalogue bytes": true
+          },
+          "snapshot_refs": [],
+          "patches": [],
+          "tools": [],
+          "provider_requests": 0
+        },
+        "barrier": {
+          "interval": [
+            316836217003600,
+            316837201563700
+          ],
+          "file_witness_interval": [
+            316837074664500,
+            316837079946400
+          ],
+          "remote_read_available": true,
+          "session_status_entry": {
+            "type": "busy"
+          },
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "25f56edbfad64c25a5b33c91fd83ceec79b9431041bbdf1ccbe1e1ebe8f2bcfa",
+              "bytes": 66
+            },
+            "catalogue.manifest.json": {
+              "sha256": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "3c14741eff4a1226022249526d8c18f6142d188001d53f97580ea18417a74ce4",
+              "bytes": 65
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": true,
+            "normalizes an all-whitespace label": true,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": true,
+            "manifest identifies the actual catalogue bytes": false
+          },
+          "snapshot_refs": [
+            "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+            "87123d519b49d4c8aed83f5d212421f6a88988e1"
+          ],
+          "patches": [
+            {
+              "hash": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+              "files": [
+                "labels.mjs"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "call_id": "read_labels",
+              "part_id": "prt_150098ecc0019ZnfpLqyINkWGp",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_acceptance",
+              "part_id": "prt_1500990b2001dUYsMa3QZCeluz",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "acceptance.test.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_generator",
+              "part_id": "prt_1500992ad001e7aGnc0XqkeLcw",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "generate-catalogue.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_input",
+              "part_id": "prt_1500994980016A5it6zDypPupp",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "source-data.json"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "edit_labels",
+              "part_id": "prt_1500996a0001Kor127fF3rQ69F",
+              "tool": "edit",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs",
+                "oldString": "return label;",
+                "newString": "return label.trim();"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "generate_catalogue",
+              "part_id": "prt_150099956001tt7t2tEFrae5TK",
+              "tool": "bash",
+              "status": "running",
+              "input": {
+                "command": "node ./generate-catalogue.mjs",
+                "timeout": 120000
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            }
+          ],
+          "provider_requests": 6
+        },
+        "primary": {
+          "interval": [
+            316838860989000,
+            316839056189800
+          ],
+          "file_witness_interval": [
+            316838930880900,
+            316838936284300
+          ],
+          "remote_read_available": true,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "25f56edbfad64c25a5b33c91fd83ceec79b9431041bbdf1ccbe1e1ebe8f2bcfa",
+              "bytes": 66
+            },
+            "catalogue.manifest.json": {
+              "sha256": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "3c14741eff4a1226022249526d8c18f6142d188001d53f97580ea18417a74ce4",
+              "bytes": 65
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": true,
+            "normalizes an all-whitespace label": true,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": true,
+            "manifest identifies the actual catalogue bytes": false
+          },
+          "snapshot_refs": [
+            "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+            "87123d519b49d4c8aed83f5d212421f6a88988e1"
+          ],
+          "patches": [
+            {
+              "hash": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+              "files": [
+                "labels.mjs"
+              ]
+            },
+            {
+              "hash": "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+              "files": [
+                "catalogue.json"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "call_id": "read_labels",
+              "part_id": "prt_150098ecc0019ZnfpLqyINkWGp",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_acceptance",
+              "part_id": "prt_1500990b2001dUYsMa3QZCeluz",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "acceptance.test.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_generator",
+              "part_id": "prt_1500992ad001e7aGnc0XqkeLcw",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "generate-catalogue.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_input",
+              "part_id": "prt_1500994980016A5it6zDypPupp",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "source-data.json"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "edit_labels",
+              "part_id": "prt_1500996a0001Kor127fF3rQ69F",
+              "tool": "edit",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs",
+                "oldString": "return label;",
+                "newString": "return label.trim();"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "generate_catalogue",
+              "part_id": "prt_150099956001tt7t2tEFrae5TK",
+              "tool": "bash",
+              "status": "error",
+              "input": {
+                "command": "node ./generate-catalogue.mjs",
+                "timeout": 120000
+              },
+              "exit": null,
+              "interrupted": true,
+              "abort_error": true,
+              "cancellation_output": false
+            }
+          ],
+          "provider_requests": 6
+        },
+        "reopened": {
+          "interval": [
+            316839067928600,
+            316839263142500
+          ],
+          "file_witness_interval": [
+            316839133742500,
+            316839139899700
+          ],
+          "remote_read_available": true,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "25f56edbfad64c25a5b33c91fd83ceec79b9431041bbdf1ccbe1e1ebe8f2bcfa",
+              "bytes": 66
+            },
+            "catalogue.manifest.json": {
+              "sha256": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "3c14741eff4a1226022249526d8c18f6142d188001d53f97580ea18417a74ce4",
+              "bytes": 65
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": true,
+            "normalizes an all-whitespace label": true,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": true,
+            "manifest identifies the actual catalogue bytes": false
+          },
+          "snapshot_refs": [
+            "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+            "87123d519b49d4c8aed83f5d212421f6a88988e1"
+          ],
+          "patches": [
+            {
+              "hash": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+              "files": [
+                "labels.mjs"
+              ]
+            },
+            {
+              "hash": "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+              "files": [
+                "catalogue.json"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "call_id": "read_labels",
+              "part_id": "prt_150098ecc0019ZnfpLqyINkWGp",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_acceptance",
+              "part_id": "prt_1500990b2001dUYsMa3QZCeluz",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "acceptance.test.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_generator",
+              "part_id": "prt_1500992ad001e7aGnc0XqkeLcw",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "generate-catalogue.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_input",
+              "part_id": "prt_1500994980016A5it6zDypPupp",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "source-data.json"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "edit_labels",
+              "part_id": "prt_1500996a0001Kor127fF3rQ69F",
+              "tool": "edit",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs",
+                "oldString": "return label;",
+                "newString": "return label.trim();"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "generate_catalogue",
+              "part_id": "prt_150099956001tt7t2tEFrae5TK",
+              "tool": "bash",
+              "status": "error",
+              "input": {
+                "command": "node ./generate-catalogue.mjs",
+                "timeout": 120000
+              },
+              "exit": null,
+              "interrupted": true,
+              "abort_error": true,
+              "cancellation_output": false
+            }
+          ],
+          "provider_requests": 6
+        },
+        "restarted": {
+          "interval": [
+            316840140613900,
+            316840580810100
+          ],
+          "file_witness_interval": [
+            316840450167600,
+            316840456015600
+          ],
+          "remote_read_available": true,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "25f56edbfad64c25a5b33c91fd83ceec79b9431041bbdf1ccbe1e1ebe8f2bcfa",
+              "bytes": 66
+            },
+            "catalogue.manifest.json": {
+              "sha256": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "3c14741eff4a1226022249526d8c18f6142d188001d53f97580ea18417a74ce4",
+              "bytes": 65
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": true,
+            "normalizes an all-whitespace label": true,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": true,
+            "manifest identifies the actual catalogue bytes": false
+          },
+          "snapshot_refs": [
+            "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+            "87123d519b49d4c8aed83f5d212421f6a88988e1"
+          ],
+          "patches": [
+            {
+              "hash": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+              "files": [
+                "labels.mjs"
+              ]
+            },
+            {
+              "hash": "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+              "files": [
+                "catalogue.json"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "call_id": "read_labels",
+              "part_id": "prt_150098ecc0019ZnfpLqyINkWGp",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_acceptance",
+              "part_id": "prt_1500990b2001dUYsMa3QZCeluz",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "acceptance.test.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_generator",
+              "part_id": "prt_1500992ad001e7aGnc0XqkeLcw",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "generate-catalogue.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_input",
+              "part_id": "prt_1500994980016A5it6zDypPupp",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "source-data.json"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "edit_labels",
+              "part_id": "prt_1500996a0001Kor127fF3rQ69F",
+              "tool": "edit",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs",
+                "oldString": "return label;",
+                "newString": "return label.trim();"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "generate_catalogue",
+              "part_id": "prt_150099956001tt7t2tEFrae5TK",
+              "tool": "bash",
+              "status": "error",
+              "input": {
+                "command": "node ./generate-catalogue.mjs",
+                "timeout": 120000
+              },
+              "exit": null,
+              "interrupted": true,
+              "abort_error": true,
+              "cancellation_output": false
+            }
+          ],
+          "provider_requests": 6
+        },
+        "reverted": {
+          "interval": [
+            316841185889600,
+            316841772138200
+          ],
+          "file_witness_interval": [
+            316841643093400,
+            316841648572100
+          ],
+          "remote_read_available": true,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "78fab3989f477c90301165d3b0d4999ace29dd472d085126fb4eede488e2b94f",
+              "bytes": 74
+            },
+            "catalogue.manifest.json": {
+              "sha256": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "a616e135518fa70eb86881df28ea53d653e600d7eb19a3361b10df9fd31b46f7",
+              "bytes": 58
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": false,
+            "normalizes an all-whitespace label": false,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": false,
+            "manifest identifies the actual catalogue bytes": true
+          },
+          "snapshot_refs": [
+            "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+            "1c585b13f65009678db8696a5dd294131ba302e0",
+            "87123d519b49d4c8aed83f5d212421f6a88988e1"
+          ],
+          "patches": [
+            {
+              "hash": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+              "files": [
+                "labels.mjs"
+              ]
+            },
+            {
+              "hash": "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+              "files": [
+                "catalogue.json"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "call_id": "read_labels",
+              "part_id": "prt_150098ecc0019ZnfpLqyINkWGp",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_acceptance",
+              "part_id": "prt_1500990b2001dUYsMa3QZCeluz",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "acceptance.test.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_generator",
+              "part_id": "prt_1500992ad001e7aGnc0XqkeLcw",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "generate-catalogue.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_input",
+              "part_id": "prt_1500994980016A5it6zDypPupp",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "source-data.json"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "edit_labels",
+              "part_id": "prt_1500996a0001Kor127fF3rQ69F",
+              "tool": "edit",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs",
+                "oldString": "return label;",
+                "newString": "return label.trim();"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "generate_catalogue",
+              "part_id": "prt_150099956001tt7t2tEFrae5TK",
+              "tool": "bash",
+              "status": "error",
+              "input": {
+                "command": "node ./generate-catalogue.mjs",
+                "timeout": 120000
+              },
+              "exit": null,
+              "interrupted": true,
+              "abort_error": true,
+              "cancellation_output": false
+            }
+          ],
+          "provider_requests": 6
+        },
+        "unreverted": {
+          "interval": [
+            316841911212100,
+            316842128346100
+          ],
+          "file_witness_interval": [
+            316841999047800,
+            316842004882500
+          ],
+          "remote_read_available": true,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "25f56edbfad64c25a5b33c91fd83ceec79b9431041bbdf1ccbe1e1ebe8f2bcfa",
+              "bytes": 66
+            },
+            "catalogue.manifest.json": {
+              "sha256": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "3c14741eff4a1226022249526d8c18f6142d188001d53f97580ea18417a74ce4",
+              "bytes": 65
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": true,
+            "normalizes an all-whitespace label": true,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": true,
+            "manifest identifies the actual catalogue bytes": false
+          },
+          "snapshot_refs": [
+            "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+            "87123d519b49d4c8aed83f5d212421f6a88988e1"
+          ],
+          "patches": [
+            {
+              "hash": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+              "files": [
+                "labels.mjs"
+              ]
+            },
+            {
+              "hash": "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+              "files": [
+                "catalogue.json"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "call_id": "read_labels",
+              "part_id": "prt_150098ecc0019ZnfpLqyINkWGp",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_acceptance",
+              "part_id": "prt_1500990b2001dUYsMa3QZCeluz",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "acceptance.test.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_generator",
+              "part_id": "prt_1500992ad001e7aGnc0XqkeLcw",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "generate-catalogue.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_input",
+              "part_id": "prt_1500994980016A5it6zDypPupp",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "source-data.json"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "edit_labels",
+              "part_id": "prt_1500996a0001Kor127fF3rQ69F",
+              "tool": "edit",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs",
+                "oldString": "return label;",
+                "newString": "return label.trim();"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "generate_catalogue",
+              "part_id": "prt_150099956001tt7t2tEFrae5TK",
+              "tool": "bash",
+              "status": "error",
+              "input": {
+                "command": "node ./generate-catalogue.mjs",
+                "timeout": 120000
+              },
+              "exit": null,
+              "interrupted": true,
+              "abort_error": true,
+              "cancellation_output": false
+            }
+          ],
+          "provider_requests": 6
+        }
+      },
+      "intervention_interval": [
+        316837206653100,
+        316837845754800
+      ],
+      "process": {
+        "immediate": {
+          "server": {
+            "alive": true,
+            "exit_code": null,
+            "query_interval": [
+              316837850480800,
+              316837850516200
+            ]
+          },
+          "shell": {
+            "alive": true,
+            "exit_code": null,
+            "query_interval": [
+              316837850518000,
+              316837850531700
+            ]
+          },
+          "generator": {
+            "alive": true,
+            "exit_code": null,
+            "query_interval": [
+              316837850532800,
+              316837850542800
+            ]
+          }
+        },
+        "generator_exit_observed_before_harness_cleanup": true,
+        "first_generator_exit_query_interval": [
+          316838903405700,
+          316838903414200
+        ],
+        "cleanup_start_ns": 316842131543700,
+        "sample_count": 62,
+        "monitor_interval": [
+          316836216475900,
+          316839060807700
+        ],
+        "last_monitored_generator": {
+          "start_ns": 316839060788700,
+          "end_ns": 316839060807700,
+          "alive": false,
+          "exit_code": 1
+        },
+        "before_cleanup": {
+          "server": {
+            "alive": true,
+            "exit_code": null,
+            "query_interval": [
+              316839062652800,
+              316839062671400
+            ]
+          },
+          "shell": {
+            "alive": false,
+            "exit_code": 1,
+            "query_interval": [
+              316839062672600,
+              316839062679400
+            ]
+          },
+          "generator": {
+            "alive": false,
+            "exit_code": 1,
+            "query_interval": [
+              316839062680400,
+              316839062685900
+            ]
+          }
+        },
+        "after_cleanup": {
+          "server": {
+            "alive": true,
+            "exit_code": null,
+            "query_interval": [
+              316839066223500,
+              316839066247600
+            ]
+          },
+          "shell": {
+            "alive": false,
+            "exit_code": 1,
+            "query_interval": [
+              316839066249000,
+              316839066256000
+            ]
+          },
+          "generator": {
+            "alive": false,
+            "exit_code": 1,
+            "query_interval": [
+              316839066257300,
+              316839066263100
+            ]
+          }
+        },
+        "identities": {
+          "server": {
+            "pid": 12720,
+            "creation_time_100ns": 134368177622698756,
+            "image_sha256": "c1bdbb18767048e1853af4238311b3f7e16ff2f91b68fb4c7ced3c5175347eea",
+            "image_basename": "opencode.exe"
+          },
+          "shell": {
+            "pid": 3568,
+            "creation_time_100ns": 134368177688691318,
+            "image_sha256": "bfb46af89433268872ddb43d1ca7a3f433452ee91ed356a9786940f90118e285",
+            "image_basename": "pwsh.exe"
+          },
+          "generator": {
+            "pid": 19760,
+            "creation_time_100ns": 134368177690430026,
+            "image_sha256": "d14ba95cdce1ef7dc9ad3ac74949ca5db38b27378ee30f30a23cf26f9e875a11",
+            "image_basename": "node.exe"
+          }
+        }
+      },
+      "pre_intervention_saved_catalogue_refs": [
+        "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+        "87123d519b49d4c8aed83f5d212421f6a88988e1"
+      ],
+      "selected_earliest_refs": {
+        "labels.mjs": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+        "catalogue.json": "010e5597b007ec9d008cbb6dc089c7d15f6f17b2"
+      },
+      "changed_paths_before_revert": [
+        "catalogue.json",
+        "labels.mjs"
+      ],
+      "unselected_changed_paths": [],
+      "preundo_snapshot": "1c585b13f65009678db8696a5dd294131ba302e0",
+      "restored_baseline": true,
+      "unrevert_restored_preundo": true,
+      "provider_request_count": 6,
+      "trees": {
+        "010e5597b007ec9d008cbb6dc089c7d15f6f17b2": {
+          "first_stage": "barrier",
+          "start_ns": 316836313166100,
+          "end_ns": 316836697069600,
+          "object_base64": "MTAwNjQ0IC5naXRhdHRyaWJ1dGVzAPytss+XkT9YolI/U1M25yXGtZ0fMTAwNjQ0IGFjY2VwdGFuY2UudGVzdC5tanMAZwTfaKgQMk08i77T6wbRSuCvoYYxMDA2NDQgY2F0YWxvZ3VlLmpzb24AFHyrS+fZB+qHFjehSErJ9g0eDHoxMDA2NDQgY2F0YWxvZ3VlLm1hbmlmZXN0Lmpzb24A6CMlrRX1QWzrx+3nWRprkrwj6BMxMDA2NDQgZ2VuZXJhdGUtY2F0YWxvZ3VlLm1qcwBblZEvYOQJqkOUjyIh7T+ssVnIpzEwMDY0NCBsYWJlbHMubWpzAN6qFF/TV0Pds1olUiHEV/wkXOE7MTAwNjQ0IHNvdXJjZS1kYXRhLmpzb24AJ/H3wp3XZlclMetCv6NRFK+DvnY=",
+          "files": {
+            ".gitattributes": {
+              "mode": "100644",
+              "object": "fcadb2cf97913f58a2523f535336e725c6b59d1f",
+              "base64": "KiB0ZXh0IGVvbD1sZgo="
+            },
+            "acceptance.test.mjs": {
+              "mode": "100644",
+              "object": "6704df68a810324d3c8bbed3eb06d14ae0afa186",
+              "base64": "aW1wb3J0IGFzc2VydCBmcm9tICdub2RlOmFzc2VydC9zdHJpY3QnOwppbXBvcnQgeyBjcmVhdGVIYXNoIH0gZnJvbSAnbm9kZTpjcnlwdG8nOwppbXBvcnQgeyByZWFkRmlsZSB9IGZyb20gJ25vZGU6ZnMvcHJvbWlzZXMnOwppbXBvcnQgdGVzdCBmcm9tICdub2RlOnRlc3QnOwppbXBvcnQgeyBub3JtYWxpemVMYWJlbCB9IGZyb20gJy4vbGFiZWxzLm1qcyc7Cgp0ZXN0KCdwcmVzZXJ2ZXMgbWVhbmluZ2Z1bCBpbnRlcmlvciBzcGFjZXMnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCdCZXRhICBHYW1tYScpLCAnQmV0YSAgR2FtbWEnKTsKfSk7CnRlc3QoJ3RyaW1zIG91dGVyIHdoaXRlc3BhY2UnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCcgIEFscGhhICAnKSwgJ0FscGhhJyk7Cn0pOwp0ZXN0KCdub3JtYWxpemVzIGFuIGFsbC13aGl0ZXNwYWNlIGxhYmVsJywgKCkgPT4gewogIGFzc2VydC5lcXVhbChub3JtYWxpemVMYWJlbCgnXHQgXG4nKSwgJycpOwp9KTsKdGVzdCgncHJlc2VydmVzIHRoZSBlbXB0eSBsYWJlbCcsICgpID0+IHsKICBhc3NlcnQuZXF1YWwobm9ybWFsaXplTGFiZWwoJycpLCAnJyk7Cn0pOwp0ZXN0KCdjYXRhbG9ndWUgaGFzIHRoZSBpbnRlbmRlZCBsYWJlbCB2YWx1ZXMnLCBhc3luYyAoKSA9PiB7CiAgYXNzZXJ0LmRlZXBFcXVhbChKU09OLnBhcnNlKGF3YWl0IHJlYWRGaWxlKCdjYXRhbG9ndWUuanNvbicsICd1dGY4JykpLCB7CiAgICBsYWJlbHM6IFsnQWxwaGEnLCAnQmV0YSAgR2FtbWEnLCAnRGVsdGEnXSwKICB9KTsKfSk7CnRlc3QoJ21hbmlmZXN0IGlkZW50aWZpZXMgdGhlIGFjdHVhbCBjYXRhbG9ndWUgYnl0ZXMnLCBhc3luYyAoKSA9PiB7CiAgY29uc3QgYnl0ZXMgPSBhd2FpdCByZWFkRmlsZSgnY2F0YWxvZ3VlLmpzb24nKTsKICBjb25zdCBtYW5pZmVzdCA9IEpTT04ucGFyc2UoYXdhaXQgcmVhZEZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgJ3V0ZjgnKSk7CiAgYXNzZXJ0LmRlZXBFcXVhbChtYW5pZmVzdCwgewogICAgYWxnb3JpdGhtOiAnc2hhMjU2JywgY2F0YWxvZ3VlU2hhMjU2OiBjcmVhdGVIYXNoKCdzaGEyNTYnKS51cGRhdGUoYnl0ZXMpLmRpZ2VzdCgnaGV4JyksCiAgfSk7Cn0pOwo="
+            },
+            "catalogue.json": {
+              "mode": "100644",
+              "object": "147cab4be7d907ea871637a1484ac9f60d1e0c7a",
+              "base64": "ewogICJsYWJlbHMiOiBbCiAgICAiICBBbHBoYSAgIiwKICAgICJCZXRhICBHYW1tYSIsCiAgICAiXHREZWx0YVxuIgogIF0KfQo="
+            },
+            "catalogue.manifest.json": {
+              "mode": "100644",
+              "object": "e82325ad15f5416cebc7ede7591a6b92bc23e813",
+              "base64": "ewogICJhbGdvcml0aG0iOiAic2hhMjU2IiwKICAiY2F0YWxvZ3VlU2hhMjU2IjogIjc4ZmFiMzk4OWY0NzdjOTAzMDExNjVkM2IwZDQ5OTlhY2UyOWRkNDcyZDA4NTEyNmZiNGVlZGU0ODhlMmI5NGYiCn0K"
+            },
+            "generate-catalogue.mjs": {
+              "mode": "100644",
+              "object": "5b95912f60e409aa43948f2221ed3facb159c8a7",
+              "base64": "Ly8gRGVsaWJlcmF0ZWx5IGV4cG9zZXMgdGhlIGludGVydmFsIGJldHdlZW4gdHdvIHJlbGF0ZWQgd3JpdGVzLiBJdCBuZXZlciByb2xscyBiYWNrLgppbXBvcnQgYXNzZXJ0IGZyb20gJ25vZGU6YXNzZXJ0L3N0cmljdCc7CmltcG9ydCB7IGNyZWF0ZUhhc2ggfSBmcm9tICdub2RlOmNyeXB0byc7CmltcG9ydCB7IGV4aXN0c1N5bmMgfSBmcm9tICdub2RlOmZzJzsKaW1wb3J0IHsgcmVhZEZpbGUsIHJlbmFtZSwgd3JpdGVGaWxlIH0gZnJvbSAnbm9kZTpmcy9wcm9taXNlcyc7CmltcG9ydCB7IGRpcm5hbWUsIGlzQWJzb2x1dGUsIGpvaW4sIHJlbGF0aXZlLCByZXNvbHZlIH0gZnJvbSAnbm9kZTpwYXRoJzsKaW1wb3J0IHsgc2V0VGltZW91dCBhcyBkZWxheSB9IGZyb20gJ25vZGU6dGltZXJzL3Byb21pc2VzJzsKaW1wb3J0IHsgZmlsZVVSTFRvUGF0aCB9IGZyb20gJ25vZGU6dXJsJzsKaW1wb3J0IHsgbm9ybWFsaXplTGFiZWwgfSBmcm9tICcuL2xhYmVscy5tanMnOwoKYXN5bmMgZnVuY3Rpb24gbWFpbigpIHsKICBjb25zdCB3b3Jrc3BhY2UgPSBkaXJuYW1lKGZpbGVVUkxUb1BhdGgoaW1wb3J0Lm1ldGEudXJsKSk7CiAgYXNzZXJ0LmVxdWFsKHJlc29sdmUocHJvY2Vzcy5jd2QoKSksIHdvcmtzcGFjZSwgJ1J1biBmcm9tIHRoZSBmaXh0dXJlIHdvcmtzcGFjZScpOwogIGNvbnN0IGNvbnRyb2wgPSBwcm9jZXNzLmVudi5MQUJfQ09OVFJPTF9ESVI7CiAgY29uc3Qgbm9uY2UgPSBwcm9jZXNzLmVudi5MQUJfUlVOX05PTkNFOwogIGFzc2VydC5vayhjb250cm9sICYmIGlzQWJzb2x1dGUoY29udHJvbCksICdBYnNvbHV0ZSBjb250cm9sIGRpcmVjdG9yeSByZXF1aXJlZCcpOwogIGFzc2VydC5tYXRjaChub25jZSA/PyAnJywgL15bYS1mMC05XXszMn0kLyk7CiAgY29uc3QgcmVsID0gcmVsYXRpdmUod29ya3NwYWNlLCByZXNvbHZlKGNvbnRyb2wpKTsKICBhc3NlcnQub2socmVsLnN0YXJ0c1dpdGgoJy4uJykgfHwgaXNBYnNvbHV0ZShyZWwpLCAnQ29udHJvbCBzdGF0ZSBtdXN0IGJlIG91dHNpZGUgdGhlIHdvcmtzcGFjZScpOwogIGNvbnN0IGxpZmV0aW1lID0gTnVtYmVyKHByb2Nlc3MuZW52LkxBQl9HRU5FUkFUT1JfVElNRU9VVF9NUyA/PyAxODAwMDApOwogIGFzc2VydC5vayhOdW1iZXIuaXNJbnRlZ2VyKGxpZmV0aW1lKSAmJiBsaWZldGltZSA+PSAxMDAgJiYgbGlmZXRpbWUgPD0gMzAwMDAwKTsKICBmb3IgKGNvbnN0IG5hbWUgb2YgWydyZWFkeS5qc29uJywgJ3JlbGVhc2UuanNvbicsICdzdG9wLmpzb24nXSkgewogICAgYXNzZXJ0LmVxdWFsKGV4aXN0c1N5bmMoam9pbihjb250cm9sLCBuYW1lKSksIGZhbHNlLCAnRnJlc2ggY29vcmRpbmF0aW9uIHN0YXRlIHJlcXVpcmVkJyk7CiAgfQogIGNvbnN0IGlucHV0ID0gSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZSgnc291cmNlLWRhdGEuanNvbicsICd1dGY4JykpOwogIGFzc2VydC5vayhBcnJheS5pc0FycmF5KGlucHV0KSAmJiBpbnB1dC5ldmVyeSh2YWx1ZSA9PiB0eXBlb2YgdmFsdWUgPT09ICdzdHJpbmcnKSk7CiAgY29uc3QgYnl0ZXMgPSBKU09OLnN0cmluZ2lmeSh7IGxhYmVsczogaW5wdXQubWFwKG5vcm1hbGl6ZUxhYmVsKSB9LCBudWxsLCAyKSArICdcbic7CiAgYXdhaXQgd3JpdGVGaWxlKCdjYXRhbG9ndWUuanNvbicsIGJ5dGVzLCAndXRmOCcpOwogIGNvbnN0IHJlYWR5ID0gSlNPTi5zdHJpbmdpZnkoeyBub25jZSwgcGlkOiBwcm9jZXNzLnBpZCwgc3RhZ2U6ICdjYXRhbG9ndWUtd3JpdHRlbicgfSkgKyAnXG4nOwogIGF3YWl0IHdyaXRlRmlsZShqb2luKGNvbnRyb2wsICdyZWFkeS50bXAnKSwgcmVhZHksIHsgZW5jb2Rpbmc6ICd1dGY4JywgZmxhZzogJ3d4JyB9KTsKICBhd2FpdCByZW5hbWUoam9pbihjb250cm9sLCAncmVhZHkudG1wJyksIGpvaW4oY29udHJvbCwgJ3JlYWR5Lmpzb24nKSk7CiAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ0NBVEFMT0dVRV9XUklUVEVOXG4nKTsKICBjb25zdCBkZWFkbGluZSA9IHBlcmZvcm1hbmNlLm5vdygpICsgbGlmZXRpbWU7CiAgYXN5bmMgZnVuY3Rpb24gbWFya2VkKG5hbWUpIHsKICAgIGNvbnN0IHBhdGggPSBqb2luKGNvbnRyb2wsIG5hbWUpOwogICAgaWYgKCFleGlzdHNTeW5jKHBhdGgpKSByZXR1cm4gZmFsc2U7CiAgICBhc3NlcnQuZXF1YWwoSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZShwYXRoLCAndXRmOCcpKS5ub25jZSwgbm9uY2UpOwogICAgcmV0dXJuIHRydWU7CiAgfQogIHdoaWxlIChwZXJmb3JtYW5jZS5ub3coKSA8IGRlYWRsaW5lKSB7CiAgICBpZiAoYXdhaXQgbWFya2VkKCdzdG9wLmpzb24nKSkgewogICAgICBwcm9jZXNzLmV4aXRDb2RlID0gNzU7IC8vIEV4cGxpY2l0IGhhcm5lc3MgY2xlYW51cCwgbm90IHJ1bnRpbWUgY2FuY2VsbGF0aW9uLgogICAgICByZXR1cm47CiAgICB9CiAgICBpZiAoYXdhaXQgbWFya2VkKCdyZWxlYXNlLmpzb24nKSkgewogICAgICBjb25zdCBtYW5pZmVzdCA9IHsKICAgICAgICBhbGdvcml0aG06ICdzaGEyNTYnLAogICAgICAgIGNhdGFsb2d1ZVNoYTI1NjogY3JlYXRlSGFzaCgnc2hhMjU2JykudXBkYXRlKGJ5dGVzKS5kaWdlc3QoJ2hleCcpLAogICAgICB9OwogICAgICBhd2FpdCB3cml0ZUZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgSlNPTi5zdHJpbmdpZnkobWFuaWZlc3QsIG51bGwsIDIpICsgJ1xuJywgJ3V0ZjgnKTsKICAgICAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ01BTklGRVNUX1dSSVRURU5cbicpOwogICAgICByZXR1cm47CiAgICB9CiAgICBhd2FpdCBkZWxheSg0MCk7CiAgfQogIHByb2Nlc3MuZXhpdENvZGUgPSA3NjsgLy8gRml4dHVyZSBmYWlsLXNhZmU7IG5vIG1hbmlmZXN0IHdyaXRlIG9yIHJvbGxiYWNrLgp9Cgphd2FpdCBtYWluKCk7Cg=="
+            },
+            "labels.mjs": {
+              "mode": "100644",
+              "object": "deaa145fd35743ddb35a255221c457fc245ce13b",
+              "base64": "ZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZUxhYmVsKGxhYmVsKSB7CiAgcmV0dXJuIGxhYmVsLnRyaW0oKTsKfQo="
+            },
+            "source-data.json": {
+              "mode": "100644",
+              "object": "27f1f7c29dd766572531eb42bfa35114af83be76",
+              "base64": "WwogICIgIEFscGhhICAiLAogICJCZXRhICBHYW1tYSIsCiAgIlx0RGVsdGFcbiIKXQo="
+            }
+          }
+        },
+        "87123d519b49d4c8aed83f5d212421f6a88988e1": {
+          "first_stage": "barrier",
+          "start_ns": 316836698645400,
+          "end_ns": 316837072356100,
+          "object_base64": "MTAwNjQ0IC5naXRhdHRyaWJ1dGVzAPytss+XkT9YolI/U1M25yXGtZ0fMTAwNjQ0IGFjY2VwdGFuY2UudGVzdC5tanMAZwTfaKgQMk08i77T6wbRSuCvoYYxMDA2NDQgY2F0YWxvZ3VlLmpzb24AFHyrS+fZB+qHFjehSErJ9g0eDHoxMDA2NDQgY2F0YWxvZ3VlLm1hbmlmZXN0Lmpzb24A6CMlrRX1QWzrx+3nWRprkrwj6BMxMDA2NDQgZ2VuZXJhdGUtY2F0YWxvZ3VlLm1qcwBblZEvYOQJqkOUjyIh7T+ssVnIpzEwMDY0NCBsYWJlbHMubWpzAJKuNtP3YrnWglUm96/FZYKgK2GtMTAwNjQ0IHNvdXJjZS1kYXRhLmpzb24AJ/H3wp3XZlclMetCv6NRFK+DvnY=",
+          "files": {
+            ".gitattributes": {
+              "mode": "100644",
+              "object": "fcadb2cf97913f58a2523f535336e725c6b59d1f",
+              "base64": "KiB0ZXh0IGVvbD1sZgo="
+            },
+            "acceptance.test.mjs": {
+              "mode": "100644",
+              "object": "6704df68a810324d3c8bbed3eb06d14ae0afa186",
+              "base64": "aW1wb3J0IGFzc2VydCBmcm9tICdub2RlOmFzc2VydC9zdHJpY3QnOwppbXBvcnQgeyBjcmVhdGVIYXNoIH0gZnJvbSAnbm9kZTpjcnlwdG8nOwppbXBvcnQgeyByZWFkRmlsZSB9IGZyb20gJ25vZGU6ZnMvcHJvbWlzZXMnOwppbXBvcnQgdGVzdCBmcm9tICdub2RlOnRlc3QnOwppbXBvcnQgeyBub3JtYWxpemVMYWJlbCB9IGZyb20gJy4vbGFiZWxzLm1qcyc7Cgp0ZXN0KCdwcmVzZXJ2ZXMgbWVhbmluZ2Z1bCBpbnRlcmlvciBzcGFjZXMnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCdCZXRhICBHYW1tYScpLCAnQmV0YSAgR2FtbWEnKTsKfSk7CnRlc3QoJ3RyaW1zIG91dGVyIHdoaXRlc3BhY2UnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCcgIEFscGhhICAnKSwgJ0FscGhhJyk7Cn0pOwp0ZXN0KCdub3JtYWxpemVzIGFuIGFsbC13aGl0ZXNwYWNlIGxhYmVsJywgKCkgPT4gewogIGFzc2VydC5lcXVhbChub3JtYWxpemVMYWJlbCgnXHQgXG4nKSwgJycpOwp9KTsKdGVzdCgncHJlc2VydmVzIHRoZSBlbXB0eSBsYWJlbCcsICgpID0+IHsKICBhc3NlcnQuZXF1YWwobm9ybWFsaXplTGFiZWwoJycpLCAnJyk7Cn0pOwp0ZXN0KCdjYXRhbG9ndWUgaGFzIHRoZSBpbnRlbmRlZCBsYWJlbCB2YWx1ZXMnLCBhc3luYyAoKSA9PiB7CiAgYXNzZXJ0LmRlZXBFcXVhbChKU09OLnBhcnNlKGF3YWl0IHJlYWRGaWxlKCdjYXRhbG9ndWUuanNvbicsICd1dGY4JykpLCB7CiAgICBsYWJlbHM6IFsnQWxwaGEnLCAnQmV0YSAgR2FtbWEnLCAnRGVsdGEnXSwKICB9KTsKfSk7CnRlc3QoJ21hbmlmZXN0IGlkZW50aWZpZXMgdGhlIGFjdHVhbCBjYXRhbG9ndWUgYnl0ZXMnLCBhc3luYyAoKSA9PiB7CiAgY29uc3QgYnl0ZXMgPSBhd2FpdCByZWFkRmlsZSgnY2F0YWxvZ3VlLmpzb24nKTsKICBjb25zdCBtYW5pZmVzdCA9IEpTT04ucGFyc2UoYXdhaXQgcmVhZEZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgJ3V0ZjgnKSk7CiAgYXNzZXJ0LmRlZXBFcXVhbChtYW5pZmVzdCwgewogICAgYWxnb3JpdGhtOiAnc2hhMjU2JywgY2F0YWxvZ3VlU2hhMjU2OiBjcmVhdGVIYXNoKCdzaGEyNTYnKS51cGRhdGUoYnl0ZXMpLmRpZ2VzdCgnaGV4JyksCiAgfSk7Cn0pOwo="
+            },
+            "catalogue.json": {
+              "mode": "100644",
+              "object": "147cab4be7d907ea871637a1484ac9f60d1e0c7a",
+              "base64": "ewogICJsYWJlbHMiOiBbCiAgICAiICBBbHBoYSAgIiwKICAgICJCZXRhICBHYW1tYSIsCiAgICAiXHREZWx0YVxuIgogIF0KfQo="
+            },
+            "catalogue.manifest.json": {
+              "mode": "100644",
+              "object": "e82325ad15f5416cebc7ede7591a6b92bc23e813",
+              "base64": "ewogICJhbGdvcml0aG0iOiAic2hhMjU2IiwKICAiY2F0YWxvZ3VlU2hhMjU2IjogIjc4ZmFiMzk4OWY0NzdjOTAzMDExNjVkM2IwZDQ5OTlhY2UyOWRkNDcyZDA4NTEyNmZiNGVlZGU0ODhlMmI5NGYiCn0K"
+            },
+            "generate-catalogue.mjs": {
+              "mode": "100644",
+              "object": "5b95912f60e409aa43948f2221ed3facb159c8a7",
+              "base64": "Ly8gRGVsaWJlcmF0ZWx5IGV4cG9zZXMgdGhlIGludGVydmFsIGJldHdlZW4gdHdvIHJlbGF0ZWQgd3JpdGVzLiBJdCBuZXZlciByb2xscyBiYWNrLgppbXBvcnQgYXNzZXJ0IGZyb20gJ25vZGU6YXNzZXJ0L3N0cmljdCc7CmltcG9ydCB7IGNyZWF0ZUhhc2ggfSBmcm9tICdub2RlOmNyeXB0byc7CmltcG9ydCB7IGV4aXN0c1N5bmMgfSBmcm9tICdub2RlOmZzJzsKaW1wb3J0IHsgcmVhZEZpbGUsIHJlbmFtZSwgd3JpdGVGaWxlIH0gZnJvbSAnbm9kZTpmcy9wcm9taXNlcyc7CmltcG9ydCB7IGRpcm5hbWUsIGlzQWJzb2x1dGUsIGpvaW4sIHJlbGF0aXZlLCByZXNvbHZlIH0gZnJvbSAnbm9kZTpwYXRoJzsKaW1wb3J0IHsgc2V0VGltZW91dCBhcyBkZWxheSB9IGZyb20gJ25vZGU6dGltZXJzL3Byb21pc2VzJzsKaW1wb3J0IHsgZmlsZVVSTFRvUGF0aCB9IGZyb20gJ25vZGU6dXJsJzsKaW1wb3J0IHsgbm9ybWFsaXplTGFiZWwgfSBmcm9tICcuL2xhYmVscy5tanMnOwoKYXN5bmMgZnVuY3Rpb24gbWFpbigpIHsKICBjb25zdCB3b3Jrc3BhY2UgPSBkaXJuYW1lKGZpbGVVUkxUb1BhdGgoaW1wb3J0Lm1ldGEudXJsKSk7CiAgYXNzZXJ0LmVxdWFsKHJlc29sdmUocHJvY2Vzcy5jd2QoKSksIHdvcmtzcGFjZSwgJ1J1biBmcm9tIHRoZSBmaXh0dXJlIHdvcmtzcGFjZScpOwogIGNvbnN0IGNvbnRyb2wgPSBwcm9jZXNzLmVudi5MQUJfQ09OVFJPTF9ESVI7CiAgY29uc3Qgbm9uY2UgPSBwcm9jZXNzLmVudi5MQUJfUlVOX05PTkNFOwogIGFzc2VydC5vayhjb250cm9sICYmIGlzQWJzb2x1dGUoY29udHJvbCksICdBYnNvbHV0ZSBjb250cm9sIGRpcmVjdG9yeSByZXF1aXJlZCcpOwogIGFzc2VydC5tYXRjaChub25jZSA/PyAnJywgL15bYS1mMC05XXszMn0kLyk7CiAgY29uc3QgcmVsID0gcmVsYXRpdmUod29ya3NwYWNlLCByZXNvbHZlKGNvbnRyb2wpKTsKICBhc3NlcnQub2socmVsLnN0YXJ0c1dpdGgoJy4uJykgfHwgaXNBYnNvbHV0ZShyZWwpLCAnQ29udHJvbCBzdGF0ZSBtdXN0IGJlIG91dHNpZGUgdGhlIHdvcmtzcGFjZScpOwogIGNvbnN0IGxpZmV0aW1lID0gTnVtYmVyKHByb2Nlc3MuZW52LkxBQl9HRU5FUkFUT1JfVElNRU9VVF9NUyA/PyAxODAwMDApOwogIGFzc2VydC5vayhOdW1iZXIuaXNJbnRlZ2VyKGxpZmV0aW1lKSAmJiBsaWZldGltZSA+PSAxMDAgJiYgbGlmZXRpbWUgPD0gMzAwMDAwKTsKICBmb3IgKGNvbnN0IG5hbWUgb2YgWydyZWFkeS5qc29uJywgJ3JlbGVhc2UuanNvbicsICdzdG9wLmpzb24nXSkgewogICAgYXNzZXJ0LmVxdWFsKGV4aXN0c1N5bmMoam9pbihjb250cm9sLCBuYW1lKSksIGZhbHNlLCAnRnJlc2ggY29vcmRpbmF0aW9uIHN0YXRlIHJlcXVpcmVkJyk7CiAgfQogIGNvbnN0IGlucHV0ID0gSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZSgnc291cmNlLWRhdGEuanNvbicsICd1dGY4JykpOwogIGFzc2VydC5vayhBcnJheS5pc0FycmF5KGlucHV0KSAmJiBpbnB1dC5ldmVyeSh2YWx1ZSA9PiB0eXBlb2YgdmFsdWUgPT09ICdzdHJpbmcnKSk7CiAgY29uc3QgYnl0ZXMgPSBKU09OLnN0cmluZ2lmeSh7IGxhYmVsczogaW5wdXQubWFwKG5vcm1hbGl6ZUxhYmVsKSB9LCBudWxsLCAyKSArICdcbic7CiAgYXdhaXQgd3JpdGVGaWxlKCdjYXRhbG9ndWUuanNvbicsIGJ5dGVzLCAndXRmOCcpOwogIGNvbnN0IHJlYWR5ID0gSlNPTi5zdHJpbmdpZnkoeyBub25jZSwgcGlkOiBwcm9jZXNzLnBpZCwgc3RhZ2U6ICdjYXRhbG9ndWUtd3JpdHRlbicgfSkgKyAnXG4nOwogIGF3YWl0IHdyaXRlRmlsZShqb2luKGNvbnRyb2wsICdyZWFkeS50bXAnKSwgcmVhZHksIHsgZW5jb2Rpbmc6ICd1dGY4JywgZmxhZzogJ3d4JyB9KTsKICBhd2FpdCByZW5hbWUoam9pbihjb250cm9sLCAncmVhZHkudG1wJyksIGpvaW4oY29udHJvbCwgJ3JlYWR5Lmpzb24nKSk7CiAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ0NBVEFMT0dVRV9XUklUVEVOXG4nKTsKICBjb25zdCBkZWFkbGluZSA9IHBlcmZvcm1hbmNlLm5vdygpICsgbGlmZXRpbWU7CiAgYXN5bmMgZnVuY3Rpb24gbWFya2VkKG5hbWUpIHsKICAgIGNvbnN0IHBhdGggPSBqb2luKGNvbnRyb2wsIG5hbWUpOwogICAgaWYgKCFleGlzdHNTeW5jKHBhdGgpKSByZXR1cm4gZmFsc2U7CiAgICBhc3NlcnQuZXF1YWwoSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZShwYXRoLCAndXRmOCcpKS5ub25jZSwgbm9uY2UpOwogICAgcmV0dXJuIHRydWU7CiAgfQogIHdoaWxlIChwZXJmb3JtYW5jZS5ub3coKSA8IGRlYWRsaW5lKSB7CiAgICBpZiAoYXdhaXQgbWFya2VkKCdzdG9wLmpzb24nKSkgewogICAgICBwcm9jZXNzLmV4aXRDb2RlID0gNzU7IC8vIEV4cGxpY2l0IGhhcm5lc3MgY2xlYW51cCwgbm90IHJ1bnRpbWUgY2FuY2VsbGF0aW9uLgogICAgICByZXR1cm47CiAgICB9CiAgICBpZiAoYXdhaXQgbWFya2VkKCdyZWxlYXNlLmpzb24nKSkgewogICAgICBjb25zdCBtYW5pZmVzdCA9IHsKICAgICAgICBhbGdvcml0aG06ICdzaGEyNTYnLAogICAgICAgIGNhdGFsb2d1ZVNoYTI1NjogY3JlYXRlSGFzaCgnc2hhMjU2JykudXBkYXRlKGJ5dGVzKS5kaWdlc3QoJ2hleCcpLAogICAgICB9OwogICAgICBhd2FpdCB3cml0ZUZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgSlNPTi5zdHJpbmdpZnkobWFuaWZlc3QsIG51bGwsIDIpICsgJ1xuJywgJ3V0ZjgnKTsKICAgICAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ01BTklGRVNUX1dSSVRURU5cbicpOwogICAgICByZXR1cm47CiAgICB9CiAgICBhd2FpdCBkZWxheSg0MCk7CiAgfQogIHByb2Nlc3MuZXhpdENvZGUgPSA3NjsgLy8gRml4dHVyZSBmYWlsLXNhZmU7IG5vIG1hbmlmZXN0IHdyaXRlIG9yIHJvbGxiYWNrLgp9Cgphd2FpdCBtYWluKCk7Cg=="
+            },
+            "labels.mjs": {
+              "mode": "100644",
+              "object": "92ae36d3f762b9d6825526f7afc56582a02b61ad",
+              "base64": "ZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZUxhYmVsKGxhYmVsKSB7CiAgcmV0dXJuIGxhYmVsOwp9Cg=="
+            },
+            "source-data.json": {
+              "mode": "100644",
+              "object": "27f1f7c29dd766572531eb42bfa35114af83be76",
+              "base64": "WwogICIgIEFscGhhICAiLAogICJCZXRhICBHYW1tYSIsCiAgIlx0RGVsdGFcbiIKXQo="
+            }
+          }
+        },
+        "1c585b13f65009678db8696a5dd294131ba302e0": {
+          "first_stage": "reverted",
+          "start_ns": 316841258863600,
+          "end_ns": 316841640454900,
+          "object_base64": "MTAwNjQ0IC5naXRhdHRyaWJ1dGVzAPytss+XkT9YolI/U1M25yXGtZ0fMTAwNjQ0IGFjY2VwdGFuY2UudGVzdC5tanMAZwTfaKgQMk08i77T6wbRSuCvoYYxMDA2NDQgY2F0YWxvZ3VlLmpzb24ANhHmnvm8QjuuJLFpx9PMYtWUHlQxMDA2NDQgY2F0YWxvZ3VlLm1hbmlmZXN0Lmpzb24A6CMlrRX1QWzrx+3nWRprkrwj6BMxMDA2NDQgZ2VuZXJhdGUtY2F0YWxvZ3VlLm1qcwBblZEvYOQJqkOUjyIh7T+ssVnIpzEwMDY0NCBsYWJlbHMubWpzAN6qFF/TV0Pds1olUiHEV/wkXOE7MTAwNjQ0IHNvdXJjZS1kYXRhLmpzb24AJ/H3wp3XZlclMetCv6NRFK+DvnY=",
+          "files": {
+            ".gitattributes": {
+              "mode": "100644",
+              "object": "fcadb2cf97913f58a2523f535336e725c6b59d1f",
+              "base64": "KiB0ZXh0IGVvbD1sZgo="
+            },
+            "acceptance.test.mjs": {
+              "mode": "100644",
+              "object": "6704df68a810324d3c8bbed3eb06d14ae0afa186",
+              "base64": "aW1wb3J0IGFzc2VydCBmcm9tICdub2RlOmFzc2VydC9zdHJpY3QnOwppbXBvcnQgeyBjcmVhdGVIYXNoIH0gZnJvbSAnbm9kZTpjcnlwdG8nOwppbXBvcnQgeyByZWFkRmlsZSB9IGZyb20gJ25vZGU6ZnMvcHJvbWlzZXMnOwppbXBvcnQgdGVzdCBmcm9tICdub2RlOnRlc3QnOwppbXBvcnQgeyBub3JtYWxpemVMYWJlbCB9IGZyb20gJy4vbGFiZWxzLm1qcyc7Cgp0ZXN0KCdwcmVzZXJ2ZXMgbWVhbmluZ2Z1bCBpbnRlcmlvciBzcGFjZXMnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCdCZXRhICBHYW1tYScpLCAnQmV0YSAgR2FtbWEnKTsKfSk7CnRlc3QoJ3RyaW1zIG91dGVyIHdoaXRlc3BhY2UnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCcgIEFscGhhICAnKSwgJ0FscGhhJyk7Cn0pOwp0ZXN0KCdub3JtYWxpemVzIGFuIGFsbC13aGl0ZXNwYWNlIGxhYmVsJywgKCkgPT4gewogIGFzc2VydC5lcXVhbChub3JtYWxpemVMYWJlbCgnXHQgXG4nKSwgJycpOwp9KTsKdGVzdCgncHJlc2VydmVzIHRoZSBlbXB0eSBsYWJlbCcsICgpID0+IHsKICBhc3NlcnQuZXF1YWwobm9ybWFsaXplTGFiZWwoJycpLCAnJyk7Cn0pOwp0ZXN0KCdjYXRhbG9ndWUgaGFzIHRoZSBpbnRlbmRlZCBsYWJlbCB2YWx1ZXMnLCBhc3luYyAoKSA9PiB7CiAgYXNzZXJ0LmRlZXBFcXVhbChKU09OLnBhcnNlKGF3YWl0IHJlYWRGaWxlKCdjYXRhbG9ndWUuanNvbicsICd1dGY4JykpLCB7CiAgICBsYWJlbHM6IFsnQWxwaGEnLCAnQmV0YSAgR2FtbWEnLCAnRGVsdGEnXSwKICB9KTsKfSk7CnRlc3QoJ21hbmlmZXN0IGlkZW50aWZpZXMgdGhlIGFjdHVhbCBjYXRhbG9ndWUgYnl0ZXMnLCBhc3luYyAoKSA9PiB7CiAgY29uc3QgYnl0ZXMgPSBhd2FpdCByZWFkRmlsZSgnY2F0YWxvZ3VlLmpzb24nKTsKICBjb25zdCBtYW5pZmVzdCA9IEpTT04ucGFyc2UoYXdhaXQgcmVhZEZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgJ3V0ZjgnKSk7CiAgYXNzZXJ0LmRlZXBFcXVhbChtYW5pZmVzdCwgewogICAgYWxnb3JpdGhtOiAnc2hhMjU2JywgY2F0YWxvZ3VlU2hhMjU2OiBjcmVhdGVIYXNoKCdzaGEyNTYnKS51cGRhdGUoYnl0ZXMpLmRpZ2VzdCgnaGV4JyksCiAgfSk7Cn0pOwo="
+            },
+            "catalogue.json": {
+              "mode": "100644",
+              "object": "3611e69ef9bc423bae24b169c7d3cc62d5941e54",
+              "base64": "ewogICJsYWJlbHMiOiBbCiAgICAiQWxwaGEiLAogICAgIkJldGEgIEdhbW1hIiwKICAgICJEZWx0YSIKICBdCn0K"
+            },
+            "catalogue.manifest.json": {
+              "mode": "100644",
+              "object": "e82325ad15f5416cebc7ede7591a6b92bc23e813",
+              "base64": "ewogICJhbGdvcml0aG0iOiAic2hhMjU2IiwKICAiY2F0YWxvZ3VlU2hhMjU2IjogIjc4ZmFiMzk4OWY0NzdjOTAzMDExNjVkM2IwZDQ5OTlhY2UyOWRkNDcyZDA4NTEyNmZiNGVlZGU0ODhlMmI5NGYiCn0K"
+            },
+            "generate-catalogue.mjs": {
+              "mode": "100644",
+              "object": "5b95912f60e409aa43948f2221ed3facb159c8a7",
+              "base64": "Ly8gRGVsaWJlcmF0ZWx5IGV4cG9zZXMgdGhlIGludGVydmFsIGJldHdlZW4gdHdvIHJlbGF0ZWQgd3JpdGVzLiBJdCBuZXZlciByb2xscyBiYWNrLgppbXBvcnQgYXNzZXJ0IGZyb20gJ25vZGU6YXNzZXJ0L3N0cmljdCc7CmltcG9ydCB7IGNyZWF0ZUhhc2ggfSBmcm9tICdub2RlOmNyeXB0byc7CmltcG9ydCB7IGV4aXN0c1N5bmMgfSBmcm9tICdub2RlOmZzJzsKaW1wb3J0IHsgcmVhZEZpbGUsIHJlbmFtZSwgd3JpdGVGaWxlIH0gZnJvbSAnbm9kZTpmcy9wcm9taXNlcyc7CmltcG9ydCB7IGRpcm5hbWUsIGlzQWJzb2x1dGUsIGpvaW4sIHJlbGF0aXZlLCByZXNvbHZlIH0gZnJvbSAnbm9kZTpwYXRoJzsKaW1wb3J0IHsgc2V0VGltZW91dCBhcyBkZWxheSB9IGZyb20gJ25vZGU6dGltZXJzL3Byb21pc2VzJzsKaW1wb3J0IHsgZmlsZVVSTFRvUGF0aCB9IGZyb20gJ25vZGU6dXJsJzsKaW1wb3J0IHsgbm9ybWFsaXplTGFiZWwgfSBmcm9tICcuL2xhYmVscy5tanMnOwoKYXN5bmMgZnVuY3Rpb24gbWFpbigpIHsKICBjb25zdCB3b3Jrc3BhY2UgPSBkaXJuYW1lKGZpbGVVUkxUb1BhdGgoaW1wb3J0Lm1ldGEudXJsKSk7CiAgYXNzZXJ0LmVxdWFsKHJlc29sdmUocHJvY2Vzcy5jd2QoKSksIHdvcmtzcGFjZSwgJ1J1biBmcm9tIHRoZSBmaXh0dXJlIHdvcmtzcGFjZScpOwogIGNvbnN0IGNvbnRyb2wgPSBwcm9jZXNzLmVudi5MQUJfQ09OVFJPTF9ESVI7CiAgY29uc3Qgbm9uY2UgPSBwcm9jZXNzLmVudi5MQUJfUlVOX05PTkNFOwogIGFzc2VydC5vayhjb250cm9sICYmIGlzQWJzb2x1dGUoY29udHJvbCksICdBYnNvbHV0ZSBjb250cm9sIGRpcmVjdG9yeSByZXF1aXJlZCcpOwogIGFzc2VydC5tYXRjaChub25jZSA/PyAnJywgL15bYS1mMC05XXszMn0kLyk7CiAgY29uc3QgcmVsID0gcmVsYXRpdmUod29ya3NwYWNlLCByZXNvbHZlKGNvbnRyb2wpKTsKICBhc3NlcnQub2socmVsLnN0YXJ0c1dpdGgoJy4uJykgfHwgaXNBYnNvbHV0ZShyZWwpLCAnQ29udHJvbCBzdGF0ZSBtdXN0IGJlIG91dHNpZGUgdGhlIHdvcmtzcGFjZScpOwogIGNvbnN0IGxpZmV0aW1lID0gTnVtYmVyKHByb2Nlc3MuZW52LkxBQl9HRU5FUkFUT1JfVElNRU9VVF9NUyA/PyAxODAwMDApOwogIGFzc2VydC5vayhOdW1iZXIuaXNJbnRlZ2VyKGxpZmV0aW1lKSAmJiBsaWZldGltZSA+PSAxMDAgJiYgbGlmZXRpbWUgPD0gMzAwMDAwKTsKICBmb3IgKGNvbnN0IG5hbWUgb2YgWydyZWFkeS5qc29uJywgJ3JlbGVhc2UuanNvbicsICdzdG9wLmpzb24nXSkgewogICAgYXNzZXJ0LmVxdWFsKGV4aXN0c1N5bmMoam9pbihjb250cm9sLCBuYW1lKSksIGZhbHNlLCAnRnJlc2ggY29vcmRpbmF0aW9uIHN0YXRlIHJlcXVpcmVkJyk7CiAgfQogIGNvbnN0IGlucHV0ID0gSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZSgnc291cmNlLWRhdGEuanNvbicsICd1dGY4JykpOwogIGFzc2VydC5vayhBcnJheS5pc0FycmF5KGlucHV0KSAmJiBpbnB1dC5ldmVyeSh2YWx1ZSA9PiB0eXBlb2YgdmFsdWUgPT09ICdzdHJpbmcnKSk7CiAgY29uc3QgYnl0ZXMgPSBKU09OLnN0cmluZ2lmeSh7IGxhYmVsczogaW5wdXQubWFwKG5vcm1hbGl6ZUxhYmVsKSB9LCBudWxsLCAyKSArICdcbic7CiAgYXdhaXQgd3JpdGVGaWxlKCdjYXRhbG9ndWUuanNvbicsIGJ5dGVzLCAndXRmOCcpOwogIGNvbnN0IHJlYWR5ID0gSlNPTi5zdHJpbmdpZnkoeyBub25jZSwgcGlkOiBwcm9jZXNzLnBpZCwgc3RhZ2U6ICdjYXRhbG9ndWUtd3JpdHRlbicgfSkgKyAnXG4nOwogIGF3YWl0IHdyaXRlRmlsZShqb2luKGNvbnRyb2wsICdyZWFkeS50bXAnKSwgcmVhZHksIHsgZW5jb2Rpbmc6ICd1dGY4JywgZmxhZzogJ3d4JyB9KTsKICBhd2FpdCByZW5hbWUoam9pbihjb250cm9sLCAncmVhZHkudG1wJyksIGpvaW4oY29udHJvbCwgJ3JlYWR5Lmpzb24nKSk7CiAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ0NBVEFMT0dVRV9XUklUVEVOXG4nKTsKICBjb25zdCBkZWFkbGluZSA9IHBlcmZvcm1hbmNlLm5vdygpICsgbGlmZXRpbWU7CiAgYXN5bmMgZnVuY3Rpb24gbWFya2VkKG5hbWUpIHsKICAgIGNvbnN0IHBhdGggPSBqb2luKGNvbnRyb2wsIG5hbWUpOwogICAgaWYgKCFleGlzdHNTeW5jKHBhdGgpKSByZXR1cm4gZmFsc2U7CiAgICBhc3NlcnQuZXF1YWwoSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZShwYXRoLCAndXRmOCcpKS5ub25jZSwgbm9uY2UpOwogICAgcmV0dXJuIHRydWU7CiAgfQogIHdoaWxlIChwZXJmb3JtYW5jZS5ub3coKSA8IGRlYWRsaW5lKSB7CiAgICBpZiAoYXdhaXQgbWFya2VkKCdzdG9wLmpzb24nKSkgewogICAgICBwcm9jZXNzLmV4aXRDb2RlID0gNzU7IC8vIEV4cGxpY2l0IGhhcm5lc3MgY2xlYW51cCwgbm90IHJ1bnRpbWUgY2FuY2VsbGF0aW9uLgogICAgICByZXR1cm47CiAgICB9CiAgICBpZiAoYXdhaXQgbWFya2VkKCdyZWxlYXNlLmpzb24nKSkgewogICAgICBjb25zdCBtYW5pZmVzdCA9IHsKICAgICAgICBhbGdvcml0aG06ICdzaGEyNTYnLAogICAgICAgIGNhdGFsb2d1ZVNoYTI1NjogY3JlYXRlSGFzaCgnc2hhMjU2JykudXBkYXRlKGJ5dGVzKS5kaWdlc3QoJ2hleCcpLAogICAgICB9OwogICAgICBhd2FpdCB3cml0ZUZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgSlNPTi5zdHJpbmdpZnkobWFuaWZlc3QsIG51bGwsIDIpICsgJ1xuJywgJ3V0ZjgnKTsKICAgICAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ01BTklGRVNUX1dSSVRURU5cbicpOwogICAgICByZXR1cm47CiAgICB9CiAgICBhd2FpdCBkZWxheSg0MCk7CiAgfQogIHByb2Nlc3MuZXhpdENvZGUgPSA3NjsgLy8gRml4dHVyZSBmYWlsLXNhZmU7IG5vIG1hbmlmZXN0IHdyaXRlIG9yIHJvbGxiYWNrLgp9Cgphd2FpdCBtYWluKCk7Cg=="
+            },
+            "labels.mjs": {
+              "mode": "100644",
+              "object": "deaa145fd35743ddb35a255221c457fc245ce13b",
+              "base64": "ZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZUxhYmVsKGxhYmVsKSB7CiAgcmV0dXJuIGxhYmVsLnRyaW0oKTsKfQo="
+            },
+            "source-data.json": {
+              "mode": "100644",
+              "object": "27f1f7c29dd766572531eb42bfa35114af83be76",
+              "base64": "WwogICIgIEFscGhhICAiLAogICJCZXRhICBHYW1tYSIsCiAgIlx0RGVsdGFcbiIKXQo="
+            }
+          }
+        }
+      }
+    },
+    {
+      "case": "forced",
+      "session": "ses_eaff63de0ffepitjm33YQ2w7EM",
+      "user_message": "msg_15009c59c001HI9t1NzRQcat1w",
+      "states": {
+        "initial": {
+          "interval": [
+            316846276112800,
+            316846463221200
+          ],
+          "file_witness_interval": [
+            316846333226500,
+            316846339132800
+          ],
+          "remote_read_available": true,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "78fab3989f477c90301165d3b0d4999ace29dd472d085126fb4eede488e2b94f",
+              "bytes": 74
+            },
+            "catalogue.manifest.json": {
+              "sha256": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "a616e135518fa70eb86881df28ea53d653e600d7eb19a3361b10df9fd31b46f7",
+              "bytes": 58
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": false,
+            "normalizes an all-whitespace label": false,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": false,
+            "manifest identifies the actual catalogue bytes": true
+          },
+          "snapshot_refs": [],
+          "patches": [],
+          "tools": [],
+          "provider_requests": 0
+        },
+        "barrier": {
+          "interval": [
+            316852057366900,
+            316853036623000
+          ],
+          "file_witness_interval": [
+            316852911541200,
+            316852916949800
+          ],
+          "remote_read_available": true,
+          "session_status_entry": {
+            "type": "busy"
+          },
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "25f56edbfad64c25a5b33c91fd83ceec79b9431041bbdf1ccbe1e1ebe8f2bcfa",
+              "bytes": 66
+            },
+            "catalogue.manifest.json": {
+              "sha256": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "3c14741eff4a1226022249526d8c18f6142d188001d53f97580ea18417a74ce4",
+              "bytes": 65
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": true,
+            "normalizes an all-whitespace label": true,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": true,
+            "manifest identifies the actual catalogue bytes": false
+          },
+          "snapshot_refs": [
+            "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+            "87123d519b49d4c8aed83f5d212421f6a88988e1"
+          ],
+          "patches": [
+            {
+              "hash": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+              "files": [
+                "labels.mjs"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "call_id": "read_labels",
+              "part_id": "prt_15009cc90001T9YItedOlMtaef",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_acceptance",
+              "part_id": "prt_15009ce6a001E8j06FT0YUU4kd",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "acceptance.test.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_generator",
+              "part_id": "prt_15009d059001vsBaIxopfG65hv",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "generate-catalogue.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_input",
+              "part_id": "prt_15009d260001f3Vf4hLuz2fVfE",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "source-data.json"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "edit_labels",
+              "part_id": "prt_15009d46a001jk1AMHCnW03I2H",
+              "tool": "edit",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs",
+                "oldString": "return label;",
+                "newString": "return label.trim();"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "generate_catalogue",
+              "part_id": "prt_15009d72200113576wuAmuvbLl",
+              "tool": "bash",
+              "status": "running",
+              "input": {
+                "command": "node ./generate-catalogue.mjs",
+                "timeout": 120000
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            }
+          ],
+          "provider_requests": 6
+        },
+        "primary": {
+          "interval": [
+            316854091788600,
+            316854216482800
+          ],
+          "file_witness_interval": [
+            316854093702000,
+            316854099691800
+          ],
+          "remote_read_available": false,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "25f56edbfad64c25a5b33c91fd83ceec79b9431041bbdf1ccbe1e1ebe8f2bcfa",
+              "bytes": 66
+            },
+            "catalogue.manifest.json": {
+              "sha256": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "3c14741eff4a1226022249526d8c18f6142d188001d53f97580ea18417a74ce4",
+              "bytes": 65
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": true,
+            "normalizes an all-whitespace label": true,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": true,
+            "manifest identifies the actual catalogue bytes": false
+          },
+          "snapshot_refs": [],
+          "patches": [],
+          "tools": [],
+          "provider_requests": 6
+        },
+        "restarted": {
+          "interval": [
+            316855097602300,
+            316855559534600
+          ],
+          "file_witness_interval": [
+            316855432106800,
+            316855437804000
+          ],
+          "remote_read_available": true,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "25f56edbfad64c25a5b33c91fd83ceec79b9431041bbdf1ccbe1e1ebe8f2bcfa",
+              "bytes": 66
+            },
+            "catalogue.manifest.json": {
+              "sha256": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "3c14741eff4a1226022249526d8c18f6142d188001d53f97580ea18417a74ce4",
+              "bytes": 65
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": true,
+            "normalizes an all-whitespace label": true,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": true,
+            "manifest identifies the actual catalogue bytes": false
+          },
+          "snapshot_refs": [
+            "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+            "87123d519b49d4c8aed83f5d212421f6a88988e1"
+          ],
+          "patches": [
+            {
+              "hash": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+              "files": [
+                "labels.mjs"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "call_id": "read_labels",
+              "part_id": "prt_15009cc90001T9YItedOlMtaef",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_acceptance",
+              "part_id": "prt_15009ce6a001E8j06FT0YUU4kd",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "acceptance.test.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_generator",
+              "part_id": "prt_15009d059001vsBaIxopfG65hv",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "generate-catalogue.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_input",
+              "part_id": "prt_15009d260001f3Vf4hLuz2fVfE",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "source-data.json"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "edit_labels",
+              "part_id": "prt_15009d46a001jk1AMHCnW03I2H",
+              "tool": "edit",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs",
+                "oldString": "return label;",
+                "newString": "return label.trim();"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "generate_catalogue",
+              "part_id": "prt_15009d72200113576wuAmuvbLl",
+              "tool": "bash",
+              "status": "running",
+              "input": {
+                "command": "node ./generate-catalogue.mjs",
+                "timeout": 120000
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            }
+          ],
+          "provider_requests": 6
+        },
+        "reverted": {
+          "interval": [
+            316856241097900,
+            316856846659400
+          ],
+          "file_witness_interval": [
+            316856710953200,
+            316856716761800
+          ],
+          "remote_read_available": true,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "25f56edbfad64c25a5b33c91fd83ceec79b9431041bbdf1ccbe1e1ebe8f2bcfa",
+              "bytes": 66
+            },
+            "catalogue.manifest.json": {
+              "sha256": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "a616e135518fa70eb86881df28ea53d653e600d7eb19a3361b10df9fd31b46f7",
+              "bytes": 58
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": false,
+            "normalizes an all-whitespace label": false,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": true,
+            "manifest identifies the actual catalogue bytes": false
+          },
+          "snapshot_refs": [
+            "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+            "1c585b13f65009678db8696a5dd294131ba302e0",
+            "87123d519b49d4c8aed83f5d212421f6a88988e1"
+          ],
+          "patches": [
+            {
+              "hash": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+              "files": [
+                "labels.mjs"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "call_id": "read_labels",
+              "part_id": "prt_15009cc90001T9YItedOlMtaef",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_acceptance",
+              "part_id": "prt_15009ce6a001E8j06FT0YUU4kd",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "acceptance.test.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_generator",
+              "part_id": "prt_15009d059001vsBaIxopfG65hv",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "generate-catalogue.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_input",
+              "part_id": "prt_15009d260001f3Vf4hLuz2fVfE",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "source-data.json"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "edit_labels",
+              "part_id": "prt_15009d46a001jk1AMHCnW03I2H",
+              "tool": "edit",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs",
+                "oldString": "return label;",
+                "newString": "return label.trim();"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "generate_catalogue",
+              "part_id": "prt_15009d72200113576wuAmuvbLl",
+              "tool": "bash",
+              "status": "running",
+              "input": {
+                "command": "node ./generate-catalogue.mjs",
+                "timeout": 120000
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            }
+          ],
+          "provider_requests": 6
+        },
+        "unreverted": {
+          "interval": [
+            316856983940900,
+            316857251893100
+          ],
+          "file_witness_interval": [
+            316857083561300,
+            316857089256900
+          ],
+          "remote_read_available": true,
+          "session_status_entry": null,
+          "files": {
+            ".gitattributes": {
+              "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+              "bytes": 14
+            },
+            "acceptance.test.mjs": {
+              "sha256": "a978387c6e1ab70ce89d287079f424ff4e05e4c542c8ada2bf3cc9216e49ed2f",
+              "bytes": 1136
+            },
+            "catalogue.json": {
+              "sha256": "25f56edbfad64c25a5b33c91fd83ceec79b9431041bbdf1ccbe1e1ebe8f2bcfa",
+              "bytes": 66
+            },
+            "catalogue.manifest.json": {
+              "sha256": "f0874366b6194dc50525edaaf9a45a2fba6b7c4bb0878acf2d66ece87728abdd",
+              "bytes": 117
+            },
+            "generate-catalogue.mjs": {
+              "sha256": "efb7bad1a826bca42bb956ae149fcdcb726f03d0511e749f1fa26216c2f9aff9",
+              "bytes": 2869
+            },
+            "labels.mjs": {
+              "sha256": "3c14741eff4a1226022249526d8c18f6142d188001d53f97580ea18417a74ce4",
+              "bytes": 65
+            },
+            "source-data.json": {
+              "sha256": "f1ec900692b3aeb3253ee27f9e1f8524307b8d24911496353177efa986a51133",
+              "bytes": 50
+            }
+          },
+          "tests": {
+            "preserves meaningful interior spaces": true,
+            "trims outer whitespace": true,
+            "normalizes an all-whitespace label": true,
+            "preserves the empty label": true,
+            "catalogue has the intended label values": true,
+            "manifest identifies the actual catalogue bytes": false
+          },
+          "snapshot_refs": [
+            "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+            "87123d519b49d4c8aed83f5d212421f6a88988e1"
+          ],
+          "patches": [
+            {
+              "hash": "87123d519b49d4c8aed83f5d212421f6a88988e1",
+              "files": [
+                "labels.mjs"
+              ]
+            }
+          ],
+          "tools": [
+            {
+              "call_id": "read_labels",
+              "part_id": "prt_15009cc90001T9YItedOlMtaef",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_acceptance",
+              "part_id": "prt_15009ce6a001E8j06FT0YUU4kd",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "acceptance.test.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_generator",
+              "part_id": "prt_15009d059001vsBaIxopfG65hv",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "generate-catalogue.mjs"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "read_input",
+              "part_id": "prt_15009d260001f3Vf4hLuz2fVfE",
+              "tool": "read",
+              "status": "completed",
+              "input": {
+                "filePath": "source-data.json"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "edit_labels",
+              "part_id": "prt_15009d46a001jk1AMHCnW03I2H",
+              "tool": "edit",
+              "status": "completed",
+              "input": {
+                "filePath": "labels.mjs",
+                "oldString": "return label;",
+                "newString": "return label.trim();"
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            },
+            {
+              "call_id": "generate_catalogue",
+              "part_id": "prt_15009d72200113576wuAmuvbLl",
+              "tool": "bash",
+              "status": "running",
+              "input": {
+                "command": "node ./generate-catalogue.mjs",
+                "timeout": 120000
+              },
+              "exit": null,
+              "interrupted": false,
+              "abort_error": false,
+              "cancellation_output": false
+            }
+          ],
+          "provider_requests": 6
+        }
+      },
+      "intervention_interval": [
+        316853040928100,
+        316853072489700
+      ],
+      "process": {
+        "immediate": {
+          "server": {
+            "alive": false,
+            "exit_code": 87,
+            "query_interval": [
+              316853074675500,
+              316853074693500
+            ]
+          },
+          "shell": {
+            "alive": false,
+            "exit_code": 0,
+            "query_interval": [
+              316853074695000,
+              316853074702000
+            ]
+          },
+          "generator": {
+            "alive": true,
+            "exit_code": null,
+            "query_interval": [
+              316853074703000,
+              316853074711100
+            ]
+          }
+        },
+        "generator_exit_observed_before_harness_cleanup": false,
+        "first_generator_exit_query_interval": null,
+        "cleanup_start_ns": 316854221281900,
+        "sample_count": 47,
+        "monitor_interval": [
+          316852056543300,
+          316854218172500
+        ],
+        "last_monitored_generator": {
+          "start_ns": 316854218162400,
+          "end_ns": 316854218172500,
+          "alive": true,
+          "exit_code": null
+        },
+        "before_cleanup": {
+          "server": {
+            "alive": false,
+            "exit_code": 87,
+            "query_interval": [
+              316854219598500,
+              316854219616300
+            ]
+          },
+          "shell": {
+            "alive": false,
+            "exit_code": 0,
+            "query_interval": [
+              316854219617700,
+              316854219624300
+            ]
+          },
+          "generator": {
+            "alive": true,
+            "exit_code": null,
+            "query_interval": [
+              316854219625100,
+              316854219631900
+            ]
+          }
+        },
+        "after_cleanup": {
+          "server": {
+            "alive": false,
+            "exit_code": 87,
+            "query_interval": [
+              316854244201400,
+              316854244222500
+            ]
+          },
+          "shell": {
+            "alive": false,
+            "exit_code": 0,
+            "query_interval": [
+              316854244224100,
+              316854244231000
+            ]
+          },
+          "generator": {
+            "alive": false,
+            "exit_code": 75,
+            "query_interval": [
+              316854244232000,
+              316854244237400
+            ]
+          }
+        },
+        "identities": {
+          "server": {
+            "pid": 39280,
+            "creation_time_100ns": 134368177781362136,
+            "image_sha256": "c1bdbb18767048e1853af4238311b3f7e16ff2f91b68fb4c7ced3c5175347eea",
+            "image_basename": "opencode.exe"
+          },
+          "shell": {
+            "pid": 36892,
+            "creation_time_100ns": 134368177846893202,
+            "image_sha256": "bfb46af89433268872ddb43d1ca7a3f433452ee91ed356a9786940f90118e285",
+            "image_basename": "pwsh.exe"
+          },
+          "generator": {
+            "pid": 29976,
+            "creation_time_100ns": 134368177848621181,
+            "image_sha256": "d14ba95cdce1ef7dc9ad3ac74949ca5db38b27378ee30f30a23cf26f9e875a11",
+            "image_basename": "node.exe"
+          }
+        }
+      },
+      "pre_intervention_saved_catalogue_refs": [
+        "010e5597b007ec9d008cbb6dc089c7d15f6f17b2",
+        "87123d519b49d4c8aed83f5d212421f6a88988e1"
+      ],
+      "selected_earliest_refs": {
+        "labels.mjs": "87123d519b49d4c8aed83f5d212421f6a88988e1"
+      },
+      "changed_paths_before_revert": [
+        "catalogue.json",
+        "labels.mjs"
+      ],
+      "unselected_changed_paths": [
+        "catalogue.json"
+      ],
+      "preundo_snapshot": "1c585b13f65009678db8696a5dd294131ba302e0",
+      "restored_baseline": false,
+      "unrevert_restored_preundo": true,
+      "provider_request_count": 6,
+      "trees": {
+        "010e5597b007ec9d008cbb6dc089c7d15f6f17b2": {
+          "first_stage": "barrier",
+          "start_ns": 316852145348100,
+          "end_ns": 316852532211200,
+          "object_base64": "MTAwNjQ0IC5naXRhdHRyaWJ1dGVzAPytss+XkT9YolI/U1M25yXGtZ0fMTAwNjQ0IGFjY2VwdGFuY2UudGVzdC5tanMAZwTfaKgQMk08i77T6wbRSuCvoYYxMDA2NDQgY2F0YWxvZ3VlLmpzb24AFHyrS+fZB+qHFjehSErJ9g0eDHoxMDA2NDQgY2F0YWxvZ3VlLm1hbmlmZXN0Lmpzb24A6CMlrRX1QWzrx+3nWRprkrwj6BMxMDA2NDQgZ2VuZXJhdGUtY2F0YWxvZ3VlLm1qcwBblZEvYOQJqkOUjyIh7T+ssVnIpzEwMDY0NCBsYWJlbHMubWpzAN6qFF/TV0Pds1olUiHEV/wkXOE7MTAwNjQ0IHNvdXJjZS1kYXRhLmpzb24AJ/H3wp3XZlclMetCv6NRFK+DvnY=",
+          "files": {
+            ".gitattributes": {
+              "mode": "100644",
+              "object": "fcadb2cf97913f58a2523f535336e725c6b59d1f",
+              "base64": "KiB0ZXh0IGVvbD1sZgo="
+            },
+            "acceptance.test.mjs": {
+              "mode": "100644",
+              "object": "6704df68a810324d3c8bbed3eb06d14ae0afa186",
+              "base64": "aW1wb3J0IGFzc2VydCBmcm9tICdub2RlOmFzc2VydC9zdHJpY3QnOwppbXBvcnQgeyBjcmVhdGVIYXNoIH0gZnJvbSAnbm9kZTpjcnlwdG8nOwppbXBvcnQgeyByZWFkRmlsZSB9IGZyb20gJ25vZGU6ZnMvcHJvbWlzZXMnOwppbXBvcnQgdGVzdCBmcm9tICdub2RlOnRlc3QnOwppbXBvcnQgeyBub3JtYWxpemVMYWJlbCB9IGZyb20gJy4vbGFiZWxzLm1qcyc7Cgp0ZXN0KCdwcmVzZXJ2ZXMgbWVhbmluZ2Z1bCBpbnRlcmlvciBzcGFjZXMnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCdCZXRhICBHYW1tYScpLCAnQmV0YSAgR2FtbWEnKTsKfSk7CnRlc3QoJ3RyaW1zIG91dGVyIHdoaXRlc3BhY2UnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCcgIEFscGhhICAnKSwgJ0FscGhhJyk7Cn0pOwp0ZXN0KCdub3JtYWxpemVzIGFuIGFsbC13aGl0ZXNwYWNlIGxhYmVsJywgKCkgPT4gewogIGFzc2VydC5lcXVhbChub3JtYWxpemVMYWJlbCgnXHQgXG4nKSwgJycpOwp9KTsKdGVzdCgncHJlc2VydmVzIHRoZSBlbXB0eSBsYWJlbCcsICgpID0+IHsKICBhc3NlcnQuZXF1YWwobm9ybWFsaXplTGFiZWwoJycpLCAnJyk7Cn0pOwp0ZXN0KCdjYXRhbG9ndWUgaGFzIHRoZSBpbnRlbmRlZCBsYWJlbCB2YWx1ZXMnLCBhc3luYyAoKSA9PiB7CiAgYXNzZXJ0LmRlZXBFcXVhbChKU09OLnBhcnNlKGF3YWl0IHJlYWRGaWxlKCdjYXRhbG9ndWUuanNvbicsICd1dGY4JykpLCB7CiAgICBsYWJlbHM6IFsnQWxwaGEnLCAnQmV0YSAgR2FtbWEnLCAnRGVsdGEnXSwKICB9KTsKfSk7CnRlc3QoJ21hbmlmZXN0IGlkZW50aWZpZXMgdGhlIGFjdHVhbCBjYXRhbG9ndWUgYnl0ZXMnLCBhc3luYyAoKSA9PiB7CiAgY29uc3QgYnl0ZXMgPSBhd2FpdCByZWFkRmlsZSgnY2F0YWxvZ3VlLmpzb24nKTsKICBjb25zdCBtYW5pZmVzdCA9IEpTT04ucGFyc2UoYXdhaXQgcmVhZEZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgJ3V0ZjgnKSk7CiAgYXNzZXJ0LmRlZXBFcXVhbChtYW5pZmVzdCwgewogICAgYWxnb3JpdGhtOiAnc2hhMjU2JywgY2F0YWxvZ3VlU2hhMjU2OiBjcmVhdGVIYXNoKCdzaGEyNTYnKS51cGRhdGUoYnl0ZXMpLmRpZ2VzdCgnaGV4JyksCiAgfSk7Cn0pOwo="
+            },
+            "catalogue.json": {
+              "mode": "100644",
+              "object": "147cab4be7d907ea871637a1484ac9f60d1e0c7a",
+              "base64": "ewogICJsYWJlbHMiOiBbCiAgICAiICBBbHBoYSAgIiwKICAgICJCZXRhICBHYW1tYSIsCiAgICAiXHREZWx0YVxuIgogIF0KfQo="
+            },
+            "catalogue.manifest.json": {
+              "mode": "100644",
+              "object": "e82325ad15f5416cebc7ede7591a6b92bc23e813",
+              "base64": "ewogICJhbGdvcml0aG0iOiAic2hhMjU2IiwKICAiY2F0YWxvZ3VlU2hhMjU2IjogIjc4ZmFiMzk4OWY0NzdjOTAzMDExNjVkM2IwZDQ5OTlhY2UyOWRkNDcyZDA4NTEyNmZiNGVlZGU0ODhlMmI5NGYiCn0K"
+            },
+            "generate-catalogue.mjs": {
+              "mode": "100644",
+              "object": "5b95912f60e409aa43948f2221ed3facb159c8a7",
+              "base64": "Ly8gRGVsaWJlcmF0ZWx5IGV4cG9zZXMgdGhlIGludGVydmFsIGJldHdlZW4gdHdvIHJlbGF0ZWQgd3JpdGVzLiBJdCBuZXZlciByb2xscyBiYWNrLgppbXBvcnQgYXNzZXJ0IGZyb20gJ25vZGU6YXNzZXJ0L3N0cmljdCc7CmltcG9ydCB7IGNyZWF0ZUhhc2ggfSBmcm9tICdub2RlOmNyeXB0byc7CmltcG9ydCB7IGV4aXN0c1N5bmMgfSBmcm9tICdub2RlOmZzJzsKaW1wb3J0IHsgcmVhZEZpbGUsIHJlbmFtZSwgd3JpdGVGaWxlIH0gZnJvbSAnbm9kZTpmcy9wcm9taXNlcyc7CmltcG9ydCB7IGRpcm5hbWUsIGlzQWJzb2x1dGUsIGpvaW4sIHJlbGF0aXZlLCByZXNvbHZlIH0gZnJvbSAnbm9kZTpwYXRoJzsKaW1wb3J0IHsgc2V0VGltZW91dCBhcyBkZWxheSB9IGZyb20gJ25vZGU6dGltZXJzL3Byb21pc2VzJzsKaW1wb3J0IHsgZmlsZVVSTFRvUGF0aCB9IGZyb20gJ25vZGU6dXJsJzsKaW1wb3J0IHsgbm9ybWFsaXplTGFiZWwgfSBmcm9tICcuL2xhYmVscy5tanMnOwoKYXN5bmMgZnVuY3Rpb24gbWFpbigpIHsKICBjb25zdCB3b3Jrc3BhY2UgPSBkaXJuYW1lKGZpbGVVUkxUb1BhdGgoaW1wb3J0Lm1ldGEudXJsKSk7CiAgYXNzZXJ0LmVxdWFsKHJlc29sdmUocHJvY2Vzcy5jd2QoKSksIHdvcmtzcGFjZSwgJ1J1biBmcm9tIHRoZSBmaXh0dXJlIHdvcmtzcGFjZScpOwogIGNvbnN0IGNvbnRyb2wgPSBwcm9jZXNzLmVudi5MQUJfQ09OVFJPTF9ESVI7CiAgY29uc3Qgbm9uY2UgPSBwcm9jZXNzLmVudi5MQUJfUlVOX05PTkNFOwogIGFzc2VydC5vayhjb250cm9sICYmIGlzQWJzb2x1dGUoY29udHJvbCksICdBYnNvbHV0ZSBjb250cm9sIGRpcmVjdG9yeSByZXF1aXJlZCcpOwogIGFzc2VydC5tYXRjaChub25jZSA/PyAnJywgL15bYS1mMC05XXszMn0kLyk7CiAgY29uc3QgcmVsID0gcmVsYXRpdmUod29ya3NwYWNlLCByZXNvbHZlKGNvbnRyb2wpKTsKICBhc3NlcnQub2socmVsLnN0YXJ0c1dpdGgoJy4uJykgfHwgaXNBYnNvbHV0ZShyZWwpLCAnQ29udHJvbCBzdGF0ZSBtdXN0IGJlIG91dHNpZGUgdGhlIHdvcmtzcGFjZScpOwogIGNvbnN0IGxpZmV0aW1lID0gTnVtYmVyKHByb2Nlc3MuZW52LkxBQl9HRU5FUkFUT1JfVElNRU9VVF9NUyA/PyAxODAwMDApOwogIGFzc2VydC5vayhOdW1iZXIuaXNJbnRlZ2VyKGxpZmV0aW1lKSAmJiBsaWZldGltZSA+PSAxMDAgJiYgbGlmZXRpbWUgPD0gMzAwMDAwKTsKICBmb3IgKGNvbnN0IG5hbWUgb2YgWydyZWFkeS5qc29uJywgJ3JlbGVhc2UuanNvbicsICdzdG9wLmpzb24nXSkgewogICAgYXNzZXJ0LmVxdWFsKGV4aXN0c1N5bmMoam9pbihjb250cm9sLCBuYW1lKSksIGZhbHNlLCAnRnJlc2ggY29vcmRpbmF0aW9uIHN0YXRlIHJlcXVpcmVkJyk7CiAgfQogIGNvbnN0IGlucHV0ID0gSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZSgnc291cmNlLWRhdGEuanNvbicsICd1dGY4JykpOwogIGFzc2VydC5vayhBcnJheS5pc0FycmF5KGlucHV0KSAmJiBpbnB1dC5ldmVyeSh2YWx1ZSA9PiB0eXBlb2YgdmFsdWUgPT09ICdzdHJpbmcnKSk7CiAgY29uc3QgYnl0ZXMgPSBKU09OLnN0cmluZ2lmeSh7IGxhYmVsczogaW5wdXQubWFwKG5vcm1hbGl6ZUxhYmVsKSB9LCBudWxsLCAyKSArICdcbic7CiAgYXdhaXQgd3JpdGVGaWxlKCdjYXRhbG9ndWUuanNvbicsIGJ5dGVzLCAndXRmOCcpOwogIGNvbnN0IHJlYWR5ID0gSlNPTi5zdHJpbmdpZnkoeyBub25jZSwgcGlkOiBwcm9jZXNzLnBpZCwgc3RhZ2U6ICdjYXRhbG9ndWUtd3JpdHRlbicgfSkgKyAnXG4nOwogIGF3YWl0IHdyaXRlRmlsZShqb2luKGNvbnRyb2wsICdyZWFkeS50bXAnKSwgcmVhZHksIHsgZW5jb2Rpbmc6ICd1dGY4JywgZmxhZzogJ3d4JyB9KTsKICBhd2FpdCByZW5hbWUoam9pbihjb250cm9sLCAncmVhZHkudG1wJyksIGpvaW4oY29udHJvbCwgJ3JlYWR5Lmpzb24nKSk7CiAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ0NBVEFMT0dVRV9XUklUVEVOXG4nKTsKICBjb25zdCBkZWFkbGluZSA9IHBlcmZvcm1hbmNlLm5vdygpICsgbGlmZXRpbWU7CiAgYXN5bmMgZnVuY3Rpb24gbWFya2VkKG5hbWUpIHsKICAgIGNvbnN0IHBhdGggPSBqb2luKGNvbnRyb2wsIG5hbWUpOwogICAgaWYgKCFleGlzdHNTeW5jKHBhdGgpKSByZXR1cm4gZmFsc2U7CiAgICBhc3NlcnQuZXF1YWwoSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZShwYXRoLCAndXRmOCcpKS5ub25jZSwgbm9uY2UpOwogICAgcmV0dXJuIHRydWU7CiAgfQogIHdoaWxlIChwZXJmb3JtYW5jZS5ub3coKSA8IGRlYWRsaW5lKSB7CiAgICBpZiAoYXdhaXQgbWFya2VkKCdzdG9wLmpzb24nKSkgewogICAgICBwcm9jZXNzLmV4aXRDb2RlID0gNzU7IC8vIEV4cGxpY2l0IGhhcm5lc3MgY2xlYW51cCwgbm90IHJ1bnRpbWUgY2FuY2VsbGF0aW9uLgogICAgICByZXR1cm47CiAgICB9CiAgICBpZiAoYXdhaXQgbWFya2VkKCdyZWxlYXNlLmpzb24nKSkgewogICAgICBjb25zdCBtYW5pZmVzdCA9IHsKICAgICAgICBhbGdvcml0aG06ICdzaGEyNTYnLAogICAgICAgIGNhdGFsb2d1ZVNoYTI1NjogY3JlYXRlSGFzaCgnc2hhMjU2JykudXBkYXRlKGJ5dGVzKS5kaWdlc3QoJ2hleCcpLAogICAgICB9OwogICAgICBhd2FpdCB3cml0ZUZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgSlNPTi5zdHJpbmdpZnkobWFuaWZlc3QsIG51bGwsIDIpICsgJ1xuJywgJ3V0ZjgnKTsKICAgICAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ01BTklGRVNUX1dSSVRURU5cbicpOwogICAgICByZXR1cm47CiAgICB9CiAgICBhd2FpdCBkZWxheSg0MCk7CiAgfQogIHByb2Nlc3MuZXhpdENvZGUgPSA3NjsgLy8gRml4dHVyZSBmYWlsLXNhZmU7IG5vIG1hbmlmZXN0IHdyaXRlIG9yIHJvbGxiYWNrLgp9Cgphd2FpdCBtYWluKCk7Cg=="
+            },
+            "labels.mjs": {
+              "mode": "100644",
+              "object": "deaa145fd35743ddb35a255221c457fc245ce13b",
+              "base64": "ZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZUxhYmVsKGxhYmVsKSB7CiAgcmV0dXJuIGxhYmVsLnRyaW0oKTsKfQo="
+            },
+            "source-data.json": {
+              "mode": "100644",
+              "object": "27f1f7c29dd766572531eb42bfa35114af83be76",
+              "base64": "WwogICIgIEFscGhhICAiLAogICJCZXRhICBHYW1tYSIsCiAgIlx0RGVsdGFcbiIKXQo="
+            }
+          }
+        },
+        "87123d519b49d4c8aed83f5d212421f6a88988e1": {
+          "first_stage": "barrier",
+          "start_ns": 316852533856400,
+          "end_ns": 316852908641000,
+          "object_base64": "MTAwNjQ0IC5naXRhdHRyaWJ1dGVzAPytss+XkT9YolI/U1M25yXGtZ0fMTAwNjQ0IGFjY2VwdGFuY2UudGVzdC5tanMAZwTfaKgQMk08i77T6wbRSuCvoYYxMDA2NDQgY2F0YWxvZ3VlLmpzb24AFHyrS+fZB+qHFjehSErJ9g0eDHoxMDA2NDQgY2F0YWxvZ3VlLm1hbmlmZXN0Lmpzb24A6CMlrRX1QWzrx+3nWRprkrwj6BMxMDA2NDQgZ2VuZXJhdGUtY2F0YWxvZ3VlLm1qcwBblZEvYOQJqkOUjyIh7T+ssVnIpzEwMDY0NCBsYWJlbHMubWpzAJKuNtP3YrnWglUm96/FZYKgK2GtMTAwNjQ0IHNvdXJjZS1kYXRhLmpzb24AJ/H3wp3XZlclMetCv6NRFK+DvnY=",
+          "files": {
+            ".gitattributes": {
+              "mode": "100644",
+              "object": "fcadb2cf97913f58a2523f535336e725c6b59d1f",
+              "base64": "KiB0ZXh0IGVvbD1sZgo="
+            },
+            "acceptance.test.mjs": {
+              "mode": "100644",
+              "object": "6704df68a810324d3c8bbed3eb06d14ae0afa186",
+              "base64": "aW1wb3J0IGFzc2VydCBmcm9tICdub2RlOmFzc2VydC9zdHJpY3QnOwppbXBvcnQgeyBjcmVhdGVIYXNoIH0gZnJvbSAnbm9kZTpjcnlwdG8nOwppbXBvcnQgeyByZWFkRmlsZSB9IGZyb20gJ25vZGU6ZnMvcHJvbWlzZXMnOwppbXBvcnQgdGVzdCBmcm9tICdub2RlOnRlc3QnOwppbXBvcnQgeyBub3JtYWxpemVMYWJlbCB9IGZyb20gJy4vbGFiZWxzLm1qcyc7Cgp0ZXN0KCdwcmVzZXJ2ZXMgbWVhbmluZ2Z1bCBpbnRlcmlvciBzcGFjZXMnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCdCZXRhICBHYW1tYScpLCAnQmV0YSAgR2FtbWEnKTsKfSk7CnRlc3QoJ3RyaW1zIG91dGVyIHdoaXRlc3BhY2UnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCcgIEFscGhhICAnKSwgJ0FscGhhJyk7Cn0pOwp0ZXN0KCdub3JtYWxpemVzIGFuIGFsbC13aGl0ZXNwYWNlIGxhYmVsJywgKCkgPT4gewogIGFzc2VydC5lcXVhbChub3JtYWxpemVMYWJlbCgnXHQgXG4nKSwgJycpOwp9KTsKdGVzdCgncHJlc2VydmVzIHRoZSBlbXB0eSBsYWJlbCcsICgpID0+IHsKICBhc3NlcnQuZXF1YWwobm9ybWFsaXplTGFiZWwoJycpLCAnJyk7Cn0pOwp0ZXN0KCdjYXRhbG9ndWUgaGFzIHRoZSBpbnRlbmRlZCBsYWJlbCB2YWx1ZXMnLCBhc3luYyAoKSA9PiB7CiAgYXNzZXJ0LmRlZXBFcXVhbChKU09OLnBhcnNlKGF3YWl0IHJlYWRGaWxlKCdjYXRhbG9ndWUuanNvbicsICd1dGY4JykpLCB7CiAgICBsYWJlbHM6IFsnQWxwaGEnLCAnQmV0YSAgR2FtbWEnLCAnRGVsdGEnXSwKICB9KTsKfSk7CnRlc3QoJ21hbmlmZXN0IGlkZW50aWZpZXMgdGhlIGFjdHVhbCBjYXRhbG9ndWUgYnl0ZXMnLCBhc3luYyAoKSA9PiB7CiAgY29uc3QgYnl0ZXMgPSBhd2FpdCByZWFkRmlsZSgnY2F0YWxvZ3VlLmpzb24nKTsKICBjb25zdCBtYW5pZmVzdCA9IEpTT04ucGFyc2UoYXdhaXQgcmVhZEZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgJ3V0ZjgnKSk7CiAgYXNzZXJ0LmRlZXBFcXVhbChtYW5pZmVzdCwgewogICAgYWxnb3JpdGhtOiAnc2hhMjU2JywgY2F0YWxvZ3VlU2hhMjU2OiBjcmVhdGVIYXNoKCdzaGEyNTYnKS51cGRhdGUoYnl0ZXMpLmRpZ2VzdCgnaGV4JyksCiAgfSk7Cn0pOwo="
+            },
+            "catalogue.json": {
+              "mode": "100644",
+              "object": "147cab4be7d907ea871637a1484ac9f60d1e0c7a",
+              "base64": "ewogICJsYWJlbHMiOiBbCiAgICAiICBBbHBoYSAgIiwKICAgICJCZXRhICBHYW1tYSIsCiAgICAiXHREZWx0YVxuIgogIF0KfQo="
+            },
+            "catalogue.manifest.json": {
+              "mode": "100644",
+              "object": "e82325ad15f5416cebc7ede7591a6b92bc23e813",
+              "base64": "ewogICJhbGdvcml0aG0iOiAic2hhMjU2IiwKICAiY2F0YWxvZ3VlU2hhMjU2IjogIjc4ZmFiMzk4OWY0NzdjOTAzMDExNjVkM2IwZDQ5OTlhY2UyOWRkNDcyZDA4NTEyNmZiNGVlZGU0ODhlMmI5NGYiCn0K"
+            },
+            "generate-catalogue.mjs": {
+              "mode": "100644",
+              "object": "5b95912f60e409aa43948f2221ed3facb159c8a7",
+              "base64": "Ly8gRGVsaWJlcmF0ZWx5IGV4cG9zZXMgdGhlIGludGVydmFsIGJldHdlZW4gdHdvIHJlbGF0ZWQgd3JpdGVzLiBJdCBuZXZlciByb2xscyBiYWNrLgppbXBvcnQgYXNzZXJ0IGZyb20gJ25vZGU6YXNzZXJ0L3N0cmljdCc7CmltcG9ydCB7IGNyZWF0ZUhhc2ggfSBmcm9tICdub2RlOmNyeXB0byc7CmltcG9ydCB7IGV4aXN0c1N5bmMgfSBmcm9tICdub2RlOmZzJzsKaW1wb3J0IHsgcmVhZEZpbGUsIHJlbmFtZSwgd3JpdGVGaWxlIH0gZnJvbSAnbm9kZTpmcy9wcm9taXNlcyc7CmltcG9ydCB7IGRpcm5hbWUsIGlzQWJzb2x1dGUsIGpvaW4sIHJlbGF0aXZlLCByZXNvbHZlIH0gZnJvbSAnbm9kZTpwYXRoJzsKaW1wb3J0IHsgc2V0VGltZW91dCBhcyBkZWxheSB9IGZyb20gJ25vZGU6dGltZXJzL3Byb21pc2VzJzsKaW1wb3J0IHsgZmlsZVVSTFRvUGF0aCB9IGZyb20gJ25vZGU6dXJsJzsKaW1wb3J0IHsgbm9ybWFsaXplTGFiZWwgfSBmcm9tICcuL2xhYmVscy5tanMnOwoKYXN5bmMgZnVuY3Rpb24gbWFpbigpIHsKICBjb25zdCB3b3Jrc3BhY2UgPSBkaXJuYW1lKGZpbGVVUkxUb1BhdGgoaW1wb3J0Lm1ldGEudXJsKSk7CiAgYXNzZXJ0LmVxdWFsKHJlc29sdmUocHJvY2Vzcy5jd2QoKSksIHdvcmtzcGFjZSwgJ1J1biBmcm9tIHRoZSBmaXh0dXJlIHdvcmtzcGFjZScpOwogIGNvbnN0IGNvbnRyb2wgPSBwcm9jZXNzLmVudi5MQUJfQ09OVFJPTF9ESVI7CiAgY29uc3Qgbm9uY2UgPSBwcm9jZXNzLmVudi5MQUJfUlVOX05PTkNFOwogIGFzc2VydC5vayhjb250cm9sICYmIGlzQWJzb2x1dGUoY29udHJvbCksICdBYnNvbHV0ZSBjb250cm9sIGRpcmVjdG9yeSByZXF1aXJlZCcpOwogIGFzc2VydC5tYXRjaChub25jZSA/PyAnJywgL15bYS1mMC05XXszMn0kLyk7CiAgY29uc3QgcmVsID0gcmVsYXRpdmUod29ya3NwYWNlLCByZXNvbHZlKGNvbnRyb2wpKTsKICBhc3NlcnQub2socmVsLnN0YXJ0c1dpdGgoJy4uJykgfHwgaXNBYnNvbHV0ZShyZWwpLCAnQ29udHJvbCBzdGF0ZSBtdXN0IGJlIG91dHNpZGUgdGhlIHdvcmtzcGFjZScpOwogIGNvbnN0IGxpZmV0aW1lID0gTnVtYmVyKHByb2Nlc3MuZW52LkxBQl9HRU5FUkFUT1JfVElNRU9VVF9NUyA/PyAxODAwMDApOwogIGFzc2VydC5vayhOdW1iZXIuaXNJbnRlZ2VyKGxpZmV0aW1lKSAmJiBsaWZldGltZSA+PSAxMDAgJiYgbGlmZXRpbWUgPD0gMzAwMDAwKTsKICBmb3IgKGNvbnN0IG5hbWUgb2YgWydyZWFkeS5qc29uJywgJ3JlbGVhc2UuanNvbicsICdzdG9wLmpzb24nXSkgewogICAgYXNzZXJ0LmVxdWFsKGV4aXN0c1N5bmMoam9pbihjb250cm9sLCBuYW1lKSksIGZhbHNlLCAnRnJlc2ggY29vcmRpbmF0aW9uIHN0YXRlIHJlcXVpcmVkJyk7CiAgfQogIGNvbnN0IGlucHV0ID0gSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZSgnc291cmNlLWRhdGEuanNvbicsICd1dGY4JykpOwogIGFzc2VydC5vayhBcnJheS5pc0FycmF5KGlucHV0KSAmJiBpbnB1dC5ldmVyeSh2YWx1ZSA9PiB0eXBlb2YgdmFsdWUgPT09ICdzdHJpbmcnKSk7CiAgY29uc3QgYnl0ZXMgPSBKU09OLnN0cmluZ2lmeSh7IGxhYmVsczogaW5wdXQubWFwKG5vcm1hbGl6ZUxhYmVsKSB9LCBudWxsLCAyKSArICdcbic7CiAgYXdhaXQgd3JpdGVGaWxlKCdjYXRhbG9ndWUuanNvbicsIGJ5dGVzLCAndXRmOCcpOwogIGNvbnN0IHJlYWR5ID0gSlNPTi5zdHJpbmdpZnkoeyBub25jZSwgcGlkOiBwcm9jZXNzLnBpZCwgc3RhZ2U6ICdjYXRhbG9ndWUtd3JpdHRlbicgfSkgKyAnXG4nOwogIGF3YWl0IHdyaXRlRmlsZShqb2luKGNvbnRyb2wsICdyZWFkeS50bXAnKSwgcmVhZHksIHsgZW5jb2Rpbmc6ICd1dGY4JywgZmxhZzogJ3d4JyB9KTsKICBhd2FpdCByZW5hbWUoam9pbihjb250cm9sLCAncmVhZHkudG1wJyksIGpvaW4oY29udHJvbCwgJ3JlYWR5Lmpzb24nKSk7CiAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ0NBVEFMT0dVRV9XUklUVEVOXG4nKTsKICBjb25zdCBkZWFkbGluZSA9IHBlcmZvcm1hbmNlLm5vdygpICsgbGlmZXRpbWU7CiAgYXN5bmMgZnVuY3Rpb24gbWFya2VkKG5hbWUpIHsKICAgIGNvbnN0IHBhdGggPSBqb2luKGNvbnRyb2wsIG5hbWUpOwogICAgaWYgKCFleGlzdHNTeW5jKHBhdGgpKSByZXR1cm4gZmFsc2U7CiAgICBhc3NlcnQuZXF1YWwoSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZShwYXRoLCAndXRmOCcpKS5ub25jZSwgbm9uY2UpOwogICAgcmV0dXJuIHRydWU7CiAgfQogIHdoaWxlIChwZXJmb3JtYW5jZS5ub3coKSA8IGRlYWRsaW5lKSB7CiAgICBpZiAoYXdhaXQgbWFya2VkKCdzdG9wLmpzb24nKSkgewogICAgICBwcm9jZXNzLmV4aXRDb2RlID0gNzU7IC8vIEV4cGxpY2l0IGhhcm5lc3MgY2xlYW51cCwgbm90IHJ1bnRpbWUgY2FuY2VsbGF0aW9uLgogICAgICByZXR1cm47CiAgICB9CiAgICBpZiAoYXdhaXQgbWFya2VkKCdyZWxlYXNlLmpzb24nKSkgewogICAgICBjb25zdCBtYW5pZmVzdCA9IHsKICAgICAgICBhbGdvcml0aG06ICdzaGEyNTYnLAogICAgICAgIGNhdGFsb2d1ZVNoYTI1NjogY3JlYXRlSGFzaCgnc2hhMjU2JykudXBkYXRlKGJ5dGVzKS5kaWdlc3QoJ2hleCcpLAogICAgICB9OwogICAgICBhd2FpdCB3cml0ZUZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgSlNPTi5zdHJpbmdpZnkobWFuaWZlc3QsIG51bGwsIDIpICsgJ1xuJywgJ3V0ZjgnKTsKICAgICAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ01BTklGRVNUX1dSSVRURU5cbicpOwogICAgICByZXR1cm47CiAgICB9CiAgICBhd2FpdCBkZWxheSg0MCk7CiAgfQogIHByb2Nlc3MuZXhpdENvZGUgPSA3NjsgLy8gRml4dHVyZSBmYWlsLXNhZmU7IG5vIG1hbmlmZXN0IHdyaXRlIG9yIHJvbGxiYWNrLgp9Cgphd2FpdCBtYWluKCk7Cg=="
+            },
+            "labels.mjs": {
+              "mode": "100644",
+              "object": "92ae36d3f762b9d6825526f7afc56582a02b61ad",
+              "base64": "ZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZUxhYmVsKGxhYmVsKSB7CiAgcmV0dXJuIGxhYmVsOwp9Cg=="
+            },
+            "source-data.json": {
+              "mode": "100644",
+              "object": "27f1f7c29dd766572531eb42bfa35114af83be76",
+              "base64": "WwogICIgIEFscGhhICAiLAogICJCZXRhICBHYW1tYSIsCiAgIlx0RGVsdGFcbiIKXQo="
+            }
+          }
+        },
+        "1c585b13f65009678db8696a5dd294131ba302e0": {
+          "first_stage": "reverted",
+          "start_ns": 316856321541200,
+          "end_ns": 316856708296800,
+          "object_base64": "MTAwNjQ0IC5naXRhdHRyaWJ1dGVzAPytss+XkT9YolI/U1M25yXGtZ0fMTAwNjQ0IGFjY2VwdGFuY2UudGVzdC5tanMAZwTfaKgQMk08i77T6wbRSuCvoYYxMDA2NDQgY2F0YWxvZ3VlLmpzb24ANhHmnvm8QjuuJLFpx9PMYtWUHlQxMDA2NDQgY2F0YWxvZ3VlLm1hbmlmZXN0Lmpzb24A6CMlrRX1QWzrx+3nWRprkrwj6BMxMDA2NDQgZ2VuZXJhdGUtY2F0YWxvZ3VlLm1qcwBblZEvYOQJqkOUjyIh7T+ssVnIpzEwMDY0NCBsYWJlbHMubWpzAN6qFF/TV0Pds1olUiHEV/wkXOE7MTAwNjQ0IHNvdXJjZS1kYXRhLmpzb24AJ/H3wp3XZlclMetCv6NRFK+DvnY=",
+          "files": {
+            ".gitattributes": {
+              "mode": "100644",
+              "object": "fcadb2cf97913f58a2523f535336e725c6b59d1f",
+              "base64": "KiB0ZXh0IGVvbD1sZgo="
+            },
+            "acceptance.test.mjs": {
+              "mode": "100644",
+              "object": "6704df68a810324d3c8bbed3eb06d14ae0afa186",
+              "base64": "aW1wb3J0IGFzc2VydCBmcm9tICdub2RlOmFzc2VydC9zdHJpY3QnOwppbXBvcnQgeyBjcmVhdGVIYXNoIH0gZnJvbSAnbm9kZTpjcnlwdG8nOwppbXBvcnQgeyByZWFkRmlsZSB9IGZyb20gJ25vZGU6ZnMvcHJvbWlzZXMnOwppbXBvcnQgdGVzdCBmcm9tICdub2RlOnRlc3QnOwppbXBvcnQgeyBub3JtYWxpemVMYWJlbCB9IGZyb20gJy4vbGFiZWxzLm1qcyc7Cgp0ZXN0KCdwcmVzZXJ2ZXMgbWVhbmluZ2Z1bCBpbnRlcmlvciBzcGFjZXMnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCdCZXRhICBHYW1tYScpLCAnQmV0YSAgR2FtbWEnKTsKfSk7CnRlc3QoJ3RyaW1zIG91dGVyIHdoaXRlc3BhY2UnLCAoKSA9PiB7CiAgYXNzZXJ0LmVxdWFsKG5vcm1hbGl6ZUxhYmVsKCcgIEFscGhhICAnKSwgJ0FscGhhJyk7Cn0pOwp0ZXN0KCdub3JtYWxpemVzIGFuIGFsbC13aGl0ZXNwYWNlIGxhYmVsJywgKCkgPT4gewogIGFzc2VydC5lcXVhbChub3JtYWxpemVMYWJlbCgnXHQgXG4nKSwgJycpOwp9KTsKdGVzdCgncHJlc2VydmVzIHRoZSBlbXB0eSBsYWJlbCcsICgpID0+IHsKICBhc3NlcnQuZXF1YWwobm9ybWFsaXplTGFiZWwoJycpLCAnJyk7Cn0pOwp0ZXN0KCdjYXRhbG9ndWUgaGFzIHRoZSBpbnRlbmRlZCBsYWJlbCB2YWx1ZXMnLCBhc3luYyAoKSA9PiB7CiAgYXNzZXJ0LmRlZXBFcXVhbChKU09OLnBhcnNlKGF3YWl0IHJlYWRGaWxlKCdjYXRhbG9ndWUuanNvbicsICd1dGY4JykpLCB7CiAgICBsYWJlbHM6IFsnQWxwaGEnLCAnQmV0YSAgR2FtbWEnLCAnRGVsdGEnXSwKICB9KTsKfSk7CnRlc3QoJ21hbmlmZXN0IGlkZW50aWZpZXMgdGhlIGFjdHVhbCBjYXRhbG9ndWUgYnl0ZXMnLCBhc3luYyAoKSA9PiB7CiAgY29uc3QgYnl0ZXMgPSBhd2FpdCByZWFkRmlsZSgnY2F0YWxvZ3VlLmpzb24nKTsKICBjb25zdCBtYW5pZmVzdCA9IEpTT04ucGFyc2UoYXdhaXQgcmVhZEZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgJ3V0ZjgnKSk7CiAgYXNzZXJ0LmRlZXBFcXVhbChtYW5pZmVzdCwgewogICAgYWxnb3JpdGhtOiAnc2hhMjU2JywgY2F0YWxvZ3VlU2hhMjU2OiBjcmVhdGVIYXNoKCdzaGEyNTYnKS51cGRhdGUoYnl0ZXMpLmRpZ2VzdCgnaGV4JyksCiAgfSk7Cn0pOwo="
+            },
+            "catalogue.json": {
+              "mode": "100644",
+              "object": "3611e69ef9bc423bae24b169c7d3cc62d5941e54",
+              "base64": "ewogICJsYWJlbHMiOiBbCiAgICAiQWxwaGEiLAogICAgIkJldGEgIEdhbW1hIiwKICAgICJEZWx0YSIKICBdCn0K"
+            },
+            "catalogue.manifest.json": {
+              "mode": "100644",
+              "object": "e82325ad15f5416cebc7ede7591a6b92bc23e813",
+              "base64": "ewogICJhbGdvcml0aG0iOiAic2hhMjU2IiwKICAiY2F0YWxvZ3VlU2hhMjU2IjogIjc4ZmFiMzk4OWY0NzdjOTAzMDExNjVkM2IwZDQ5OTlhY2UyOWRkNDcyZDA4NTEyNmZiNGVlZGU0ODhlMmI5NGYiCn0K"
+            },
+            "generate-catalogue.mjs": {
+              "mode": "100644",
+              "object": "5b95912f60e409aa43948f2221ed3facb159c8a7",
+              "base64": "Ly8gRGVsaWJlcmF0ZWx5IGV4cG9zZXMgdGhlIGludGVydmFsIGJldHdlZW4gdHdvIHJlbGF0ZWQgd3JpdGVzLiBJdCBuZXZlciByb2xscyBiYWNrLgppbXBvcnQgYXNzZXJ0IGZyb20gJ25vZGU6YXNzZXJ0L3N0cmljdCc7CmltcG9ydCB7IGNyZWF0ZUhhc2ggfSBmcm9tICdub2RlOmNyeXB0byc7CmltcG9ydCB7IGV4aXN0c1N5bmMgfSBmcm9tICdub2RlOmZzJzsKaW1wb3J0IHsgcmVhZEZpbGUsIHJlbmFtZSwgd3JpdGVGaWxlIH0gZnJvbSAnbm9kZTpmcy9wcm9taXNlcyc7CmltcG9ydCB7IGRpcm5hbWUsIGlzQWJzb2x1dGUsIGpvaW4sIHJlbGF0aXZlLCByZXNvbHZlIH0gZnJvbSAnbm9kZTpwYXRoJzsKaW1wb3J0IHsgc2V0VGltZW91dCBhcyBkZWxheSB9IGZyb20gJ25vZGU6dGltZXJzL3Byb21pc2VzJzsKaW1wb3J0IHsgZmlsZVVSTFRvUGF0aCB9IGZyb20gJ25vZGU6dXJsJzsKaW1wb3J0IHsgbm9ybWFsaXplTGFiZWwgfSBmcm9tICcuL2xhYmVscy5tanMnOwoKYXN5bmMgZnVuY3Rpb24gbWFpbigpIHsKICBjb25zdCB3b3Jrc3BhY2UgPSBkaXJuYW1lKGZpbGVVUkxUb1BhdGgoaW1wb3J0Lm1ldGEudXJsKSk7CiAgYXNzZXJ0LmVxdWFsKHJlc29sdmUocHJvY2Vzcy5jd2QoKSksIHdvcmtzcGFjZSwgJ1J1biBmcm9tIHRoZSBmaXh0dXJlIHdvcmtzcGFjZScpOwogIGNvbnN0IGNvbnRyb2wgPSBwcm9jZXNzLmVudi5MQUJfQ09OVFJPTF9ESVI7CiAgY29uc3Qgbm9uY2UgPSBwcm9jZXNzLmVudi5MQUJfUlVOX05PTkNFOwogIGFzc2VydC5vayhjb250cm9sICYmIGlzQWJzb2x1dGUoY29udHJvbCksICdBYnNvbHV0ZSBjb250cm9sIGRpcmVjdG9yeSByZXF1aXJlZCcpOwogIGFzc2VydC5tYXRjaChub25jZSA/PyAnJywgL15bYS1mMC05XXszMn0kLyk7CiAgY29uc3QgcmVsID0gcmVsYXRpdmUod29ya3NwYWNlLCByZXNvbHZlKGNvbnRyb2wpKTsKICBhc3NlcnQub2socmVsLnN0YXJ0c1dpdGgoJy4uJykgfHwgaXNBYnNvbHV0ZShyZWwpLCAnQ29udHJvbCBzdGF0ZSBtdXN0IGJlIG91dHNpZGUgdGhlIHdvcmtzcGFjZScpOwogIGNvbnN0IGxpZmV0aW1lID0gTnVtYmVyKHByb2Nlc3MuZW52LkxBQl9HRU5FUkFUT1JfVElNRU9VVF9NUyA/PyAxODAwMDApOwogIGFzc2VydC5vayhOdW1iZXIuaXNJbnRlZ2VyKGxpZmV0aW1lKSAmJiBsaWZldGltZSA+PSAxMDAgJiYgbGlmZXRpbWUgPD0gMzAwMDAwKTsKICBmb3IgKGNvbnN0IG5hbWUgb2YgWydyZWFkeS5qc29uJywgJ3JlbGVhc2UuanNvbicsICdzdG9wLmpzb24nXSkgewogICAgYXNzZXJ0LmVxdWFsKGV4aXN0c1N5bmMoam9pbihjb250cm9sLCBuYW1lKSksIGZhbHNlLCAnRnJlc2ggY29vcmRpbmF0aW9uIHN0YXRlIHJlcXVpcmVkJyk7CiAgfQogIGNvbnN0IGlucHV0ID0gSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZSgnc291cmNlLWRhdGEuanNvbicsICd1dGY4JykpOwogIGFzc2VydC5vayhBcnJheS5pc0FycmF5KGlucHV0KSAmJiBpbnB1dC5ldmVyeSh2YWx1ZSA9PiB0eXBlb2YgdmFsdWUgPT09ICdzdHJpbmcnKSk7CiAgY29uc3QgYnl0ZXMgPSBKU09OLnN0cmluZ2lmeSh7IGxhYmVsczogaW5wdXQubWFwKG5vcm1hbGl6ZUxhYmVsKSB9LCBudWxsLCAyKSArICdcbic7CiAgYXdhaXQgd3JpdGVGaWxlKCdjYXRhbG9ndWUuanNvbicsIGJ5dGVzLCAndXRmOCcpOwogIGNvbnN0IHJlYWR5ID0gSlNPTi5zdHJpbmdpZnkoeyBub25jZSwgcGlkOiBwcm9jZXNzLnBpZCwgc3RhZ2U6ICdjYXRhbG9ndWUtd3JpdHRlbicgfSkgKyAnXG4nOwogIGF3YWl0IHdyaXRlRmlsZShqb2luKGNvbnRyb2wsICdyZWFkeS50bXAnKSwgcmVhZHksIHsgZW5jb2Rpbmc6ICd1dGY4JywgZmxhZzogJ3d4JyB9KTsKICBhd2FpdCByZW5hbWUoam9pbihjb250cm9sLCAncmVhZHkudG1wJyksIGpvaW4oY29udHJvbCwgJ3JlYWR5Lmpzb24nKSk7CiAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ0NBVEFMT0dVRV9XUklUVEVOXG4nKTsKICBjb25zdCBkZWFkbGluZSA9IHBlcmZvcm1hbmNlLm5vdygpICsgbGlmZXRpbWU7CiAgYXN5bmMgZnVuY3Rpb24gbWFya2VkKG5hbWUpIHsKICAgIGNvbnN0IHBhdGggPSBqb2luKGNvbnRyb2wsIG5hbWUpOwogICAgaWYgKCFleGlzdHNTeW5jKHBhdGgpKSByZXR1cm4gZmFsc2U7CiAgICBhc3NlcnQuZXF1YWwoSlNPTi5wYXJzZShhd2FpdCByZWFkRmlsZShwYXRoLCAndXRmOCcpKS5ub25jZSwgbm9uY2UpOwogICAgcmV0dXJuIHRydWU7CiAgfQogIHdoaWxlIChwZXJmb3JtYW5jZS5ub3coKSA8IGRlYWRsaW5lKSB7CiAgICBpZiAoYXdhaXQgbWFya2VkKCdzdG9wLmpzb24nKSkgewogICAgICBwcm9jZXNzLmV4aXRDb2RlID0gNzU7IC8vIEV4cGxpY2l0IGhhcm5lc3MgY2xlYW51cCwgbm90IHJ1bnRpbWUgY2FuY2VsbGF0aW9uLgogICAgICByZXR1cm47CiAgICB9CiAgICBpZiAoYXdhaXQgbWFya2VkKCdyZWxlYXNlLmpzb24nKSkgewogICAgICBjb25zdCBtYW5pZmVzdCA9IHsKICAgICAgICBhbGdvcml0aG06ICdzaGEyNTYnLAogICAgICAgIGNhdGFsb2d1ZVNoYTI1NjogY3JlYXRlSGFzaCgnc2hhMjU2JykudXBkYXRlKGJ5dGVzKS5kaWdlc3QoJ2hleCcpLAogICAgICB9OwogICAgICBhd2FpdCB3cml0ZUZpbGUoJ2NhdGFsb2d1ZS5tYW5pZmVzdC5qc29uJywgSlNPTi5zdHJpbmdpZnkobWFuaWZlc3QsIG51bGwsIDIpICsgJ1xuJywgJ3V0ZjgnKTsKICAgICAgcHJvY2Vzcy5zdGRvdXQud3JpdGUoJ01BTklGRVNUX1dSSVRURU5cbicpOwogICAgICByZXR1cm47CiAgICB9CiAgICBhd2FpdCBkZWxheSg0MCk7CiAgfQogIHByb2Nlc3MuZXhpdENvZGUgPSA3NjsgLy8gRml4dHVyZSBmYWlsLXNhZmU7IG5vIG1hbmlmZXN0IHdyaXRlIG9yIHJvbGxiYWNrLgp9Cgphd2FpdCBtYWluKCk7Cg=="
+            },
+            "labels.mjs": {
+              "mode": "100644",
+              "object": "deaa145fd35743ddb35a255221c457fc245ce13b",
+              "base64": "ZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZUxhYmVsKGxhYmVsKSB7CiAgcmV0dXJuIGxhYmVsLnRyaW0oKTsKfQo="
+            },
+            "source-data.json": {
+              "mode": "100644",
+              "object": "27f1f7c29dd766572531eb42bfa35114af83be76",
+              "base64": "WwogICIgIEFscGhhICAiLAogICJCZXRhICBHYW1tYSIsCiAgIlx0RGVsdGFcbiIKXQo="
+            }
+          }
+        }
+      }
+    }
+  ]
+}

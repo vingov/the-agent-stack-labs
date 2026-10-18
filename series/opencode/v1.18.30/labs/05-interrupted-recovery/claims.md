@@ -1,0 +1,17 @@
+# Claim-to-evidence map
+
+| Claim | Evidence class | Inspect | Limit |
+| --- | --- | --- | --- |
+| The same partial file state precedes three interventions | OBSERVED_WITH_SCRIPTED_PROVIDER | `states.barrier.files`, named tests, six prescribed tool inputs | Deliberately widened fixture window |
+| Old catalogue bytes existed before interruption | OBSERVED_WITH_SCRIPTED_PROVIDER | `pre_intervention_saved_catalogue_refs`; captured tree/blob bytes and observation intervals | Saved content alone does not select a restore path |
+| Graceful abort returned before this generator had exited | OBSERVED_WITH_SCRIPTED_PROVIDER | `intervention_interval`, immediate retained-handle query, later exit query | One observed ordering, not a timing guarantee |
+| Active server termination left the generator alive through primary observation | OBSERVED_WITH_SCRIPTED_PROVIDER | Immediate and last monitored generator observations; separate before/after cleanup | Harness subsequently stops it; no indefinite-survival claim |
+| Restart can retain a running part without a live status entry | OBSERVED_WITH_SCRIPTED_PROVIDER | Forced `states.restarted.tools` and `session_status_entry`; separate process cleanup evidence | A stored part is not a current process probe |
+| First revert restored baseline in normal/graceful cases but not forced case | OBSERVED_WITH_SCRIPTED_PROVIDER | `selected_earliest_refs`, actual tree blobs, `states.reverted.files` | Sole original user-message boundary in this closed fixture |
+| Equal test totals can conceal different recovered states | DETERMINISTIC_TEST + OBSERVED_WITH_SCRIPTED_PROVIDER | Compare each named test in initial vs forced reverted states | No claim that test totals are never useful |
+| Unrevert restored actual pre-undo files, including incomplete work | OBSERVED_WITH_SCRIPTED_PROVIDER | `preundo_snapshot`, restarted and unreverted file hashes | No generator replay or model continuation |
+| Cleanup records remaining patch paths before bounded tool settlement | SOURCE_INSPECTED | [Processor cleanup](https://github.com/anomalyco/opencode/blob/3104c1428ec91f809e5ab86631300de41eb6952e/packages/opencode/src/session/processor.ts#L553-L710) | The source permits multiple terminal result shapes |
+| Revert uses selected patch paths and earliest reference per path | SOURCE_INSPECTED | [Session revert](https://github.com/anomalyco/opencode/blob/3104c1428ec91f809e5ab86631300de41eb6952e/packages/opencode/src/session/revert.ts#L13-L136), [snapshot operations](https://github.com/anomalyco/opencode/blob/3104c1428ec91f809e5ab86631300de41eb6952e/packages/opencode/src/snapshot/index.ts#L318-L545) | Not whole-system rollback or write attribution |
+| Session part persistence is separate from filesystem mutation | SOURCE_INSPECTED | [Durable event commit](https://github.com/anomalyco/opencode/blob/3104c1428ec91f809e5ab86631300de41eb6952e/packages/core/src/event.ts#L230-L415), [projector](https://github.com/anomalyco/opencode/blob/3104c1428ec91f809e5ab86631300de41eb6952e/packages/core/src/session/projector.ts#L210-L330) | No power-loss durability claim |
+
+`check_receipt.py` checks the sanitized reference's internal consistency. `verify_run.py` additionally checks raw operation requests/responses, process identities, code provenance, provider choices, actual object reads, named TAP output, profile continuity, and capture ordering. Neither authenticates a historical run independently. Fresh execution is a separate command.
