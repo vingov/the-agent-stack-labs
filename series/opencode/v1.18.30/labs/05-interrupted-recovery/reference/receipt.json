@@ -1105,19 +1105,19 @@
         "identities": {
           "server": {
             "pid": 25944,
-            "creation_time_100ns": 134368177466610720,
+            "creation_time_100ns": 134368177466610714,
             "image_sha256": "c1bdbb18767048e1853af4238311b3f7e16ff2f91b68fb4c7ced3c5175347eea",
             "image_basename": "opencode.exe"
           },
           "shell": {
             "pid": 11692,
-            "creation_time_100ns": 134368177532708050,
+            "creation_time_100ns": 134368177532708052,
             "image_sha256": "bfb46af89433268872ddb43d1ca7a3f433452ee91ed356a9786940f90118e285",
             "image_basename": "pwsh.exe"
           },
           "generator": {
             "pid": 28288,
-            "creation_time_100ns": 134368177534455780,
+            "creation_time_100ns": 134368177534455775,
             "image_sha256": "d14ba95cdce1ef7dc9ad3ac74949ca5db38b27378ee30f30a23cf26f9e875a11",
             "image_basename": "node.exe"
           }
@@ -2346,19 +2346,19 @@
         "identities": {
           "server": {
             "pid": 12720,
-            "creation_time_100ns": 134368177622698750,
+            "creation_time_100ns": 134368177622698756,
             "image_sha256": "c1bdbb18767048e1853af4238311b3f7e16ff2f91b68fb4c7ced3c5175347eea",
             "image_basename": "opencode.exe"
           },
           "shell": {
             "pid": 3568,
-            "creation_time_100ns": 134368177688691310,
+            "creation_time_100ns": 134368177688691318,
             "image_sha256": "bfb46af89433268872ddb43d1ca7a3f433452ee91ed356a9786940f90118e285",
             "image_basename": "pwsh.exe"
           },
           "generator": {
             "pid": 19760,
-            "creation_time_100ns": 134368177690430030,
+            "creation_time_100ns": 134368177690430026,
             "image_sha256": "d14ba95cdce1ef7dc9ad3ac74949ca5db38b27378ee30f30a23cf26f9e875a11",
             "image_basename": "node.exe"
           }
@@ -3314,19 +3314,19 @@
         "identities": {
           "server": {
             "pid": 39280,
-            "creation_time_100ns": 134368177781362140,
+            "creation_time_100ns": 134368177781362136,
             "image_sha256": "c1bdbb18767048e1853af4238311b3f7e16ff2f91b68fb4c7ced3c5175347eea",
             "image_basename": "opencode.exe"
           },
           "shell": {
             "pid": 36892,
-            "creation_time_100ns": 134368177846893200,
+            "creation_time_100ns": 134368177846893202,
             "image_sha256": "bfb46af89433268872ddb43d1ca7a3f433452ee91ed356a9786940f90118e285",
             "image_basename": "pwsh.exe"
           },
           "generator": {
             "pid": 29976,
-            "creation_time_100ns": 134368177848621180,
+            "creation_time_100ns": 134368177848621181,
             "image_sha256": "d14ba95cdce1ef7dc9ad3ac74949ca5db38b27378ee30f30a23cf26f9e875a11",
             "image_basename": "node.exe"
           }
