@@ -18,6 +18,8 @@ The normal and graceful cases record the catalogue in a patch; their first messa
 
 Learn to distinguish process lifetime from stored tool status, saved content from selected restore paths, and restoration from task acceptance. The [claim matrix](claims.md) connects each claim to the evidence and its limits. The [reference notes](reference/README.md) explain the exact capture and named tests. The [earlier completed-edit recovery lab](../05-snapshots-recovery/README.md) is retained as a different experiment.
 
+The [article figures](assets/README.md) show the two inputs to recovery and the observed forced-stop sequence, with editable Mermaid, PNG, and SVG copies.
+
 ## Check the supplied evidence
 
 Requires Python 3.12+; fixture/harness tests also require Node.js 24 on PATH. From the repository root:

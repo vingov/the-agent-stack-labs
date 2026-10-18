@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "rendered_on": "2026-10-18",
+  "renderer": "Mermaid Live Editor v12.2.0, native Copy Image PNG export",
+  "svg": "Observed SVG with editor pan/zoom removed and white padding; no diagram content changes",
+  "semantic_source": "OC5R-D3",
+  "layout": "Desktop 800px and phone frame 390px (375px content viewport); figures displayed at 339px phone width. No horizontal overflow; labels and directed edges visually inspected. Local editorial preview, not Substack.",
+  "files": [
+    {
+      "file": "recovery-scope.mmd",
+      "bytes": 843,
+      "sha256": "bc86a304e9671e801b516498339e2ab28a788262242ea4b075f3fb131fe4103e"
+    },
+    {
+      "file": "recovery-scope.png",
+      "bytes": 163430,
+      "sha256": "b9a43eab82b7393bfbf1364147f439e0a0cb1b336491255335cce63aa5113279",
+      "width": 949,
+      "height": 1562
+    },
+    {
+      "file": "recovery-scope.svg",
+      "bytes": 17902,
+      "sha256": "67aa215d363d63ac24ab305f964d4ae1fc2587b31103786c4f4265de49b548aa"
+    },
+    {
+      "file": "forced-stop-sequence.mmd",
+      "bytes": 771,
+      "sha256": "138cdbb83bcea38a23ff14925cdff61fa57dd7cad99013b90203e0a998476dc5"
+    },
+    {
+      "file": "forced-stop-sequence.png",
+      "bytes": 149135,
+      "sha256": "048c7683b573be00d5a6c0e331592103f3aa2839c17ec28529e4d4e690bda4c0",
+      "width": 768,
+      "height": 1578
+    },
+    {
+      "file": "forced-stop-sequence.svg",
+      "bytes": 15240,
+      "sha256": "f5514e6cba3a3a58f0b4c83658dcebb32084e88b62fdc8134ced8085178b95ce"
+    }
+  ]
+}
