@@ -17,6 +17,10 @@ def run(root, implementation=None):
         changes.append((label, {name: json.dumps(value).encode()}))
 
     mutate('wrong session', 'graceful/identity.json', lambda v: v.update(session='ses_wrong'))
+    mutate('empty implementation inventory', 'run.json', lambda v: v.update(files={}))
+    mutate('missing collector inventory', 'run.json', lambda v: v['files'].pop('scripts/run_lab.py'))
+    mutate('missing fixture inventory', 'run.json', lambda v: v['files'].pop('fixtures/labels.mjs'))
+    mutate('manifest entry absent from archive', 'run.json', lambda v: v['files'].update({'scripts/unrecorded.py': '0' * 64}))
     mutate('wrong API directory', 'graceful/abort.request.json', lambda v: v.update(workspace='C:\\unrelated'))
     mutate('wrong recovery boundary', 'graceful/first-revert.request.json', lambda v: v['payload'].update(messageID='msg_wrong'))
     mutate('failed process query', 'graceful/immediate-post-intervention.processes.json',
@@ -24,6 +28,14 @@ def run(root, implementation=None):
     mutate('process identity reuse', 'graceful/immediate-post-intervention.processes.json',
            lambda v: v['processes']['generator'].update(creation_time_100ns=1))
     mutate('missing process', 'graceful/immediate-post-intervention.processes.json', lambda v: v['processes'].pop('generator'))
+    def false_exit(v):
+        item = v['processes']['generator']
+        item.update(alive=False, exit_code=1, wait_result=0, exit_time_100ns=item['creation_time_100ns'] + 1)
+    mutate('exit before later live sample', 'graceful/immediate-post-intervention.processes.json', false_exit)
+    mutate('live query after monitor exit', 'graceful/primary-before-cleanup.processes.json',
+           lambda v: v['processes']['generator'].update(alive=True, wait_result=258, exit_code=None, exit_time_100ns=None))
+    mutate('cleanup exit lacks result', 'graceful/primary-after-cleanup.processes.json',
+           lambda v: v['processes']['generator'].update(exit_code=None))
     mutate('changed test bytes', 'graceful/barrier-before-test.files.json',
            lambda v: v['files']['acceptance.test.mjs'].update(base64=base64.b64encode(b'// no tests').decode()))
     mutate('changed helper bytes', 'graceful/barrier-before-test.files.json',

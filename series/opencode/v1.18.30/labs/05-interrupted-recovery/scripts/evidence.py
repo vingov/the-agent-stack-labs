@@ -17,6 +17,37 @@ def require(condition, message):
         raise EvidenceError(message)
 
 
+def implementation_inventory(files):
+    # These five modules and seven fixtures existed in every admitted collector.
+    # Verification and test modules were added later and are not required of pilots.
+    essential = {'scripts/' + name + '.py' for name in
+                 ('capture', 'contract', 'provider', 'run_lab', 'winprocess')}
+    essential.update('fixtures/' + name for name in FILES)
+    require(isinstance(files, dict) and essential <= set(files), 'Missing essential collector/fixture provenance')
+    for name, digest in files.items():
+        require(isinstance(name, str) and re.fullmatch(r'(scripts|fixtures)/[^/\\:]+', name)
+                and name.rsplit('/', 1)[1] not in ('.', '..'), 'Unsafe implementation manifest path')
+        require(isinstance(digest, str) and re.fullmatch(r'[0-9a-f]{64}', digest), 'Invalid implementation digest')
+
+
+def process_history(observations):
+    """Check one retained identity; overlapping queries do not establish an order."""
+    ended = []
+    for item in observations:
+        require(type(item['start_ns']) is int and type(item['end_ns']) is int
+                and 0 <= item['start_ns'] <= item['end_ns'], 'Invalid process query interval')
+        require(type(item['alive']) is bool and
+                (item['exit_code'] is None if item['alive'] else type(item['exit_code']) is int),
+                'Contradictory process result')
+        if not item['alive']:
+            ended.append(item)
+    if ended:
+        first_end = min(item['end_ns'] for item in ended)
+        require(len({item['exit_code'] for item in ended}) == 1, 'Retained process exit result changed')
+        require(all(not item['alive'] or item['start_ns'] < first_end for item in observations),
+                'Exited retained process was later observed alive')
+
+
 def b64(value):
     try:
         return base64.b64decode(value, validate=True)
@@ -400,16 +431,33 @@ class Case:
         require(primary_end <= before_cleanup['start_ns'] <= after_cleanup['start_ns']
                 and all(not after_cleanup['processes'][role]['alive'] for role in ('shell', 'generator')),
                 'Children not confirmed absent before restart')
+        require(before_cleanup['end_ns'] <= after_cleanup['start_ns'], 'Cleanup observation groups overlap')
         require(after_cleanup['end_ns'] <= self.event('restart_begin')['time_ns'], 'Cleanup completed after restart began')
+        require(primary_end <= samples[-1]['generator']['end_ns'] <= before_cleanup['start_ns'],
+                'Process monitor does not cover primary through the cleanup boundary')
+        for role in self.identities:
+            observations = [self.identities[role], immediate['processes'][role],
+                            before_cleanup['processes'][role], after_cleanup['processes'][role]]
+            observations.extend(sample[role] for sample in samples)
+            if role == 'generator':
+                observations.append(admission['process'])
+            if role == 'server' and self.name == 'forced':
+                observations.extend((termination['before'], termination['after']))
+            process_history(observations)
+            require(len({item['exit_time_100ns'] for item in observations if not item['alive']}) <= 1,
+                    'Retained process exit time changed')
         process_summary = {'immediate': {role: {'alive': p['alive'], 'exit_code': p['exit_code'],
             'query_interval': [p['start_ns'], p['end_ns']]} for role, p in immediate['processes'].items()},
             'generator_exit_observed_before_harness_cleanup': bool(first_exit and first_exit['end_ns'] < cleanup_start),
             'first_generator_exit_query_interval': None if first_exit is None else [first_exit['start_ns'], first_exit['end_ns']],
             'cleanup_start_ns': cleanup_start, 'sample_count': len(samples),
+            'monitor_interval': [samples[0]['generator']['start_ns'], samples[-1]['generator']['end_ns']],
             'last_monitored_generator': {key: samples[-1]['generator'][key] for key in ('start_ns', 'end_ns', 'alive', 'exit_code')},
-            'before_cleanup': {role: {'alive': p['alive'], 'exit_code': p['exit_code']}
+            'before_cleanup': {role: {'alive': p['alive'], 'exit_code': p['exit_code'],
+                                     'query_interval': [p['start_ns'], p['end_ns']]}
                                for role, p in before_cleanup['processes'].items()},
-            'after_cleanup': {role: {'alive': p['alive'], 'exit_code': p['exit_code']}
+            'after_cleanup': {role: {'alive': p['alive'], 'exit_code': p['exit_code'],
+                                    'query_interval': [p['start_ns'], p['end_ns']]}
                               for role, p in after_cleanup['processes'].items()},
             'identities': {role: {key: p[key] for key in ('pid', 'creation_time_100ns', 'image_sha256')}
                            | {'image_basename': PureWindowsPath(p['image']).name} for role, p in self.identities.items()}}
@@ -480,8 +528,11 @@ def verify(root, implementation=None, overrides=None):
     require(metadata['source_commit'] == PIN and metadata['binary_sha256'] == BINARY_SHA256, 'Run pin mismatch')
     require(metadata['cases'] in (['normal', 'graceful'], ['normal', 'graceful', 'forced']), 'Unexpected case inventory')
     source = Path(implementation) if implementation else Path(root) / 'implementation'
+    implementation_inventory(metadata['files'])
+    archived = {path.relative_to(source).as_posix() for folder in ('scripts', 'fixtures')
+                for path in (source / folder).rglob('*') if path.is_file() and '__pycache__' not in path.parts}
+    require(set(metadata['files']) == archived, 'Implementation manifest membership differs from archive')
     for name, digest in metadata['files'].items():
-        require(name.startswith(('scripts/', 'fixtures/')) and '..' not in Path(name).parts, 'Unsafe implementation manifest path')
         require(sha((source / name).read_bytes()) == digest, 'Executed implementation identity mismatch: ' + name)
     for name in FILES:
         require((source / 'fixtures' / name).read_bytes() == fixture(name), 'Verifier fixture differs from executed fixture')

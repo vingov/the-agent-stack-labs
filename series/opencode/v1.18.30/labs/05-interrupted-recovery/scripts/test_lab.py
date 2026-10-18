@@ -51,6 +51,23 @@ class ReceiptTests(unittest.TestCase):
             'wrong process binary': lambda r: r['cases'][1]['process']['identities']['server'].update(image_sha256='0'*64),
             'unconfirmed child cleanup': lambda r: r['cases'][2]['process']['after_cleanup']['generator'].update(alive=True),
             'missing live read mislabeled': lambda r: r['cases'][2]['states']['primary'].update(remote_read_available=True),
+            'last sample exit without first exit': lambda r: r['cases'][2]['process']['last_monitored_generator'].update(
+                alive=False, exit_code=75),
+            'restart before intervention': lambda r: r['cases'][2]['states']['restarted'].update(
+                interval=[0, 100], file_witness_interval=[20, 30]),
+            'provider request during recovery': lambda r: r['cases'][2]['states']['unreverted'].update(provider_requests=42),
+            'exit lacks result': lambda r: r['cases'][2]['process']['after_cleanup']['generator'].update(exit_code=None),
+            'empty implementation inventory': lambda r: r.update(implementation_sha256={}),
+            'missing collector inventory': lambda r: r['implementation_sha256'].pop('scripts/run_lab.py'),
+            'missing checkpoint': lambda r: r['cases'][1]['states'].pop('reopened'),
+            'exited process alive before cleanup': lambda r: r['cases'][1]['process']['before_cleanup']['generator'].update(
+                alive=True, exit_code=None),
+            'retained exit code changed': lambda r: r['cases'][1]['process']['after_cleanup']['generator'].update(exit_code=75),
+            'cleanup after restart': lambda r: r['cases'][2]['process']['after_cleanup']['generator'].update(
+                query_interval=[10**20, 10**20 + 1]),
+            'first exit after last sample': lambda r: r['cases'][1]['process'].update(
+                first_generator_exit_query_interval=[10**20, 10**20 + 1]),
+            'invalid collector digest': lambda r: r['implementation_sha256'].update({'scripts/run_lab.py': 'unknown'}),
         }
         for name, mutation in mutations.items():
             with self.subTest(name=name):

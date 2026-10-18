@@ -27,7 +27,7 @@ python series/opencode/v1.18.30/labs/05-interrupted-recovery/scripts/check_recei
 python series/opencode/v1.18.30/labs/05-interrupted-recovery/scripts/test_lab.py
 ```
 
-Use `python3` if that is your command. The checker reconstructs fixture bytes from their hashes, validates actual Git tree/blob contents, independently derives the named acceptance outcomes, and checks restore selection and observation ordering. The tests include 21 contradictory public-receipt mutations, helper release/stop/deadline cases, command timeouts, and a Windows-only retained-handle check. These portable checks do not run OpenCode or authenticate the historical execution. The live runtime experiment has been exercised on Windows x64 only.
+Use `python3` if that is your command. The checker reconstructs fixture bytes from their hashes, validates actual Git tree/blob contents, independently derives the named acceptance outcomes, and checks restore selection, lifecycle ordering, provider counts, and required provenance entries. The tests include 33 contradictory public-receipt mutations, helper release/stop/deadline cases, command timeouts, and a Windows-only retained-handle check. These portable checks do not run OpenCode or authenticate the historical execution. The live runtime experiment has been exercised on Windows x64 only.
 
 ## Collect a fresh private run on Windows
 
@@ -49,7 +49,7 @@ python "$lab/scripts/verify_run.py" $capture --output (Join-Path $capture 'recei
 python "$lab/scripts/negative_controls.py" $capture
 ```
 
-The default run captures normal and graceful cases. The verifier should confirm both; 19 deliberately contradictory raw-capture controls must be rejected. A collection message says only that observations were retained. It does not declare them verified.
+The default run captures normal and graceful cases. The verifier should confirm both; 26 deliberately contradictory raw-capture controls must be rejected. A collection message says only that observations were retained. It does not declare them verified.
 
 After validating that pair, the additional comparison is available:
 

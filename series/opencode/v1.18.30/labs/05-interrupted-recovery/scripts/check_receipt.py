@@ -3,12 +3,13 @@ import argparse
 import json
 from pathlib import Path
 from contract import BINARY_SHA256, CALLS, FILES, IMMUTABLE, PIN, TEST_NAMES, fixture, intended_files, sha
-from evidence import acceptance, require, tree_files
+from evidence import acceptance, implementation_inventory, process_history, require, tree_files
 
 
 def check(receipt):
     require(receipt['schema'] == 1 and receipt['source_commit'] == PIN
             and receipt['binary_sha256'] == BINARY_SHA256, 'Unexpected receipt version/pin')
+    implementation_inventory(receipt['implementation_sha256'])
     require([case['case'] for case in receipt['cases']] in
             (['normal', 'graceful'], ['normal', 'graceful', 'forced']), 'Case inventory changed')
     require(len({case['session'] for case in receipt['cases']}) == len(receipt['cases']), 'Cases share a session')
@@ -16,10 +17,24 @@ def check(receipt):
     known = {name: {sha(content): content for content in (baseline[name], intended[name])} for name in FILES}
     for case in receipt['cases']:
         states, files = case['states'], {}
+        stages = ['initial', 'barrier', 'primary'] + ([] if case['case'] == 'forced' else ['reopened'])
+        stages += ['restarted', 'reverted', 'unreverted']
+        require(set(states) == set(stages), 'Missing or unexpected checkpoint')
+        require(all(states[a]['interval'][1] <= states[b]['interval'][0]
+                    for a, b in zip(stages, stages[1:])), 'Checkpoint observations are out of order')
+        counts = [states[stage]['provider_requests'] for stage in stages]
+        require(all(type(n) is int and n >= 0 for n in counts) and counts == sorted(counts)
+                and counts[0] == 0 and counts[1] >= len(CALLS)
+                and type(case['provider_request_count']) is int
+                and all(n == case['provider_request_count'] for n in counts[2:]),
+                'Provider counts contradict the case inventory or recovery interval')
         trees = {ref: tree_files(ref, tree) for ref, tree in case['trees'].items()}
         for tree in trees.values():
             require(all(tree[name] == baseline[name] for name in IMMUTABLE), 'Immutable snapshot input changed')
         for stage, state in states.items():
+            require(all(type(n) is int and n >= 0 for n in state['interval'] + state['file_witness_interval'])
+                    and len(state['interval']) == len(state['file_witness_interval']) == 2,
+                    'Invalid checkpoint interval')
             require(state['remote_read_available'] == (stage != 'primary' or case['case'] != 'forced'),
                     'Remote read availability contradicts the case/checkpoint')
             require(set(state['files']) == set(FILES), 'Missing artifact evidence')
@@ -52,7 +67,8 @@ def check(receipt):
                 and trees[ref]['catalogue.json'] == baseline['catalogue.json'] for ref in old_refs),
                 'Saved version was not witnessed before intervention')
         process = case['process']
-        require(set(process['immediate']) == set(process['identities']) == {'server', 'shell', 'generator'},
+        require(set(process['immediate']) == set(process['before_cleanup']) == set(process['after_cleanup'])
+                == set(process['identities']) == {'server', 'shell', 'generator'},
                 'Missing process evidence')
         identities = process['identities']
         require(identities['server']['image_sha256'] == BINARY_SHA256
@@ -76,6 +92,32 @@ def check(receipt):
         last = process['last_monitored_generator']
         require(last['end_ns'] >= states['primary']['interval'][1] and last['end_ns'] <= process['cleanup_start_ns'],
                 'Process monitoring does not cover the primary observation')
+        monitor = process['monitor_interval']
+        require(len(monitor) == 2 and 0 <= monitor[0] <= last['start_ns'] <= last['end_ns'] == monitor[1],
+                'Invalid process monitor interval')
+        require((exit_query is None) == last['alive'], 'Last monitored state contradicts the first observed exit')
+        if exit_query is not None:
+            require(monitor[0] <= exit_query[0] <= exit_query[1] <= last['end_ns'],
+                    'First exit lies outside process monitoring')
+        for role in identities:
+            observations = []
+            for group in ('immediate', 'before_cleanup', 'after_cleanup'):
+                item = process[group][role]
+                observations.append(dict(item, start_ns=item['query_interval'][0], end_ns=item['query_interval'][1]))
+            before, after = observations[1:]
+            require(states['primary']['interval'][1] <= before['start_ns'] <= before['end_ns']
+                    <= after['start_ns'] <= after['end_ns'] <= states['restarted']['interval'][0],
+                    'Cleanup observations do not precede restart')
+            if before['alive'] and role in ('shell', 'generator'):
+                require(before['end_ns'] <= process['cleanup_start_ns'] <= after['start_ns'],
+                        'Live child cleanup is not ordered between its observations')
+            if role == 'generator':
+                require(last['end_ns'] <= before['start_ns'], 'Monitoring extends beyond before-cleanup observation')
+                observations.append(last)
+                if exit_query is not None:
+                    observations.append({'start_ns': exit_query[0], 'end_ns': exit_query[1],
+                                         'alive': False, 'exit_code': last['exit_code']})
+            process_history(observations)
         require(all(process['after_cleanup'][role]['alive'] is False for role in ('shell', 'generator')),
                 'Children were not confirmed exited before restart')
         if case['case'] == 'forced':

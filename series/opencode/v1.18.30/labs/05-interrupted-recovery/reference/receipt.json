@@ -1040,6 +1040,10 @@
         ],
         "cleanup_start_ns": 316826141963100,
         "sample_count": 60,
+        "monitor_interval": [
+          316820616066700,
+          316823377239500
+        ],
         "last_monitored_generator": {
           "start_ns": 316823377233100,
           "end_ns": 316823377239500,
@@ -1049,47 +1053,71 @@
         "before_cleanup": {
           "server": {
             "alive": true,
-            "exit_code": null
+            "exit_code": null,
+            "query_interval": [
+              316823378601100,
+              316823378614800
+            ]
           },
           "shell": {
             "alive": false,
-            "exit_code": 0
+            "exit_code": 0,
+            "query_interval": [
+              316823378616000,
+              316823378622300
+            ]
           },
           "generator": {
             "alive": false,
-            "exit_code": 0
+            "exit_code": 0,
+            "query_interval": [
+              316823378623300,
+              316823378628000
+            ]
           }
         },
         "after_cleanup": {
           "server": {
             "alive": true,
-            "exit_code": null
+            "exit_code": null,
+            "query_interval": [
+              316823381495700,
+              316823381509600
+            ]
           },
           "shell": {
             "alive": false,
-            "exit_code": 0
+            "exit_code": 0,
+            "query_interval": [
+              316823381510800,
+              316823381517200
+            ]
           },
           "generator": {
             "alive": false,
-            "exit_code": 0
+            "exit_code": 0,
+            "query_interval": [
+              316823381518200,
+              316823381523500
+            ]
           }
         },
         "identities": {
           "server": {
             "pid": 25944,
-            "creation_time_100ns": 134368177466610714,
+            "creation_time_100ns": 134368177466610720,
             "image_sha256": "c1bdbb18767048e1853af4238311b3f7e16ff2f91b68fb4c7ced3c5175347eea",
             "image_basename": "opencode.exe"
           },
           "shell": {
             "pid": 11692,
-            "creation_time_100ns": 134368177532708052,
+            "creation_time_100ns": 134368177532708050,
             "image_sha256": "bfb46af89433268872ddb43d1ca7a3f433452ee91ed356a9786940f90118e285",
             "image_basename": "pwsh.exe"
           },
           "generator": {
             "pid": 28288,
-            "creation_time_100ns": 134368177534455775,
+            "creation_time_100ns": 134368177534455780,
             "image_sha256": "d14ba95cdce1ef7dc9ad3ac74949ca5db38b27378ee30f30a23cf26f9e875a11",
             "image_basename": "node.exe"
           }
@@ -2253,6 +2281,10 @@
         ],
         "cleanup_start_ns": 316842131543700,
         "sample_count": 62,
+        "monitor_interval": [
+          316836216475900,
+          316839060807700
+        ],
         "last_monitored_generator": {
           "start_ns": 316839060788700,
           "end_ns": 316839060807700,
@@ -2262,47 +2294,71 @@
         "before_cleanup": {
           "server": {
             "alive": true,
-            "exit_code": null
+            "exit_code": null,
+            "query_interval": [
+              316839062652800,
+              316839062671400
+            ]
           },
           "shell": {
             "alive": false,
-            "exit_code": 1
+            "exit_code": 1,
+            "query_interval": [
+              316839062672600,
+              316839062679400
+            ]
           },
           "generator": {
             "alive": false,
-            "exit_code": 1
+            "exit_code": 1,
+            "query_interval": [
+              316839062680400,
+              316839062685900
+            ]
           }
         },
         "after_cleanup": {
           "server": {
             "alive": true,
-            "exit_code": null
+            "exit_code": null,
+            "query_interval": [
+              316839066223500,
+              316839066247600
+            ]
           },
           "shell": {
             "alive": false,
-            "exit_code": 1
+            "exit_code": 1,
+            "query_interval": [
+              316839066249000,
+              316839066256000
+            ]
           },
           "generator": {
             "alive": false,
-            "exit_code": 1
+            "exit_code": 1,
+            "query_interval": [
+              316839066257300,
+              316839066263100
+            ]
           }
         },
         "identities": {
           "server": {
             "pid": 12720,
-            "creation_time_100ns": 134368177622698756,
+            "creation_time_100ns": 134368177622698750,
             "image_sha256": "c1bdbb18767048e1853af4238311b3f7e16ff2f91b68fb4c7ced3c5175347eea",
             "image_basename": "opencode.exe"
           },
           "shell": {
             "pid": 3568,
-            "creation_time_100ns": 134368177688691318,
+            "creation_time_100ns": 134368177688691310,
             "image_sha256": "bfb46af89433268872ddb43d1ca7a3f433452ee91ed356a9786940f90118e285",
             "image_basename": "pwsh.exe"
           },
           "generator": {
             "pid": 19760,
-            "creation_time_100ns": 134368177690430026,
+            "creation_time_100ns": 134368177690430030,
             "image_sha256": "d14ba95cdce1ef7dc9ad3ac74949ca5db38b27378ee30f30a23cf26f9e875a11",
             "image_basename": "node.exe"
           }
@@ -3193,6 +3249,10 @@
         "first_generator_exit_query_interval": null,
         "cleanup_start_ns": 316854221281900,
         "sample_count": 47,
+        "monitor_interval": [
+          316852056543300,
+          316854218172500
+        ],
         "last_monitored_generator": {
           "start_ns": 316854218162400,
           "end_ns": 316854218172500,
@@ -3202,47 +3262,71 @@
         "before_cleanup": {
           "server": {
             "alive": false,
-            "exit_code": 87
+            "exit_code": 87,
+            "query_interval": [
+              316854219598500,
+              316854219616300
+            ]
           },
           "shell": {
             "alive": false,
-            "exit_code": 0
+            "exit_code": 0,
+            "query_interval": [
+              316854219617700,
+              316854219624300
+            ]
           },
           "generator": {
             "alive": true,
-            "exit_code": null
+            "exit_code": null,
+            "query_interval": [
+              316854219625100,
+              316854219631900
+            ]
           }
         },
         "after_cleanup": {
           "server": {
             "alive": false,
-            "exit_code": 87
+            "exit_code": 87,
+            "query_interval": [
+              316854244201400,
+              316854244222500
+            ]
           },
           "shell": {
             "alive": false,
-            "exit_code": 0
+            "exit_code": 0,
+            "query_interval": [
+              316854244224100,
+              316854244231000
+            ]
           },
           "generator": {
             "alive": false,
-            "exit_code": 75
+            "exit_code": 75,
+            "query_interval": [
+              316854244232000,
+              316854244237400
+            ]
           }
         },
         "identities": {
           "server": {
             "pid": 39280,
-            "creation_time_100ns": 134368177781362136,
+            "creation_time_100ns": 134368177781362140,
             "image_sha256": "c1bdbb18767048e1853af4238311b3f7e16ff2f91b68fb4c7ced3c5175347eea",
             "image_basename": "opencode.exe"
           },
           "shell": {
             "pid": 36892,
-            "creation_time_100ns": 134368177846893202,
+            "creation_time_100ns": 134368177846893200,
             "image_sha256": "bfb46af89433268872ddb43d1ca7a3f433452ee91ed356a9786940f90118e285",
             "image_basename": "pwsh.exe"
           },
           "generator": {
             "pid": 29976,
-            "creation_time_100ns": 134368177848621181,
+            "creation_time_100ns": 134368177848621180,
             "image_sha256": "d14ba95cdce1ef7dc9ad3ac74949ca5db38b27378ee30f30a23cf26f9e875a11",
             "image_basename": "node.exe"
           }
